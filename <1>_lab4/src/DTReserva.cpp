@@ -63,3 +63,7 @@ int DTReserva::getCantidad(){
 bool DTReserva:: operator== (const DTReserva &r1) const{
     return (this->codigo==r1.codigo);
 }
+
+int DTReserva::cast(){
+    return 0;
+}
