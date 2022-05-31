@@ -1,5 +1,5 @@
-#ifndef RESERVAGRUPAL
-#define RESERVAGRUPAL
+#ifndef RG
+#define RG
 
 #include "Reserva.h"
 

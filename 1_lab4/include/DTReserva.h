@@ -1,6 +1,6 @@
 
-#ifndef DTRESERVA
-#define DTRESERVA
+#ifndef DTR
+#define DTR
 
 #include"DTFecha.h"
 #include"DTHuesped.h"

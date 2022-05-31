@@ -1,5 +1,5 @@
-#ifndef RESERVA
-#define RESERVA
+#ifndef R
+#define R
 
 #include"Habitacion.h"
 #include"Huesped.h"

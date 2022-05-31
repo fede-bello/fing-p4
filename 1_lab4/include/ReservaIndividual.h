@@ -1,5 +1,5 @@
-#ifndef RESERVAINDIVIDUAL
-#define RESERVAINDIVIDUAL
+#ifndef RI
+#define RI
 
 #include "Reserva.h"
 

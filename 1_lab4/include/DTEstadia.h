@@ -1,5 +1,5 @@
-#ifndef DTESTADIA
-#define DTESTADIA
+#ifndef DTE
+#define DTE
 
 #include<iostream>
 #include<string>
@@ -10,9 +10,9 @@ class DTEstadia{
         int identificador;
         DTFecha CheckIn;
         DTFecha CheckOut;
-        
+        //promo y costo ya no son necesarios
     public:
-        DTEstadia(int cod,string texto);
+        DTEstadia(int identidicador,DTFecha CheckIn);
         //no se si se precisa esto
         int getCodigo();
         string getTexto();

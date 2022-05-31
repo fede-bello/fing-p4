@@ -1,5 +1,5 @@
-#ifndef DTFECHA
-#define DTFECHA
+#ifndef DTF
+#define DTF
 
 #include<iostream>
 #include<string>

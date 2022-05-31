@@ -1,5 +1,5 @@
-#ifndef CALIFICACION
-#define CALIFICACION
+#ifndef C
+#define C
 
 #include<iostream>
 #include<string>

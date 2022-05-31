@@ -1,5 +1,5 @@
-#ifndef IMPRIMIR
-#define IMPRIMIR
+#ifndef I
+#define I
 #include"DTReservaGrupal.h"
 #include"DTReservaIndividual.h"
 using namespace std;

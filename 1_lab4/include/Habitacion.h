@@ -1,5 +1,5 @@
-#ifndef HABITACION
-#define HABITACION
+#ifndef HA
+#define HA
 
 #include<iostream>
 #include<string>

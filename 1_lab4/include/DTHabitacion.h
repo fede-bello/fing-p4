@@ -1,5 +1,5 @@
-#ifndef DTHABITACION
-#define DTHABITACION
+#ifndef DTHA
+#define DTHA
 
 #include<iostream>
 #include<string>

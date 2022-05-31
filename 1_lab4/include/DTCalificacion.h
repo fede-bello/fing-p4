@@ -1,5 +1,5 @@
-#ifndef DTCALIFICACION
-#define DTCALIFICACION
+#ifndef DTC
+#define DTC
 
 #include<iostream>
 #include<string>

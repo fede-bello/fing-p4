@@ -1,5 +1,5 @@
-#ifndef HUESPED
-#define HUESPED
+#ifndef HU
+#define HU
 
 #include <iostream>
 #include<string>
