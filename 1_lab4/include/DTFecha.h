@@ -3,9 +3,10 @@
 
 #include<iostream>
 #include<string>
-#define MAX_HABITACIONES 10
-#define MAX_RESERVAS 15
+#define MAX_HABITACIONES 20
+#define MAX_RESERVAS 20
 #define MAX_HUESPEDES 50 
+using namespace std;
 
 class DTFecha{
     private: 

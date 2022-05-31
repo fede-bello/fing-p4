@@ -1,4 +1,4 @@
-/*#ifndef IMPRIMIR
+#ifndef IMPRIMIR
 #define IMPRIMIR
 #include"DTReservaGrupal.h"
 #include"DTReservaIndividual.h"
@@ -93,4 +93,3 @@ ostream &operator<< (ostream& o, DTReserva * res ){
 }
 
 #endif
-*/

@@ -1,7 +1,7 @@
 
 #ifndef DTRESERVAINDIVIDUAL
 #define DTRESERVAINDIVIDUAL
-#include "DTReserva.h"
+#include"DTReserva.h"
 
 class DTReservaIndividual: public DTReserva{
     private:

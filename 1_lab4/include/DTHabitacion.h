@@ -1,7 +1,7 @@
 #ifndef DTHABITACION
 #define DTHABITACION
 
-#include <iostream>
+#include<iostream>
 #include<string>
 #include"DTFecha.h"
 
