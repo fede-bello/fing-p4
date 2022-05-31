@@ -14,7 +14,7 @@ DTCalificacion::DTCalificacion(int num,string texto,DTFecha realizada,string res
     this->respuesta=respuesta;
 }
 
-int DTCalificacion::getCodigo(){
+int DTCalificacion::getNum(){
     return this->num;
 }
 
@@ -22,8 +22,12 @@ string DTCalificacion::getTexto(){
     return this->texto;
 }
 
-string DTCalificacion::getRespuesta(){
-    return this->respuesta;
+void DTCalificacion::setRespuesta(string respuesta){
+    this->respuesta=respuesta;
+}
+
+DTFecha DTCalificacion::getFecha(){
+    return this->realizada;
 }
 
 DTCalificacion::~DTCalificacion(){

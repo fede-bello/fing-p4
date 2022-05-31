@@ -15,9 +15,11 @@ class DTCalificacion{
         DTCalificacion(int cod,string texto,DTFecha realizada);
         DTCalificacion(int cod,string texto,DTFecha realizada,string respuesta);
         //no se si se precisa esto
-        int getCodigo();
+        int getNum();
         string getTexto();
+        DTFecha getFecha();
         string getRespuesta();
+        void setRespuesta(string respuesta);
         ~DTCalificacion();
 };
 

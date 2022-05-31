@@ -11,12 +11,16 @@ class Calificacion{
         string texto;
         string respuesta;
         DTFecha realizada;
+        //no inclui identificador, 
+        //no me parecio necesario por que esta linkeada a una unica reserva
     public:
         Calificacion(int cod,string texto,DTFecha realizada);
         //no se si se precisa esto
-        int getCodigo();
+        int getNum();
         string getTexto();
+        DTFecha getFecha();
         string getRespuesta();
+        void setRespuesta(string respuesta);
         ~Calificacion();
 };
 
