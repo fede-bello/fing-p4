@@ -7,9 +7,10 @@
 
 class DTEstadia{
     private:
-        int num;
-        string texto;
-        string respuesta;
+        int identificador;
+        DTFecha CheckIn;
+        DTFecha CheckOut;
+        
     public:
         DTEstadia(int cod,string texto);
         //no se si se precisa esto

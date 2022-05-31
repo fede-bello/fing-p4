@@ -1,9 +1,17 @@
 #include "../include/DTCalificacion.h"
 
 
-DTCalificacion::DTCalificacion(int num,string texto){
+DTCalificacion::DTCalificacion(int num,string texto,DTFecha realizada){
     this->num=num;
     this->texto=texto;
+    this->realizada=realizada;
+}
+
+DTCalificacion::DTCalificacion(int num,string texto,DTFecha realizada,string respuesta){
+    this->num=num;
+    this->texto=texto;
+    this->realizada=realizada;
+    this->respuesta=respuesta;
 }
 
 int DTCalificacion::getCodigo(){

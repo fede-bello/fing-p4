@@ -10,8 +10,10 @@ class DTCalificacion{
         int num;
         string texto;
         string respuesta;
+        DTFecha realizada;
     public:
-        DTCalificacion(int cod,string texto);
+        DTCalificacion(int cod,string texto,DTFecha realizada);
+        DTCalificacion(int cod,string texto,DTFecha realizada,string respuesta);
         //no se si se precisa esto
         int getCodigo();
         string getTexto();

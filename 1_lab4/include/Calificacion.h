@@ -10,8 +10,9 @@ class Calificacion{
         int num;
         string texto;
         string respuesta;
+        DTFecha realizada;
     public:
-        Calificacion(int cod,string texto);
+        Calificacion(int cod,string texto,DTFecha realizada);
         //no se si se precisa esto
         int getCodigo();
         string getTexto();

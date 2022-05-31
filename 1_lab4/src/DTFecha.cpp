@@ -9,7 +9,6 @@ DTFecha::DTFecha(int d, int m, int a){
     this->anio=a;     
 }
 
-
 DTFecha::DTFecha(){
     this->anio=1900;
     this->dia=1;
