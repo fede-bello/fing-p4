@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include<string>
-#include"DTHuesped.h"
+#include"../../DataType/include/DTHuesped.h"
 
 
 class Huesped{

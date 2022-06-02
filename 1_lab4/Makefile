@@ -1,4 +1,4 @@
-EJECUTABLES= src/DTFecha.o src/DTHuesped.o src/Huesped.o src/DTHabitacion.o src/Habitacion.o src/DTReserva.o src/Reserva.o src/DTReservaIndividual.o src/ReservaIndividual.o src/DTReservaGrupal.o src/ReservaGrupal.o src/DTEstadia.o src/Estadia.o src/DTCalificacion.o src/Calificacion.o src/Sistema.o main.o      
+EJECUTABLES= DataType/src/DTFecha.o DataType/src/DTHuesped.o conceptos/src/Huesped.o DataType/src/DTHabitacion.o conceptos/src/Habitacion.o DataType/src/DTReserva.o conceptos/src/Reserva.o DataType/src/DTReservaIndividual.o conceptos/src/ReservaIndividual.o DataType/src/DTReservaGrupal.o conceptos/src/ReservaGrupal.o DataType/src/DTEstadia.o conceptos/src/Estadia.o DataType/src/DTCalificacion.o conceptos/src/Calificacion.o conceptos/src/Sistema.o main.o      
 
 #si cambia cualquier .o corre el codigo de abajo
 
@@ -7,58 +7,58 @@ testing: $(EJECUTABLES)
 
 #si cambia .cpp corre el codigo de abajo y lo copila
 
-DTFecha.o: src/DTFecha.cpp include/DTFecha.h
+DTFecha.o: DataType/src/DTFecha.cpp include/DTFecha.h
 	g++ -c DTFecha.cpp
 
-DTHuesped.o:src/DTHuesped.cpp include/DTHuesped.h
+DTHuesped.o:DataTypeconceptos/src/DTHuesped.cpp include/DTHuesped.h
 	g++ -c DTHuesped.cpp
 
-Huesped.o:src/Huesped.cpp include/Huesped.h
+Huesped.o:conceptos/src/Huesped.cpp conceptos/include/Huesped.h
 	g++ -c Huesped.cpp
 
-DTHabitacion.o: src/DTHabitacion.cpp include/DTHabitacion.h
+DTHabitacion.o: DataType/src/DTHabitacion.cpp include/DTHabitacion.h
 	g++ -c DTHabitacion.cpp
 
-Habitacion.o: src/Habitacion.cpp include/Habitacion.h
+Habitacion.o: conceptos/src/Habitacion.cpp conceptos/include/Habitacion.h
 	g++ -c Habitacion.cpp
 
-DTReserva.o: src/DTReserva.cpp include/DTReserva.h
+DTReserva.o: DataType/src/DTReserva.cpp include/DTReserva.h
 	g++ -c DTReserva.cpp 
 
-Reserva.o: src/Reserva.cpp include/Reserva.h
+Reserva.o: conceptos/src/Reserva.cpp conceptos/include/Reserva.h
 	g++ -c Reserva.cpp
 
-DTReservaIndividual.o: src/DTReservaIndividual.cpp include/DTReservaIndividual.h
+DTReservaIndividual.o: DataType/src/DTReservaIndividual.cpp include/DTReservaIndividual.h
 	g++ -c DTReservaIndividual.cpp
 
-ReservaIndividual.o: src/ReservaIndividual.cpp include/ReservaIndividual.h
+ReservaIndividual.o: conceptos/src/ReservaIndividual.cpp conceptos/include/ReservaIndividual.h
 	g++ -c ReservaIndividual.cpp
 
-DTReservaGrupal.o: src/DTReservaGrupal.cpp include/DTReservaGrupal.h
+DTReservaGrupal.o: DataType/src/DTReservaGrupal.cpp include/DTReservaGrupal.h
 	g++ -c DTReservaGrupal.cpp
 
-ReservaGrupal.o: src/ReservaGrupal.cpp include/ReservaGrupal.h
+ReservaGrupal.o: src/ReservaGrupal.cpp conceptos/include/ReservaGrupal.h
 	g++ -c ReservaGrupal.cpp
 
-DTEstadia.o: src/DTEstadia.cpp include/DTEstadia.h
+DTEstadia.o: DataType/src/DTEstadia.cpp include/DTEstadia.h
 	g++ -c DTEstadia.cpp 
 
-Estadia.o: src/Estadia.cpp include/Estadia.h
+Estadia.o: conceptos/src/Estadia.cpp conceptos/include/Estadia.h
 	g++ -c Estadia.cpp 
 
-DTCalificacion.o: src/DTCalificacion.cpp include/DTCalificacion.h
+DTCalificacion.o: DataType/src/DTCalificacion.cpp include/DTCalificacion.h
 	g++ -c DTCalificacion.cpp
 
-Calificacion.o: src/Calificacion.cpp include/Calificacion.h
+Calificacion.o: conceptos/src/Calificacion.cpp conceptos/include/Calificacion.h
 	g++ -c Calificacion.cpp
 
-Sistema.o: src/Sistema.cpp include/Sistema.h
+Sistema.o: conceptos/src/Sistema.cpp conceptos/include/Sistema.h
 	g++ -c Sistema.cpp
 
-main.o: main.cpp include/imprimir.h 
+main.o: main.cpp conceptos/include/imprimir.h 
 	g++ -c main.cpp
 
 clean: 
-	@rm  main.o src/*.o  testing
+	@rm  main.o conceptos/src/*.o  testing
 	
 

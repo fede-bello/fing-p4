@@ -1,5 +1,5 @@
-#include "./include/imprimir.h"
-#include "./include/Sistema.h"
+#include "./conceptos/include/imprimir.h"
+#include "./conceptos/include/Sistema.h"
 
 using namespace std;
 using namespace std::string_literals;

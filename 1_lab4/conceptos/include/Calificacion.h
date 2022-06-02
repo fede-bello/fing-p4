@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<string>
-#include"DTFecha.h"
+#include"../../DataType/include/DTFecha.h"
 
 class Calificacion{
     private:

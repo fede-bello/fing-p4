@@ -1,7 +1,7 @@
 #ifndef I
 #define I
-#include"DTReservaGrupal.h"
-#include"DTReservaIndividual.h"
+#include"../../DataType/include/DTReservaGrupal.h"
+#include"../../DataType/include/DTReservaIndividual.h"
 using namespace std;
 using namespace std::string_literals;
 

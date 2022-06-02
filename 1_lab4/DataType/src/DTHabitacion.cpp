@@ -1,6 +1,6 @@
 
 #include"../include/DTHabitacion.h"
-#include"../include/Habitacion.h"
+#include"../../conceptos/include/Habitacion.h"
 using namespace std;
 
 

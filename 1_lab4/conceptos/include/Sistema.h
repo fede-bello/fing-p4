@@ -3,7 +3,7 @@
 
 #include "ReservaIndividual.h"
 #include "ReservaGrupal.h"
-#include "DTReserva.h"
+
 class Sistema{
     public:
         Habitacion** ArrHabitacion;

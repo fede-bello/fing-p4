@@ -1,32 +1,29 @@
-#ifndef E
-#define E
+#ifndef DTE
+#define DTE
 
 #include<iostream>
 #include<string>
 #include"DTEstadia.h"
-#include"Calificacion.h"
+#include "../../conceptos/include/Calificacion.h"
 
-class Estadia{
+class DTEstadia{
     private:
         int identificador;
         DTFecha CheckIn;
         DTFecha CheckOut;
-        Calificacion *calificacion;
+        
         //promo y costo ya no son necesarios
     public:
-        Estadia(int identidicador,DTFecha CheckIn);
-        Estadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
+        DTEstadia(int identidicador,DTFecha CheckIn);
+        DTEstadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
         //no se si se precisa esto
         int getIdentificador();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
-        void setCheckOut();
-        Calificacion getCalificacion();
         DTEstadia getDTEstadia();
-        ~Estadia();
+        
+        ~DTEstadia();
 };
 
-
-     
-
+   
 #endif

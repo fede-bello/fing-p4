@@ -1,10 +1,10 @@
 #ifndef R
 #define R
 
-#include"Habitacion.h"
-#include"Huesped.h"
-#include"DTReservaIndividual.h"
-#include"DTReservaGrupal.h"
+#include "Habitacion.h"
+#include "Huesped.h"
+#include "../../DataType/include/DTReservaIndividual.h"
+#include "../../DataType/include/DTReservaGrupal.h"
 
 class Reserva{
     protected:
