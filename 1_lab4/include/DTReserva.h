@@ -7,7 +7,7 @@
 #include"DTHabitacion.h"
 
 
-using namespace std;
+
 
 enum EstadoReserva {
     Abierta, Cerrada, Cancelada   
@@ -39,6 +39,7 @@ class DTReserva{
         //destructor
         ~DTReserva();
 };
+
 
 #endif
 

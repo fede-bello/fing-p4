@@ -5,7 +5,7 @@
 using namespace std;
 using namespace std::string_literals;
 
-ostream &operator<< (ostream& o, DTHuesped * hues){
+/*ostream &operator<< (ostream& o, DTHuesped * hues){
 	if (hues->getEsFinger())
 		return o<<"Nombre: "<< hues->getNombre()<<endl<< "Email: "<<hues->getEmail()<<endl<< "Finger: Si"<<endl;
 	else
@@ -14,7 +14,7 @@ ostream &operator<< (ostream& o, DTHuesped * hues){
 
 ostream &operator<< (ostream& o, DTHabitacion * hab){
 	return o<<"Número habitación: "<< hab->getNum()<<endl<< "Capacidad habitación: " << hab->getCap() <<endl<< "Costo: $"<<hab->getPrecio()<<endl;
-}
+}*/
 
 ostream &operator<< (ostream& o, DTReserva * res ){
     //if (esreservaindividual)
@@ -91,5 +91,6 @@ ostream &operator<< (ostream& o, DTReserva * res ){
         return o;
     }
 }
+
 
 #endif
