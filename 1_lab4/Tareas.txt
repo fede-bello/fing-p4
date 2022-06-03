@@ -1,0 +1,88 @@
+Aca vamos anotando que esta hecho, cuando, por quien,quienes le dan el ok,problemas que le ven
+si pierde o no memoria la funcion, etc
+No borren nada!!!:
+
+ControladorUsuario
+    nuevoEmpleado(String; String; String;cargoEmp):DTEmpleado
+    nuevoHuesped(String; String; String;boolean):DTHuesped
+    actualizarMail(DTUsuario; String):DTUsuario
+    cancelarUsuario(DTUsuario)
+    confirmarAltaEmpleado(DTEmpleado)
+    confirmarAltaHuesped(DTHuesped)
+    obtenerEmpleadosHostal():Set(DTEmpleado)
+    actualizarCargo(String, CargoEmp)
+    asignarEmpleado()
+    cancelarAsignacionEmpleado()
+    obtenerHuespedes():Set (DTHuesped)
+    elegirHuesped(String):DTHuesped
+    confirmarAltaReservaIndividual()
+    confirmarAltaReservaGrupal()
+    cancelarReserva()
+    calificacionesSinResponder(String):Set(DTCalificacion)
+    obtenerEmpleados():Set(DTEmpleado)
+    elegirUsuario(String) : DTUsuario
+    informacionUsuario(DTUsuario)
+ControladorHostal
+    nuevoHostal(String; String; integer):DTHostal
+    confirmarHostal(DTHostal)
+    cancelarHostal(DTHostal)
+    ObtenerHostales():set DTHostal//repetido
+    elegirHostal(String):DTHostal//repetido
+    nuevaHabitacion(integer; integer; integer):DTHabitacion
+    //borrar?obtenerConsumos():Set(DTConsumo)
+    //borrar?agregarConsumos(Integer)
+    confirmarAltaHabitacion(DTHabitacion)
+    cancelarAltaHabitacion(DTHabitacion)
+    obtenerPromedioCalificaciones():Float
+    obtenerHabitaciones(DTFecha,DTFecha):Set(DTHabitacion)
+    elegirHabitacion(integer):DTHabitacion
+    mejoresTresHostales():Set(String)
+    detallesHostal(String): Set(DTCalifcacion)
+    obtenerReservasHuesped(String,String):Set(DTReserva)
+    estadiasHuespedActivas(String) : Set(DTEstadia)
+    elegirEstadia(integer):DTEstadia
+    finalizarEstadia()
+    estadiasHuespedFinalizadas(String, String)set DTEstadiasp
+    calificarEstadia(integer, DTCalificion, String)
+    obtenerCalificaciones():Set(DTCalificacion)
+    obtenerInfoHabitaciones():Set(DTHabitacion)
+    obtenerReservasHostal():Set(DTReserva)
+    habitacionDeReserva(String, DTReserva):integer
+    huespedesReserva(String,DTReserva):Set(DTHuesped)
+    obtenerEstadias(String) : set(DTEstadia)
+    hostalEstadia():DTHostal
+    huespedEstadia():DTHuesped
+    habitacionEstadia():DTHabitacion
+    informacionEstadia():DTEstadia
+    calificacionEstadia():DTCalificacion
+    reservaAsociadaAEstadia():DTReserva
+    finalizarConsultaEstadia()
+    bajaReserva(integer)
+    cancelarBajaReserva(integer)
+ControladorReserva
+    registrarEstadia(integer):DTEstadia
+    actualizarEstadoReservaCerrada(integer)
+    actualizarCheckOutEstadia(DTFecha)
+    registrarRespuestaComentario(String, integer)
+ControladorFecha
+    getFecha():DTFecha
+
+● Alta de Usuario
+● Alta de Hostal
+● Alta de Habitación
+● Asignar empleado a hostal
+● Realizar Reserva
+● Consultar top 3 de hostales
+● Registrar estadía
+● Finalizar Estadía
+● Calificar estadía
+● Comentar calificación
+● Consulta de Usuario
+● Consulta de Hostal
+● Consulta de Reserva
+● Consulta de Estadía
+● Baja de reserva
+● Suscribirse a Notificaciones
+● Consulta de Notificaciones
+● Eliminar Suscripcion
+● ModificarFecha

@@ -24,43 +24,25 @@ int main()
 			cin >> numero;
 		}
 		switch (numero){ // inicio switch
-		case 1:{ // inicio Agendar Huesped
-			bool salir = false;
-			while (!salir){
-				cout << "Ha digitado la opcion de Agregar Huesped" << endl;
-				try{
-					cout << "Por favor escriba su email " << endl;
-					string email;
-					cin >> email;
-					for (int i = 0; i < sistema.indHuesped; i++){
-						if (email == sistema.ArrHuesped[i]->getEmail())
-							throw "std::invalid_argument"; //("Ya existe un huesped con el mismo mail")
-					}
-					{ // Nuevo Usuario
-						string nombre;
-						bool esFinger;
-						int finger;
-						cout << "Por favor escriba su nombre " << endl;
-						cin.ignore();
-						getline(cin, nombre);
-						cout << "Presiona 1 si perteneces a la facultad de Ingenieria, otro numero si no" << endl;
-						cin >> finger;
-						if (finger == 1)
-							esFinger = true;
-						else
-							esFinger = false;
-						sistema.agregarHuesped(nombre, email, esFinger);
-						salir = true;
-					} // Fin Nuevo Usuario
-				}
-				catch (...)
-				{
-					cout << "std::invalid_argument" << endl;
-					cout << "Ya existe un huesped con el mismo mail" << endl;
-					cout << endl;
-				}
+		case 1:{ 
+			cout << "Ha digitado la opcion de Agregar Huesped" << endl;
+			cout << "Por favor escriba su email " << endl;
+			string email;
+			cin >> email;
+			string nombre;
+			bool esFinger;
+			int finger;
+			cout << "Por favor escriba su nombre " << endl;
+			cin.ignore();
+			getline(cin, nombre);
+			cout << "Presiona 1 si perteneces a la facultad de Ingenieria, otro numero si no" << endl;
+			cin >> finger;
+			if (finger == 1)
+				esFinger = true;
+			else
+				esFinger = false;
+			sistema.agregarHuesped(nombre,email,esFinger);
 			}
-		} // Fin Agendar Huesped
 		break;
 		case 2:{ // Inicio Agregar Habitacion
 			bool salir = false;

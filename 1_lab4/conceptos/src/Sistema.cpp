@@ -32,14 +32,28 @@ Sistema:: ~Sistema(){
 		}
 		delete this->ArrReserva[i];
 	}
-		
-	
 	delete[] this->ArrHabitacion;
 	delete[] this->ArrHuesped;
 	delete[] this->ArrReserva;
 }
 
 void Sistema::agregarHuesped(string nombre, string email, bool esFinger){
+	bool falle=false;
+		try{
+			for (int i = 0; i < this->indHuesped; i++){
+				if (email == this->ArrHuesped[i]->getEmail())
+					throw "std::invalid_argument"; //("Ya existe un huesped con el mismo mail")
+			}
+			// Nuevo Usuario
+				//this->agregarHuesped(nombre, email, esFinger);
+			// Fin Nuevo Usuario
+		}
+		catch (...){
+			cout << "std::invalid_argument" << endl;
+			cout << "Ya existe un huesped con el mismo mail" << endl;
+			cout << endl;
+			return;
+		}
 	Huesped *nuevo=new Huesped(nombre,email,esFinger);
 	this->ArrHuesped[this->indHuesped]=nuevo;
 	cout<<"Usuario "<<nombre<<" Agregado"<<endl;
