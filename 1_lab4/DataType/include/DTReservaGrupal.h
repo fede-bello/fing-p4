@@ -1,6 +1,7 @@
 
-#ifndef DTRG
-#define DTRG
+#ifndef DTRESG
+#define DTRESG
+
 #include"DTReserva.h"
 
 class DTReservaGrupal: public DTReserva{

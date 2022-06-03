@@ -1,5 +1,5 @@
-#ifndef DTHA
-#define DTHA
+#ifndef DTHAB
+#define DTHAB
 
 #include<iostream>
 #include<string>

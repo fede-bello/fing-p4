@@ -1,9 +1,9 @@
-#ifndef HU
-#define HU
+#ifndef USH
+#define USH
 
 #include <iostream>
 #include<string>
-#include"../../DataType/include/DTHuesped.h"
+#include"../../DataType/include/DTUsuarioHuesped.h"
 
 
 class Huesped{

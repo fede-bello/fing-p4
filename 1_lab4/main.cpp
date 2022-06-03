@@ -1,5 +1,8 @@
 #include "./conceptos/include/imprimir.h"
 #include "./conceptos/include/Sistema.h"
+#include "./controladores/include/controladorFecha.h"
+//eventualmente se debe de borrar el include Sistema.h
+
 
 using namespace std;
 using namespace std::string_literals;
@@ -7,11 +10,12 @@ using namespace std::string_literals;
 int main()
 {
 	Sistema sistema;
+	controladorFecha cfecha=controladorFecha::getInstance();
 	int numero = 1, cantHuespedes = 0, cantHabitaciones = 0, cantReservas = 0, codigo = 1000;
 	cout << "Bienvenido " << endl<< endl;
 	while (numero < 7 && numero > 0)
 	{
-		{ // opciones
+		{ // opciones viejas
 			cout << "Por favor digite el numero que le corresponda" << endl
 				 << endl;
 			cout << "1. Agregar Huesped" << endl;
@@ -22,7 +26,30 @@ int main()
 			cout << "6. Obtener Reservas" << endl;
 			cout << "7. Salir" << endl;
 			cin >> numero;
-		}
+
+			
+		}//opciones nuevas 
+		/*
+		Alta de Usuario
+ 		Alta de Hostal
+ 		Alta de Habitación
+		Asignar empleado a hostal
+		Realizar Reserva
+		Consultar top 3 de hostales
+ 		Registrar estadía
+ 		Finalizar Estadía
+		Calificar estadía
+ 		Comentar calificación
+		Consulta de Usuario
+ 		Consulta de Hostal
+ 		Consulta de Reserva
+ 		Consulta de Estadía
+ 		Baja de reserva
+		Suscribirse a Notificaciones
+ 		Consulta de Notificaciones
+ 		Eliminar Suscripcion
+ 		ModificarFecha
+		 */
 		switch (numero){ // inicio switch
 		case 1:{ 
 			cout << "Ha digitado la opcion de Agregar Huesped" << endl;

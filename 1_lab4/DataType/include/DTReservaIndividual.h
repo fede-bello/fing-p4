@@ -1,6 +1,6 @@
 
-#ifndef DTRI
-#define DTRI
+#ifndef DTRESI
+#define DTRESI
 
 
 #include"DTReserva.h"

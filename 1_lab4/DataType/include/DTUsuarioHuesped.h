@@ -1,5 +1,5 @@
-#ifndef DTHU
-#define DTHU
+#ifndef DTUSH
+#define DTUSH
 
 #include<iostream>
 #include<string>

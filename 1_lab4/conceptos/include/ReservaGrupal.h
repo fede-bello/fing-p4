@@ -1,5 +1,5 @@
-#ifndef RG
-#define RG
+#ifndef RESG
+#define RESG
 
 #include "Reserva.h"
 

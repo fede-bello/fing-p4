@@ -67,22 +67,22 @@ ControladorReserva
 ControladorFecha
     getFecha():DTFecha
 
-● Alta de Usuario
-● Alta de Hostal
-● Alta de Habitación
-● Asignar empleado a hostal
-● Realizar Reserva
-● Consultar top 3 de hostales
-● Registrar estadía
-● Finalizar Estadía
-● Calificar estadía
-● Comentar calificación
-● Consulta de Usuario
-● Consulta de Hostal
-● Consulta de Reserva
-● Consulta de Estadía
-● Baja de reserva
-● Suscribirse a Notificaciones
-● Consulta de Notificaciones
-● Eliminar Suscripcion
-● ModificarFecha
+ Alta de Usuario
+ Alta de Hostal
+ Alta de Habitación
+ Asignar empleado a hostal
+ Realizar Reserva
+ Consultar top 3 de hostales
+ Registrar estadía
+ Finalizar Estadía
+ Calificar estadía
+ Comentar calificación
+ Consulta de Usuario
+ Consulta de Hostal
+ Consulta de Reserva
+ Consulta de Estadía
+ Baja de reserva
+ Suscribirse a Notificaciones
+ Consulta de Notificaciones
+ Eliminar Suscripcion
+ ModificarFecha

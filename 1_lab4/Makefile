@@ -1,4 +1,10 @@
-EJECUTABLES= DataType/src/DTFecha.o DataType/src/DTHuesped.o conceptos/src/Huesped.o DataType/src/DTHabitacion.o conceptos/src/Habitacion.o DataType/src/DTReserva.o conceptos/src/Reserva.o DataType/src/DTReservaIndividual.o conceptos/src/ReservaIndividual.o DataType/src/DTReservaGrupal.o conceptos/src/ReservaGrupal.o DataType/src/DTEstadia.o conceptos/src/Estadia.o DataType/src/DTCalificacion.o conceptos/src/Calificacion.o conceptos/src/Sistema.o main.o      
+#ABREVIACIONES
+DTI= DataType/include
+DTS= DataType/src
+COI= conceptos/include
+COS= conceptos/src
+
+EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DTUsuario.o $(COS)/Usuario.o $(DTS)/DTUsuarioHuesped.o $(COS)/UsuarioHuesped.o $(COS)/UsuarioEmpleado.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DTReserva.o $(COS)/Reserva.o $(DTS)/DTReservaIndividual.o $(COS)/ReservaIndividual.o $(DTS)/DTReservaGrupal.o $(COS)/ReservaGrupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o $(COS)/Sistema.o main.o      
 
 #si cambia cualquier .o corre el codigo de abajo
 
@@ -7,58 +13,58 @@ testing: $(EJECUTABLES)
 
 #si cambia .cpp corre el codigo de abajo y lo copila
 
-DTFecha.o: DataType/src/DTFecha.cpp include/DTFecha.h
+DTFecha.o: $(DTS)/DTFecha.cpp $(DTI)/DTFecha.h
 	g++ -c DTFecha.cpp
 
-DTHuesped.o:DataTypeconceptos/src/DTHuesped.cpp include/DTHuesped.h
-	g++ -c DTHuesped.cpp
+DTUsuarioHuesped.o: $(DTS)/DTUsuarioHuesped.cpp $(DTI)/DTUsuarioHuesped.h
+	g++ -c DTUsuarioHuesped.cpp
 
-Huesped.o:conceptos/src/Huesped.cpp conceptos/include/Huesped.h
-	g++ -c Huesped.cpp
+UsuarioHuesped.o:$(COS)/UsuarioHuesped.cpp $(COI)/UsuarioHuesped.h
+	g++ -c UsuarioHuesped.cpp
 
-DTHabitacion.o: DataType/src/DTHabitacion.cpp include/DTHabitacion.h
+DTHabitacion.o: $(DTS)/DTHabitacion.cpp $(DTI)/DTHabitacion.h
 	g++ -c DTHabitacion.cpp
 
-Habitacion.o: conceptos/src/Habitacion.cpp conceptos/include/Habitacion.h
+Habitacion.o: $(COS)/Habitacion.cpp $(COI)/Habitacion.h
 	g++ -c Habitacion.cpp
 
-DTReserva.o: DataType/src/DTReserva.cpp include/DTReserva.h
+DTReserva.o: $(DTS)/DTReserva.cpp $(DTI)/DTReserva.h
 	g++ -c DTReserva.cpp 
 
-Reserva.o: conceptos/src/Reserva.cpp conceptos/include/Reserva.h
+Reserva.o: $(COS)/Reserva.cpp $(COI)/Reserva.h
 	g++ -c Reserva.cpp
 
-DTReservaIndividual.o: DataType/src/DTReservaIndividual.cpp include/DTReservaIndividual.h
+DTReservaIndividual.o: $(DTS)/DTReservaIndividual.cpp $(DTI)/DTReservaIndividual.h
 	g++ -c DTReservaIndividual.cpp
 
-ReservaIndividual.o: conceptos/src/ReservaIndividual.cpp conceptos/include/ReservaIndividual.h
+ReservaIndividual.o: $(COS)/ReservaIndividual.cpp $(COI)/ReservaIndividual.h
 	g++ -c ReservaIndividual.cpp
 
-DTReservaGrupal.o: DataType/src/DTReservaGrupal.cpp include/DTReservaGrupal.h
+DTReservaGrupal.o: $(DTS)/DTReservaGrupal.cpp $(DTI)/DTReservaGrupal.h
 	g++ -c DTReservaGrupal.cpp
 
-ReservaGrupal.o: src/ReservaGrupal.cpp conceptos/include/ReservaGrupal.h
+ReservaGrupal.o: $(COS)/ReservaGrupal.cpp $(COI)/ReservaGrupal.h
 	g++ -c ReservaGrupal.cpp
 
-DTEstadia.o: DataType/src/DTEstadia.cpp include/DTEstadia.h
+DTEstadia.o: $(DTS)/DTEstadia.cpp $(DTI)/DTEstadia.h
 	g++ -c DTEstadia.cpp 
 
-Estadia.o: conceptos/src/Estadia.cpp conceptos/include/Estadia.h
+Estadia.o: $(COS)/Estadia.cpp $(COI)/Estadia.h
 	g++ -c Estadia.cpp 
 
-DTCalificacion.o: DataType/src/DTCalificacion.cpp include/DTCalificacion.h
+DTCalificacion.o: $(DTS)/DTCalificacion.cpp $(DTI)/DTCalificacion.h
 	g++ -c DTCalificacion.cpp
 
-Calificacion.o: conceptos/src/Calificacion.cpp conceptos/include/Calificacion.h
+Calificacion.o: $(COS)/Calificacion.cpp $(COI)/Calificacion.h
 	g++ -c Calificacion.cpp
 
-Sistema.o: conceptos/src/Sistema.cpp conceptos/include/Sistema.h
+Sistema.o: $(COS)/Sistema.cpp $(COI)/Sistema.h
 	g++ -c Sistema.cpp
 
-main.o: main.cpp conceptos/include/imprimir.h 
+main.o: main.cpp $(COI)/imprimir.h 
 	g++ -c main.cpp
 
 clean: 
-	@rm  main.o conceptos/src/*.o  testing
+	@rm -f main.o $(COS)/*.o $(DTS)/*.o  testing
 	
 

@@ -1,11 +1,10 @@
-#ifndef DTE
-#define DTE
+#ifndef DTEST
+#define DTEST
 
 #include<iostream>
 #include<string>
 #include"DTEstadia.h"
-#include "../../conceptos/include/Calificacion.h"
-
+#include"DTCalificacion.h"
 class DTEstadia{
     private:
         int identificador;

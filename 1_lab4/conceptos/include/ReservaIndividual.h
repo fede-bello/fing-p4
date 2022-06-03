@@ -1,5 +1,5 @@
-#ifndef RI
-#define RI
+#ifndef RESI
+#define RESI
 
 #include "Reserva.h"
 

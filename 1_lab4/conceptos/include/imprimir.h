@@ -1,5 +1,5 @@
-#ifndef I
-#define I
+#ifndef IM
+#define IM
 #include"../../DataType/include/DTReservaGrupal.h"
 #include"../../DataType/include/DTReservaIndividual.h"
 using namespace std;

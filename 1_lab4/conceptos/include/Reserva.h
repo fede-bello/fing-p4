@@ -1,8 +1,8 @@
-#ifndef R
-#define R
+#ifndef RES
+#define RES
 
 #include "Habitacion.h"
-#include "Huesped.h"
+#include "UsuarioHuesped.h"
 #include "../../DataType/include/DTReservaIndividual.h"
 #include "../../DataType/include/DTReservaGrupal.h"
 

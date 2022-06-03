@@ -1,5 +1,5 @@
-#ifndef DTC
-#define DTC
+#ifndef DTCAL
+#define DTCAL
 
 #include<iostream>
 #include<string>

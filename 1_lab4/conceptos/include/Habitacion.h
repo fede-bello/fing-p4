@@ -1,5 +1,5 @@
-#ifndef HA
-#define HA
+#ifndef HAB
+#define HAB
 
 #include<iostream>
 #include<string>

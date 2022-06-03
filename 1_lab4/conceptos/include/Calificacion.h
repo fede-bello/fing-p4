@@ -1,5 +1,5 @@
-#ifndef C
-#define C
+#ifndef CAL
+#define CAL
 
 #include<iostream>
 #include<string>

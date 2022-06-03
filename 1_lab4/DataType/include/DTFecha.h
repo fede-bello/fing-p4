@@ -1,5 +1,5 @@
-#ifndef DTF
-#define DTF
+#ifndef DTFE
+#define DTFE
 
 #include<iostream>
 #include<string>

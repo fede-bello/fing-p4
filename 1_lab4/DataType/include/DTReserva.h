@@ -1,9 +1,9 @@
 
-#ifndef DTR
-#define DTR
+#ifndef DTRES
+#define DTRES
 
 #include"DTFecha.h"
-#include"DTHuesped.h"
+#include"DTUsuarioHuesped.h"
 #include"DTHabitacion.h"
 
 

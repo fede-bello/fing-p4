@@ -1,5 +1,7 @@
 
-#include"../include/DTHuesped.h"
+
+
+#include"../include/DTUsuarioHuesped.h"
 
 using namespace std;
 

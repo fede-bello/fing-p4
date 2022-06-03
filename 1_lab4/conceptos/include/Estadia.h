@@ -1,5 +1,5 @@
-#ifndef E
-#define E
+#ifndef EST
+#define EST
 
 #include<iostream>
 #include<string>
