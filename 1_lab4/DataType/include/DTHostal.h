@@ -11,6 +11,9 @@ private:
     int telefono;
 public:
     DTHostal(string nombre,string direccion,int telefono);
+    string getNombre();
+    string getDireccion();
+    int getTelefono();
     ~DTHostal();
 };
 

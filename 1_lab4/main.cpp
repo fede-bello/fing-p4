@@ -1,6 +1,6 @@
 #include "./conceptos/include/imprimir.h"
 #include "./conceptos/include/Sistema.h"
-#include "./controladores/include/controladorFecha.h"
+#include "./controladores/include/FechaControlador.h"
 //eventualmente se debe de borrar el include Sistema.h
 
 
@@ -10,7 +10,7 @@ using namespace std::string_literals;
 int main()
 {
 	Sistema sistema;
-	controladorFecha cfecha=controladorFecha::getInstance();
+	FechaControlador cfecha=FechaControlador::getInstance();
 	int numero = 1, cantHuespedes = 0, cantHabitaciones = 0, cantReservas = 0, codigo = 1000;
 	cout << "Bienvenido " << endl<< endl;
 	while (numero < 7 && numero > 0)
