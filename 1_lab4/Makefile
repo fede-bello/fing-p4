@@ -81,7 +81,6 @@ $(U)$(C).o:$(CONTS)/$(U)$(C).cpp $(CONTI)/$(U)$(C).h
 Hostal$(C).o:$(CONTS)/Hostal$(C).cpp $(CONTI)/Hostal$(C).h
 	g++ -c Hostal$(C).cpp
 
-
 $(R)$(C).o:$(CONTS)/$(R)$(C).cpp $(CONTI)/$(R)$(C).h
 	g++ -c $(R)$(C).cpp
 

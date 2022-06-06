@@ -12,7 +12,8 @@ class DTEmpleado :public DTUsuario
 private:
     Cargo tarea;
 public:
-    DTEmpleado(string nombre,string direccion,int telefono);
+    DTEmpleado(string nombre,string email,string password,Cargo cargo);
+    Cargo getCargo(); 
     ~DTEmpleado();
 };
 

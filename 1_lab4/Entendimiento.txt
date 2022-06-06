@@ -1,6 +1,9 @@
+Copilacion: make testing
+Ejecucion: ./testing
+
 Aca vamos anotando que esta hecho, cuando, por quien,quienes le dan el ok,problemas que le ven
 si pierde o no memoria la funcion, etc
-No borren nada!!!:
+No borren nada!!!
 
 ControladorUsuario
     nuevoEmpleado(String; String; String;cargoEmp):DTEmpleado

@@ -11,8 +11,8 @@ public:
     static HostalControlador& getInstance(){
         return cHostal;
     };
+    int indiceHostal=0;
     void ModificarHostalActual(DTHostal nuevaHostal);
-
     ~HostalControlador();
 };
 

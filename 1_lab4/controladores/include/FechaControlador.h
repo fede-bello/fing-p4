@@ -2,23 +2,26 @@
 #define CONTF
 #include "../../DataType/include/DTFecha.h"
 
-class FechaControlador{ //en los singleton los contructores son funciones privadas
+class FechaControlador {
 private:
-    DTFecha fechaActual; 
-    FechaControlador(){
-        this->fechaActual=DTFecha();
-    }
-    static FechaControlador cfecha;//el unico objeto tipo FechaControlador en el programa debe ser este.
+    static FechaControlador * instancia;
+    FechaControlador();
+    DTFecha *fechaActual=NULL;
+    
 public:
-    static FechaControlador& getInstance(){
-        return cfecha;
-    };
-    void ModificarFechaActual(DTFecha nuevafecha);
-
-    ~FechaControlador(){};
+    static FechaControlador * getInstance();
+    void ModificarFechaActual(DTFecha nueva);
+    DTFecha* getFechaActual();
+    void operacion();
+    ~FechaControlador();
 };
 
-FechaControlador FechaControlador:: cfecha;
+
+
+
+
+
+
 
 
 

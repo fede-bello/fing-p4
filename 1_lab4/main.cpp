@@ -4,13 +4,17 @@
 //eventualmente se debe de borrar el include Sistema.h
 
 
-using namespace std;
-using namespace std::string_literals;
 
 int main()
 {
 	Sistema sistema;
-	FechaControlador cfecha=FechaControlador::getInstance();
+	//para llamar controladores se hace de la siguiente manera
+	
+	FechaControlador *controladorFecha;
+	controladorFecha=FechaControlador::getInstance();
+	DTFecha hoy=DTFecha(3,6,2022);
+	DTFecha *otra=controladorFecha->getFechaActual();
+	cout<<otra->getDia();cout<<otra->getMes();cout<<otra->getAnio();
 	int numero = 1, cantHuespedes = 0, cantHabitaciones = 0, cantReservas = 0, codigo = 1000;
 	cout << "Bienvenido " << endl<< endl;
 	while (numero < 7 && numero > 0)
@@ -30,25 +34,25 @@ int main()
 			
 		}//opciones nuevas 
 		/*
-		Alta de Usuario
- 		Alta de Hostal
- 		Alta de Habitación
-		Asignar empleado a hostal
-		Realizar Reserva
-		Consultar top 3 de hostales
- 		Registrar estadía
- 		Finalizar Estadía
-		Calificar estadía
- 		Comentar calificación
-		Consulta de Usuario
- 		Consulta de Hostal
- 		Consulta de Reserva
- 		Consulta de Estadía
- 		Baja de reserva
-		Suscribirse a Notificaciones
- 		Consulta de Notificaciones
- 		Eliminar Suscripcion
- 		ModificarFecha
+		cout << "Por favor digite el numero que le corresponda" << endl<<endl;
+		cout << "1. Alta de Usuario" << endl;
+		cout << "2. Alta de Hostal" << endl;
+		cout << "3. Alta de Habitación" << endl;
+		cout << "4. Asignar empleado a hostal" << endl;
+		cout << "5. Realizar Reserva" << endl;
+		cout << "6. Consultar top 3 de hostales" << endl;
+		cout << "7. Finalizar Estadía" << endl;
+		cout << "8. Registrar estadía" << endl;
+		cout << "9. Comentar calificación" << endl;
+		cout << "10. Consulta de Hostal" << endl;
+		cout << "11. Consulta de Reserva" << endl;
+		cout << "12. Consulta de Estadía" << endl;
+		cout << "13. Baja de reserva" << endl;
+		cout << "14. Suscribirse a Notificaciones" << endl;
+		cout << "15. Consulta de Notificaciones" << endl;
+		cout << "16. Eliminar Suscripcion" << endl;
+		cout << "17. ModificarFecha" << endl;
+		cin >> numero;
 		 */
 		switch (numero){ // inicio switch
 		case 1:{ 
@@ -359,7 +363,8 @@ int main()
 				int indicehuespedes=0;
 
 				//agrego el que registra la reserva
-				DTHuesped *a_agregar = new DTHuesped(email, nombre, esFinger);
+				string password="_";
+				DTHuesped *a_agregar = new DTHuesped(email, nombre,password, esFinger);
 
 				ArregloDeHuespedes[0] = a_agregar;
 
@@ -395,8 +400,8 @@ int main()
 								if(yaesta == false){
 									nombre = sistema.ArrHuesped[i]->getNombre();
 									esFinger = sistema.ArrHuesped[i]->getEsfinger();
-
-									DTHuesped *nuevo=new DTHuesped(nombre, email, esFinger);
+									string password="_";
+									DTHuesped *nuevo=new DTHuesped(nombre, email,password, esFinger);
 									ArregloDeHuespedes[indicehuespedes]=nuevo;
 
 									indicehuespedes++;

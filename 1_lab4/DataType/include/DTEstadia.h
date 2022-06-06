@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<string>
-#include"DTEstadia.h"
+#include"DTReserva.h"
 #include"DTCalificacion.h"
 class DTEstadia{
     private:

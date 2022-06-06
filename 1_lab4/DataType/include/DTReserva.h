@@ -2,12 +2,8 @@
 #ifndef DTRES
 #define DTRES
 
-#include"DTFecha.h"
 #include"DTUsuarioHuesped.h"
 #include"DTHabitacion.h"
-
-
-
 
 enum EstadoReserva {
     Abierta, Cerrada, Cancelada   

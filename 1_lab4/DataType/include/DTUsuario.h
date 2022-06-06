@@ -1,15 +1,17 @@
 #ifndef DTUS
 #define DTUS
-
-
+using namespace std;
 #include "DTHabitacion.h"
 class DTUsuario{
 private:
-    string name;
+    string nombre;
     string email;
-    string password;
+    string contra;
 public:
-    DTUsuario(string nombre,string direccion,string password);
+    DTUsuario(string nombre,string email,string contra);
+    string getNombre();
+    string getEmail();
+    string getContra();
     virtual ~DTUsuario();
 };
 

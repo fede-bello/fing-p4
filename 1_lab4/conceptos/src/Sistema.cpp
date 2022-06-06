@@ -73,7 +73,8 @@ DTHuesped** Sistema::obtenerHuespedes(int &cantHuespedes){
 	int i = 0;
 	DTHuesped **arreglo_dtHuesped = new DTHuesped*[this->indHuesped];
 	while(i < indHuesped){
-		DTHuesped *huesped_i = new DTHuesped(this->ArrHuesped[i]->getNombre(), this->ArrHuesped[i]->getEmail(), this->ArrHuesped[i]->getEsfinger());
+		string password="_";
+		DTHuesped *huesped_i = new DTHuesped(this->ArrHuesped[i]->getNombre(), this->ArrHuesped[i]->getEmail(),password, this->ArrHuesped[i]->getEsfinger());
 		arreglo_dtHuesped[i] = huesped_i;
 		i++;
 	}
@@ -126,8 +127,8 @@ DTReserva** Sistema::obtenerReservas(DTFecha fecha, int& cantReservas){
 					string nombreagrego = arregloHuespedes[iter1]->getNombre();
 					string mailagrego = arregloHuespedes[iter1]->getEmail();
 					bool esFingerAgrego = arregloHuespedes[iter1]->getEsfinger();
-
-					DTHuesped *a_agregar = new DTHuesped(nombreagrego, mailagrego, esFingerAgrego);
+					string password="_";
+					DTHuesped *a_agregar = new DTHuesped(nombreagrego, mailagrego,"_", esFingerAgrego);
 
 					arregloDTHuespedes[iter1] = a_agregar;
 					iter1++;
