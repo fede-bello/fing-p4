@@ -1,69 +1,57 @@
 #include "../include/DTReserva.h"
-#include "../include/DTReservaIndividual.h"
-#include "../include/DTReservaGrupal.h"
+#include "DTFecha.cpp"
+
 
 using namespace std;
 
 DTReserva::DTReserva(){
-    this->cantidad=0;
-    this->habitacion = 0;
-    this->checkIn = DTFecha();
-    this->checkOut = DTFecha();
-    this->estado = Abierta;
-    this->costo = 0;
-    this->codigo = 0;
+    this->Codigo = 0;
+    this->CheckIn = DTFecha();
+    this->CheckOut = DTFecha();
+    this->Estado = Abierta;
+    this->Costo = 0;
+    
 }
 
-DTReserva::DTReserva(int habitacion , DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, float costo , int codigo, int cantidad){
-    this->habitacion = habitacion;
-    this->checkIn = checkIn;
-    this->checkOut = checkOut;
-    this->estado = estado;
-    this->costo = costo;
-    this->codigo = codigo;
-    this->cantidad=cantidad;
+DTReserva::DTReserva(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo){
+    this->Codigo = Codigo;
+    this->CheckIn = CheckIn;
+    this->CheckOut = CheckOut;
+    this->Estado = Estado;
+    this->Costo = Costo;
 }
 
-//Destructoras
-
-DTReserva::~DTReserva(){
-}
 
 //gets
 
 int DTReserva::getCodigo(){
-    return this->codigo;
+    return this->Codigo;
 }
 
 DTFecha DTReserva::getCheckIn(){
-    return this->checkIn;
+    return this->CheckIn;
 }
 
 DTFecha DTReserva::getCheckOut(){
-    return this->checkOut;
+    return this->CheckOut;
 }
 
 EstadoReserva DTReserva::getEstado(){
-    return this->estado;
+    return this->Estado;
 }
 
 float DTReserva::getCosto(){
-    return this->costo;
-}
-
-int DTReserva::getHabitacion(){
-    return this->habitacion;
-}
-
-int DTReserva::getCantidad(){
-    return this->cantidad;
+    return this->Costo;
 }
 
 // operator
 bool DTReserva:: operator== (const DTReserva &r1) const{
-    return (this->codigo==r1.codigo);
+    return (this->Codigo==r1.Codigo);
 }
 
-int DTReserva::cast(){
-    return 0;
+
+
+//Destructoras
+
+DTReserva::~DTReserva(){
 }

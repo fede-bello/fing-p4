@@ -6,12 +6,15 @@
 
 class DTReservaGrupal: public DTReserva{
     private:
-        DTHuesped **huespedes;
+        int Cantidad;
+        //Van los huespedes asociados?
     public:
         //constructores
         DTReservaGrupal();
-        DTReservaGrupal(int habitacion , DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, float costo , int codigo, int cantidad,DTHuesped **Arreglo);
-        DTHuesped** getHuespedes();
+        DTReservaGrupal(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo, int Cantidad);
+        /*DTHuesped** getHuespedes();*/
+        //getter
+        int getCantidad();
         //destructor
         ~DTReservaGrupal();
 };

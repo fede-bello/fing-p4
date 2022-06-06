@@ -1,32 +1,27 @@
 #include"../include/DTEmpleado.h"
+#include "DTUsuario.cpp"
 
 //Constructoras
-DTEmpleado::DTEmpleado(){
-    this->Nombre:='.';
-    this->Password:='.';
-    this->Mail:='.';
-    this->Cargo=Limpieza;
+DTEmpleado::DTEmpleado():DTUsuario(){
+        this->Cargo=Limpieza;
     
 }
 
-DTEmpleado::DTEmpleado(string Nombre, string Password, string Mail, CargoEmp Cargo){
-    this->Nombre:=Nombre;
-    this->Password:=Password;
-    this->Mail:=Mail;
-    this->Cargo:=Cargo;
+DTEmpleado::DTEmpleado(string Nombre, string Password, string Mail, CargoEmp Cargo):DTUsuario(Nombre, Password, Mail){
+    this->Cargo=Cargo;
 }
 
 //Getters
 
-CargoEmp getCargo(){
+CargoEmp DTEmpleado::getCargo(){
     return this->Cargo;
 }
 
-Hostal getHostal(){
+/*Hostal getHostal(){
     return this->hos;
-}
+} */
 
 //Destructora
-Empleado:: ~Empleado(){
+DTEmpleado:: ~DTEmpleado(){
 
 }

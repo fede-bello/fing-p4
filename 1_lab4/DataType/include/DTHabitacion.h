@@ -10,20 +10,20 @@ using namespace std;
 
 class DTHabitacion{
     private:
-        int numero=-100, capacidad=-100;
-        float precio=-100;
+        int Numero, Capacidad;
+        float Precio;
     public:
         DTHabitacion();
-        DTHabitacion(int numero, int capacidad, float precio);
-        int getNum();
-        int getCap();
+        DTHabitacion(int Numero, int Capacidad, float Precio);
+        int getNumero();
+        int getCapacidad();
         float getPrecio();
         bool operator==(const DTHabitacion &otro) const;
         ~DTHabitacion();
 };
 
 inline ostream &operator<< (ostream& o, DTHabitacion * hab){
-	return o<<"Número habitación: "<< hab->getNum()<<endl<< "Capacidad habitación: " << hab->getCap() <<endl<< "Costo: $"<<hab->getPrecio()<<endl;
+	return o<<"Número habitación: "<< hab->getNumero()<<endl<< "Capacidad habitación: " << hab->getCapacidad() <<endl<< "Costo: $"<<hab->getPrecio()<<endl;
 }
 
 #endif

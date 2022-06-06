@@ -2,38 +2,32 @@
 #ifndef DTRES
 #define DTRES
 
-#include"DTUsuarioHuesped.h"
-#include"DTHabitacion.h"
+#include"DTFecha.h"
 
 enum EstadoReserva {
-    Abierta, Cerrada, Cancelada   
+    Abierta, Cerrada  
 };
 
 class DTReserva{
     protected: 
-        int codigo;
-        DTFecha checkIn, checkOut;
-        EstadoReserva estado;
-        float costo;
-        int habitacion;
-        int cantidad;
+        int Codigo;
+        DTFecha CheckIn, CheckOut;
+        EstadoReserva Estado;
+        float Costo;
+        
     public:
         //constructores
         DTReserva();
-        DTReserva(int habitacion , DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, float costo , int codigo, int cantidad);
+        DTReserva(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo);
         //geters y seters
         int getCodigo();
-        float getCosto();
-        int getHabitacion();
-        int getCantidad();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         EstadoReserva getEstado();
+        float getCosto();
         bool operator==(const DTReserva &otro) const;
         void aumentarCantidad();
-        virtual int cast(); //operacion fantasma que define el polimorfismo para poder usar dynamic_cast en registrarReserva
-        //destructor
-        ~DTReserva();
+        virtual ~DTReserva();
 };
 
 

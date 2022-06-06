@@ -3,11 +3,11 @@
 
 #include "DTUsuario.h"
 
-enum Cargo{
+enum CargoEmp{
     Limpieza, Administracion, Infrasetructura, Recepcion
 };
 
-class Empleado: public Usuario{
+class DTEmpleado: public DTUsuario{
     private:
         CargoEmp Cargo;
         //Esto no se si va, no se si los DT tienen cosas asociadas

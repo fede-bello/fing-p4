@@ -1,21 +1,22 @@
 #ifndef DTHOS
 #define DTHOS
 
-
+#include<iostream>
+#include<string>
 #include "DTHabitacion.h"
-class DTHostal
-{
-private:
-    string nombre;
-    string direccion;
-    int telefono;
-public:
-    DTHostal(string nombre,string direccion,int telefono);
-    string getNombre();
-    string getDireccion();
-    int getTelefono();
-    ~DTHostal();
-};
+class DTHostal{
+    private:
+        string Nombre;
+        string Direccion;
+        int Telefono;
+    public:
+        DTHostal();
+        DTHostal(string Nombre,string Direccion,int Telefono);
+        string getNombre();
+        string getDireccion();
+        int getTelefono();
+        ~DTHostal();
+  };
 
 
 

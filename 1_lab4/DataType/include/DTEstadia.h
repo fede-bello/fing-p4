@@ -3,17 +3,17 @@
 
 #include<iostream>
 #include<string>
-#include"DTReserva.h"
-#include"DTCalificacion.h"
+#include "DTFecha.h"
+
 class DTEstadia{
     private:
-        int identificador;
         DTFecha CheckIn;
         DTFecha CheckOut;
+        int identificador;
         
         //promo y costo ya no son necesarios
     public:
-        DTEstadia(int identidicador,DTFecha CheckIn);
+        DTEstadia();
         DTEstadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
         //no se si se precisa esto
         int getIdentificador();

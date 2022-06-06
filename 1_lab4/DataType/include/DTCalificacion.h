@@ -11,7 +11,7 @@ class DTCalificacion{
         string Comentario;
         string Respuesta;
         DTFecha Fecha;
-        int Identificador
+        int Identificador;
         /*suscriptores?*/
     public:
         DTCalificacion();

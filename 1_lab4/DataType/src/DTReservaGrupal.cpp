@@ -1,4 +1,26 @@
 #include "../include/DTReservaGrupal.h"
+#include "DTReserva.cpp"
+
+
+
+DTReservaGrupal::DTReservaGrupal():DTReserva(){
+
+}
+
+DTReservaGrupal::DTReservaGrupal(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo, int Cantidad):DTReserva(Codigo, CheckIn, CheckOut, Estado, Costo){
+    this->Cantidad=0;
+}
+//Destructora DTReservaGrupal
+
+DTReservaGrupal::~DTReservaGrupal(){
+}
+
+//get DTReserva Grupal
+
+
+
+
+/*  ESTO DE ACA ES SOLO SI VAN LAS ASOCIACIONES 
 
 DTReservaGrupal::DTReservaGrupal():DTReserva(){
     this->huespedes = new DTHuesped*[MAX_HUESPEDES];
@@ -9,18 +31,10 @@ DTReservaGrupal::DTReservaGrupal():DTReserva(){
     }
 }
 
-DTReservaGrupal::DTReservaGrupal(int habitacion , DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, float costo , int codigo, int cantidad,DTHuesped **Arreglo):DTReserva( habitacion ,  checkIn,  checkOut,  estado,  costo ,  codigo, cantidad){
 
-    this->huespedes = Arreglo;
-}
-
-//Destructora DTReservaGrupal
-
-DTReservaGrupal::~DTReservaGrupal(){
-}
-
-//get DTReserva Grupal
 
 DTHuesped** DTReservaGrupal::getHuespedes(){
     return this->huespedes;
 }
+
+*/ 

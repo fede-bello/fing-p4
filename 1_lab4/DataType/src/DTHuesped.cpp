@@ -1,9 +1,13 @@
 
-#include"../include/DTUsuarioHuesped.h"
+#include"../include/DTHuesped.h"
+#include "DTUsuario.cpp"
 
 //datatype
+DTHuesped::DTHuesped():DTUsuario(){
+    this->esFinger=false;
+}
 
-DTHuesped::DTHuesped(string nombre, string email,string password, bool esFinger):DTUsuario(nombre, email,password){
+DTHuesped::DTHuesped(string Nombre,string Password, string Mail, bool esFinger):DTUsuario(Nombre, Password, Mail){
     this->esFinger=esFinger;
 };
 

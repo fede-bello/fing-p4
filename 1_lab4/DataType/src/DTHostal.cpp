@@ -2,21 +2,26 @@
 #include "../include/DTHostal.h"
 
 
-DTHostal::DTHostal(string nombre,string direccion,int telefono){
-    this->direccion=direccion;
-    this->nombre=nombre;
-    this->telefono=telefono;
+DTHostal::DTHostal(){
+    this->Nombre='.';
+    this->Direccion='.';
+    this->Telefono=0;
+}
+DTHostal::DTHostal(string Nombre,string Direccion,int Telefono){
+    this->Nombre=Nombre;
+    this->Direccion=Direccion;
+    this->Telefono=Telefono;
 }
 
 string DTHostal::getNombre(){
-    return this->nombre;
+    return this->Nombre;
 }
 string DTHostal::getDireccion(){
-    return this->direccion;
+    return this->Direccion;
 }
 int DTHostal::getTelefono(){
-    return this->telefono;
+    return this->Telefono;
 }
 DTHostal::~DTHostal(){
-    delete this;
+
 }

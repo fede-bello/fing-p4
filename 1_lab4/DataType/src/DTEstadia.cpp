@@ -1,24 +1,28 @@
 #include "../include/DTEstadia.h"
+#include "DTFecha.cpp"
 
 
   
-DTEstadia::DTEstadia(int identidicador,DTFecha CheckIn){
-    this->CheckIn=CheckIn;
-    this->identificador=identidicador;
+DTEstadia::DTEstadia(){
+    this->CheckIn=DTFecha();
+    this->CheckOut=DTFecha();
+    this->identificador=0;
 }
-DTEstadia::DTEstadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut){
+DTEstadia::DTEstadia(int identidicador, DTFecha CheckIn,DTFecha CheckOut){
     this->CheckIn=CheckIn;
-    this->identificador=identidicador;
     this->CheckOut=CheckOut;
+    this->identificador=identidicador;    
 }
-int DTEstadia::getIdentificador(){
-    return this->identificador;
-}
+
 DTFecha DTEstadia::getCheckIn(){
     return this->CheckIn;
 }
 DTFecha DTEstadia::getCheckOut(){
     return this->CheckOut;
+}
+
+int DTEstadia::getIdentificador(){
+    return this->identificador;
 }
 
 DTEstadia::~DTEstadia(){

@@ -1,8 +1,7 @@
 #ifndef DTUSH
 #define DTUSH
 
-#include<iostream>
-#include<string>
+
 #include "DTUsuario.h"
 
 
@@ -10,8 +9,8 @@ class DTHuesped:public DTUsuario{
     private:
         bool esFinger;
     public:
-        DTHuesped(string nombre, string email,string password, bool esFinger);
-        void setEsFinger();
+        DTHuesped();
+        DTHuesped(string Nombre,string Password, string Mail, bool esFinger);
         bool getEsFinger();
         ~DTHuesped();
 };

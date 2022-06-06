@@ -3,27 +3,27 @@
 
 //Constructoras
 DTUsuario::DTUsuario(){
-    this->Nombre:='.';
-    this->Password:='.';
-    this->Mail:='.';
+    this->Nombre='.';
+    this->Password='.';
+    this->Mail='.';
     
 }
 DTUsuario::DTUsuario(string Nombre, string Password, string Mail){
-    this->Nombre:=Nombre;
-    this->Password:=Password;
-    this->Mail:=Mail;
+    this->Nombre=Nombre;
+    this->Password=Password;
+    this->Mail=Mail;
 }
 
 //Getters
-string getNombre(){
+string DTUsuario::getNombre(){
     return this->Nombre;
 }
 
-string getPassword(){
+string DTUsuario::getPassword(){
     return this->Password;
 }
 
-string getMail(){
+string DTUsuario::getMail(){
     return this->Mail;
 }
 

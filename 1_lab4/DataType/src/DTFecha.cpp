@@ -3,24 +3,25 @@
 #include"../include/DTFecha.h"
 
 //Contructores
-DTFecha::DTFecha(int d, int m, int a){
-    this->dia=d;       
-    this->mes=m;     
-    this->anio=a;     
-}
 
 DTFecha::DTFecha(){
     this->anio=1900;
     this->dia=1;
     this->mes=1;
+    this->hora=0;
 }
 
-//Destructora
 
-DTFecha::~DTFecha(){
+DTFecha::DTFecha(int d, int m, int a,int h){
+    this->dia=d;       
+    this->mes=m;     
+    this->anio=a;
+    this->hora=h;     
 }
 
-//gets 
+
+
+//getters
 int DTFecha::getAnio(){
     return this->anio;
 }
@@ -33,9 +34,13 @@ int DTFecha::getDia(){
     return this->dia;
 }
 
+int DTFecha::getHora(){
+    return this->hora;
+}
+
 //avanzar y retroceder diferencia fechas
 DTFecha DTFecha::avanzarFecha(int i){
-    DTFecha nuevo(dia,mes,anio);
+    DTFecha nuevo(dia,mes,anio,hora);
     nuevo.dia=nuevo.dia +i;
     if ((nuevo.dia)>31){
         nuevo.mes=nuevo.mes+int(nuevo.dia/31);
@@ -49,7 +54,7 @@ DTFecha DTFecha::avanzarFecha(int i){
 }
 
 DTFecha DTFecha:: retrocederFecha(int i){
-    DTFecha nuevo(dia,mes,anio);
+    DTFecha nuevo(dia,mes,anio,hora);
     nuevo.dia=nuevo.dia-i;
     while (nuevo.dia<1){
         if (nuevo.mes>=2){
@@ -77,5 +82,10 @@ int DTFecha::diferenciasFechas(DTFecha f){
 //Operadores
 bool DTFecha:: operator==(const DTFecha &f) const{
     return (this->dia==f.dia)&&(this->mes==f.mes)&&(this->anio==f.anio);
+}
+
+//Destructora
+
+DTFecha::~DTFecha(){
 }
 

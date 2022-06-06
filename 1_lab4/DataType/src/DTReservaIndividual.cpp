@@ -1,19 +1,17 @@
 #include "../include/DTReservaIndividual.h"
+#include "DTReserva.cpp"
+
 
 DTReservaIndividual:: DTReservaIndividual():DTReserva(){
-    this->pagado=false;
+    
 }
 
-DTReservaIndividual:: DTReservaIndividual(int habitacion , DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, float costo , int codigo, int cantidad,bool pagado):DTReserva( habitacion ,  checkIn,  checkOut,  estado,  costo ,  codigo, cantidad){
-    this->pagado=pagado;
+DTReservaIndividual::DTReservaIndividual(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo):DTReserva(Codigo, CheckIn, CheckOut, Estado, Costo){
+
 }
 
 //Destructora DTReserva Individual
 
 DTReservaIndividual :: ~DTReservaIndividual(){
 
-}
-
-bool DTReservaIndividual::getPagado(){
-    return this->pagado;
 }
