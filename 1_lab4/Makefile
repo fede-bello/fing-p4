@@ -1,15 +1,15 @@
 #ABREVIACIONES
 DTI= DataType/include
 DTS= DataType/src
-COI= conceptos/include
-COS= conceptos/src
+COI= Clases/include
+COS= Clases/src
 U= Usuario
 R=Reserva
 C=Controlador
-CONTI= controladores/include
-CONTS= controladores/src
+CONTI= Controladores/include
+CONTS= Controladores/src
 
-EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DT$(U)Huesped.o $(COS)/$(U)Huesped.o $(COS)/$(U)Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o $(COS)/Sistema.o $(CONTS)/Fecha$(C).o $(CONTS)/Hostal$(C).o $(CONTS)/$(U)$(C).o $(CONTS)/$(R)$(C).o main.o      
+EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DT$(U)Huesped.o $(COS)/$(U)Huesped.o $(COS)/$(U)Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o $(COS)/Sistema.o $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o main.o      
 
 #si cambia cualquier .o corre el codigo de abajo
 
@@ -72,17 +72,17 @@ Calificacion.o: $(COS)/Calificacion.cpp $(COI)/Calificacion.h
 Sistema.o: $(COS)/Sistema.cpp $(COI)/Sistema.h
 	g++ -c Sistema.cpp
 
-Fecha$(C).o:$(CONTS)/Fecha$(C).cpp $(CONTI)/Fecha$(C).h
-	g++ -c Fecha$(C).cpp
+$(C)Fecha.o:$(CONTS)/$(C)Fecha.cpp $(CONTI)/$(C)Fecha.h
+	g++ -c $(C)Fecha.cpp
 
-$(U)$(C).o:$(CONTS)/$(U)$(C).cpp $(CONTI)/$(U)$(C).h
-	g++ -c $(U)$(C).cpp
+$(C)$(U).o:$(CONTS)/$(C)$(U).cpp $(CONTI)/$(C)$(U).h
+	g++ -c $(C)$(U).cpp
 
-Hostal$(C).o:$(CONTS)/Hostal$(C).cpp $(CONTI)/Hostal$(C).h
-	g++ -c Hostal$(C).cpp
+$(C)Hostal.o:$(CONTS)/$(C)Hostal.cpp $(CONTI)/$(C)Hostal.h
+	g++ -c $(C)Hostal.cpp
 
-$(R)$(C).o:$(CONTS)/$(R)$(C).cpp $(CONTI)/$(R)$(C).h
-	g++ -c $(R)$(C).cpp
+$(C)$(R).o:$(CONTS)/$(C)$(R).cpp $(CONTI)/$(C)$(R).h
+	g++ -c $(C)$(R).cpp
 
 main.o: main.cpp $(COI)/imprimir.h 
 	g++ -c main.cpp

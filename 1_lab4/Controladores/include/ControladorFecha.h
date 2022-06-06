@@ -2,18 +2,18 @@
 #define CONTF
 #include "../../DataType/include/DTFecha.h"
 
-class FechaControlador {
+class ControladorFecha {
 private:
-    static FechaControlador * instancia;
-    FechaControlador();
+    static ControladorFecha * instancia;
+    ControladorFecha();
     DTFecha *fechaActual=NULL;
     
 public:
-    static FechaControlador * getInstance();
+    static ControladorFecha * getInstance();
     void ModificarFechaActual(DTFecha nueva);
     DTFecha* getFechaActual();
     void operacion();
-    ~FechaControlador();
+    ~ControladorFecha();
 };
 
 

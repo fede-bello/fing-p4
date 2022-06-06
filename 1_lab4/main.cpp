@@ -1,6 +1,6 @@
-#include "./conceptos/include/imprimir.h"
-#include "./conceptos/include/Sistema.h"
-#include "./controladores/include/FechaControlador.h"
+#include "./Clases/include/imprimir.h"
+#include "./Clases/include/Sistema.h"
+#include "./Controladores/include/ControladorUsuario.h"
 //eventualmente se debe de borrar el include Sistema.h
 
 
@@ -10,8 +10,8 @@ int main()
 	Sistema sistema;
 	//para llamar controladores se hace de la siguiente manera
 	
-	FechaControlador *controladorFecha;
-	controladorFecha=FechaControlador::getInstance();
+	ControladorFecha *controladorFecha;
+	controladorFecha=ControladorFecha::getInstance();
 	DTFecha hoy=DTFecha(3,6,2022);
 	DTFecha *otra=controladorFecha->getFechaActual();
 	cout<<otra->getDia();cout<<otra->getMes();cout<<otra->getAnio();
