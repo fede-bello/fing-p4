@@ -5,11 +5,11 @@ COI= Clases/include
 COS= Clases/src
 U= Usuario
 R=Reserva
-C=Controlador
+C=controlador
 CONTI= Controladores/include
 CONTS= Controladores/src
 
-EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DT$(U)Huesped.o $(COS)/$(U)Huesped.o $(COS)/$(U)Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o $(COS)/Sistema.o $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o main.o      
+EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DTHuesped.o $(COS)/Huesped.o $(COS)/Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o $(COS)/Sistema.o $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o main.o      
 
 #si cambia cualquier .o corre el codigo de abajo
 

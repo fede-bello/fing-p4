@@ -1,6 +1,6 @@
 #include "./Clases/include/imprimir.h"
 #include "./Clases/include/Sistema.h"
-#include "./Controladores/include/ControladorUsuario.h"
+#include "./Controladores/include/controladorUsuario.h"
 //eventualmente se debe de borrar el include Sistema.h
 
 
