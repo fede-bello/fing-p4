@@ -2,7 +2,9 @@
 
 controladorUsuario * controladorUsuario::instance=NULL;
 
-controladorUsuario::controladorUsuario (){};
+controladorUsuario::controladorUsuario (){
+    //Aca creo que deberia ir algo, no se muy bien que
+}; 
 
 controladorUsuario * controladorUsuario::getInstance(){
     if (instance==NULL)

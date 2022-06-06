@@ -2,7 +2,7 @@
 #define RES
 
 #include "Habitacion.h"
-#include "UsuarioHuesped.h"
+#include "Huesped.h"
 #include "../../DataType/include/DTReservaIndividual.h"
 #include "../../DataType/include/DTReservaGrupal.h"
 

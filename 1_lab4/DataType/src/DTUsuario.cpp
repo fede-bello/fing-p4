@@ -1,30 +1,33 @@
-
-
 #include "../include/DTUsuario.h"
 
 
-DTUsuario::DTUsuario(string nombre, string email, string contra){
-    this->nombre = nombre;
-    this->email = email;
-    this->contra=contra;
-};
+//Constructoras
+DTUsuario::DTUsuario(){
+    this->Nombre:='.';
+    this->Password:='.';
+    this->Mail:='.';
+    
+}
+DTUsuario::DTUsuario(string Nombre, string Password, string Mail){
+    this->Nombre:=Nombre;
+    this->Password:=Password;
+    this->Mail:=Mail;
+}
 
-//gets 
-string DTUsuario::getNombre(){
-    return this->nombre;
-};
+//Getters
+string getNombre(){
+    return this->Nombre;
+}
 
-string DTUsuario::getEmail(){
-    return this->email;
-};
-string DTUsuario::getContra(){
-    return this->contra;
-};
+string getPassword(){
+    return this->Password;
+}
 
+string getMail(){
+    return this->Mail;
+}
 
+//Destructora
+DTUsuario:: ~DTUsuario(){
 
-//destructora 
-DTUsuario::~DTUsuario(){
-
-};
-
+}
