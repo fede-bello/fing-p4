@@ -1,34 +1,41 @@
 #include "../include/DTCalificacion.h"
+#include "../include/DTFecha.h"
 
-
-DTCalificacion::DTCalificacion(int num,string texto,DTFecha realizada){
-    this->num=num;
-    this->texto=texto;
-    this->realizada=realizada;
+   
+DTCalificacion::DTCalificacion(){
+    this->Numero:=0;
+    this->Comentario:=".";
+    this->Respuesta:=".";
+    this->Fecha=DTFecha();
+    this->Identificador:=0;
+    
 }
 
-DTCalificacion::DTCalificacion(int num,string texto,DTFecha realizada,string respuesta){
-    this->num=num;
-    this->texto=texto;
-    this->realizada=realizada;
-    this->respuesta=respuesta;
+DTCalificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador){
+    this->Numero:=Numero;
+    this->Comentario:=Comentario;
+    this->Respuesta:=Respuesta;
+    this->Fecha=Fecha
+    this->Identificador:=Identificador;
+    
+}
+int getNumero(){
+    return this->numero;
+}
+string getComentario(){
+    return this->Comentario;
 }
 
-int DTCalificacion::getNum(){
-    return this->num;
+string getRespuesta(){
+    return this->Respuesta;
+}
+DTFecha getFecha(){
+    return this->Fecha;
+}
+int getIdentificador(){
+    return this->Identificador;
 }
 
-string DTCalificacion::getTexto(){
-    return this->texto;
-}
+~DTCalificacion(){
 
-void DTCalificacion::setRespuesta(string respuesta){
-    this->respuesta=respuesta;
-}
-
-DTFecha DTCalificacion::getFecha(){
-    return this->realizada;
-}
-
-DTCalificacion::~DTCalificacion(){
 }

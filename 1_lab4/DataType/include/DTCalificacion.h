@@ -7,19 +7,20 @@
 
 class DTCalificacion{
     private:
-        int num;
-        string texto;
-        string respuesta;
-        DTFecha realizada;
+        int Numero;
+        string Comentario;
+        string Respuesta;
+        DTFecha Fecha;
+        int Identificador
+        /*suscriptores?*/
     public:
-        DTCalificacion(int cod,string texto,DTFecha realizada);
-        DTCalificacion(int cod,string texto,DTFecha realizada,string respuesta);
-        //no se si se precisa esto
-        int getNum();
-        string getTexto();
-        DTFecha getFecha();
+        DTCalificacion();
+        DTCalificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador);        
+        int getNumero();
+        string getComentario();
         string getRespuesta();
-        void setRespuesta(string respuesta);
+        DTFecha getFecha();
+        int getIdentificador();
         ~DTCalificacion();
 };
 
