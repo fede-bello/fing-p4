@@ -17,12 +17,15 @@ class Estadia{
         Estadia(int identidicador,DTFecha CheckIn);
         Estadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
         //no se si se precisa esto
-        int getIdentificador();
+        int getidentificador();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         Calificacion* getCalificacion();
         DTEstadia getDTEstadia();
-        void setCheckOut();
+        void setidentificador(int identificador);
+        void setCheckIn(DTFecha checkIn);
+        void setCheckOut(DTFecha checkOut);
+        void setCalificacion(Calificacion calif)
         ~Estadia();
 };
 

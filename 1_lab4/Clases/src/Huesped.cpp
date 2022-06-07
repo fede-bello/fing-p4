@@ -3,47 +3,28 @@
 #include"../include/UsuarioHuesped.h"
 using namespace std;
 
-
-
 //creadoras
 
-Huesped::Huesped(){
-    string nom = "NombrePorDefecto";
-    string mail = "MailPorDefecto@gmail.com";
-    this->nombre = nom;
-    this->email = mail;
+Huesped::Huesped():Usuario(){
     this->esFinger = false;
 };
 
-Huesped::Huesped(string nombre,string email,bool esFinger){
-    this->nombre=nombre;
-    this->email=email;
+Huesped::Huesped(string Nombre,string Password, string Mail, bool esFinger):Usuario(Nombre, Password, Mail){
     this->esFinger=esFinger;
 };
 
-string Huesped::getNombre(){
-    return this->nombre;
+
+//getter y setters
+
+bool Huesped::getEsFinger(){
+    return this->esFinger;
 };
 
-string Huesped::getEmail(){
-    return this->email;
-};
+void setEsFinger(bool finger){
+    this->esFinger = finger;
+}
 
-bool Huesped::getEsfinger(){
-    return  this->esFinger;
-};
-
-void Huesped::setNombre(string nombre){
-    this->nombre = nombre;
-};
-
-void Huesped:: setEmail(string email){
-     this->email = email;
-};
-
-void Huesped::setEsFinger(bool esFinger){
-    this->esFinger = esFinger;
-};
+//destructoras
 
 Huesped::~Huesped(){ 
 };

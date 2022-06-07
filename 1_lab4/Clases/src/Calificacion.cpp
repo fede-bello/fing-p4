@@ -1,32 +1,43 @@
 #include "../include/Calificacion.h"
 
 
-Calificacion::Calificacion(int num,string texto,DTFecha realizada){
-    this->num=num;
-    this->texto=texto;
-    this->realizada=realizada;
+Calificacion::Calificacion(int Numero,string Comentario,DTFecha Fecha){
+    this->Numero = Numero;
+    this->Comentario = Comentario;
+    this->Fecha = Fecha;
 }
 
-int Calificacion::getNum(){
-    return this->num;
+int Calificacion::getNumero(){
+    return this->Numero;
 }
 
-string Calificacion::getTexto(){
-    return this->texto;
-}
-
-DTFecha Calificacion::getFecha(){
-    return this->realizada;
+string Calificacion::getComentario(){
+    return this->Comentario;
 }
 
 string Calificacion::getRespuesta(){
-    return this->respuesta;
+    return this->Respuesta;
+}
+
+DTFecha Calificacion::getFecha(){
+    return this->Fecha;
+}
+
+void Calificacion::setNumero(int numero){
+    this->Numero = numero;
+}
+
+void Calificacion::setComentario(string comentario){
+    this->Comentario = comentario;
 }
 
 void Calificacion::setRespuesta(string respuesta){
-    this->respuesta=respuesta;
+    this->Respuesta = respuesta;
 }
 
+void Calificacion::setFecha(DTFecha fecha){
+    this->Fecha = fecha;
+}
 
 Calificacion::~Calificacion(){
 }

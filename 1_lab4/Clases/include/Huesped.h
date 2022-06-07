@@ -6,20 +6,14 @@
 #include"../../DataType/include/DTHuesped.h"
 
 
-class Huesped{
+class Huesped:public Usuario{
     private: 
-        string nombre, email;
         bool esFinger;
     public:
         Huesped();
-        Huesped(string nombre, string email, bool esFinger);
-        void setNombre(string nombre);
-        string getNombre();
-        void setEmail(string email);
-        string getEmail();
-        void setEsFinger(bool esFinger);
-       
+        Huesped(string nombre, string password, string email, bool esFinger);
         bool getEsfinger();
+        void setEsFinger(bool finger);
         ~Huesped();
 };
 
