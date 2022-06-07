@@ -6,11 +6,15 @@
 class Hostal
 {
 private:
-    string nombre;
-    string direccion;
-    int telefono;
+    string Nombre;
+    string Direccion;
+    int Telefono;
 public:
-    Hostal(string nombre,string direccion,int telefono);
+    Hostal();
+    Hostal(string Nombre,string Direccion,int Telefono);
+    void setNombre(string nombre);
+    void setDireccion(string direccion);
+    void setTelefono(int telefono);
     string getNombre();
     string getDireccion();
     int getTelefono();

@@ -20,7 +20,7 @@ Reserva::Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva es
 }
 
 
-//Constructoras DTReserva
+//Destructora DTReserva
 Reserva::~Reserva(){
 
 }

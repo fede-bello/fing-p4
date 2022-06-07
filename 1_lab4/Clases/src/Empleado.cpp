@@ -2,18 +2,18 @@
 
 //Constructoras
 Empleado::Empleado(){
-    this->Nombre:='.';
-    this->Password:='.';
-    this->Mail:='.';
-    this->Cargo=Limpieza;
+    this->Nombre = '.';
+    this->Passwor = '.';
+    this->Mail = '.';
+    this->Cargo = Limpieza;
     
 }
 
 Empleado::Empleado(string Nombre, string Password, string Mail, CargoEmp Cargo){
-    this->Nombre:=Nombre;
-    this->Password:=Password;
-    this->Mail:=Mail;
-    this->Cargo:=Cargo;
+    this->Nombre = Nombre;
+    this->Password = Password;
+    this->Mail = Mail;
+    this->Cargo = Cargo;
 }
 
 //Setters y getters
@@ -27,20 +27,20 @@ Hostal getHostal(){
 }
 
 void setCargo(CargoEmp Cargo){
-    this->Cargo:=Cargo;
+    this->Cargo = Cargo;
 
 }
 
 Hostal setHostal(Hostal *hos){
-    this->hos:=hos;
+    this->hos = hos;
 }
 
 //Operaciones 
 
 bool empleadoAsignadoAHostal(){
-    bool res:=true;
-    if (this->hos=NULL)
-        res:=false;
+    bool res = true;
+    if (this->hos = NULL)
+        res = false;
     return res;
 }
 

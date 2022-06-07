@@ -1,24 +1,46 @@
 #include "../include/Hostal.h"
 
-Hostal::Hostal(string nombre,string direccion,int telefono){
-    this->direccion=direccion;
-    this->nombre=nombre;
-    this->telefono=telefono;
+Hostal::Hostal(){
+    this->nombre='.';
+    this->nireccion='.';
+    this->telefono=0;
+}
+
+Hostal::Hostal(string Nombre,string Direccion,int Telefono){
+    this->Direccion=Direccion;
+    this->Nombre=Nombre;
+    this->Telefono=Telefono;
 }
 
 string Hostal::getNombre(){
-    return this->nombre;
+    return this->Nombre;
 }
+
 string Hostal::getDireccion(){
-    return this->direccion;
+    return this->Direccion;
 }
+
 int Hostal::getTelefono(){
-    return this->telefono;
+    return this->Telefono;
 }
+
 DTHostal Hostal::getDTHostal(){
-    DTHostal res=DTHostal(this->nombre,this->direccion,this->telefono);
+    DTHostal res=DTHostal(this->Nombre,this->Direccion,this->Telefono);
     return res;
 }
+
+void Hostal::setNombre(string nombre){
+    this->Nombre = nombre;
+}
+
+void Hostal::setDireccion(string direccion){
+    this->Direccion = direccion;
+}
+
+void Hostal::setTelefono(int telefono){
+    this->Telefono = telefono;
+}
+
 Hostal::~Hostal(){
-    delete this;
+
 }

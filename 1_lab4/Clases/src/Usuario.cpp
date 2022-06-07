@@ -2,15 +2,15 @@
 
 //Constructoras
 Usuario::Usuario(){
-    this->Nombre:='.';
-    this->Password:='.';
-    this->Mail:='.';
+    this->Nombre = '.';
+    this->Password = '.';
+    this->Mail = '.';
     
 }
 Usuario::Usuario(string Nombre, string Password, string Mail){
-    this->Nombre:=Nombre;
-    this->Password:=Password;
-    this->Mail:=Mail;
+    this->Nombre = Nombre;
+    this->Password = Password;
+    this->Mail = Mail;
 }
 
 //Setters y getters
@@ -27,15 +27,15 @@ string getMail(){
 }
 
 void setNombre(string Nombre){
-    this->Nombre:=Nombre;
+    this->Nombre = Nombre;
 }
 
 void setPassword(string Password){
-    this->Password:=Password;
+    this->Password = Password;
 }
 
 void setMail(string Mail){
-    this->Mail:=Mail;
+    this->Mail = Mail;
 }
 
 //Destructora

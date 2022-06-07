@@ -14,17 +14,21 @@ Huesped::Huesped(){
     this->email = mail;
     this->esFinger = false;
 };
+
 Huesped::Huesped(string nombre,string email,bool esFinger){
     this->nombre=nombre;
     this->email=email;
     this->esFinger=esFinger;
 };
+
 string Huesped::getNombre(){
     return this->nombre;
-}
+};
+
 string Huesped::getEmail(){
     return this->email;
 };
+
 bool Huesped::getEsfinger(){
     return  this->esFinger;
 };
@@ -36,10 +40,10 @@ void Huesped::setNombre(string nombre){
 void Huesped:: setEmail(string email){
      this->email = email;
 };
+
 void Huesped::setEsFinger(bool esFinger){
     this->esFinger = esFinger;
 };
 
-Huesped::~Huesped(){
-    
+Huesped::~Huesped(){ 
 };
