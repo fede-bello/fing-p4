@@ -18,31 +18,30 @@ Empleado::Empleado(string Nombre, string Password, string Mail, CargoEmp Cargo){
 
 //Setters y getters
 
-CargoEmp getCargo(){
+CargoEmp Empleado::getCargo(){
     return this->Cargo;
 }
 
-Hostal getHostal(){
+Hostal *Empleado::getHostal(){
     return this->hos;
 }
 
-void setCargo(CargoEmp Cargo){
+void Empleado::setCargo(CargoEmp Cargo){
     this->Cargo = Cargo;
 
 }
 
-Hostal setHostal(Hostal *hos){
+void Empleado::setHostal(Hostal *hos){
     this->hos = hos;
 }
 
 //Operaciones 
 
-bool empleadoAsignadoAHostal(){
+bool Empleado::empleadoAsignadoAHostal(){
     bool res = true;
     if (this->hos = NULL)
         res = true;
     return res;
-
 }
 
 
