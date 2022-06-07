@@ -47,10 +47,6 @@ Huesped* Reserva::getHuesped(){
     return this->hues;
 }
 
-int Reserva::getCantidad(){
-    return this->cantidad;
-}
-
 EstadoReserva Reserva::getEstado(){
     return this->estado;
 }
@@ -58,19 +54,19 @@ EstadoReserva Reserva::getEstado(){
 //sets Reserva 
 
 void Reserva::setCodigo(int codigo){
-    this->codigo=codigo;
+    this->codigo = codigo;
 }
 
 void Reserva::setCheckIn(DTFecha checkIn){
-    this->checkIn=checkIn;
+    this->checkIn = checkIn;
 } 
 
 void Reserva::setCheckOut(DTFecha checkOut){
-    this->checkOut=checkOut;
+    this->checkOut = checkOut;
 }
 
 void Reserva::setEstado(EstadoReserva estado){
-    this->estado=estado;
+    this->estado = estado;
 }
 
 void Reserva::setHabitacion(Habitacion *habitacion){
@@ -80,11 +76,6 @@ void Reserva::setHabitacion(Habitacion *habitacion){
 void Reserva::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
-
-void Reserva::setCantidad(int cantidad){
-    this->cantidad = cantidad;
-}
-
 
 //Calcular Costo
 float Reserva::calcularCosto(){

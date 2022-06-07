@@ -17,6 +17,14 @@ ReservaGrupal::ReservaGrupal(int codigo, DTFecha checkIn, DTFecha checkOut, Esta
 
 }
 
+int Reserva::getCantidad(){
+    return this->Cantidad;
+}
+
+void Reserva::setCantidad(int cantidad){
+    this->Cantidad = cantidad;
+}
+
 ReservaGrupal::~ReservaGrupal(){
 }
 

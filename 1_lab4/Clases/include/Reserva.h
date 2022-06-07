@@ -13,7 +13,6 @@ class Reserva{
         EstadoReserva estado;
         Habitacion *hab;
         Huesped *hues;
-        int cantidad;
     public:
         //constructores
         Reserva();
@@ -29,14 +28,12 @@ class Reserva{
         EstadoReserva getEstado();     
         Habitacion* getHabitacion();
         Huesped* getHuesped();
-        int getCantidad();
         void setCodigo(int codigo);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
         void setEstado(EstadoReserva estado);
         void setHabitacion(Habitacion *habitacion);
         void setHuesped(Huesped *huesped);
-        void setCantidad(int cantidad);
 };
 
 

@@ -13,7 +13,7 @@ DTReserva::DTReserva(){
     
 }
 
-DTReserva::DTReserva(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo){
+DTReserva::DTReserva(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva Estado, float Costo){
     this->Codigo = Codigo;
     this->CheckIn = CheckIn;
     this->CheckOut = CheckOut;
