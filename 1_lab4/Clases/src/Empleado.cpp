@@ -40,9 +40,8 @@ Hostal setHostal(Hostal *hos){
 bool empleadoAsignadoAHostal(){
     bool res:=true;
     if (this->hos=NULL)
-        res:=true;
+        res:=false;
     return res;
-
 }
 
 
