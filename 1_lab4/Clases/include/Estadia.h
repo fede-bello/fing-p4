@@ -20,9 +20,9 @@ class Estadia{
         int getIdentificador();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
-        void setCheckOut();
-        Calificacion getCalificacion();
+        Calificacion* getCalificacion();
         DTEstadia getDTEstadia();
+        void setCheckOut();
         ~Estadia();
 };
 

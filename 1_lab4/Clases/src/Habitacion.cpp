@@ -18,13 +18,14 @@ int Habitacion::getNum(){
         return this->numero;
  }
 
+int Habitacion::getCap(){
+    return this->capacidad;
+}
+
 float Habitacion::getPrecio(){
         return this->precio;
  }
 
-int Habitacion::getCap(){
-    return this->capacidad;
-}
 
 void Habitacion::setNum(int numero){
     this->numero=numero;

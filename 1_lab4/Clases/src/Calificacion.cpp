@@ -11,6 +11,14 @@ int Calificacion::getNum(){
     return this->num;
 }
 
+string Calificacion::getTexto(){
+    return this->texto;
+}
+
+DTFecha Calificacion::getFecha(){
+    return this->realizada;
+}
+
 string Calificacion::getRespuesta(){
     return this->respuesta;
 }
@@ -19,9 +27,6 @@ void Calificacion::setRespuesta(string respuesta){
     this->respuesta=respuesta;
 }
 
-DTFecha Calificacion::getFecha(){
-    return this->realizada;
-}
 
 Calificacion::~Calificacion(){
 }

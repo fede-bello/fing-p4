@@ -21,6 +21,11 @@ DTFecha Estadia::getCheckIn(){
 DTFecha Estadia::getCheckOut(){
     return this->CheckOut;
 }
+
+Calificacion* Estadia::getCalificacion(){
+    return this->calificacion;
+}
+
 DTEstadia Estadia::getDTEstadia(){
    /* DTFecha *deafault;
     if(!this->CheckOut.operator==(default)){

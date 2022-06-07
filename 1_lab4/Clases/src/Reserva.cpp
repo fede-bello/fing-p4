@@ -57,8 +57,8 @@ EstadoReserva Reserva::getEstado(){
 
 //sets Reserva 
 
-void Reserva::setCantidad(int cantidad){
-    this->cantidad = cantidad;
+void Reserva::setCodigo(int codigo){
+    this->codigo=codigo;
 }
 
 void Reserva::setCheckIn(DTFecha checkIn){
@@ -81,9 +81,11 @@ void Reserva::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
-void Reserva::setCodigo(int codigo){
-    this->codigo=codigo;
+void Reserva::setCantidad(int cantidad){
+    this->cantidad = cantidad;
 }
+
+
 //Calcular Costo
 float Reserva::calcularCosto(){
     float costo;

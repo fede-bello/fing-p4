@@ -24,12 +24,12 @@ class Reserva{
         void aumentarCantidad();
         virtual float calcularCosto();
         int getCodigo();
-        int getCantidad();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         EstadoReserva getEstado();     
         Habitacion* getHabitacion();
         Huesped* getHuesped();
+        int getCantidad();
         void setCodigo(int codigo);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
