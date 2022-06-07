@@ -18,11 +18,11 @@ Empleado::Empleado(string Nombre, string Password, string Mail, CargoEmp Cargo){
 
 //Setters y getters
 
-CargoEmp getCargo(){
+CargoEmp Empleado::getCargo(){
     return this->Cargo;
 }
 
-Hostal getHostal(){
+Hostal *Empleado::getHostal(){
     return this->hos;
 }
 

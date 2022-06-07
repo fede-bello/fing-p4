@@ -2,7 +2,7 @@
 #define US
 
 #include <iostream>
-#include<string>
+#include <string>
 
 class Usuario{
     protected:

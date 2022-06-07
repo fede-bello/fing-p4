@@ -3,6 +3,7 @@
 
 #include "Hostal.h"
 #include "../../DataType/include/DTEmpleado.h"
+#include "Usuario.h"
 
 class Empleado: public Usuario{
     private:

@@ -7,6 +7,7 @@ Usuario::Usuario(){
     this->Mail = '.';
     
 }
+
 Usuario::Usuario(string Nombre, string Password, string Mail){
     this->Nombre = Nombre;
     this->Password = Password;
@@ -14,15 +15,15 @@ Usuario::Usuario(string Nombre, string Password, string Mail){
 }
 
 //Setters y getters
-string getNombre(){
+string Usuario::getNombre(){
     return this->Nombre;
 }
 
-string getPassword(){
+string Usuario::getPassword(){
     return this->Password;
 }
 
-string getMail(){
+string Usuario::getMail(){
     return this->Mail;
 }
 
