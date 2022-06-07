@@ -24,5 +24,8 @@ class DTCalificacion{
         ~DTCalificacion();
 };
 
+class DTPrueba{
+
+};
 
 #endif
