@@ -3,7 +3,7 @@
 //Constructoras
 Empleado::Empleado(){
     this->Nombre = '.';
-    this->Passwor = '.';
+    this->Password = '.';
     this->Mail = '.';
     this->Cargo = Limpieza;
     
@@ -26,18 +26,18 @@ Hostal *Empleado::getHostal(){
     return this->hos;
 }
 
-void setCargo(CargoEmp Cargo){
+void Empleado::setCargo(CargoEmp Cargo){
     this->Cargo = Cargo;
 
 }
 
-Hostal setHostal(Hostal *hos){
+void Empleado::setHostal(Hostal *hos){
     this->hos = hos;
 }
 
 //Operaciones 
 
-bool empleadoAsignadoAHostal(){
+bool Empleado::empleadoAsignadoAHostal(){
     bool res = true;
     if (this->hos = NULL)
         res = false;
