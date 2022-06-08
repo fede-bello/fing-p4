@@ -1,12 +1,15 @@
 #include "../include/Calificacion.h"
+#include"../../DataType/src/DTCalificacion.cpp"
 
 
-Calificacion::Calificacion(int Numero,string Comentario,DTFecha Fecha){
-    this->Numero = Numero;
-    this->Comentario = Comentario;
-    this->Fecha = Fecha;
+Calificacion::Calificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador){
+    this->Numero=Numero;
+    this->Comentario=Comentario;
+    this->Respuesta=Respuesta;
+    this->Fecha=Fecha;
+    this->Identificador=Identificador;
+    
 }
-
 int Calificacion::getNumero(){
     return this->Numero;
 }
@@ -24,7 +27,7 @@ DTFecha Calificacion::getFecha(){
 }
 
 int Calificacion::getIdentificador(){
-    return this->identificador;
+    return this->Identificador;
 }
 
 Huesped* Calificacion::getHuesped(){
@@ -48,12 +51,23 @@ void Calificacion::setFecha(DTFecha fecha){
 }
 
 void Calificacion::setIdentificador(int identificador){
-    this->identificador = identificador;
+    this->Identificador = identificador;
 }
 
 void Calificacion::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
+//operaciones
+
+DTCalificacion Calificacion::getDTCalificacion(){
+    return DTCalificacion(this->Numero, this->Comentario, this->Respuesta, this->Fecha, this->Identificador);
+}
+
+bool Calificacion::esCalificacion(int codigoCalif){
+    return (this->Identificador==codigoCalif);
+}
+
+//destructora
 Calificacion::~Calificacion(){
 }

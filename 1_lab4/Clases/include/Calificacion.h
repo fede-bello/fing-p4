@@ -13,12 +13,12 @@ class Calificacion{
         string Comentario;
         string Respuesta;
         DTFecha Fecha;
-        int identificador;
+        int Identificador;
         Huesped *hues;
         
     public:
-        Calificacion(int cod,string Comentario,DTFecha realizada);
-        //no se si se precisa esto
+        Calificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador);
+        //getters y setters
         int getNumero();
         string getComentario();
         string getRespuesta();
@@ -31,6 +31,12 @@ class Calificacion{
         void setFecha(DTFecha fecha);
         void setIdentificador(int identificador);
         void setHuesped(Huesped *huesped);
+        //operaciones
+        DTCalificacion getDTCalificacion();
+        bool esCalificacion(int codigoCalif);
+        //asociarHuesped es setHuesped
+        //suscribir,desuscribir y notificar nos encargamos despues cuando encaremos el observer
+        //destructora
         ~Calificacion();
 };
 
