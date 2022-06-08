@@ -1,9 +1,10 @@
 #ifndef DTCAL
 #define DTCAL
 
-#include<iostream>
-#include<string>
-#include"DTFecha.h"
+#include <iostream>
+#include <string>
+#include "DTHuesped.h"//
+#include "DTFecha.h"
 
 class DTCalificacion{
     private:

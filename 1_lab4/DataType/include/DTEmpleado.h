@@ -1,6 +1,8 @@
 #ifndef DTUSE
 #define DTUSE
 
+#include "DTHostal.h"//
+#include "DTCalificacion.h"//
 #include "DTUsuario.h"
 
 enum CargoEmp{

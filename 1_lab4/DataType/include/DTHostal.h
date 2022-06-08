@@ -4,6 +4,8 @@
 #include<iostream>
 #include<string>
 #include "DTHabitacion.h"
+#include "DTHabitacion.h"
+
 class DTHostal{
     private:
         string Nombre;

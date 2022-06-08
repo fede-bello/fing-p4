@@ -5,7 +5,7 @@
 #include "DTUsuario.h"
 
 
-class DTHuesped:public DTUsuario{
+class DTHuesped: public DTUsuario{
     private:
         bool esFinger;
     public:

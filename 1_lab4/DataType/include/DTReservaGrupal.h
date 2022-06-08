@@ -2,6 +2,7 @@
 #ifndef DTRESG
 #define DTRESG
 
+#include "DTHuesped.h"//
 #include"DTReserva.h"
 
 class DTReservaGrupal: public DTReserva{

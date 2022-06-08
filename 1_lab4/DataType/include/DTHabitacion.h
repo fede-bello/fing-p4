@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<string>
+#include "DTReserva.h"//
 #include"DTFecha.h"
 
 using namespace std;

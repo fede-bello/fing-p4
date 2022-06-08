@@ -2,6 +2,8 @@
 #ifndef DTRES
 #define DTRES
 
+#include "DTEstadia.h"//
+#include "DTHuesped.h"//
 #include"DTFecha.h"
 
 enum EstadoReserva {
