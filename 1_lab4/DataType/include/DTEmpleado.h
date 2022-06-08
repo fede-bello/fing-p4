@@ -11,6 +11,8 @@ enum CargoEmp{
 
 class DTEmpleado: public DTUsuario{
     private:
+        //Falta pseudo atributo para DTHostal y DTCalificacion
+
         CargoEmp Cargo;
         //Esto no se si va, no se si los DT tienen cosas asociadas
         /* Hostal *hos; */

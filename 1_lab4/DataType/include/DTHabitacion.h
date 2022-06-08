@@ -11,6 +11,7 @@ using namespace std;
 
 class DTHabitacion{
     private:
+        //Falta pseudo atributo para DTReserva
         int Numero, Capacidad;
         float Precio;
     public:

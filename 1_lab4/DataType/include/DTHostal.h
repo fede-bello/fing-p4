@@ -4,10 +4,11 @@
 #include<iostream>
 #include<string>
 #include "DTHabitacion.h"
-#include "DTHabitacion.h"
+
 
 class DTHostal{
     private:
+        //Falta pseudo atributo para DTHabitacion
         string Nombre;
         string Direccion;
         int Telefono;

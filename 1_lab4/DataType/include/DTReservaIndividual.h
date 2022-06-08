@@ -2,7 +2,6 @@
 #ifndef DTRESI
 #define DTRESI
 
-
 #include"DTReserva.h"
 
 class DTReservaIndividual: public DTReserva{

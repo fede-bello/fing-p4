@@ -7,6 +7,7 @@
 
 class DTReservaGrupal: public DTReserva{
     private:
+        //Falta pseudo atributo para DTHuesped
         int Cantidad;
         //Van los huespedes asociados?
     public:

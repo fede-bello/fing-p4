@@ -8,6 +8,7 @@
 
 class DTCalificacion{
     private:
+        //Falta pseudo atributo para DTHuesped
         int Numero;
         string Comentario;
         string Respuesta;

@@ -12,6 +12,7 @@ enum EstadoReserva {
 
 class DTReserva{
     protected: 
+        //Falta pseudo atributo para DTHuesped y DTEstadia
         int Codigo;
         DTFecha CheckIn, CheckOut;
         EstadoReserva Estado;

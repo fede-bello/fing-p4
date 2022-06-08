@@ -9,6 +9,7 @@
 
 class DTEstadia{
     private:
+        //Falta pseudo atributo para DTHuesped y DTCalificacion
         DTFecha CheckIn;
         DTFecha CheckOut;
         int identificador;
