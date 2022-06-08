@@ -1,6 +1,6 @@
 
 
-#include"../include/UsuarioHuesped.h"
+#include"../include/Huesped.h"
 using namespace std;
 
 //creadoras
@@ -20,10 +20,17 @@ bool Huesped::getEsFinger(){
     return this->esFinger;
 };
 
-void setEsFinger(bool finger){
+void Huesped::setEsFinger(bool finger){
     this->esFinger = finger;
 }
 
+DTHuesped Huesped::getDTHuesped(){
+    return DTHuesped(this->Nombre, this->Password, this->Mail, this->esFinger);
+}
+
+bool Huesped::mismoMail(string email){
+    return (this->Mail==email);
+}
 //destructoras
 
 Huesped::~Huesped(){ 

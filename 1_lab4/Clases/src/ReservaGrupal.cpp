@@ -1,4 +1,6 @@
-#include"../include/ReservaGrupal.h"
+#include"Reserva.cpp"
+#include "../include/ReservaGrupal.h"
+
 
 ReservaGrupal::ReservaGrupal():Reserva(){
     this->huespedes = new Huesped*[MAX_HUESPEDES];
@@ -11,17 +13,17 @@ ReservaGrupal::ReservaGrupal():Reserva(){
 
 }
 
-ReservaGrupal::ReservaGrupal(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad,Huesped **Arreglo):Reserva(codigo, checkIn, checkOut, estado, cantidad){
+ReservaGrupal::ReservaGrupal(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad):Reserva(codigo, checkIn, checkOut, estado){
     
-    this->huespedes = Arreglo;
+    this->Cantidad=cantidad;
 
 }
 
-int Reserva::getCantidad(){
+int ReservaGrupal::getCantidad(){
     return this->Cantidad;
 }
 
-void Reserva::setCantidad(int cantidad){
+void ReservaGrupal::setCantidad(int cantidad){
     this->Cantidad = cantidad;
 }
 
@@ -36,7 +38,7 @@ void ReservaGrupal::setHuespedes(Huesped** arreglo_huespedes){
     this->huespedes = arreglo_huespedes;
 }
 
-float ReservaGrupal::calcularCosto(){
+/*float ReservaGrupal::calcularCosto(){
     float costo;
 
     int i = 0;
@@ -62,5 +64,5 @@ float ReservaGrupal::calcularCosto(){
     }
 
     return costo;
-}
+}*/
 

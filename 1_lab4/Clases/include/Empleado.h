@@ -22,10 +22,12 @@ class Empleado: public Usuario{
         Calificacion* getCalificacion();
         void setCargo(CargoEmp Cargo);
         void setHostal(Hostal *hos);
-        void setCalificacion(Calificacion *calif)
+        void setCalificacion(Calificacion *calif);
         //Operaciones
         bool empleadoAsignadoAHostal();
         //asignarHostal es lo mismo que setHostal
+        DTEmpleado getDTEmpleado();
+        bool mismoMail(string email);
 
         //Destructora
         ~Empleado();

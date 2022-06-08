@@ -9,7 +9,7 @@ class ReservaIndividual: public Reserva{
     public:
         //constructor
         ReservaIndividual();
-        ReservaIndividual(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado,float costo);
+        ReservaIndividual(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado);
         //destructor
         ~ReservaIndividual();
 };

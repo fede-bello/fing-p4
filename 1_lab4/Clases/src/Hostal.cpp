@@ -1,9 +1,9 @@
 #include "../include/Hostal.h"
 
 Hostal::Hostal(){
-    this->nombre='.';
-    this->nireccion='.';
-    this->telefono=0;
+    this->Nombre='.';
+    this->Direccion='.';
+    this->Telefono=0;
 }
 
 Hostal::Hostal(string Nombre,string Direccion,int Telefono){

@@ -1,6 +1,6 @@
 
 #include"../include/Reserva.h"
-
+#include"../../DataType/src/DTFecha.cpp"
 
 //Constructoras Reserva
 
@@ -9,15 +9,13 @@ Reserva::Reserva(){
     this->checkOut = DTFecha();
     this->estado = Abierta;
     this->codigo = 0;
-    this->cantidad=0;
 }
 
-Reserva::Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad){
+Reserva::Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado){
     this->checkOut = checkOut;
     this->checkIn = checkIn;
     this->estado = estado;
     this->codigo = codigo;
-    this->cantidad=cantidad;
 }
 
 
@@ -70,7 +68,7 @@ void Reserva::setEstado(EstadoReserva estado){
     this->estado = estado;
 }
 
-void Reserva::setEstadia(Estadia *estadia);{
+void Reserva::setEstadia(Estadia *estadia){
     this->est = estadia;
 }
 

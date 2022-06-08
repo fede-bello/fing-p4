@@ -8,6 +8,7 @@
 #include"../../DataType/include/DTEstadia.h"
 #include"../../DataType/include/DTFecha.h"
 
+
 class Estadia{
     private:
         int identificador;
@@ -17,19 +18,18 @@ class Estadia{
         Huesped *hues;
         //promo y costo ya no son necesarios
     public:
-        Estadia(int identidicador,DTFecha CheckIn);
-        Estadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
-        //no se si se precisa esto
-        int getidentificador();
+        Estadia();
+        Estadia(int identificador,DTFecha CheckIn,DTFecha CheckOut);
+        int getIdentificador();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         Calificacion* getCalificacion();
         DTEstadia getDTEstadia();
         Huesped* getHuesped();
-        void setidentificador(int identificador);
+        void setIdentificador(int identificador);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
-        void setCalificacion(Calificacion calif);
+        void setCalificacion(Calificacion *calif);
         void setHuesped(Huesped *huesped);
         ~Estadia();
 };

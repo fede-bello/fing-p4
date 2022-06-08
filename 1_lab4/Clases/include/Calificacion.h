@@ -13,9 +13,9 @@ class Calificacion{
         string Comentario;
         string Respuesta;
         DTFecha Fecha;
+        int identificador;
         Huesped *hues;
-        //no inclui identificador, 
-        //no me parecio necesario por que esta linkeada a una unica reserva
+        
     public:
         Calificacion(int cod,string Comentario,DTFecha realizada);
         //no se si se precisa esto
@@ -23,11 +23,13 @@ class Calificacion{
         string getComentario();
         string getRespuesta();
         DTFecha getFecha();
-        Huesped* getHuesped();
+        int getIdentificador();
+        Huesped* getHuesped();        
         void setNumero(int numero);
         void setComentario(string Comentario);
         void setRespuesta(string respuesta);
         void setFecha(DTFecha fecha);
+        void setIdentificador(int identificador);
         void setHuesped(Huesped *huesped);
         ~Calificacion();
 };

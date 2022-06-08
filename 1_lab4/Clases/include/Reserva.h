@@ -16,7 +16,7 @@ class Reserva{
     public:
         //constructores
         Reserva();
-        Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad);
+        Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado);
         //destructor
         ~Reserva();
         //operaciones

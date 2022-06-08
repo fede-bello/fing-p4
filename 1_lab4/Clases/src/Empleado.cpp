@@ -52,6 +52,14 @@ bool Empleado::empleadoAsignadoAHostal(){
     return res;
 }
 
+DTEmpleado Empleado::getDTEmpleado(){
+    return DTEmpleado(this->Nombre, this->Password, this->Mail, this->Cargo);
+}
+
+bool Empleado::mismoMail(string email){
+    return (this->Mail==email);
+}
+
 
 
 //Destructora

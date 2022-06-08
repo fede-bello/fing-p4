@@ -1,18 +1,19 @@
 #include "../include/Estadia.h"
+#include"../../DataType/src/DTFecha.cpp"
  
-Estadia::Estadia(int identidicador,DTFecha CheckIn){
-    this->CheckIn=CheckIn;
-    this->identificador=identidicador;
+Estadia::Estadia(){
+    this->CheckIn=DTFecha();
+    this->identificador=0;
     this->CheckOut=DTFecha();
-    this->calificacion=NULL;
+    this->calif=NULL;
 }
-Estadia::Estadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut){
-    this->identificador=identidicador;
+Estadia::Estadia(int identificador,DTFecha CheckIn,DTFecha CheckOut){
+    this->identificador=identificador;
     this->CheckIn=CheckIn;
     this->CheckOut=CheckOut;
-    this->calificacion=NULL;
+    this->calif=NULL;
 }
-int Estadia::getidentificador(){
+int Estadia::getIdentificador(){
     return this->identificador;
 }
 DTFecha Estadia::getCheckIn(){
@@ -32,14 +33,14 @@ DTEstadia Estadia::getDTEstadia(){
         DTEstadia res=DTEstadia(this->identificador, this->CheckIn);
         return res;
     } ERROR DE COPILACION AL LLAMAR AL OPERATOR== DE THIS->CHECKOUT*/
-    return DTEstadia(this->Identificador, this->CheckIn,this->CheckOut);
+    return DTEstadia(this->identificador, this->CheckIn,this->CheckOut);
 }
 
-Huesped* Reserva::getHuesped(){
+Huesped* Estadia::getHuesped(){
     return this->hues;
 }
 
-void Estadia::setidentificador(int identificador){
+void Estadia::setIdentificador(int identificador){
     this->identificador = identificador;
 }
 
@@ -51,16 +52,16 @@ void Estadia::setCheckOut(DTFecha checkOut){
     this->CheckOut = checkOut;
 }
 
- void Estadia::setCalificacion(Calificacion calif){
+ void Estadia::setCalificacion(Calificacion *calif){
      this->calif = calif;
  }
 
-void Reserva::setHuesped(Huesped *huesped){
+void Estadia::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
 Estadia::~Estadia(){
-    this->calificacion->~Calificacion();
+    
 
 }
 

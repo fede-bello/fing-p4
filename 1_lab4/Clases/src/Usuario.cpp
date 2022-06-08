@@ -27,15 +27,15 @@ string Usuario::getMail(){
     return this->Mail;
 }
 
-void setNombre(string Nombre){
+void Usuario::setNombre(string Nombre){
     this->Nombre = Nombre;
 }
 
-void setPassword(string Password){
+void Usuario::setPassword(string Password){
     this->Password = Password;
 }
 
-void setMail(string Mail){
+void Usuario::setMail(string Mail){
     this->Mail = Mail;
 }
 

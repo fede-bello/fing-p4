@@ -23,7 +23,11 @@ DTFecha Calificacion::getFecha(){
     return this->Fecha;
 }
 
-Huesped* Reserva::getHuesped(){
+int Calificacion::getIdentificador(){
+    return this->identificador;
+}
+
+Huesped* Calificacion::getHuesped(){
     return this->hues;
 }
 
@@ -43,7 +47,11 @@ void Calificacion::setFecha(DTFecha fecha){
     this->Fecha = fecha;
 }
 
-void Reserva::setHuesped(Huesped *huesped){
+void Calificacion::setIdentificador(int identificador){
+    this->identificador = identificador;
+}
+
+void Calificacion::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 

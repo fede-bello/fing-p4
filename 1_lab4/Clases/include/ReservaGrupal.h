@@ -9,11 +9,11 @@
 class ReservaGrupal: public Reserva{ 
     private:
         int Cantidad;
-        Huesped** huespedes;
+        Huesped** huespedes; //esto creo que hay que modelarlo como un map
     public:
         //constructor
         ReservaGrupal();
-        ReservaGrupal(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad,Huesped **Arreglo);
+        ReservaGrupal(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva estado, int cantidad);
         //set y get
         int getCantidad();
         void setCantidad(int cantidad);
@@ -22,7 +22,7 @@ class ReservaGrupal: public Reserva{
         //operaciones
         Huesped** getHuespedes();
         void setHuespedes(Huesped** arreglo_huespedes);       
-        virtual float calcularCosto();
+        //virtual float calcularCosto();
 };
 
 #endif
