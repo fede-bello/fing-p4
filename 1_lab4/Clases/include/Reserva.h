@@ -3,8 +3,8 @@
 
 #include "Estadia.h"
 #include "Huesped.h"
-#include "../../DataType/include/DTReservaIndividual.h"
-#include "../../DataType/include/DTReservaGrupal.h"
+#include "../../DataType/include/DTReserva.h"
+#include"../../DataType/include/DTFecha.h"
 
 class Reserva{
     protected:

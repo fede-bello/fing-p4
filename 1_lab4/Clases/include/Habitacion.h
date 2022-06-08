@@ -4,7 +4,6 @@
 #include<iostream>
 #include<string>
 #include "Reserva.h"
-#include"../../DataType/include/DTFecha.h"
 #include "../../DataType/include/DTHabitacion.h"
 
 class Habitacion{

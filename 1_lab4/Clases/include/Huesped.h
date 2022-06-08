@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include<string>
+#include "Usuario.h"
 #include"../../DataType/include/DTHuesped.h"
 
 

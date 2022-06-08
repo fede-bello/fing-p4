@@ -3,6 +3,7 @@
 
 #include "Reserva.h"
 #include "../../DataType/include/DTReservaIndividual.h"
+#include "../../DataType/include/DTFecha.h"
 
 class ReservaIndividual: public Reserva{
     public:

@@ -3,8 +3,8 @@
 
 #include "Hostal.h"
 #include "Calificacion.h"
-#include "../../DataType/include/DTEmpleado.h"
 #include "Usuario.h"
+#include "../../DataType/include/DTEmpleado.h"
 
 class Empleado: public Usuario{
     private:

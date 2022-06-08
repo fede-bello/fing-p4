@@ -6,6 +6,7 @@
 #include"Calificacion.h"
 #include "Huesped.h"
 #include"../../DataType/include/DTEstadia.h"
+#include"../../DataType/include/DTFecha.h"
 
 class Estadia{
     private:

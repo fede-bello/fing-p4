@@ -2,7 +2,9 @@
 #define RESG
 
 #include "Reserva.h"
+#include "Huesped.h"
 #include "../../DataType/include/DTReservaGrupal.h"
+#include "../../DataType/include/DTFecha.h"
 
 class ReservaGrupal: public Reserva{ 
     private:
