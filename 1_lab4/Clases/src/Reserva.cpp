@@ -39,8 +39,8 @@ DTFecha Reserva::getCheckOut(){
     return this->checkOut;
 }
 
-Habitacion* Reserva::getHabitacion(){
-    return this->hab;
+Estadia* Reserva::getEstadia(){
+    return this->est;
 }
 
 Huesped* Reserva::getHuesped(){
@@ -69,8 +69,8 @@ void Reserva::setEstado(EstadoReserva estado){
     this->estado = estado;
 }
 
-void Reserva::setHabitacion(Habitacion *habitacion){
-    this->hab = habitacion;
+void Reserva::setEstadia(Estadia *estadia);{
+    this->est = estadia;
 }
 
 void Reserva::setHuesped(Huesped *huesped){
@@ -78,14 +78,13 @@ void Reserva::setHuesped(Huesped *huesped){
 }
 
 //Calcular Costo
-float Reserva::calcularCosto(){
-    float costo;
-    Habitacion *habitacion = this->hab;
-    int diasReserva = this->checkOut.diferenciasFechas(this->checkIn);
+// float Reserva::calcularCosto(){
+//     float costo;
+//     Habitacion *habitacion = this->hab;
+//     int diasReserva = this->checkOut.diferenciasFechas(this->checkIn);
 
-    costo = habitacion->getPrecio() * diasReserva;
+//     costo = habitacion->getPrecio() * diasReserva;
 
-    return costo;
-}
+//     return costo;
+// }
 
-//Constructora ReservaIndividual

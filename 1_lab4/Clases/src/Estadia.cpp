@@ -23,7 +23,7 @@ DTFecha Estadia::getCheckOut(){
 }
 
 Calificacion* Estadia::getCalificacion(){
-    return this->calificacion;
+    return this->calif;
 }
 
 DTEstadia Estadia::getDTEstadia(){
@@ -33,6 +33,10 @@ DTEstadia Estadia::getDTEstadia(){
         return res;
     } ERROR DE COPILACION AL LLAMAR AL OPERATOR== DE THIS->CHECKOUT*/
     return DTEstadia(this->Identificador, this->CheckIn,this->CheckOut);
+}
+
+Huesped* Reserva::getHuesped(){
+    return this->hues;
 }
 
 void Estadia::setidentificador(int identificador){
@@ -48,8 +52,12 @@ void Estadia::setCheckOut(DTFecha checkOut){
 }
 
  void Estadia::setCalificacion(Calificacion calif){
-     this->calificacion = calif;
+     this->calif = calif;
  }
+
+void Reserva::setHuesped(Huesped *huesped){
+    this->hues = huesped;    
+}
 
 Estadia::~Estadia(){
     this->calificacion->~Calificacion();

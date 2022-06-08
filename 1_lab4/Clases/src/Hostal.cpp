@@ -29,6 +29,10 @@ DTHostal Hostal::getDTHostal(){
     return res;
 }
 
+Habitacion* Hostal::getHabitacion(){
+    return this->hab;
+}
+
 void Hostal::setNombre(string nombre){
     this->Nombre = nombre;
 }
@@ -39,6 +43,10 @@ void Hostal::setDireccion(string direccion){
 
 void Hostal::setTelefono(int telefono){
     this->Telefono = telefono;
+}
+
+void Hostal::setHabitacion(Habitacion *hab){
+    this->hab = hab; 
 }
 
 Hostal::~Hostal(){

@@ -2,6 +2,7 @@
 #define EMPL
 
 #include "Hostal.h"
+#include "Calificacion.h"
 #include "../../DataType/include/DTEmpleado.h"
 #include "Usuario.h"
 
@@ -9,6 +10,7 @@ class Empleado: public Usuario{
     private:
         CargoEmp Cargo;
         Hostal *hos;
+        Calificacion *calif;
 
     public:
         //Constructoras
@@ -17,8 +19,10 @@ class Empleado: public Usuario{
         //Setters y getters
         CargoEmp getCargo();
         Hostal* getHostal();
+        Calificacion* getCalificacion();
         void setCargo(CargoEmp Cargo);
         void setHostal(Hostal *hos);
+        void setCalificacion(Calificacion *calif)
         //Operaciones
         bool empleadoAsignadoAHostal();
         //asignarHostal es lo mismo que setHostal

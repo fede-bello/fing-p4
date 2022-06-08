@@ -1,7 +1,7 @@
 #ifndef RES
 #define RES
 
-#include "Habitacion.h"
+#include "Estadia.h"
 #include "Huesped.h"
 #include "../../DataType/include/DTReservaIndividual.h"
 #include "../../DataType/include/DTReservaGrupal.h"
@@ -11,8 +11,8 @@ class Reserva{
         int codigo;
         DTFecha checkIn,checkOut;
         EstadoReserva estado;
-        Habitacion *hab;
         Huesped *hues;
+        Estadia *est;
     public:
         //constructores
         Reserva();
@@ -20,19 +20,18 @@ class Reserva{
         //destructor
         ~Reserva();
         //operaciones
-        void aumentarCantidad();
-        virtual float calcularCosto();
+        //virtual float calcularCosto();
         int getCodigo();
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         EstadoReserva getEstado();     
-        Habitacion* getHabitacion();
+        Estadia* getEstadia();
         Huesped* getHuesped();
         void setCodigo(int codigo);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
         void setEstado(EstadoReserva estado);
-        void setHabitacion(Habitacion *habitacion);
+        void setEstadia(Estadia *estadia);
         void setHuesped(Huesped *huesped);
 };
 

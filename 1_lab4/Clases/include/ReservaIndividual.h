@@ -2,6 +2,7 @@
 #define RESI
 
 #include "Reserva.h"
+#include "../../DataType/include/DTReservaIndividual.h"
 
 class ReservaIndividual: public Reserva{
     public:

@@ -22,8 +22,12 @@ CargoEmp Empleado::getCargo(){
     return this->Cargo;
 }
 
-Hostal *Empleado::getHostal(){
+Hostal* Empleado::getHostal(){
     return this->hos;
+}
+
+Calificacion* Empleado::getCalificacion(){
+    return this->calif;
 }
 
 void Empleado::setCargo(CargoEmp Cargo){
@@ -33,6 +37,10 @@ void Empleado::setCargo(CargoEmp Cargo){
 
 void Empleado::setHostal(Hostal *hos){
     this->hos = hos;
+}
+
+void Empleado::setCalificacion(Calificacion *calif){
+    this->calif = calif;
 }
 
 //Operaciones 

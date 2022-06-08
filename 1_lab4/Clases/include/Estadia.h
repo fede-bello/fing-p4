@@ -3,15 +3,17 @@
 
 #include<iostream>
 #include<string>
-#include"../../DataType/include/DTEstadia.h"
 #include"Calificacion.h"
+#include "Huesped.h"
+#include"../../DataType/include/DTEstadia.h"
 
 class Estadia{
     private:
         int identificador;
         DTFecha CheckIn;
         DTFecha CheckOut;
-        Calificacion *calificacion;
+        Calificacion *calif;
+        Huesped *hues;
         //promo y costo ya no son necesarios
     public:
         Estadia(int identidicador,DTFecha CheckIn);
@@ -22,10 +24,12 @@ class Estadia{
         DTFecha getCheckOut();
         Calificacion* getCalificacion();
         DTEstadia getDTEstadia();
+        Huesped* getHuesped();
         void setidentificador(int identificador);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
-        void setCalificacion(Calificacion calif)
+        void setCalificacion(Calificacion calif);
+        void setHuesped(Huesped *huesped);
         ~Estadia();
 };
 

@@ -5,9 +5,6 @@ Habitacion:: Habitacion(){
 
 }
 
-Habitacion::~Habitacion(){
-}
-
 Habitacion:: Habitacion(int numero, int capacidad,float precio){
     this->numero=numero;
     this->capacidad=capacidad;
@@ -24,8 +21,11 @@ int Habitacion::getCap(){
 
 float Habitacion::getPrecio(){
         return this->precio;
- }
+}
 
+Reserva* Habitacion::getReserva(){
+    return this->res;
+}
 
 void Habitacion::setNum(int numero){
     this->numero=numero;
@@ -37,4 +37,11 @@ void Habitacion::setCap(int capacidad){
 
 void Habitacion::setPrecio(float precio){
     this->precio=precio;
+}
+
+  void Habitacion::setReserva(Reserva *res){
+      this->res = res;
+  }
+
+Habitacion::~Habitacion(){
 }

@@ -23,6 +23,10 @@ DTFecha Calificacion::getFecha(){
     return this->Fecha;
 }
 
+Huesped* Reserva::getHuesped(){
+    return this->hues;
+}
+
 void Calificacion::setNumero(int numero){
     this->Numero = numero;
 }
@@ -37,6 +41,10 @@ void Calificacion::setRespuesta(string respuesta){
 
 void Calificacion::setFecha(DTFecha fecha){
     this->Fecha = fecha;
+}
+
+void Reserva::setHuesped(Huesped *huesped){
+    this->hues = huesped;    
 }
 
 Calificacion::~Calificacion(){

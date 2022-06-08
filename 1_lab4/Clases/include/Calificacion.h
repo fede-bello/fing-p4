@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<string>
+#include "Huesped.h"
 #include"../../DataType/include/DTFecha.h"
 
 class Calificacion{
@@ -11,6 +12,7 @@ class Calificacion{
         string Comentario;
         string Respuesta;
         DTFecha Fecha;
+        Huesped *hues;
         //no inclui identificador, 
         //no me parecio necesario por que esta linkeada a una unica reserva
     public:
@@ -20,10 +22,12 @@ class Calificacion{
         string getComentario();
         string getRespuesta();
         DTFecha getFecha();
+        Huesped* getHuesped();
         void setNumero(int numero);
         void setComentario(string Comentario);
         void setRespuesta(string respuesta);
         void setFecha(DTFecha fecha);
+        void setHuesped(Huesped *huesped);
         ~Calificacion();
 };
 
