@@ -6,7 +6,7 @@ class ControladorFecha {
 private:
     static ControladorFecha * instancia;
     ControladorFecha();
-    DTFecha *fechaActual=NULL;
+    DTFecha fechaActual = DTFecha();
     
 public:
     static ControladorFecha * getInstance();
