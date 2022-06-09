@@ -24,15 +24,6 @@ int Hostal::getTelefono(){
     return this->Telefono;
 }
 
-DTHostal Hostal::getDTHostal(){
-    DTHostal res=DTHostal(this->Nombre,this->Direccion,this->Telefono);
-    return res;
-}
-
-Habitacion* Hostal::getHabitacion(){
-    return this->hab;
-}
-
 void Hostal::setNombre(string nombre){
     this->Nombre = nombre;
 }
@@ -49,6 +40,36 @@ void Hostal::setHabitacion(Habitacion *hab){
     this->hab = hab; 
 }
 
+//Operaciones
+DTHostal Hostal::getDTHostal(){
+    DTHostal res = DTHostal(this->Nombre,this->Direccion,this->Telefono);
+    return res;
+}
+
+//No se como hacerla, falta implementar la coleccion
+// DTHabitacion* Hostal::getHabitacion(){
+    
+// }
+
+//Asumo que es una coleccion de habitaciones
+DTHabitacion Hostal::infHab(int cres){
+    bool encontre = false;
+    int i = 0;
+    DTHabitacion res;
+    while(!encontre){
+        if(this->hab[i].getNum() == cres){
+            res = DTHabitacion(this->hab[i].getNum(), this->hab[i].getCap(), this->hab[i].getPrecio());
+            encontre = true;
+        } else{
+            i++;
+        }
+    }
+    return res;
+}
+
+
+
+//Destructora
 Hostal::~Hostal(){
 
 }
