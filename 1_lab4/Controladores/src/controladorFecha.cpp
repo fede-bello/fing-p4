@@ -5,31 +5,32 @@
 
 
 
-FechaControlador * FechaControlador::instancia = NULL;
+ControladorFecha * ControladorFecha::instancia = NULL;
 
-FechaControlador * FechaControlador::getInstance() {
+ControladorFecha * ControladorFecha::getInstance() {
     if (instancia == NULL)
-        instancia = new FechaControlador();
+        instancia = new ControladorFecha();
     return instancia;
 }
 
 
-void FechaControlador::ModificarFechaActual(DTFecha nuevo){
+void ControladorFecha::ModificarFechaActual(DTFecha nuevo){
     int dia=nuevo.getDia();
     int Mes=nuevo.getMes();
     int Anio=nuevo.getAnio();
+    int Hora = nuevo.getHora();
     if(this->fechaActual!=NULL)
         delete this->fechaActual;
-    this->fechaActual=new DTFecha(dia,Mes,Anio);
+    this->fechaActual = new DTFecha(dia,Mes,Anio, Hora);
 }
 
-FechaControlador::FechaControlador(){
+ControladorFecha::ControladorFecha(){
 } 
 
-DTFecha* FechaControlador:: getFechaActual(){
+DTFecha* ControladorFecha:: getFechaActual(){
     return this->fechaActual;
 }
 
-FechaControlador::~FechaControlador(){
+ControladorFecha::~ControladorFecha(){
     delete this->fechaActual;
 }

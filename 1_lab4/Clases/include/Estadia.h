@@ -7,6 +7,7 @@
 #include "Huesped.h"
 #include"../../DataType/include/DTEstadia.h"
 #include"../../DataType/include/DTFecha.h"
+#include"../../Controladores/include/controladorFecha.h"
 
 
 class Estadia{
@@ -20,17 +21,27 @@ class Estadia{
     public:
         Estadia();
         Estadia(int identificador,DTFecha CheckIn,DTFecha CheckOut);
-        int getIdentificador();
-        DTFecha getCheckIn();
-        DTFecha getCheckOut();
-        Calificacion* getCalificacion();
-        DTEstadia getDTEstadia();
-        Huesped* getHuesped();
-        void setIdentificador(int identificador);
-        void setCheckIn(DTFecha checkIn);
-        void setCheckOut(DTFecha checkOut);
-        void setCalificacion(Calificacion *calif);
-        void setHuesped(Huesped *huesped);
+        int getIdentificador(); //hecha
+        DTFecha getCheckIn();//hecha
+        DTFecha getCheckOut();//hecha
+        Calificacion* getCalificacion();//hecha
+        DTEstadia getDTEstadia();//hecha
+        Huesped* getHuesped();//hecha
+        void setIdentificador(int identificador);//hecha
+        void setCheckIn(DTFecha checkIn);//hecha
+        void setCheckOut(DTFecha checkOut);//hecha
+        void setCalificacion(Calificacion *calif);//hecha
+        void setHuesped(Huesped *huesped);//hecha
+        float calcularPuntajeEstadia();
+        //set(DTCalificacion) darCalificacionesEstadia();
+        bool estadiaActiva();//hecha
+        bool mismoCodigo(int codigo);//hecha
+        bool estaFinalizadaEstadia();
+        void registrarRespuesta(string respuesta, int codigoCalif);
+        bool mismaEstadia(int identificador);
+        DTHuesped huesEs();
+        DTCalificacion calificacionEstadia();
+        void calificarEst(DTHuesped hues);
         ~Estadia();
 };
 

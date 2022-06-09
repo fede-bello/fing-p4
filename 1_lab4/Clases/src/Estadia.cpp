@@ -60,6 +60,36 @@ void Estadia::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
+bool Estadia::estadiaActiva(){
+    DTFecha checkoutEstadia = this->getCheckOut();
+    DTFecha checkinEstadia = this->getCheckIn();
+    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //me parece que esto está mal hecho?...
+    DTFecha* fechaActual = controladorFecha->getFechaActual();
+    bool res = false;
+
+    DTFecha a_comparar = DTFecha(); //Si la fecha de checkout es distinta a la fecha definida en la constructora DTFecha es porque le cargaron una fecha de checkout (que se hace al finalizar la estadia)
+
+    if(checkinEstadia < !(checkoutEstadia == a_comparar)){ //acá tengo que ver si la fecha de checkIn es menor a fechaActual y si todavía no tiene checkOut la estadía
+        res = true;
+    }
+
+    return res;
+}
+
+bool Estadia::mismoCodigo(int codigo){
+    bool res = false;
+    
+    if(this->getIdentificador() == codigo){
+        res = true;
+    }else{
+        res = false;
+    }
+
+    return res;
+}
+
+
+
 Estadia::~Estadia(){
     
 
