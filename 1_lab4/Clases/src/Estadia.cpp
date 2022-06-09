@@ -63,7 +63,7 @@ void Estadia::setHuesped(Huesped *huesped){
 bool Estadia::estadiaActiva(){
     DTFecha checkoutEstadia = this->getCheckOut();
     DTFecha checkinEstadia = this->getCheckIn();
-    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //me parece que esto está mal hecho?...
+    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
     DTFecha* fechaActual = controladorFecha->getFechaActual();
     bool res = false;
 
