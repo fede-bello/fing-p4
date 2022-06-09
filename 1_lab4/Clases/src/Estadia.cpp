@@ -1,5 +1,6 @@
 #include "../include/Estadia.h"
-#include"../../DataType/src/DTFecha.cpp"
+#include"../../DataType/src/DTFecha.cpp" //este include no es innecesario?
+
  
 Estadia::Estadia(){
     this->CheckIn=DTFecha();
@@ -65,11 +66,12 @@ bool Estadia::estadiaActiva(){
     DTFecha checkinEstadia = this->getCheckIn();
     ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
     DTFecha* fechaActual = controladorFecha->getFechaActual();
+
     bool res = false;
 
     DTFecha a_comparar = DTFecha(); //Si la fecha de checkout es distinta a la fecha definida en la constructora DTFecha es porque le cargaron una fecha de checkout (que se hace al finalizar la estadia)
 
-    if(checkinEstadia < !(checkoutEstadia == a_comparar)){ //acá tengo que ver si la fecha de checkIn es menor a fechaActual y si todavía no tiene checkOut la estadía
+    if((checkinEstadia < fechaActual) && !(checkoutEstadia == a_comparar)){ //acá tengo que ver si la fecha de checkIn es menor a fechaActual y si todavía no tiene checkOut la estadía
         res = true;
     }
 
@@ -88,6 +90,20 @@ bool Estadia::mismoCodigo(int codigo){
     return res;
 }
 
+
+bool Estadia::estaFinalizadaEstadia(){
+    bool res = false;
+    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
+    DTFecha* fechaActual = controladorFecha->getFechaActual();
+
+    DTFecha checkinEstadia = this->getCheckIn();
+
+    if((checkinEstadia < fechaActual) && (!this->estadiaActiva())){ //si la fecha de checkin es menor a la fecha actual y la estadia no está más activa quiere decir que la estadía está finalizada
+        res = true;
+    }
+
+    return res;
+}
 
 
 Estadia::~Estadia(){

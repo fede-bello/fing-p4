@@ -34,9 +34,9 @@ class Estadia{
         void setHuesped(Huesped *huesped);//hecha
         float calcularPuntajeEstadia();
         //set(DTCalificacion) darCalificacionesEstadia();
-        bool estadiaActiva();//hecha
+        bool estadiaActiva();//hecha la logica con errores por controladorFecha
         bool mismoCodigo(int codigo);//hecha
-        bool estaFinalizadaEstadia();
+        bool estaFinalizadaEstadia();//hecha la logica  con errores por controladorFecha
         void registrarRespuesta(string respuesta, int codigoCalif);
         bool mismaEstadia(int identificador);
         DTHuesped huesEs();
