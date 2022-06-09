@@ -1,6 +1,6 @@
 
 #include"../include/DTHuesped.h"
-#include "DTUsuario.cpp"
+
 
 //datatype
 DTHuesped::DTHuesped():DTUsuario(){

@@ -1,12 +1,10 @@
 #ifndef EST
 #define EST
 
-#include<iostream>
-#include<string>
+
 #include"Calificacion.h"
 #include "Huesped.h"
 #include"../../DataType/include/DTEstadia.h"
-#include"../../DataType/include/DTFecha.h"
 #include"../../Controladores/include/controladorFecha.h"
 
 
@@ -32,9 +30,9 @@ class Estadia{
         void setCheckOut(DTFecha checkOut);//hecha
         void setCalificacion(Calificacion *calif);//hecha
         void setHuesped(Huesped *huesped);//hecha
-        float calcularPuntajeEstadia();
+        //float calcularPuntajeEstadia(); Esta funcion esta mal, una estadia tiene una calificacion asociada
         //set(DTCalificacion) darCalificacionesEstadia();
-        bool estadiaActiva();//hecha la logica con errores por controladorFecha
+        //bool estadiaActiva();//hecha la logica con errores por controladorFecha
         bool mismoCodigo(int codigo);//hecha
         bool estaFinalizadaEstadia();//hecha la logica  con errores por controladorFecha
         void registrarRespuesta(string respuesta, int codigoCalif);

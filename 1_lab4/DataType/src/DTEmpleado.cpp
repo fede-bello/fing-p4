@@ -1,10 +1,9 @@
 #include"../include/DTEmpleado.h"
-#include "DTUsuario.cpp"
+
 
 //Constructoras
 DTEmpleado::DTEmpleado():DTUsuario(){
         this->Cargo=Limpieza;
-    
 }
 
 DTEmpleado::DTEmpleado(string Nombre, string Password, string Mail, CargoEmp Cargo):DTUsuario(Nombre, Password, Mail){

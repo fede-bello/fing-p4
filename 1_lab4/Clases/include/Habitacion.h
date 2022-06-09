@@ -1,8 +1,7 @@
 #ifndef HAB
 #define HAB
 
-#include<iostream>
-#include<string>
+
 #include "Reserva.h"
 #include "../../DataType/include/DTHabitacion.h"
 

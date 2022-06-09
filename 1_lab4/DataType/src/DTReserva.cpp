@@ -1,5 +1,5 @@
 #include "../include/DTReserva.h"
-#include "DTFecha.cpp"
+
 
 
 using namespace std;
@@ -20,7 +20,6 @@ DTReserva::DTReserva(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReser
     this->Estado = Estado;
     this->Costo = Costo;
 }
-
 
 //gets
 
@@ -45,6 +44,7 @@ float DTReserva::getCosto(){
 }
 
 // operator
+
 bool DTReserva:: operator== (const DTReserva &r1) const{
     return (this->Codigo==r1.Codigo);
 }

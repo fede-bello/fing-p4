@@ -1,9 +1,8 @@
 #include "../include/DTReservaIndividual.h"
-#include "DTReserva.cpp"
 
 
-DTReservaIndividual:: DTReservaIndividual():DTReserva(){
-    
+
+DTReservaIndividual:: DTReservaIndividual():DTReserva(){   
 }
 
 DTReservaIndividual::DTReservaIndividual(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo):DTReserva(Codigo, CheckIn, CheckOut, Estado, Costo){

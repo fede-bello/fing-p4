@@ -4,7 +4,6 @@
 
 
 
-
 ControladorFecha * ControladorFecha::instancia = NULL;
 
 ControladorFecha * ControladorFecha::getInstance() {

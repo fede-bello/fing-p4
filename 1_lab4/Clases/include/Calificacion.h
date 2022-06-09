@@ -1,8 +1,7 @@
 #ifndef CAL
 #define CAL
 
-#include<iostream>
-#include<string>
+
 #include "Huesped.h"
 #include"../../DataType/include/DTFecha.h"
 #include"../../DataType/include/DTCalificacion.h"

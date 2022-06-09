@@ -1,5 +1,3 @@
-
-
 #include"../include/DTFecha.h"
 
 //Contructores
@@ -11,15 +9,12 @@ DTFecha::DTFecha(){
     this->hora=0;
 }
 
-
 DTFecha::DTFecha(int d, int m, int a,int h){
     this->dia=d;       
     this->mes=m;     
     this->anio=a;
     this->hora=h;     
 }
-
-
 
 //getters
 int DTFecha::getAnio(){

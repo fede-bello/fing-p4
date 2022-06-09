@@ -1,5 +1,5 @@
 #include"../include/ReservaIndividual.h"
-#include"Reserva.cpp"
+
 
 ReservaIndividual::ReservaIndividual():Reserva(){
     

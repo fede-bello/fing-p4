@@ -1,7 +1,5 @@
 #include "../include/Estadia.h"
-#include"../../DataType/src/DTFecha.cpp" //este include no es innecesario?
 
- 
 Estadia::Estadia(){
     this->CheckIn=DTFecha();
     this->identificador=0;
@@ -14,9 +12,11 @@ Estadia::Estadia(int identificador,DTFecha CheckIn,DTFecha CheckOut){
     this->CheckOut=CheckOut;
     this->calif=NULL;
 }
+
 int Estadia::getIdentificador(){
     return this->identificador;
 }
+
 DTFecha Estadia::getCheckIn(){
     return this->CheckIn;
 }
@@ -61,10 +61,12 @@ void Estadia::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
-bool Estadia::estadiaActiva(){
+/*bool Estadia::estadiaActiva(){
     DTFecha checkoutEstadia = this->getCheckOut();
     DTFecha checkinEstadia = this->getCheckIn();
-    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
+    ControladorFecha * controladorFecha = new 
+    
+    ControladorFecha ->getInstance(); //no logro que haga bien la asociacion con el .h...
     DTFecha* fechaActual = controladorFecha->getFechaActual();
 
     bool res = false;
@@ -76,7 +78,7 @@ bool Estadia::estadiaActiva(){
     }
 
     return res;
-}
+}*/
 
 bool Estadia::mismoCodigo(int codigo){
     bool res = false;
@@ -91,7 +93,7 @@ bool Estadia::mismoCodigo(int codigo){
 }
 
 
-bool Estadia::estaFinalizadaEstadia(){
+/*bool Estadia::estaFinalizadaEstadia(){
     bool res = false;
     ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
     DTFecha* fechaActual = controladorFecha->getFechaActual();
@@ -103,7 +105,7 @@ bool Estadia::estaFinalizadaEstadia(){
     }
 
     return res;
-}
+}*/
 
 
 Estadia::~Estadia(){

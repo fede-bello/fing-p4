@@ -1,5 +1,5 @@
 #include "../include/Calificacion.h"
-#include"../../DataType/src/DTCalificacion.cpp"
+
 
 
 Calificacion::Calificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador){

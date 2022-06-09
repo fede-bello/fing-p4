@@ -1,8 +1,7 @@
 #ifndef US
 #define US
 
-#include <iostream>
-#include <string>
+
 #include "../../DataType/include/DTUsuario.h"
 
 class Usuario{

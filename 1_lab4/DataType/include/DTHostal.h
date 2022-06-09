@@ -1,8 +1,7 @@
 #ifndef DTHOS
 #define DTHOS
 
-#include<iostream>
-#include<string>
+
 #include "DTHabitacion.h"
 
 

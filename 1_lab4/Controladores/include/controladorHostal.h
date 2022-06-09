@@ -1,7 +1,7 @@
 #ifndef CONTH
 #define CONTH
 
-#include"../../DataType/include/DTHostal.h"
+#include"../../Clases/include/Hostal.h"
 #include"ControladorReserva.h"
 
 class ControladorHostal{ //en los singleton los contructores son funciones privadas

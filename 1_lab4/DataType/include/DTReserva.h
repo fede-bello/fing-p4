@@ -4,7 +4,7 @@
 
 #include "DTEstadia.h"//
 #include "DTHuesped.h"//
-#include"DTFecha.h"
+#include "DTFecha.h"
 
 enum EstadoReserva {
     Abierta, Cerrada  

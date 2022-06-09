@@ -1,4 +1,4 @@
-#include"Reserva.cpp"
+
 #include "../include/ReservaGrupal.h"
 
 

@@ -1,6 +1,6 @@
 
 #include"../include/Reserva.h"
-#include"../../DataType/src/DTFecha.cpp"
+
 
 //Constructoras Reserva
 

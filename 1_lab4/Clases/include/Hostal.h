@@ -1,7 +1,7 @@
 #ifndef HOS
 #define HOS
 
-#include<string>
+
 #include "Habitacion.h"
 #include "../../DataType/include/DTHostal.h"
 #include "../../DataType/include/DTHabitacion.h"

@@ -1,10 +1,9 @@
 #include "../include/DTReservaGrupal.h"
-#include "DTReserva.cpp"
+
 
 
 
 DTReservaGrupal::DTReservaGrupal():DTReserva(){
-
 }
 
 DTReservaGrupal::DTReservaGrupal(int Codigo , DTFecha CheckIn, DTFecha CheckOut, EstadoReserva estado, float Costo, int Cantidad):DTReserva(Codigo, CheckIn, CheckOut, Estado, Costo){
@@ -17,6 +16,9 @@ DTReservaGrupal::~DTReservaGrupal(){
 
 //get DTReserva Grupal
 
+DTHuesped** DTReservaGrupal::getHuespedes(){
+    return this->huespedes;
+} 
 
 
 

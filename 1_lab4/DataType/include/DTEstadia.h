@@ -1,8 +1,7 @@
 #ifndef DTEST
 #define DTEST
 
-#include<iostream>
-#include<string>
+
 #include"DTCalificacion.h"//
 #include "DTHuesped.h"//
 #include "DTFecha.h"

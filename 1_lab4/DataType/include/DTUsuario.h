@@ -1,10 +1,10 @@
 #ifndef DTUS
 #define DTUS
-using namespace std;
+
 
 #include<iostream>
 #include<string>
-
+using namespace std;
 class DTUsuario{
     protected:
         string Nombre, Password, Mail;

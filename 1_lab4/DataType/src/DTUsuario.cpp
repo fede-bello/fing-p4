@@ -8,6 +8,7 @@ DTUsuario::DTUsuario(){
     this->Mail='.';
     
 }
+
 DTUsuario::DTUsuario(string Nombre, string Password, string Mail){
     this->Nombre=Nombre;
     this->Password=Password;
