@@ -47,7 +47,7 @@ void Empleado::setCalificacion(Calificacion *calif){
 
 bool Empleado::empleadoAsignadoAHostal(){
     bool res = true;
-    if (this->hos = NULL)
+    if (this->hos == NULL)
         res = false;
     return res;
 }
