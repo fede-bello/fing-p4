@@ -23,7 +23,7 @@ class Habitacion{
         void setReserva(Reserva *res);
 
         //Operaciones
-        bool habitacionLibre(In,Out);//hay que modificar cosas, falta implementar coleeciones
+        bool habitacionLibre(DTFecha In,DTFecha Out);//hay que modificar cosas, falta implementar coleeciones
 
         DTHabitacion getDTHabitacion();
 
@@ -35,7 +35,7 @@ class Habitacion{
 
         //DTHuesped* obtenerHuesprResHab(nr);
 
-        bool buscarReserva(cres);
+        bool buscarReserva(int cres);
         void eliminarLinkRes();
 
         //Destructora

@@ -35,13 +35,15 @@ public:
 
     int darNumHab(Reserva nr);
 
-    DTHuesped huespedes(nr);
+    DTHuesped huespedes(Reserva nr);
+
+    DTHabitacion infHab(int cres);
     
     DTHabitacion infoHab(int cres);
 
     void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de acceder a reserva desde hostal
 
-    void AsociarReservaHostal(r,habitacion);
+    void AsociarReservaHostal(int r,int habitacion );
 
     //Destructoras
     ~Hostal();

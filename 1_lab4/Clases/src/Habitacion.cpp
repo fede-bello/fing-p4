@@ -45,8 +45,8 @@ void Habitacion::setReserva(Reserva *res){
 
 
 //hay que modificar cosas, falta implementar coleeciones
-bool habitacionLibre(In,Out){
-    int maxReservas = 0; //lo hago solo para que compile, representa el numero de reservas asociadas a una habitacion
+bool habitacionLibre(DTFecha In,DTFecha Out){
+    /*int maxReservas = 0; //lo hago solo para que compile, representa el numero de reservas asociadas a una habitacion
     bool libre = true;
     int i = 0;
     while(i <= maxReservas && libre){ 
@@ -54,18 +54,21 @@ bool habitacionLibre(In,Out){
             libre = false;
         }//pruebo esto para cada reserva de la habitacion
     }
-    return libre;
+    return libre;*/
+    return false;
 }
 
-DTHabitacion getDTHabitacion(){
-    return DTHabitacion(this->Numero, this->Capacidad, this->Precio);
+DTHabitacion Habitacion::getDTHabitacion(){
+    DTHabitacion res=DTHabitacion(this->Numero, this->Capacidad, this->Precio);
+    return res;
 }
 
-bool buscarReserva(cres){
-    return this->res.getCodigo() == cres;
+bool Habitacion:: buscarReserva(int cres){
+    //return this->res.getCodigo() == cres;
+    return false;
 }
 
-void eliminarLinkRes(){
+void Habitacion::eliminarLinkRes(){
     this->res == NULL;
 }
 
