@@ -61,13 +61,12 @@ void Estadia::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
-/*bool Estadia::estadiaActiva(){
+bool Estadia::estadiaActiva(){
     DTFecha checkoutEstadia = this->getCheckOut();
     DTFecha checkinEstadia = this->getCheckIn();
-    ControladorFecha * controladorFecha = new 
+    controladorFecha * controladorDeFecha = controladorDeFecha->getInstance();
     
-    ControladorFecha ->getInstance(); //no logro que haga bien la asociacion con el .h...
-    DTFecha* fechaActual = controladorFecha->getFechaActual();
+    DTFecha fechaActual = controladorDeFecha->getFechaActual();
 
     bool res = false;
 
@@ -78,7 +77,7 @@ void Estadia::setHuesped(Huesped *huesped){
     }
 
     return res;
-}*/
+}
 
 bool Estadia::mismoCodigo(int codigo){
     bool res = false;
@@ -93,19 +92,19 @@ bool Estadia::mismoCodigo(int codigo){
 }
 
 
-/*bool Estadia::estaFinalizadaEstadia(){
+bool Estadia::estaFinalizadaEstadia(){
     bool res = false;
-    ControladorFecha * controladorFecha = new ControladorFecha->getInstance(); //no logro que haga bien la asociacion con el .h...
-    DTFecha* fechaActual = controladorFecha->getFechaActual();
+    controladorFecha * controladorDeFecha = controladorDeFecha->getInstance();
+    DTFecha fechaActual = controladorDeFecha->getFechaActual();
 
     DTFecha checkinEstadia = this->getCheckIn();
 
-    if((checkinEstadia < fechaActual) && (!this->estadiaActiva())){ //si la fecha de checkin es menor a la fecha actual y la estadia no está más activa quiere decir que la estadía está finalizada
+    if((checkinEstadia < fechaActual) && !(this->estadiaActiva())){ //Si la fecha de checkin es anterior y la estadia no esta mas activa es porque está finalizada.
         res = true;
     }
 
     return res;
-}*/
+}
 
 
 Estadia::~Estadia(){
