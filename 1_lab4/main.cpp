@@ -1,7 +1,5 @@
 
-
-//eventualmente se debe de borrar el include Sistema.h
-
+#include "Controladores/include/controladorUsuario.h"
 
 
 int main()
