@@ -106,9 +106,39 @@ bool Estadia::estaFinalizadaEstadia(){
     return res;
 }
 
+void Estadia::registrarRespuesta(string respuesta, int codigoCalif){
+    if(this->calif->esCalificacion(codigoCalif)){
+        this->calif->setRespuesta(respuesta);
+    }
+}
+
+bool Estadia::mismaEstadia(int identificador){
+    bool res = false;
+
+    if(this->getIdentificador() == identificador){
+        res = false;
+    }
+
+    return res;
+}
+
+DTHuesped Estadia::huesEs(){
+    Huesped * huespedEstadia = this->getHuesped();
+
+    DTHuesped DTa_devolver = huespedEstadia->getDTHuesped();
+
+    return DTa_devolver;
+}
+
+DTCalificacion Estadia::calificacionEstadia(){
+    Calificacion * calificacionEstadia = this->getCalificacion();
+
+    DTCalificacion DTa_devolver = calificacionEstadia->getDTCalificacion();
+
+    return DTa_devolver;
+}
 
 Estadia::~Estadia(){
     
-
 }
 

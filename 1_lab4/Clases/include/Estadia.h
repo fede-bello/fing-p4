@@ -32,13 +32,13 @@ class Estadia{
         void setHuesped(Huesped *huesped);//hecha
         //float calcularPuntajeEstadia(); Esta funcion esta mal, una estadia tiene una calificacion asociada
         //set(DTCalificacion) darCalificacionesEstadia();
-        bool estadiaActiva();//hecha la logica con errores por controladorFecha
+        bool estadiaActiva();//hecha, revisar
         bool mismoCodigo(int codigo);//hecha
-        bool estaFinalizadaEstadia();//hecha la logica  con errores por controladorFecha
-        void registrarRespuesta(string respuesta, int codigoCalif);
-        bool mismaEstadia(int identificador);
-        DTHuesped huesEs();
-        DTCalificacion calificacionEstadia();
+        bool estaFinalizadaEstadia();//hecha, revisar
+        void registrarRespuesta(string respuesta, int codigoCalif); //hecha, revisar
+        bool mismaEstadia(int identificador);//hecha
+        DTHuesped huesEs();//hecha - Devuelve el DTHuesped del Huesped asociado a la estadia
+        DTCalificacion calificacionEstadia(); //hecho
         void calificarEst(DTHuesped hues);
         ~Estadia();
 };
