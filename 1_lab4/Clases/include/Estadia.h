@@ -32,7 +32,7 @@ class Estadia{
         void setHuesped(Huesped *huesped);//hecha
         //float calcularPuntajeEstadia(); Esta funcion esta mal, una estadia tiene una calificacion asociada
         //set(DTCalificacion) darCalificacionesEstadia();
-        //bool estadiaActiva();//hecha la logica con errores por controladorFecha
+        bool estadiaActiva();//hecha la logica con errores por controladorFecha
         bool mismoCodigo(int codigo);//hecha
         bool estaFinalizadaEstadia();//hecha la logica  con errores por controladorFecha
         void registrarRespuesta(string respuesta, int codigoCalif);
