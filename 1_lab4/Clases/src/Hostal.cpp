@@ -46,10 +46,7 @@ DTHostal Hostal::getDTHostal(){
     return res;
 }
 
-//No se como hacerla, falta implementar la coleccion
-// DTHabitacion* Hostal::getHabitacion(){
-    
-// }
+
 
 //Asumo que es una coleccion de habitaciones
 DTHabitacion Hostal::infHab(int cres){
@@ -66,6 +63,7 @@ DTHabitacion Hostal::infHab(int cres){
     }
     return res;
 }
+
 
 
 
