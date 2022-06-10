@@ -2,22 +2,19 @@
 #define CONTH
 
 #include"../../Clases/include/Hostal.h"
-#include"ControladorReserva.h"
+#include"controladorReserva.h"
 
-class ControladorHostal{ //en los singleton los contructores son funciones privadas
+class ControladorHostal {
 private:
+    static ControladorHostal * instancia;
     ControladorHostal();
-    static ControladorHostal cHostal;//el unico objeto tipo ControladorHostal en el programa debe ser este.
+    DTHostal *HostalActual=NULL;
+    
 public:
-    static ControladorHostal& getInstance(){
-        return cHostal;
-    };
-    int indiceHostal=0;
-    void ModificarHostalActual(DTHostal nuevaHostal);
+    static ControladorHostal * getInstance();
+    void operacion();
     ~ControladorHostal();
 };
-
-ControladorHostal ControladorHostal:: cHostal;
 
 
 #endif

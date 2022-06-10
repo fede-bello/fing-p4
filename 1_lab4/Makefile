@@ -9,7 +9,7 @@ C=controlador
 CONTI= Controladores/include
 CONTS= Controladores/src
 
-EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DTHuesped.o $(COS)/Huesped.o $(DTS)/DTEmpleado.o $(COS)/Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o  main.o     #$(COS)/Sistema.o $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o  
+EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DTHuesped.o $(COS)/Huesped.o $(DTS)/DTEmpleado.o $(COS)/Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o  $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o  main.o   
 
 #si cambia cualquier .o corre el codigo de abajo
 
@@ -81,20 +81,18 @@ DTCalificacion.o: $(DTS)/DTCalificacion.cpp $(DTI)/DTCalificacion.h
 Calificacion.o: $(COS)/Calificacion.cpp $(COI)/Calificacion.h
 	g++ -c Calificacion.cpp
 
-# Sistema.o: $(COS)/Sistema.cpp $(COI)/Sistema.h
-# 	g++ -c Sistema.cpp
 
-# $(C)Fecha.o:$(CONTS)/$(C)Fecha.cpp $(CONTI)/$(C)Fecha.h
-# 	g++ -c $(C)Fecha.cpp
+$(C)Fecha.o:$(CONTS)/$(C)Fecha.cpp $(CONTI)/$(C)Fecha.h
+	g++ -c $(C)Fecha.cpp
 
-# $(C)$(U).o:$(CONTS)/$(C)$(U).cpp $(CONTI)/$(C)$(U).h
-# 	g++ -c $(C)$(U).cpp
+$(C)$(U).o:$(CONTS)/$(C)$(U).cpp $(CONTI)/$(C)$(U).h
+	g++ -c $(C)$(U).cpp
 
-# $(C)Hostal.o:$(CONTS)/$(C)Hostal.cpp $(CONTI)/$(C)Hostal.h
-# 	g++ -c $(C)Hostal.cpp
+$(C)Hostal.o:$(CONTS)/$(C)Hostal.cpp $(CONTI)/$(C)Hostal.h
+	g++ -c $(C)Hostal.cpp
 
-# $(C)$(R).o:$(CONTS)/$(C)$(R).cpp $(CONTI)/$(C)$(R).h
-# 	g++ -c $(C)$(R).cpp
+$(C)$(R).o:$(CONTS)/$(C)$(R).cpp $(CONTI)/$(C)$(R).h
+	g++ -c $(C)$(R).cpp
 
 main.o: main.cpp
 	g++ -c main.cpp
