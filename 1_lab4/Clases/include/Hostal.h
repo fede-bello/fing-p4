@@ -22,12 +22,26 @@ public:
     void setDireccion(string direccion);
     void setTelefono(int telefono);
     void setHabitacion(Habitacion *hab);
-    //Operaciones
+        //Operaciones
     DTHostal getDTHostal();
-    //DTHabitacion* getHabitacion();//falta info para hacerla
-    DTHabitacion infHab(int cres);
+    
+    DTReserva darReservasHuespedHos();
 
-    void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de accder a reserva desde hostal
+    Reserva getReservasHostal();//No se como crear un conjunto de reservas desde hostal
+
+    DTHabitacion* darInfoHabs();
+
+    DTReserva darReservasHostal();
+
+    int darNumHab(Reserva nr);
+
+    DTHuesped huespedes(nr);
+    
+    DTHabitacion infoHab(int cres);
+
+    void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de acceder a reserva desde hostal
+
+    void AsociarReservaHostal(r,habitacion);
 
     //Destructoras
     ~Hostal();
