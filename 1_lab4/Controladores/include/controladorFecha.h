@@ -11,7 +11,7 @@ private:
 public:
     static ControladorFecha * getInstance();
     void ModificarFechaActual(DTFecha nueva);
-    DTFecha* getFechaActual();
+    DTFecha getFechaActual();
     void operacion();
     ~ControladorFecha();
 };
