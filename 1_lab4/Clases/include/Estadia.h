@@ -39,7 +39,7 @@ class Estadia{
         bool mismaEstadia(int identificador);//hecha
         DTHuesped huesEs();//hecha - Devuelve el DTHuesped del Huesped asociado a la estadia
         DTCalificacion calificacionEstadia(); //hecho
-        void calificarEst(DTHuesped hues);
+        void calificarEst(Huesped* hues, int calif, string texto);
         ~Estadia();
 };
 

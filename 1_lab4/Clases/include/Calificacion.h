@@ -16,6 +16,7 @@ class Calificacion{
         Huesped *hues;
         
     public:
+        Calificacion();
         Calificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador);
         //getters y setters
         int getNumero();

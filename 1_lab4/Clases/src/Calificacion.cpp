@@ -2,6 +2,14 @@
 
 
 
+Calificacion::Calificacion(){
+    this->Numero = 0;
+    this->Comentario = "";
+    this->Respuesta= "";
+    this->Fecha = DTFecha();
+    this->Identificador = 0;
+}
+
 Calificacion::Calificacion(int Numero,string Comentario,string Respuesta, DTFecha Fecha,int Identificador){
     this->Numero=Numero;
     this->Comentario=Comentario;

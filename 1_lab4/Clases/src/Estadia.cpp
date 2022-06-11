@@ -138,6 +138,17 @@ DTCalificacion Estadia::calificacionEstadia(){
     return DTa_devolver;
 }
 
+void Estadia::calificarEst(Huesped* hues, int calif, string texto){
+    Calificacion *a_calificar = new Calificacion();
+
+    a_calificar->setHuesped(hues);
+    a_calificar->setNumero(calif);
+    a_calificar->setComentario(texto);
+
+    this->setCalificacion(a_calificar);
+
+}
+
 Estadia::~Estadia(){
     
 }
