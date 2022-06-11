@@ -10,14 +10,13 @@ class controladorUsuario{
         string EmailGuardado,PasswordGuardado, NombreGuardado;
         CargoEmp CargoEmpGuardado;
         bool EsFingerGuardado;
-        string *ArregloEmail;
-        Usuario **ArregloUsuario;
+        vector<string>ArregloEmail;
+        map<string,Usuario> MapaUsuario;
+
     public:
         static controladorUsuario * getInstance();
-        int indEmail=0;
-        int indUsuario=0;
         //hechas por diego 
-        string* getEmail();
+        vector<string> getEmail();
         string getPassword();
         string getNombre();
         CargoEmp getCargoEmp();
@@ -28,6 +27,7 @@ class controladorUsuario{
         void setCargoEmp(CargoEmp CargoEmpGuardado);
         void setEsFinger(bool EsFingerGuardado);
         ~controladorUsuario();
+        //fin hechos por diego
 
 };
 

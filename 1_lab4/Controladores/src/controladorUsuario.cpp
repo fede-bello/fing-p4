@@ -3,12 +3,6 @@
 controladorUsuario * controladorUsuario::instance=NULL;
 
 controladorUsuario::controladorUsuario (){
-    this->ArregloEmail=new string[MAX_HUESPEDES];
-    this->ArregloUsuario=new Usuario*[MAX_HUESPEDES]; 
-    for(int i=0;i<MAX_HUESPEDES;i++){
-        ArregloEmail[i]="_";
-        ArregloUsuario[i]=NULL;
-    }
 }; 
 
 controladorUsuario * controladorUsuario::getInstance(){
@@ -18,20 +12,10 @@ controladorUsuario * controladorUsuario::getInstance(){
 }
 
 controladorUsuario::~controladorUsuario(){
-    for(int i=0;i<indUsuario;i++)
-        delete this->ArregloUsuario[i];
-    delete[] ArregloEmail;
-    delete[] ArregloUsuario;
 }
 
-string* controladorUsuario ::getEmail(){
-    string *ArregloResultado=new string[MAX_HUESPEDES];
-    int i=0;
-    while(i<MAX_HUESPEDES && this->ArregloEmail[i]!="_"){
-        ArregloResultado[i]=this->ArregloEmail[i];
-        i++;
-    }
-    return ArregloResultado;
+vector<string> controladorUsuario ::getEmail(){
+    return ArregloEmail;
 }
 
 string controladorUsuario:: getPassword(){
@@ -51,7 +35,7 @@ bool controladorUsuario ::getEsFinger(){
 }
 
 void controladorUsuario:: setEmail(string EmailGuardado){
-    this->EmailGuardado=EmailGuardado;
+    ArregloEmail.push_back(EmailGuardado);
 }
 
 void controladorUsuario:: setPassword(string PasswordGuardado){

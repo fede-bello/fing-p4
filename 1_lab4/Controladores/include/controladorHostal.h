@@ -8,7 +8,7 @@ class ControladorHostal {
 private:
     static ControladorHostal * instancia;
     ControladorHostal();
-    DTHostal *HostalActual=NULL;
+    map<string,Hostal> MapaHostal;
     
 public:
     static ControladorHostal * getInstance();

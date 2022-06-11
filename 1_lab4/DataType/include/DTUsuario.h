@@ -8,6 +8,7 @@
 #include<map>
 using namespace std;
 
+
 enum CargoEmp{
     Limpieza, Administracion, Infrasetructura, Recepcion
 };
