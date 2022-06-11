@@ -11,7 +11,7 @@ private:
     string Nombre;
     string Direccion;
     int Telefono;
-    Habitacion *hab; // deberia ser una coleccion
+    map<int, Habitacion> habitaciones; //habitaciones es un map (diccionario) de Habitacion
 public:
     Hostal();
     Hostal(string Nombre,string Direccion,int Telefono);
@@ -21,7 +21,7 @@ public:
     void setNombre(string nombre);
     void setDireccion(string direccion);
     void setTelefono(int telefono);
-    void setHabitacion(Habitacion *hab);
+    void agregarHabitacionAHostal(Habitacion hab);
         //Operaciones
     DTHostal getDTHostal();
     
@@ -37,13 +37,13 @@ public:
 
     DTHuesped huespedes(Reserva nr);
 
-    DTHabitacion infHab(int cres);
+    DTHabitacion infHab(int cres); //FALTA
     
-    DTHabitacion infoHab(int cres);
+    DTHabitacion infoHab(int cres);//FALTA
 
     void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de acceder a reserva desde hostal
 
-    void AsociarReservaHostal(int r,int habitacion );
+    void AsociarReservaHostal(int r,int habitacion );//FALTA
 
     //Destructoras
     ~Hostal();

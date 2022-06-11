@@ -23,8 +23,8 @@ float Habitacion::getPrecio(){
         return this->Precio;
 }
 
-Reserva* Habitacion::getReserva(){
-    return this->res;
+map<int, Reserva> Habitacion::getReservas(){
+    return this->Reservas;
 }
 
 void Habitacion::setNum(int numero){
@@ -39,8 +39,8 @@ void Habitacion::setPrecio(float precio){
     this->Precio=precio;
 }
 
-void Habitacion::setReserva(Reserva *res){
-  this->res = res;
+void Habitacion::setReserva(Reserva res){
+    this->Reservas.insert(pair<int, Reserva>(res.getCodigo(), res));
 }
 
 
@@ -68,8 +68,8 @@ bool Habitacion:: buscarReserva(int cres){
     return false;
 }
 
-void Habitacion::eliminarLinkRes(){
-    this->res == NULL;
+void Habitacion::eliminarLinkRes(int cres){
+    Reservas.erase(cres);
 }
 
 Habitacion::~Habitacion(){

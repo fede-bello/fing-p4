@@ -36,8 +36,8 @@ void Hostal::setTelefono(int telefono){
     this->Telefono = telefono;
 }
 
-void Hostal::setHabitacion(Habitacion *hab){
-    this->hab = hab; 
+void Hostal::agregarHabitacionAHostal(Habitacion hab){
+    this->habitaciones.insert(pair<int, Habitacion>(hab.getNum(), hab));
 }
 
 //Operaciones
@@ -47,8 +47,10 @@ DTHostal Hostal::getDTHostal(){
 }
 
 
+/*
+COMENTADA PORQUE COMO USAMOS COLECCION MAP NO QUEDÓ FUNCIONANDO
 
-//Asumo que es una coleccion de habitaciones
+//Asumo que es una coleccion de habitaciones 
 DTHabitacion Hostal::infHab(int cres){
     bool encontre = false;
     int i = 0;
@@ -63,7 +65,7 @@ DTHabitacion Hostal::infHab(int cres){
     }
     return res;
 }
-
+*/
 
 
 
