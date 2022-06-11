@@ -8,6 +8,8 @@ private:
     static ControladorReserva * instancia;
     ControladorReserva();
     map<int,Reserva> MapaReserva;
+    int codigoGuardado;
+    
     
 public:
     static ControladorReserva * getInstance();

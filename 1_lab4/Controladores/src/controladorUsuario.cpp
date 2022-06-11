@@ -14,6 +14,13 @@ controladorUsuario * controladorUsuario::getInstance(){
 controladorUsuario::~controladorUsuario(){
 }
 
+void controladorUsuario::liberar(){
+    ArregloEmail.clear();
+    this->PasswordGuardado="_";
+    this->NombreGuardado="_";
+    this->EsFingerGuardado=false;
+}
+
 vector<string> controladorUsuario ::getEmail(){
     return ArregloEmail;
 }
