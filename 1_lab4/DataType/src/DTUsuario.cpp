@@ -27,7 +27,10 @@ string DTUsuario::getPassword(){
 string DTUsuario::getMail(){
     return this->Mail;
 }
-
+//set 
+void DTUsuario::setMail(string Mail){
+    this->Mail=Mail;
+}
 //Destructora
 DTUsuario:: ~DTUsuario(){
 
