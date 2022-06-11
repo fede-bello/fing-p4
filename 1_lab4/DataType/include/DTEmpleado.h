@@ -5,10 +5,6 @@
 #include "DTCalificacion.h"//
 #include "DTUsuario.h"
 
-enum CargoEmp{
-    Limpieza, Administracion, Infrasetructura, Recepcion
-};
-
 class DTEmpleado: public DTUsuario{
     private:
         //Falta pseudo atributo para DTHostal y DTCalificacion

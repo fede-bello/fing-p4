@@ -5,6 +5,12 @@
 #include<iostream>
 #include<string>
 using namespace std;
+
+enum CargoEmp{
+    Limpieza, Administracion, Infrasetructura, Recepcion
+};
+
+
 class DTUsuario{
     protected:
         string Nombre, Password, Mail;

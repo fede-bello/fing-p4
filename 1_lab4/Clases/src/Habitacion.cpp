@@ -45,7 +45,7 @@ void Habitacion::setReserva(Reserva *res){
 
 
 //hay que modificar cosas, falta implementar coleeciones
-bool habitacionLibre(DTFecha In,DTFecha Out){
+bool Habitacion::habitacionLibre(DTFecha In,DTFecha Out){
     /*int maxReservas = 0; //lo hago solo para que compile, representa el numero de reservas asociadas a una habitacion
     bool libre = true;
     int i = 0;
