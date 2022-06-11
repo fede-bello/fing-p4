@@ -4,7 +4,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
-
+#include<map>
 #define MAX_HABITACIONES 20
 #define MAX_RESERVAS 20
 #define MAX_HUESPEDES 50 
