@@ -25,5 +25,4 @@ class DTCalificacion{
         ~DTCalificacion();
 };
 
-
 #endif

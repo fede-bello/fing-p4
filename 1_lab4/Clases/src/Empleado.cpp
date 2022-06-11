@@ -60,8 +60,6 @@ bool Empleado::mismoMail(string email){
     return (this->Mail==email);
 }
 
-
-
 //Destructora
 Empleado:: ~Empleado(){
 

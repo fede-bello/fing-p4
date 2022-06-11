@@ -8,9 +8,6 @@ class controladorUsuario{
         static controladorUsuario * instance;
         controladorUsuario();
         //seria Mucho mas conveniente tener estos antes de un Empleado y un Huesped
-        string EmailGuardado,PasswordGuardado, NombreGuardado;
-        CargoEmp CargoEmpGuardado;
-        bool EsFingerGuardado;
         vector<string>ArregloEmail;
         map<string,Empleado> MapaEmpleado;
         map<string,Huesped> MapaUsuario;
@@ -19,10 +16,6 @@ class controladorUsuario{
         static controladorUsuario * getInstance();
         //hechas por diego 
         vector<string> getEmail();
-        string getPassword();
-        string getNombre();
-        CargoEmp getCargoEmp();
-        bool getEsFinger();
         void setEmail(string EmailGuardado);
         void setPassword(string PasswordGuardado);
         void setNombre(string NombreGuardado);
