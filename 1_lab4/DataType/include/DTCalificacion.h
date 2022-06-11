@@ -1,8 +1,7 @@
 #ifndef DTCAL
 #define DTCAL
 
-#include <iostream>
-#include <string>
+
 #include "DTHuesped.h"//
 #include "DTFecha.h"
 

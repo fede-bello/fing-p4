@@ -18,10 +18,8 @@ controladorUsuario * controladorUsuario::getInstance(){
 }
 
 controladorUsuario::~controladorUsuario(){
-    int i=0;
-    while(i<MAX_HUESPEDES && this->ArregloUsuario[i]!=NULL){
+    for(int i=0;i<indUsuario;i++)
         delete this->ArregloUsuario[i];
-    }
     delete[] ArregloEmail;
     delete[] ArregloUsuario;
 }
