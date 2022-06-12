@@ -30,6 +30,7 @@ class DTFecha{
         int diferenciasFechas(DTFecha f); //devuelve la cantidad de dias de diferencia entre dos fechas
         bool operator==(const DTFecha &otro) const;
         bool operator<(const DTFecha &otro) const;
+        bool operator>(const DTFecha &otro) const;
         //Destructora
         ~DTFecha();
 };

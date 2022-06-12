@@ -80,9 +80,7 @@ bool DTFecha:: operator==(const DTFecha &f) const{
 }
 
 bool DTFecha:: operator<(const DTFecha &f) const{
-
     bool res = false;
-
     if(this->anio < f.anio){
         res = true;
     }else if(this->anio == f.anio){
@@ -98,7 +96,26 @@ bool DTFecha:: operator<(const DTFecha &f) const{
             }
         }
     }
+    return res;
+}
 
+bool DTFecha:: operator>(const DTFecha &f) const{
+    bool res = false;
+    if(this->anio > f.anio){
+        res = true;
+    }else if(this->anio == f.anio){
+        if(this->mes > f.mes){
+            res = true;
+        }else if(this->mes == f.mes){
+            if(this->dia > f.dia){
+                res = true;
+            }else if(this->dia == f.dia){
+                if(this->hora > f.hora){
+                    res = true;
+                }
+            }
+        }
+    }
     return res;
 }
 

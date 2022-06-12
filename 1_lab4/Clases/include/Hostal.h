@@ -30,7 +30,6 @@ class Hostal{
         DTReserva darReservasHostal();
         int darNumHab(Reserva nr);
         DTHuesped huespedes(Reserva nr);
-        DTHabitacion infHab(int cres); //FALTA
         DTHabitacion infoHab(int cres);//FALTA
         void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de acceder a reserva desde hostal
         void AsociarReservaHostal(int r,int habitacion );//FALTA

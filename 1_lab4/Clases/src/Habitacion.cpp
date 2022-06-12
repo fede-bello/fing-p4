@@ -23,10 +23,6 @@ float Habitacion::getPrecio(){
         return this->Precio;
 }
 
-map<int, Reserva> Habitacion::getReservas(){
-    return this->Reservas;
-}
-
 void Habitacion::setNum(int numero){
     this->Numero=numero;
 }
@@ -40,37 +36,50 @@ void Habitacion::setPrecio(float precio){
 }
 
 void Habitacion::setReserva(Reserva res){
-    this->Reservas.insert(pair<int, Reserva>(res.getCodigo(), res));
+    this->mapaReservas.insert(pair<int, Reserva>(res.getCodigo(), res));
 }
 
 
-//hay que modificar cosas, falta implementar coleeciones
+map<int, Reserva> Habitacion::getReservas(){
+    return this->mapaReservas;
+}
+
+
 bool Habitacion::habitacionLibre(DTFecha In,DTFecha Out){
-    /*int maxReservas = 0; //lo hago solo para que compile, representa el numero de reservas asociadas a una habitacion
+    map<int, Reserva>::iterator it;
+    it = mapaReservas.begin();
     bool libre = true;
-    int i = 0;
-    while(i <= maxReservas && libre){ 
-        if(this->res.getCheckIn() < Out || this->res.getCheckOut() > In){
+    while(it != mapaReservas.end()  && libre){ 
+        if((it->second.getCheckIn().operator<(Out) &&  it->second.getCheckIn().operator>(In)) || (it->second.getCheckOut().operator>(In))){
             libre = false;
-        }//pruebo esto para cada reserva de la habitacion
+        } else{
+            it++;
+        }
     }
-    return libre;*/
-    return false;
+    return libre;
 }
+
 
 DTHabitacion Habitacion::getDTHabitacion(){
-    DTHabitacion res=DTHabitacion(this->Numero, this->Capacidad, this->Precio);
+    DTHabitacion res = DTHabitacion(this->Numero, this->Capacidad, this->Precio);
     return res;
 }
 
-bool Habitacion:: buscarReserva(int cres){
-    //return this->res.getCodigo() == cres;
-    return false;
+bool Habitacion::mismoNumero(int nr){
+    return mapaReservas.find(nr) != mapaReservas.end();
+}
+
+bool Habitacion::buscarReserva(int cres){
+    return mapaReservas.find(cres) != mapaReservas.end();
 }
 
 void Habitacion::eliminarLinkRes(int cres){
-    Reservas.erase(cres);
+    mapaReservas.erase(cres);
 }
 
 Habitacion::~Habitacion(){
+    for(auto &codigo:mapaReservas){
+        Reserva res = codigo.second;
+        res.~Reserva();
+    }
 }
