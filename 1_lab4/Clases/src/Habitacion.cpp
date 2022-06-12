@@ -45,6 +45,8 @@ map<int, Reserva> Habitacion::getReservas(){
 }
 
 
+// FALTA COMPILAR LAS COMENTADAS
+/*
 bool Habitacion::habitacionLibre(DTFecha In,DTFecha Out){
     map<int, Reserva>::iterator it;
     it = mapaReservas.begin();
@@ -59,14 +61,34 @@ bool Habitacion::habitacionLibre(DTFecha In,DTFecha Out){
     return libre;
 }
 
-
 DTHabitacion Habitacion::getDTHabitacion(){
     DTHabitacion res = DTHabitacion(this->Numero, this->Capacidad, this->Precio);
     return res;
 }
 
+vector<DTReserva> Habitacion::darReservasHuespedHab(string email){
+    vector<DTReserva> res;
+    map<int, Reserva>::iterator it; 
+    EstadoReserva a = cancelada;
+    for(it = mapaReservas.begin(); it != mapaReservas.end(); ++it){
+        if(it->second.getEstado() != a && it->second.getHuesped().getNombre() == email){
+            Reserva *nuevo = it->second;
+            res.push_back(DTReserva(nuevo.getCodigo(), nuevo.getCheckIn(), nuevo.getCheckOut(), nuevo.getEstado()));
+        }
+    }
+    return res;
+}
+*/
 bool Habitacion::mismoNumero(int nr){
     return mapaReservas.find(nr) != mapaReservas.end();
+}
+
+//mal devolver un DTHuesped
+DTHuesped Habitacion::obtenerHuesprResHab(int nr){ 
+    //asumo que la reserva esta asociada a esta habitacion
+    map<int, Reserva>::iterator it;
+    it = mapaReservas.find(nr);
+    return it->second.hues;
 }
 
 bool Habitacion::buscarReserva(int cres){

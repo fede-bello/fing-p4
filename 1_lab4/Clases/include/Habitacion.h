@@ -26,13 +26,9 @@ class Habitacion{
         map<int, Reserva> getReservas(); //✅
         bool habitacionLibre(DTFecha In,DTFecha Out);//✅
         DTHabitacion getDTHabitacion();//✅
-        DTReserva* darReservasHuespedHab(string email);//FALTA
-        
-        //reservasHabitacion():set(Reservas); Es la misma que getReservas?
-
-        DTReserva darReservasHabitacion();//FALTA
+        vector<DTReserva> darReservasHuespedHab(string email);//✅
         bool mismoNumero(int nr); //✅
-        DTHuesped obtenerHuesprResHab(int nr);//FALTA
+        DTHuesped obtenerHuesprResHab(int nr);//✅
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
 
@@ -40,4 +36,4 @@ class Habitacion{
         ~Habitacion();
 };
 
-#endif       
+#endif
