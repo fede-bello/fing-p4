@@ -9,18 +9,21 @@ private:
     static controladorHostal * instancia;
     controladorHostal();
     map<string,Hostal> MapaHostal;
-    
+    DTHostal *HostalGuardado;
 public:
     static controladorHostal * getInstance();
-    void operacion();
+    void liberar();
     ~controladorHostal();
     //Alta Hostal
     DTHostal* NuevoHostal(string nombre,string direccion,int telefono);
-    void confirarAltaHostal(DTHostal *dthostal);
+    void confirmarAltaHostal(DTHostal *dthostal);
     void cancelarAltaHostal(DTHostal *dthostal);
-    //Alta Hostal
-    //falta hacer obtenerHostales();
-    DTHostal elegirHostal(string nombre);
+    //FIN Alta Hostal
+    //ALTA Habitacion
+    vector<DTHostal> obtenerHostales();
+    DTHostal *elegirHostal(string nombre);
+    void confirmarAltaHabitacion(DTHabitacion *dthabitacion);
+    void cancelarAltaHabitacion(DTHabitacion *dthabitacion);
 };
 
 

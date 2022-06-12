@@ -3,15 +3,17 @@
 
 #include "../../Clases/include/Reserva.h"
 #include "controladorFecha.h"
-class ControladorReserva {
+class controladorReserva {
 private:
-    static ControladorReserva * instancia;
-    ControladorReserva();
+    static controladorReserva * instancia;
+    controladorReserva();
     map<int,Reserva> MapaReserva;
+    DTReserva *ReservaGuardada;
 public:
-    static ControladorReserva * getInstance();
+    static controladorReserva * getInstance();
     void ModificarReservaActual(DTReserva nueva);
-    ~ControladorReserva();
+    ~controladorReserva();
+    void liberar();
 };
 
 

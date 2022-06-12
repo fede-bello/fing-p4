@@ -36,8 +36,10 @@ void Hostal::setTelefono(int telefono){
     this->Telefono = telefono;
 }
 
-void Hostal::agregarHabitacionAHostal(Habitacion hab){
-    this->habitaciones.insert(pair<int, Habitacion>(hab.getNum(), hab));
+void Hostal::agregarHabitacionAHostal(DTHabitacion dthab){
+    Habitacion hab=Habitacion(dthab.getNumero(),dthab.getCapacidad(),dthab.getPrecio());
+    this->MapaHabitaciones.insert(pair<int, Habitacion>(dthab.getNumero(), hab));
+
 }
 
 //Operaciones
@@ -47,8 +49,8 @@ DTHostal Hostal::getDTHostal(){
 }
 
 
-/*
-COMENTADA PORQUE COMO USAMOS COLECCION MAP NO QUEDÓ FUNCIONANDO
+/*COMENTADA PORQUE COMO USAMOS COLECCION MAP NO QUEDÓ FUNCIONANDO
+
 
 //Asumo que es una coleccion de habitaciones 
 DTHabitacion Hostal::infHab(int cres){
@@ -71,5 +73,8 @@ DTHabitacion Hostal::infHab(int cres){
 
 //Destructora
 Hostal::~Hostal(){
-
+    for(auto &codigo:MapaHabitaciones){
+        Habitacion hab=codigo.second;
+        hab.~Habitacion();
+    }
 }
