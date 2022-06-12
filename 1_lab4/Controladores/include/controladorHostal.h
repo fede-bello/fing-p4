@@ -8,14 +8,14 @@ class controladorHostal {
 private:
     static controladorHostal * instancia;
     controladorHostal();
-    map<string,Hostal> MapaHostal;
+    map<string,Hostal*> MapaHostal;
     DTHostal *HostalGuardado;
 public:
     static controladorHostal * getInstance();
     void liberar();
     ~controladorHostal();
     DTHostal *getHostal();
-    map<string,Hostal> getMapaHostal();
+    map<string,Hostal*> getMapaHostal();
     //Alta Hostal
     DTHostal* NuevoHostal(string nombre,string direccion,int telefono);
     void confirmarAltaHostal(DTHostal *dthostal);

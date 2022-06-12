@@ -9,8 +9,8 @@ class controladorUsuario{
         controladorUsuario();
         //seria Mucho mas conveniente tener estos antes de un Empleado y un Huesped
         vector<string>ArregloEmail;
-        map<string,Empleado> MapaEmpleado;
-        map<string,Huesped> MapaHuesped;
+        map<string,Empleado*> MapaEmpleado;
+        map<string,Huesped*> MapaHuesped;
 
     public:
         static controladorUsuario * getInstance();

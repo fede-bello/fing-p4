@@ -24,9 +24,9 @@ controladorHostal::~controladorHostal(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Hostal> MapaHostal
         //const es para no repetir el valor
-        const string &nombreHostal=it.first;//
-        Hostal &hostal=it.second;
-        hostal.~Hostal();
+        string nombreHostal=it.first;//
+        Hostal *hostal=it.second;
+        hostal->~Hostal();
         MapaHostal.erase(nombreHostal);
     }
     MapaHostal.clear();
@@ -36,7 +36,7 @@ DTHostal* controladorHostal::getHostal(){
     return this->HostalGuardado;
 }
 
-map<string,Hostal> controladorHostal::getMapaHostal(){
+map<string,Hostal*> controladorHostal::getMapaHostal(){
     return this->MapaHostal;
 }
 //ALTA HOSTAL
@@ -46,8 +46,8 @@ DTHostal* controladorHostal:: NuevoHostal(string nombre,string direccion,int tel
 }
 
 void controladorHostal::confirmarAltaHostal(DTHostal *dthostal){
-    Hostal res=Hostal(dthostal->getNombre(),dthostal->getDireccion(),dthostal->getTelefono());
-    MapaHostal[res.getNombre()]=res;
+    Hostal *res=new Hostal(dthostal->getNombre(),dthostal->getDireccion(),dthostal->getTelefono());
+    MapaHostal[res->getNombre()]=res;
     delete dthostal;
 }
 
@@ -64,9 +64,9 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Hostal> MapaHostal
         //const es para no repetir el valor
-        const string &nombreHostal=it.first;//
-        Hostal &hostal=it.second;
-        res.push_back(DTHostal(hostal.getNombre(),hostal.getDireccion(),hostal.getTelefono()));
+        string nombreHostal=it.first;//
+        Hostal *hostal=it.second;
+        res.push_back(DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono()));
     }
     return res;//Luego de esta Funcion habria que res.clear();
 }
@@ -82,8 +82,8 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
             if(MapaHostal.find(nombre)==MapaHostal.end()){
                 throw "invalid_argument";
             }
-            Hostal hostal=MapaHostal[nombre];
-            DTHostal *res=new DTHostal(hostal.getNombre(),hostal.getDireccion(),hostal.getTelefono());
+            Hostal *hostal=MapaHostal[nombre];
+            DTHostal *res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
             this->HostalGuardado=res;
             return res;//solo salgo por esta condicion
         }
@@ -97,7 +97,7 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
 
 void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
     string nombre=this->HostalGuardado->getNombre();
-    Hostal &hostal=MapaHostal.at(nombre);
+    Hostal *hostal=MapaHostal.at(nombre);
     //hostal.agregarHabitacionAHostal();
 }
 

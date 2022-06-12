@@ -18,9 +18,9 @@ controladorUsuario::~controladorUsuario(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Empleado> MapaEmpleado
         //const es para no repetir el valor
-        const string &nombreEmpleado=it.first;//
-        Empleado &empleado=it.second;
-        empleado.~Empleado();
+        string nombreEmpleado=it.first;//
+        Empleado *empleado=it.second;
+        empleado->~Empleado();
         MapaEmpleado.erase(nombreEmpleado);
     }
     MapaHuesped.clear();
@@ -29,9 +29,9 @@ controladorUsuario::~controladorUsuario(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Huesped> MapaHuesped
         //const es para no repetir el valor
-        const string &nombreHuesped=it.first;//
-        Huesped &huesped=it.second;
-        huesped.~Huesped();
+        string nombreHuesped=it.first;//
+        Huesped *huesped=it.second;
+        huesped->~Huesped();
         MapaHuesped.erase(nombreHuesped);
     }
     MapaEmpleado.clear();
@@ -71,14 +71,14 @@ void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
 }
 
 void controladorUsuario::ConfimarAltaEmpleado(DTEmpleado *empleado){
-    Empleado nuevo=Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
-    MapaEmpleado[nuevo.getMail()]=nuevo;
+    Empleado *nuevo=new Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
+    MapaEmpleado[nuevo->getMail()]=nuevo;
     delete empleado;
 }
 
 void controladorUsuario::ConfimarAltaHuesped(DTHuesped *huesped){
-    Huesped nuevo=Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
-    MapaHuesped[nuevo.getMail()]=nuevo;
+    Huesped *nuevo=new Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
+    MapaHuesped[nuevo->getMail()]=nuevo;
     delete huesped;
 }
 //FIN ALTA USUARIO
@@ -91,9 +91,9 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Empleado> MapaEmpleado
         //const es para no repetir el valor
-        Empleado &empleado=it.second;
-        if(empleado.getHostal()==NULL){
-            DTEmpleado dtempleado=DTEmpleado(empleado.getNombre(),empleado.getPassword(),empleado.getMail(),empleado.getCargo());
+        Empleado *empleado=it.second;
+        if(empleado->getHostal()==NULL){
+            DTEmpleado dtempleado=DTEmpleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
             res.push_back(dtempleado);
         }
     }
@@ -112,8 +112,8 @@ void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
                 throw "invalid_argument";
             }//el mail esta asociado a un empleado
             this->setEmail(mail);
-            Empleado usuario=MapaEmpleado[mail];
-            usuario.setCargo(cargo);
+            Empleado *usuario=MapaEmpleado[mail];
+            usuario->setCargo(cargo);
             return;
         }
         catch(...){
@@ -125,10 +125,10 @@ void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
 
 void controladorUsuario::AsignarEmpleado(){
     string mail=ArregloEmail.front();
-    Empleado empleado=MapaEmpleado[mail];
+    Empleado *empleado=MapaEmpleado[mail];
     controladorHostal *controlHostal=controladorHostal::getInstance();
     string nombreHostal=controlHostal->getHostal()->getNombre();
-    Hostal hostal=controlHostal->getMapaHostal()[nombreHostal];
+    Hostal *hostal=controlHostal->getMapaHostal()[nombreHostal];
     //empleado.setHostal(hostal); esto tendria que ser un puntero
 }
 //FIN ASIGNAR EMPLEADO A HOSTAL

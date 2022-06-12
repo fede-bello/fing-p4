@@ -7,7 +7,7 @@ class controladorReserva {
 private:
     static controladorReserva * instancia;
     controladorReserva();
-    map<int,Reserva> MapaReserva;
+    map<int,Reserva*> MapaReserva;
     DTReserva *ReservaGuardada;
 public:
     static controladorReserva * getInstance();

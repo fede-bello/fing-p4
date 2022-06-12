@@ -22,9 +22,9 @@ controladorReserva::~controladorReserva(){
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<int,Reserva> MapaReserva
         //const es para no repetir el valor
-        const int &nombreReserva=it.first;
-        Reserva &reserva=it.second;
-        reserva.~Reserva();
+        int nombreReserva=it.first;
+        Reserva *reserva=it.second;
+        reserva->~Reserva();
         MapaReserva.erase(nombreReserva);
     }
     MapaReserva.clear();
