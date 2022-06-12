@@ -14,6 +14,8 @@ public:
     static controladorHostal * getInstance();
     void liberar();
     ~controladorHostal();
+    DTHostal *getHostal();
+    map<string,Hostal> getMapaHostal();
     //Alta Hostal
     DTHostal* NuevoHostal(string nombre,string direccion,int telefono);
     void confirmarAltaHostal(DTHostal *dthostal);

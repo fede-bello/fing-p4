@@ -15,6 +15,7 @@ class controladorUsuario{
     public:
         static controladorUsuario * getInstance();
         //hechas por diego 
+        Hostal find(string nombre);
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();
@@ -26,7 +27,12 @@ class controladorUsuario{
         void CancelarUsuario(DTUsuario *usuario);
         void ConfimarAltaEmpleado(DTEmpleado *empleado);
         void ConfimarAltaHuesped(DTHuesped *huesped);
-        //Alta Usuario
+        //FIN Alta Usuario
+        //ASIGNAR EMPLEADO A HOSTAL
+        vector<DTEmpleado> obtenerEmpleadoHostal();
+        void ActualizarCargo(string nombre,CargoEmp cargo);
+        void AsignarEmpleado();
+        //FIN ASIGNAR EMPLEADO A HOSTAL
         //fin hechos por diego
 
 };

@@ -2,6 +2,7 @@
 
 controladorHostal * controladorHostal::instancia = NULL;
 
+//USO GENERAL 
 controladorHostal * controladorHostal::getInstance() {
     if (instancia == NULL)
         instancia = new controladorHostal();
@@ -16,8 +17,9 @@ void controladorHostal::liberar(){
     if(HostalGuardado!=NULL) delete HostalGuardado;
 }
 
-controladorHostal::~controladorHostal(){
-        for (auto &it:MapaHostal){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Hostal
+controladorHostal::~controladorHostal(){  
+    if(HostalGuardado==NULL) delete HostalGuardado;
+    for (auto &it:MapaHostal){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Hostal
         //it.first es la clave de MapaHostal
         //it.second es el objeto asociado a it.first
         //todo esto sale de la creacion del Mapa, map<string,Hostal> MapaHostal
@@ -25,8 +27,17 @@ controladorHostal::~controladorHostal(){
         const string &nombreHostal=it.first;//
         Hostal &hostal=it.second;
         hostal.~Hostal();
+        MapaHostal.erase(nombreHostal);
     }
     MapaHostal.clear();
+}
+
+DTHostal* controladorHostal::getHostal(){
+    return this->HostalGuardado;
+}
+
+map<string,Hostal> controladorHostal::getMapaHostal(){
+    return this->MapaHostal;
 }
 //ALTA HOSTAL
 DTHostal* controladorHostal:: NuevoHostal(string nombre,string direccion,int telefono){
@@ -61,10 +72,10 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
 }
 
 DTHostal *controladorHostal::elegirHostal(string nombre){
-    bool salir=true;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
-    while(salir){
+    bool pedirNombre=false;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
+    do{
         try {
-            if(!salir){
+            if(pedirNombre){
                 cout<<"Digite el nombre del hostal"<<endl;
                 cin>>nombre;
             }
@@ -78,9 +89,10 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
         }
         catch(...){
             cout<<"No existe un hostal con ese nombre";
+            pedirNombre=true;
         }
-    }
-    return NULL;//Evadir Warnigs, Nunca va a llegar a esta intruccion
+    }while(true);
+   
 }
 
 void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
@@ -91,7 +103,7 @@ void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
 
 void controladorHostal::cancelarAltaHabitacion(DTHabitacion *habitacion){
     delete habitacion;
-    delete this->HostalGuardado;
+    if(HostalGuardado!=NULL) delete this->HostalGuardado;
 }
-
+//Fin Alta Habitacion 
 
