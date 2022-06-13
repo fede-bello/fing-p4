@@ -107,7 +107,7 @@ int Hostal::darNumHab(int nr){
     return res;
 }
 
-DTHuesped Hostal::huespedes(int nr){
+/*DTHuesped Hostal::huespedes(int nr){
     map<int, Habitacion>::iterator it;
     DTHuesped hues = DTHuesped();
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
@@ -117,7 +117,7 @@ DTHuesped Hostal::huespedes(int nr){
         }
     }
     return hues;
-}
+}*/
 
 DTHabitacion Hostal::infoHab(int cres){
     map<int, Habitacion>::iterator it;
