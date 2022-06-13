@@ -76,6 +76,10 @@ bool Calificacion::esCalificacion(int codigoCalif){
     return (this->Identificador==codigoCalif);
 }
 
+void Calificacion::asociarHuesped(Huesped *hues){
+    this->hues=hues;
+}
+
 //destructora
 Calificacion::~Calificacion(){
 }

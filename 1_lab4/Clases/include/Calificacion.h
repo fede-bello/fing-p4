@@ -34,7 +34,7 @@ class Calificacion{
         //operaciones
         DTCalificacion getDTCalificacion();
         bool esCalificacion(int codigoCalif);
-        //asociarHuesped es setHuesped
+        void asociarHuesped(Huesped *hues);
         //suscribir,desuscribir y notificar nos encargamos despues cuando encaremos el observer
         //destructora
         ~Calificacion();
