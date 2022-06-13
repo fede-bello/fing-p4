@@ -30,7 +30,7 @@ class Estadia{
         void setCheckOut(DTFecha checkOut);//hecha
         void setCalificacion(Calificacion *calif);//hecha
         void setHuesped(Huesped *huesped);//hecha
-        //float calcularPuntajeEstadia(); Esta funcion esta mal, una estadia tiene una calificacion asociada
+        float calcularPuntajeEstadia();
         //set(DTCalificacion) darCalificacionesEstadia();
         bool estadiaActiva();//hecha, revisar
         bool mismoCodigo(int codigo);//hecha

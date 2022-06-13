@@ -29,11 +29,6 @@ Calificacion* Estadia::getCalificacion(){
 }
 
 DTEstadia Estadia::getDTEstadia(){
-   /* DTFecha *deafault;
-    if(!this->CheckOut.operator==(default)){
-        DTEstadia res=DTEstadia(this->identificador, this->CheckIn);
-        return res;
-    } ERROR DE COPILACION AL LLAMAR AL OPERATOR== DE THIS->CHECKOUT*/
     return DTEstadia(this->identificador, this->CheckIn,this->CheckOut);
 }
 
@@ -59,6 +54,11 @@ void Estadia::setCheckOut(DTFecha checkOut){
 
 void Estadia::setHuesped(Huesped *huesped){
     this->hues = huesped;    
+}
+
+float Estadia::calcularPuntajeEstadia(){
+    Calificacion *c=this->calif;
+    return c->getNumero();
 }
 
 bool Estadia::estadiaActiva(){
