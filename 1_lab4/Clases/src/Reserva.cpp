@@ -100,10 +100,23 @@ bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
 }
 
 float Reserva::calcularPromedioReserva(){
-    float res;
-    //Aca hay que iterar por todas las estadias y promediar su puntaje
-    //res=calcularPuntajeEstadia();
-    return 0;
+    float suma=0;
+    int i=0; //cuenta la cantidad de calificaciones que tiene la reserva
+    map<int,Estadia>::iterator it=mapaEstadias.begin();
+    while (it!=mapaEstadias.end()){
+        Estadia est=it->second;
+        Calificacion *calif=est.getCalificacion();
+        if (calif->getNumero()!=-1){ //Asumo que si no tiene calificacion vale -1, igualmente hay que ver bien que pasa
+            suma= suma + calif->getNumero(); //it->second lo vuelve una estadia, getCalificacion una calificacion y getNumero da el numero de esa calificacion
+            i++;
+        }
+    }
+    if (i!=0){
+        return suma/i;
+    }
+    else {
+        return 0;
+    }
 }
 
 vector<DTCalificacion> Reserva::darCalificacionesReserva(){
@@ -140,12 +153,12 @@ DTEstadia Reserva::mismaEstadia(int codigo){
     return est->getDTEstadia();
     
 }
-
+*/
 void Reserva::actualizarCheckOut(DTFecha co){
     this->checkOut=co;
 }
-
-vector<DTEstadia> Reserva::getEstadias(){
+/*
+vector<DTEstadia> Reserva::getDTEstadias(){
 
 }
 
@@ -160,11 +173,12 @@ void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
 bool Reserva::esGrupalReserva(){
 
 }
-
+*/
 vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
-
+    vector<DTHuesped> vec;
+    return vec;
 }
-
+/*
 vector<DTEstadia> Reserva::estadiasReserva(){
 
 }*/

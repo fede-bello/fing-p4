@@ -13,7 +13,7 @@ class Reserva{
         EstadoReserva estado;
         float costo;
         Huesped *hues;
-        map<int, Estadia> mapaEstadias; //estadias asociadas a Reserva
+        map<int, Estadia> mapaEstadias; //estadias asociadas a Reserva, deberia ser map<int, *Estadia>???
     public:
         //constructores
         Reserva();
@@ -39,27 +39,27 @@ class Reserva{
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);
         float calcularPromedioReserva(); //FALTA
-        vector<DTCalificacion> darCalificacionesReserva(); 
+        vector<DTCalificacion> darCalificacionesReserva(); //FALTA
         bool mismoHuesped(string email);
         DTReserva getDTReserva();
-        DTEstadia crearEstadiaNueva(DTFecha f);
+        DTEstadia crearEstadiaNueva(DTFecha f); //FALTA
         void cerrarEstadoReserva();
-        vector<DTEstadia> estadiasActivas();
-        DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo, ta raro
-        void actualizarCheckOut(DTFecha co); //es solamente setCheckOut
-        vector<DTEstadia> getDTEstadias();
-        vector<DTCalificacion> getCalifSinResReserva();
-        void buscarCalificacion(string respuesta, int codigoCalif);
-        bool esGrupalReserva();
-        vector<DTHuesped> obtenerHuespedesReserva();
-        vector<DTEstadia> estadiasReserva();  //Hace lo mismo que getEstadias();
+        vector<DTEstadia> estadiasActivas(); //FALTA
+        DTEstadia mismaEstadia(int codigo); //FALTA //devuelve la estadia de reserva que tenga codigo, ta raro
+        void actualizarCheckOut(DTFecha co); 
+        vector<DTEstadia> getDTEstadias(); //FALTA
+        vector<DTCalificacion> getCalifSinResReserva(); //FALTA
+        void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
+        bool esGrupalReserva(); //FALTA
+        vector<DTHuesped> obtenerHuespedesReserva(); //FALTA
+        vector<DTEstadia> estadiasReserva(); //FALTA  //Hace lo mismo que getEstadias();
         DTHuesped esHuesped(); 
         int esReserva();
         bool mismaReserva(int cres);
-        DTCalificacion calificacionBuscada();
-        DTReserva reservaBuscada();
-        void eliminarLinksHuesEst();
-        void calificarEstadiaReserva(Huesped hues);
+        DTCalificacion calificacionBuscada(); //FALTA
+        DTReserva reservaBuscada(); //FALTA
+        void eliminarLinksHuesEst(); //FALTA
+        void calificarEstadiaReserva(Huesped hues); //FALTA
 
 };
 
