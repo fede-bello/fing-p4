@@ -38,7 +38,7 @@ DTFecha Reserva::getCheckOut(){
     return this->checkOut;
 }
 
-map<int,Estadia> Reserva::getEstadias(){
+map<int,Estadia*> Reserva::getEstadias(){
     return mapaEstadias; 
 }
 
@@ -72,7 +72,7 @@ void Reserva::setEstado(EstadoReserva estado){
     this->estado = estado;
 }
 
-void Reserva::setEstadia(map<int,Estadia> mapaEstadias){
+void Reserva::setEstadia(map<int,Estadia*> mapaEstadias){
     this->mapaEstadias=mapaEstadias;
 }
 
@@ -102,12 +102,11 @@ bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
 float Reserva::calcularPromedioReserva(){
     float suma=0;
     int i=0; //cuenta la cantidad de calificaciones que tiene la reserva
-    map<int,Estadia>::iterator it=mapaEstadias.begin();
+    map<int,Estadia*>::iterator it=mapaEstadias.begin();
     while (it!=mapaEstadias.end()){
-        Estadia est=it->second;
-        Calificacion *calif=est.getCalificacion();
-        if (calif->getNumero()!=-1){ //Asumo que si no tiene calificacion vale -1, igualmente hay que ver bien que pasa
-            suma= suma + calif->getNumero(); //it->second lo vuelve una estadia, getCalificacion una calificacion y getNumero da el numero de esa calificacion
+        Estadia *est=it->second;
+        if (est->getCalificacion()!=NULL){ //Si la estadia tiene una calificacion asociada
+            suma= suma + est->getCalificacion()->getNumero(); 
             i++;
         }
     }

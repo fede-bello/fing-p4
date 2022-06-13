@@ -13,7 +13,7 @@ class Reserva{
         EstadoReserva estado;
         float costo;
         Huesped *hues;
-        map<int, Estadia> mapaEstadias; //estadias asociadas a Reserva, deberia ser map<int, *Estadia>???
+        map<int, Estadia*> mapaEstadias; //estadias asociadas a Reserva, deberia ser map<int, *Estadia>???
     public:
         //constructores
         Reserva();
@@ -26,19 +26,19 @@ class Reserva{
         DTFecha getCheckOut();
         EstadoReserva getEstado();
         float getCosto();     
-        map<int,Estadia> getEstadias();
+        map<int,Estadia*> getEstadias();
         Huesped* getHuesped();
         void setCodigo(int codigo);
         void setCheckIn(DTFecha checkIn);
         void setCheckOut(DTFecha checkOut);
         void setEstado(EstadoReserva estado);
-        void setEstadia(map<int,Estadia> mapaEstadias);
+        void setEstadia(map<int,Estadia*> mapaEstadias);
         void setHuesped(Huesped *huesped);        
          //destructor
         ~Reserva();
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);
-        float calcularPromedioReserva(); //FALTA
+        float calcularPromedioReserva();
         vector<DTCalificacion> darCalificacionesReserva(); //FALTA
         bool mismoHuesped(string email);
         DTReserva getDTReserva();
