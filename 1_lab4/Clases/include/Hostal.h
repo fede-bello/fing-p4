@@ -24,20 +24,19 @@ class Hostal{
         void agregarHabitacionAHostal(DTHabitacion hab);
         //Operaciones
         DTHostal getDTHostal();//✅
-        DTReserva darReservasHuespedHos();//FALTA
-        Reserva getReservasHostal();//FALTA
+        vector<DTReserva> darReservasHuespedHos(string email);//✅ agregue el mail del huesped como parametro
+        vector<Reserva> getReservasHostal();//✅
         vector<DTHabitacion> darInfoHabs();//✅
         DTReserva darReservasHostal();
-        int darNumHab(Reserva nr);//✅
-        DTHuesped huespedes(Reserva nr);//FALTA
+        int darNumHab(int nr);//✅
+        DTHuesped huespedes(int nr);//✅
         DTHabitacion infoHab(int cres);//✅
         void eliminarLinkReserva(int cres);//✅agregue a que reserva hace referencia
-        void AsociarReservaHostal(int r,int habitacion);//✅
+        void AsociarReservaHostal(Reserva r,int habitacion);//✅
         //Destructoras
         ~Hostal();
 };
 
 
 #endif   
-
 

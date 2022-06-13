@@ -28,7 +28,7 @@ class Habitacion{
         DTHabitacion getDTHabitacion();//✅
         vector<DTReserva> darReservasHuespedHab(string email);//✅
         bool mismoNumero(int nr); //✅
-        DTHuesped obtenerHuesprResHab(int nr);//✅
+        vector<DTHuesped> obtenerHuesprResHab(int nr);//✅
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
 
