@@ -67,7 +67,7 @@ vector<DTReserva> Hostal::darReservasHuespedHos(string email){
         //     res.push_back(agregar);
         //     nuevo.erase(nuevo.begin());
         // }
-        
+
 vector<Reserva> Hostal::getReservasHostal(){
     vector<Reserva> res;
     Habitacion nuevo;
