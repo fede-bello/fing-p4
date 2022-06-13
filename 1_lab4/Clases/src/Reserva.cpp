@@ -106,6 +106,10 @@ float Reserva::calcularPromedioReserva(){
     return 0;
 }
 
+vector<DTCalificacion> Reserva::darCalificacionesReserva(){
+
+}
+
 bool Reserva::mismoHuesped(string email){
     return (this->hues->getMail()==email);
 
@@ -126,21 +130,44 @@ void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
 }
 
-/*DTEstadia mismaEstadia(int codigo){
+/*vector<DTEstadia> estadiasActivas(){
+    
+}
+
+DTEstadia Reserva::mismaEstadia(int codigo){
     FEDE:FIJATE BIEN COMO USAR EL FIND, CAPAZ HAY QUE USAR DYNAMIC CAST
     Estadia est=this->mapaEstadias.find(codigo);
     return est->getDTEstadia();
-}*/
+    
+}
 
 void Reserva::actualizarCheckOut(DTFecha co){
     this->checkOut=co;
 }
 
-//set(DTEstadia) getEstadias();
+vector<DTEstadia> Reserva::getEstadias(){
 
+}
 
-//set(DTCalificacion) getCalifSinResReserva();
+vector<DTCalificacion> Reserva::getCalifSinResReserva(){
 
+}
+
+void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
+
+}
+
+bool Reserva::esGrupalReserva(){
+
+}
+
+vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
+
+}
+
+vector<DTEstadia> Reserva::estadiasReserva(){
+
+}*/
 
 DTHuesped Reserva::esHuesped(){
     return this->hues->getDTHuesped();
@@ -154,12 +181,12 @@ bool Reserva::mismaReserva(int cres){
     return (this->codigo == cres);
 }
 
-//DTCalificacion Reserva::calificacionBuscada();
+/*DTCalificacion Reserva::calificacionBuscada();
 
-/*DTReserva Reserva::reservaBuscada(){
+DTReserva Reserva::reservaBuscada(){
 
-}*/
+}
 
-//void Reserva::eliminarLinksHuesEst(){}
+void Reserva::eliminarLinksHuesEst(){}
 
-//void Reserva::calificarEstadiaReserva(Huesped hues)
+void Reserva::calificarEstadiaReserva(Huesped hues){}*/

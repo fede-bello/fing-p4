@@ -39,26 +39,26 @@ class Reserva{
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);
         float calcularPromedioReserva(); //FALTA
-        //set(DTCalificacion) darCalificacionesReserva(); (no me acuerdo el set como funcionaba despues investigo)
+        vector<DTCalificacion> darCalificacionesReserva(); 
         bool mismoHuesped(string email);
         DTReserva getDTReserva();
         DTEstadia crearEstadiaNueva(DTFecha f);
         void cerrarEstadoReserva();
-        //set(DTEstadia) estadiasActivas();
+        vector<DTEstadia> estadiasActivas();
         DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo, ta raro
         void actualizarCheckOut(DTFecha co); //es solamente setCheckOut
-        //set(DTEstadia) getEstadias();
-        //set(DTCalificacion) getCalifSinResReserva()
+        vector<DTEstadia> getDTEstadias();
+        vector<DTCalificacion> getCalifSinResReserva();
         void buscarCalificacion(string respuesta, int codigoCalif);
         bool esGrupalReserva();
-        //set(DTHuesped) obtenerHuespedesReserva();
-        //set(DTEstadia) estadiasReserva() Hace lo mismo que getEstadias();
+        vector<DTHuesped> obtenerHuespedesReserva();
+        vector<DTEstadia> estadiasReserva();  //Hace lo mismo que getEstadias();
         DTHuesped esHuesped(); 
         int esReserva();
         bool mismaReserva(int cres);
         DTCalificacion calificacionBuscada();
         DTReserva reservaBuscada();
-        //void eliminarLinksHuesEst();
+        void eliminarLinksHuesEst();
         void calificarEstadiaReserva(Huesped hues);
 
 };
