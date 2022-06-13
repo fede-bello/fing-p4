@@ -11,7 +11,7 @@ class Hostal{
         string Nombre;
         string Direccion;
         int Telefono;
-        map<int, Habitacion> MapaHabitaciones; //habitaciones es un map (diccionario) de Habitacion
+        map<int, Habitacion> mapaHabitaciones; //mapaHabitaciones es un map (diccionario) de Habitacion
     public:
         Hostal();
         Hostal(string Nombre,string Direccion,int Telefono);
@@ -23,16 +23,16 @@ class Hostal{
         void setTelefono(int telefono);
         void agregarHabitacionAHostal(DTHabitacion hab);
         //Operaciones
-        DTHostal getDTHostal();
-        DTReserva darReservasHuespedHos();
-        Reserva getReservasHostal();//No se como crear un conjunto de reservas desde hostal
-        DTHabitacion* darInfoHabs();
+        DTHostal getDTHostal();//✅
+        DTReserva darReservasHuespedHos();//FALTA
+        Reserva getReservasHostal();//FALTA
+        vector<DTHabitacion> darInfoHabs();//✅
         DTReserva darReservasHostal();
-        int darNumHab(Reserva nr);
-        DTHuesped huespedes(Reserva nr);
-        DTHabitacion infoHab(int cres);//FALTA
-        void eliminarLinkReserva();//falta decir a que reserva hago referencia, no hay forma de acceder a reserva desde hostal
-        void AsociarReservaHostal(int r,int habitacion );//FALTA
+        int darNumHab(Reserva nr);//✅
+        DTHuesped huespedes(Reserva nr);//FALTA
+        DTHabitacion infoHab(int cres);//✅
+        void eliminarLinkReserva(int cres);//✅agregue a que reserva hace referencia
+        void AsociarReservaHostal(int r,int habitacion);//✅
         //Destructoras
         ~Hostal();
 };

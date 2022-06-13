@@ -38,7 +38,7 @@ void Hostal::setTelefono(int telefono){
 
 void Hostal::agregarHabitacionAHostal(DTHabitacion dthab){
     Habitacion hab=Habitacion(dthab.getNumero(),dthab.getCapacidad(),dthab.getPrecio());
-    this->MapaHabitaciones.insert(pair<int, Habitacion>(dthab.getNumero(), hab));
+    this->mapaHabitaciones.insert(pair<int, Habitacion>(dthab.getNumero(), hab));
 
 }
 
@@ -48,11 +48,82 @@ DTHostal Hostal::getDTHostal(){
     return res;
 }
 
+DTReserva Hostal::darReservasHuespedHos(){
 
+}
+
+vector<Reserva> Hostal::getReservasHostal(){
+    vector<Reserva> res;
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        Habitacion *nuevo = it->second;
+        map<int, Reserva>::iterator iter;
+        for(iter = nuevo.mapaReservas.begin(); iter != nuevo.mapaReservas.end(); ++iter){
+            // poner cada elemento de las reservas en el vector reservas
+        }
+    }
+}
+
+vector<DTHabitacion> Hostal::darInfoHabs(){
+    vector<DTHabitacion> res;
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        Habitacion *nuevo = it->second;
+        res.push_back(DTHabitacion(nuevo.getNum(), nuevo.getCap(), nuevo.getPrecio()));
+    }
+    return res;
+}
+
+
+int Hostal::darNumHab(Reserva nr){
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        if(it->second.buscarReserva(nr)){
+            int res = it->second.getNum();
+            break;
+        }
+    }
+    return res;
+}
+
+DTHuesped Hostal::huespedes(Reserva nr){
+
+}
+
+DTHabitacion Hostal::infoHab(int cres){
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        if(it->second.buscarReserva(nr)){
+            DTHabitacion res = DTHabitacion(it->second.getNum(), it->second.getCap(), it->second.getPrecio());
+            break;
+        }
+    }
+    return res;
+}
+
+void Hostal::eliminarLinkReserva(int cres){
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        if(it->second.buscarReserva(nr)){
+            it->second.eliminarLinkRes(cres);// operacion de habitaciones.h
+            break;
+        }
+    }
+}
+
+void Hostal::AsociarReservaHostal(int r,int habitacion){
+    map<int, Habitacion>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); ++it){
+        if(it->second.getNum() == habitacion){
+            setReserva(r);//operacion de habitaicon.h
+            break;
+        }
+    }
+}
 
 //Destructora
 Hostal::~Hostal(){
-    for(auto &codigo:MapaHabitaciones){
+    for(auto &codigo:mapaHabitaciones){
         Habitacion hab = codigo.second;
         hab.~Habitacion();
     }
