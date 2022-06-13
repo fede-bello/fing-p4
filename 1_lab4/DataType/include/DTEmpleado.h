@@ -6,6 +6,7 @@
 #include "DTUsuario.h"
 
 
+
 enum CargoEmp{
     Limpieza, Administracion, Infrasetructura, Recepcion 
 };

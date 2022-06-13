@@ -6,6 +6,7 @@
 #include "../../DataType/include/DTHabitacion.h"
 #include"../../DataType/include/DTFecha.h" 
 
+
 class Habitacion{
     private:
         int Numero=0, Capacidad=0;

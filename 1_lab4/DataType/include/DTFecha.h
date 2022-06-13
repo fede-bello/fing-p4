@@ -10,6 +10,7 @@
 #define MAX_HUESPEDES 50 
 using namespace std;
 
+
 class DTFecha{
     private: 
         int dia,mes,anio,hora;

@@ -8,6 +8,7 @@
 #include"../../Controladores/include/controladorFecha.h"
 
 
+
 class Estadia{
     private:
         int identificador;
@@ -31,7 +32,6 @@ class Estadia{
         void setCalificacion(Calificacion *calif);//hecha
         void setHuesped(Huesped *huesped);//hecha
         float calcularPuntajeEstadia();
-        //set(DTCalificacion) darCalificacionesEstadia();
         bool estadiaActiva();//hecha, revisar
         bool mismoCodigo(int codigo);//hecha
         bool estaFinalizadaEstadia();//hecha, revisar
@@ -39,6 +39,7 @@ class Estadia{
         bool mismaEstadia(int identificador);//hecha
         DTHuesped huesEs();//hecha - Devuelve el DTHuesped del Huesped asociado a la estadia
         DTCalificacion calificacionEstadia(); //hecho
+        DTCalificacion darCalificacionesEstadia();
         void calificarEst(Huesped* hues, int calif, string texto);
         ~Estadia();
 };

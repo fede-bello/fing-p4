@@ -6,6 +6,8 @@
 #include"DTFecha.h"
 
 
+
+
 class DTHabitacion{
     private:
         //Falta pseudo atributo para DTReserva

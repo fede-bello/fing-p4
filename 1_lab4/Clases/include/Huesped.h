@@ -6,6 +6,8 @@
 #include"../../DataType/include/DTHuesped.h"
 
 
+
+
 class Huesped:public Usuario{
     private: 
         bool esFinger;

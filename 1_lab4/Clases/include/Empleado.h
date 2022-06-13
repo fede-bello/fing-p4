@@ -6,6 +6,10 @@
 #include "Usuario.h"
 #include "../../DataType/include/DTEmpleado.h"
 
+
+
+
+
 class Empleado: public Usuario{
     private:
         CargoEmp Cargo;

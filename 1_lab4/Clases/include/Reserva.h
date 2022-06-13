@@ -3,8 +3,12 @@
 
 #include "Estadia.h"
 #include "Huesped.h"
+#include "../../DataType/include/DTUsuario.h"
 #include "../../DataType/include/DTReserva.h"
 #include"../../DataType/include/DTFecha.h"
+#include"../../DataType/include/DTCalificacion.h"
+
+
 
 class Reserva{
     protected:
@@ -39,7 +43,7 @@ class Reserva{
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);
         float calcularPromedioReserva();
-        vector<DTCalificacion> darCalificacionesReserva(); //FALTA
+        set<DTCalificacion> darCalificacionesReserva(); //FALTA
         bool mismoHuesped(string email);
         DTReserva getDTReserva();
         DTEstadia crearEstadiaNueva(DTFecha f); //FALTA

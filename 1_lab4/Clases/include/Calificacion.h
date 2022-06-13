@@ -6,6 +6,7 @@
 #include"../../DataType/include/DTFecha.h"
 #include"../../DataType/include/DTCalificacion.h"
 
+
 class Calificacion{
     private:
         int Numero;

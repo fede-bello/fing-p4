@@ -6,6 +6,8 @@
 #include "../../DataType/include/DTHostal.h"
 #include "../../DataType/include/DTHabitacion.h"
 
+
+
 class Hostal{
     private:
         string Nombre;

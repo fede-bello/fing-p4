@@ -5,6 +5,9 @@
 #include "DTHabitacion.h"
 
 
+
+
+
 class DTHostal{
     private:
         //Falta pseudo atributo para DTHabitacion

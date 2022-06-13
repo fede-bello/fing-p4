@@ -5,6 +5,8 @@
 #include"DTReserva.h"
 #include"DTHuesped.h"
 
+
+
 class DTReservaGrupal: public DTReserva{
     private:
         //Falta pseudo atributo para DTHuesped

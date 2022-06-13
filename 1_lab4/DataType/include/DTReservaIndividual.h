@@ -4,6 +4,7 @@
 
 #include"DTReserva.h"
 
+
 class DTReservaIndividual: public DTReserva{
     public:
         //constructores

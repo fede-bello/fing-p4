@@ -3,8 +3,8 @@
 
 
 #include"DTCalificacion.h"//
-#include "DTHuesped.h"//
 #include "DTFecha.h"
+
 
 class DTEstadia{
     private:

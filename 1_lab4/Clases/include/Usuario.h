@@ -4,6 +4,10 @@
 
 #include "../../DataType/include/DTUsuario.h"
 
+
+
+
+
 class Usuario{
     protected:
         string Nombre, Password, Mail;

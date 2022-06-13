@@ -10,6 +10,8 @@ enum EstadoReserva {
     Abierta, Cerrada, cancelada  
 };
 
+
+
 class DTReserva{
     protected: 
         //Falta pseudo atributo para DTHuesped y DTEstadia

@@ -137,6 +137,14 @@ DTCalificacion Estadia::calificacionEstadia(){
 
     return DTa_devolver;
 }
+DTCalificacion Estadia::darCalificacionesEstadia(){
+    Calificacion * calificacionEstadia = this->getCalificacion();
+
+    DTCalificacion DTa_devolver = calificacionEstadia->getDTCalificacion();
+
+    return DTa_devolver;
+
+}
 
 void Estadia::calificarEst(Huesped* hues, int calif, string texto){
     Calificacion *a_calificar = new Calificacion();

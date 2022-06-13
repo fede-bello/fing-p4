@@ -5,6 +5,8 @@
 #include "DTHuesped.h"//
 #include "DTFecha.h"
 
+
+
 class DTCalificacion{
     private:
         //Falta pseudo atributo para DTHuesped
