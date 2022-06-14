@@ -110,7 +110,7 @@ bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
 float Reserva::calcularPromedioReserva(){
     float suma = 0;
     int i = 0; //cuenta la cantidad de calificaciones que tiene la reserva
-    map<int,Estadia*>::iterator it = mapaEstadias.begin();
+    map<int,Estadia*>::iterator it =this-> mapaEstadias.begin();
     while (it != mapaEstadias.end()){
         Estadia *est = it->second;
         suma = suma + est->calcularPuntajeEstadia();
@@ -127,7 +127,7 @@ float Reserva::calcularPromedioReserva(){
 
 
 vector<DTCalificacion> Reserva::darCalificacionesReserva(){
-    map<int,Estadia*>::iterator it=mapaEstadias.begin();
+    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
     vector<DTCalificacion> calificaciones;
     while (it!=mapaEstadias.end()){
         Estadia *est=it->second;
@@ -160,7 +160,7 @@ void Reserva::cerrarEstadoReserva(){
 
 
 vector<DTEstadia> Reserva::estadiasActivas(){
-    map<int,Estadia*>::iterator it=mapaEstadias.begin();
+    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
     vector<DTEstadia> estAc;
     while (it!=mapaEstadias.end()){
         Estadia *est=it->second;
@@ -174,21 +174,34 @@ vector<DTEstadia> Reserva::estadiasActivas(){
 }
 
 
-/*
-DTEstadia Reserva::mismaEstadia(int codigo){
-    FEDE:FIJATE BIEN COMO USAR EL FIND, CAPAZ HAY QUE USAR DYNAMIC CAST
-    Estadia est=this->mapaEstadias.find(codigo);
-    return est->getDTEstadia();
-
+DTEstadia Reserva::mismaEstadia(int codigo){//aca no se si habra que usar algun iterator
+    DTEstadia est=DTEstadia();
+    if (this->mapaEstadias.find(codigo)!=this->mapaEstadias.end()){
+        Estadia *esta=this->mapaEstadias.find(codigo)->second;
+        est=esta->getDTEstadia();
+    }
+    return est;
+    
 }
-*/
+
+
+
 void Reserva::actualizarCheckOut(DTFecha co){
     this->checkOut=co;
 }
-/*
-vector<DTEstadia> Reserva::getDTEstadias(){
 
-}
+vector<DTEstadia> Reserva::getDTEstadias(){
+    vector<DTEstadia> estadias;
+    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
+    while (it!=mapaEstadias.end()){
+        Estadia *est=it->second;
+        DTEstadia dtest=est->getDTEstadia();
+        estadias.push_back(dtest);
+        ++it; //Aumenta una posicion el iterador
+        }
+    return estadias;
+
+}/*
 
 vector<DTCalificacion> Reserva::getCalifSinResReserva(){
 

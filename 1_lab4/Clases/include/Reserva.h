@@ -49,7 +49,7 @@ class Reserva{
         DTEstadia crearEstadiaNueva(DTFecha f); //FALTA
         void cerrarEstadoReserva();//✅
         vector<DTEstadia> estadiasActivas(); 
-        DTEstadia mismaEstadia(int codigo); //FALTA //devuelve la estadia de reserva que tenga codigo, ta raro
+        DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo
         void actualizarCheckOut(DTFecha co);//✅
         vector<DTEstadia> getDTEstadias(); //FALTA
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
