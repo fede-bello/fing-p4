@@ -176,11 +176,11 @@ vector<DTCalificacion> Reserva::getCalifSinResReserva(){
 void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
 
 }
-
-bool Reserva::esGrupalReserva(){
-
-}
 */
+bool Reserva::esGrupalReserva(){
+    return true;
+}
+
 vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
     vector<DTHuesped> vec;
     return vec;

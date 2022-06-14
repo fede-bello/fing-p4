@@ -82,8 +82,12 @@ bool Habitacion::mismoNumero(int nr){
 
 vector<DTHuesped> Habitacion::obtenerHuesprResHab(int nr){ 
     map<int, Reserva>::iterator it;
+    vector<DTHuesped> res;
     it = mapaReservas.find(nr);
-    return it->second.obtenerHuespedesReserva();
+    if(it->second.esGrupalReserva()){
+        res = it->second.obtenerHuespedesReserva();
+    }
+    return res;
 }
 
 bool Habitacion::buscarReserva(int cres){
