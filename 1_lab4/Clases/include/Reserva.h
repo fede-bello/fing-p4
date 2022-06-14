@@ -39,29 +39,29 @@ class Reserva{
         void setEstadia(map<int,Estadia*> mapaEstadias);
         void setHuesped(Huesped *huesped);        
          //destructor
-        ~Reserva();
+        ~Reserva();//no me funciona por el estadia*
         //operaciones 
-        bool reservaDisponibleEntre(DTFecha In, DTFecha Out);
-        float calcularPromedioReserva();
+        bool reservaDisponibleEntre(DTFecha In, DTFecha Out);//✅
+        float calcularPromedioReserva();//✅
         set<DTCalificacion> darCalificacionesReserva(); //FALTA
-        bool mismoHuesped(string email);
-        DTReserva getDTReserva();
+        bool mismoHuesped(string email);//✅
+        DTReserva getDTReserva();//✅
         DTEstadia crearEstadiaNueva(DTFecha f); //FALTA
-        void cerrarEstadoReserva();
-        vector<DTEstadia> estadiasActivas(); //FALTA
+        void cerrarEstadoReserva();//✅
+        vector<DTEstadia> estadiasActivas(); //FALTA (hecha por danilo, funciona si se saca el puntero a estadia)
         DTEstadia mismaEstadia(int codigo); //FALTA //devuelve la estadia de reserva que tenga codigo, ta raro
-        void actualizarCheckOut(DTFecha co); 
+        void actualizarCheckOut(DTFecha co);//✅
         vector<DTEstadia> getDTEstadias(); //FALTA
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
         void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
         bool esGrupalReserva(); //FALTA
         vector<DTHuesped> obtenerHuespedesReserva(); //FALTA
         vector<DTEstadia> estadiasReserva(); //FALTA  //Hace lo mismo que getEstadias();
-        DTHuesped esHuesped(); 
-        int esReserva();
-        bool mismaReserva(int cres);
-        DTCalificacion calificacionBuscada(); //FALTA
-        DTReserva reservaBuscada(); //FALTA
+        DTHuesped esHuesped();//✅
+        int esReserva();//✅
+        bool mismaReserva(int cres);//✅
+        DTCalificacion calificacionBuscada(int codigo); //FALTA, agregue el codigo como parametro si no imposible encontrar la calificacion (hecha por danilo, funciona si se saca el puntero a estadia)
+        DTReserva reservaBuscada(int codigo); //FALTA, agregue el codigo como parametro si no imposible encontrar la calificacion
         void eliminarLinksHuesEst(); //FALTA
         void calificarEstadiaReserva(Huesped hues); //FALTA
 

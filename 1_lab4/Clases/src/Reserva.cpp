@@ -18,12 +18,6 @@ Reserva::Reserva(int codigo, DTFecha checkIn, DTFecha checkOut, EstadoReserva es
     this->codigo = codigo;
 }
 
-
-//Destructora DTReserva
-Reserva::~Reserva(){
-
-}
-
 //gets Reserva 
 
 int Reserva::getCodigo(){
@@ -80,6 +74,18 @@ void Reserva::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
+//Destructora DTReserva
+
+Reserva::~Reserva(){
+/*no me funciona con el puntero a estadia
+    for(auto &codigo:mapaEstadias){
+        Estadia est = codigo.second;
+        est.~Estadia();
+    }
+    */
+}
+
+
 //Calcular Costo
 // float Reserva::calcularCosto(){
 //     float costo;
@@ -91,25 +97,26 @@ void Reserva::setHuesped(Huesped *huesped){
 //     return costo;
 // }
 
+
 bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
-    bool res=false;
-    if ((this->checkIn>In) && (this->checkOut<Out)){
-        res=true;
+    bool res = false;
+    if ((this->checkIn > Out) || (this->checkOut < In)){
+        res = true;
     }
     return true;
 }
 
+
 float Reserva::calcularPromedioReserva(){
-    float suma=0;
-    int i=0; //cuenta la cantidad de calificaciones que tiene la reserva
-    map<int,Estadia*>::iterator it=mapaEstadias.begin();
-    while (it!=mapaEstadias.end()){
-        Estadia *est=it->second;
-        suma=suma + est->calcularPuntajeEstadia();
+    float suma = 0;
+    int i = 0; //cuenta la cantidad de calificaciones que tiene la reserva
+    map<int,Estadia*>::iterator it = mapaEstadias.begin();
+    while (it != mapaEstadias.end()){
+        Estadia *est = it->second;
+        suma = suma + est->calcularPuntajeEstadia();
         i++;
         ++it;
         }
-    
     if (i!=0){
         return suma/i; //Devuelvo el promedio
     }
@@ -118,7 +125,8 @@ float Reserva::calcularPromedioReserva(){
     }
 }
 
-/*set<DTCalificacion> Reserva::darCalificacionesReserva(){
+/*no me funciona por el estadia*
+set<DTCalificacion> Reserva::darCalificacionesReserva(){
     map<int,Estadia*>::iterator it=mapaEstadias.begin();
     set<DTCalificacion> calificaciones;
     while (it!=mapaEstadias.end()){
@@ -128,14 +136,14 @@ float Reserva::calcularPromedioReserva(){
         ++it; //Aumenta una posicion el iterador
         }
     return calificaciones;    
-}*/
-
+}
+*/
 bool Reserva::mismoHuesped(string email){
-    return (this->hues->getMail()==email);
+    return (this->hues->getMail() == email);
 
 }
 
-DTReserva Reserva:: getDTReserva(){
+DTReserva Reserva::getDTReserva(){
     return DTReserva(this->codigo, this->checkIn, this->checkOut, this->estado,this->costo);
 }
 
@@ -150,15 +158,25 @@ void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
 }
 
-/*vector<DTEstadia> estadiasActivas(){
-    
+/*
+vector<DTEstadia> Reserva::estadiasActivas(){
+    vector<DTEstadia> res;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
+        if(it->second.estadiaActiva()){
+            res.push_back(it->second.getDTEstadia());
+        }
+    }
+    return res;
 }
+*/
 
+/*
 DTEstadia Reserva::mismaEstadia(int codigo){
     FEDE:FIJATE BIEN COMO USAR EL FIND, CAPAZ HAY QUE USAR DYNAMIC CAST
     Estadia est=this->mapaEstadias.find(codigo);
     return est->getDTEstadia();
-    
+
 }
 */
 void Reserva::actualizarCheckOut(DTFecha co){
@@ -177,6 +195,8 @@ void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
 
 }
 */
+
+//NO IMPLENTADA, PUSE ESO PARA QUE COMPILE ALGO DE HOSTAL (DANILO)
 bool Reserva::esGrupalReserva(){
     return true;
 }
@@ -202,12 +222,26 @@ bool Reserva::mismaReserva(int cres){
     return (this->codigo == cres);
 }
 
-/*DTCalificacion Reserva::calificacionBuscada();
+/*
+DTCalificacion Reserva::calificacionBuscada(int codigo){
+    DTCalificacion res;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
+        if(it->second.mismaEstadia(codigo)){
+            res = it->second.calificacionEstadia();
+            break;
+        }
+    }
+    return res;
+}
+*/
 
-DTReserva Reserva::reservaBuscada(){
+/*
+DTReserva Reserva::reservaBuscada(int codigo){
 
 }
 
 void Reserva::eliminarLinksHuesEst(){}
 
-void Reserva::calificarEstadiaReserva(Huesped hues){}*/
+void Reserva::calificarEstadiaReserva(Huesped hues){}
+*/
