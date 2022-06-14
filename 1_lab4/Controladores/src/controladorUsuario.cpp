@@ -132,3 +132,17 @@ void controladorUsuario::AsignarEmpleado(){
     //empleado.setHostal(hostal); esto tendria que ser un puntero
 }
 //FIN ASIGNAR EMPLEADO A HOSTAL
+
+
+//Realizar Reserva
+
+vector<DTHuesped> controladorUsuario::obtenerHuespedes(){
+    map<string,Huesped*>::iterator it;
+    vector<DTHuesped> huespedes;
+    for (it=MapaHuesped.begin(); it!=MapaHuesped.end(); ++it){
+        DTHuesped hues=it->second->getDTHuesped();
+        huespedes.push_back(hues);
+    }
+    return huespedes;
+
+}

@@ -7,7 +7,6 @@ class controladorUsuario{
     private:
         static controladorUsuario * instance;
         controladorUsuario();
-        //seria Mucho mas conveniente tener estos antes de un Empleado y un Huesped
         vector<string>ArregloEmail;
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
@@ -34,6 +33,8 @@ class controladorUsuario{
         void ActualizarCargo(string nombre,CargoEmp cargo);
         void AsignarEmpleado();
         //Realizar Reserva
+        vector<DTHuesped> obtenerHuespedes();
+        DTHabitacion elegirHabitacion();
         //Consultar top 3 de hostales
         //Registrar Estadia
         //Finalizar Estadia
