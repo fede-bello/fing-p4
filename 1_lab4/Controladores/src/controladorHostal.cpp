@@ -40,7 +40,7 @@ map<string,Hostal*> controladorHostal::getMapaHostal(){
     return this->MapaHostal;
 }
 //ALTA HOSTAL
-DTHostal* controladorHostal:: NuevoHostal(string nombre,string direccion,int telefono){
+DTHostal* controladorHostal:: nuevoHostal(string nombre,string direccion,int telefono){
     DTHostal *res=new DTHostal(nombre,direccion,telefono);
     return res;
 }
@@ -59,13 +59,9 @@ void controladorHostal::cancelarAltaHostal(DTHostal *dthostal){
 //ALTA HABITACION
 vector<DTHostal>controladorHostal::obtenerHostales(){
     vector<DTHostal> res;
-    for (auto &it:MapaHostal){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Hostal
-        //it.first es la clave de MapaHostal
-        //it.second es el objeto asociado a it.first
-        //todo esto sale de la creacion del Mapa, map<string,Hostal> MapaHostal
-        //const es para no repetir el valor
-        string nombreHostal=it.first;//
-        Hostal *hostal=it.second;
+    map<string,Hostal*>::iterator it;
+    for (it=this->MapaHostal.begin(); it!=this->MapaHostal.end();++it){//Asi itera en el teorico
+        Hostal *hostal=it->second;
         res.push_back(DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono()));
     }
     return res;//Luego de esta Funcion habria que res.clear();
@@ -92,8 +88,27 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
             pedirNombre=true;
         }
     }while(true);
-   
+}   
+/*
+     VERSION FEDE ELEGIR HOSTAL
+DTHostal *controladorHostal::elegirHostal(string nombre){
+    
+    DTHostal *res;
+    if(MapaHostal.find(nombre)==MapaHostal.end()){
+        Hostal *hostal=MapaHostal.find(nombre)->second;
+        res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
+    }
+    return res;
 }
+*/
+
+
+
+
+
+
+
+
 
 void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
     string nombre=this->HostalGuardado->getNombre();

@@ -17,7 +17,7 @@ public:
     DTHostal *getHostal();
     map<string,Hostal*> getMapaHostal();
     //Alta Hostal
-    DTHostal* NuevoHostal(string nombre,string direccion,int telefono);
+    DTHostal* nuevoHostal(string nombre,string direccion,int telefono);
     void confirmarAltaHostal(DTHostal *dthostal);
     void cancelarAltaHostal(DTHostal *dthostal);
     //FIN Alta Hostal
