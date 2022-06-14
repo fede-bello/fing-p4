@@ -60,19 +60,19 @@ vector<DTReserva> Hostal::darReservasHuespedHos(string email){
     }
     return res;
 }
-
+/*
 vector<Reserva> Hostal::getReservasHostal(){
     vector<Reserva> res;
     map<int, Habitacion>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        map<int, Reserva> nuevo = it->second.getReservas(); 
-        map<int, Reserva>::iterator iter;
+        map<int, Reserva*> nuevo = it->second.getReservas(); 
+        map<int, Reserva*>::iterator iter;
         for(iter = nuevo.begin(); iter != nuevo.end(); iter++){
             res.push_back(iter->second);
         }
     }
     return res;
-}
+}*/
 
 vector<DTHabitacion> Hostal::darInfoHabs(){
     vector<DTHabitacion> res;
@@ -127,16 +127,18 @@ void Hostal::eliminarLinkReserva(int cres){
         }
     }
 }
-
+/*
 void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
     map<int, Habitacion>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
         if(it->second.getNum() == habitacion){
-            it->second.setReserva(r);//operacion de habitaicon.h
+            map<int, Reserva*> res = it->second.getReservas();
+            res[r.getCodigo()] = r;
+            it->second.setReserva(res);//operacion de habitaicon.h
             break;
         }
     }
-}
+}*/
 
 //Destructora
 Hostal::~Hostal(){

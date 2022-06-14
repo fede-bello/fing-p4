@@ -35,21 +35,21 @@ void Habitacion::setPrecio(float precio){
     this->Precio=precio;
 }
 
-void Habitacion::setReserva(Reserva res){
-    this->mapaReservas.insert(pair<int, Reserva>(res.getCodigo(), res));
+void Habitacion::setReserva(map<int, Reserva*> mapaReservas){
+    this->mapaReservas = mapaReservas;
 }
 
-
-map<int, Reserva> Habitacion::getReservas(){
-    return this->mapaReservas;
+map<int, Reserva*> Habitacion::getReservas(){
+    return mapaReservas;
 }
 
 bool Habitacion::habitacionLibre(DTFecha In,DTFecha Out){
-    map<int, Reserva>::iterator it;
+    map<int, Reserva*>::iterator it;
     it = mapaReservas.begin();
     bool libre = true;
-    while(it != mapaReservas.end()  && libre){ 
-        if(it->second.reservaDisponibleEntre(In, Out)){
+    while(it != mapaReservas.end() && libre){
+        Reserva *r = it->second; 
+        if(r->reservaDisponibleEntre(In, Out)){
             it++;
         } else{
             libre = false;
@@ -65,11 +65,12 @@ DTHabitacion Habitacion::getDTHabitacion(){
 
 vector<DTReserva> Habitacion::darReservasHuespedHab(string email){
     vector<DTReserva> res;
-    map<int, Reserva>::iterator it; 
+    map<int, Reserva*>::iterator it; 
     EstadoReserva a = cancelada;
     for(it = mapaReservas.begin(); it != mapaReservas.end(); it++){
-        if(it->second.getEstado() != a && it->second.mismoHuesped(email)){
-            res.push_back(it->second.getDTReserva());
+        Reserva *r = it->second;
+        if(r->getEstado() != a && r->mismoHuesped(email)){
+            res.push_back(r->getDTReserva());
         }
     }
     return res;
@@ -81,21 +82,23 @@ bool Habitacion::mismoNumero(int nr){
 
 
 vector<DTHuesped> Habitacion::obtenerHuesprResHab(int nr){ 
-    map<int, Reserva>::iterator it;
+    map<int, Reserva*>::iterator it;
     vector<DTHuesped> res;
     it = mapaReservas.find(nr);
-    if(it->second.esGrupalReserva()){
-        res = it->second.obtenerHuespedesReserva();
+    Reserva *r = it->second;
+    if(r->esGrupalReserva()){
+        res = r->obtenerHuespedesReserva();
     }
     return res;
 }
 
 bool Habitacion::buscarReserva(int cres){
-    map<int, Reserva>::iterator it; 
+    map<int, Reserva*>::iterator it; 
     it = mapaReservas.begin();
     bool encontre = false;
     while(it != mapaReservas.end() && !encontre){
-        if(it->second.mismaReserva(cres)){
+        Reserva *r = it->second;
+        if(r->mismaReserva(cres)){
             encontre = true;
         } else{
             it++;
@@ -108,9 +111,23 @@ void Habitacion::eliminarLinkRes(int cres){
     mapaReservas.erase(cres);
 }
 
+/*
+void AsociarReservaHabitacion(Reserva r){
+    mapaReservas.insert(pair<int, Reserva*>(r.getCodigo(), r*));
+}
+*/
+
+//no funciona
+// void AsociarReservaHabitacion(Reserva r, Habitacion h){
+//     map<int, Reserva*> nuevo = h.getReservas();
+//     //nuevo.insert(pair<int, Reserva*>(r.getCodigo(), r*));
+//     nuevo[r.getCodigo()] = r*;
+//     h.setReserva(nuevo);
+// }
+
 Habitacion::~Habitacion(){
     for(auto &codigo:mapaReservas){
-        Reserva res = codigo.second;
-        res.~Reserva();
+        Reserva *res = codigo.second;
+        res->~Reserva();
     }
 }

@@ -11,7 +11,7 @@ class Habitacion{
     private:
         int Numero=0, Capacidad=0;
         float Precio=0.0;
-        map<int, Reserva> mapaReservas; //reservas es un map (diccionario) de Reserva, la clave es el codigo de la reserva
+        map<int, Reserva*> mapaReservas; //reservas es un map (diccionario) de Reserva, la clave es el codigo de la reserva
     public:
         Habitacion();
         Habitacion(int numero, int capacidad, float precio);
@@ -21,10 +21,10 @@ class Habitacion{
         void setNum(int numero);
         void setCap(int capacidad);
         void setPrecio(float precio);
-        void setReserva(Reserva res);
+        void setReserva(map<int, Reserva*> mapaReservas);
 
         //Operaciones
-        map<int, Reserva> getReservas(); //✅
+        map<int, Reserva*> getReservas(); //✅
         bool habitacionLibre(DTFecha In,DTFecha Out);//✅
         DTHabitacion getDTHabitacion();//✅
         vector<DTReserva> darReservasHuespedHab(string email);//✅
@@ -32,6 +32,7 @@ class Habitacion{
         vector<DTHuesped> obtenerHuesprResHab(int nr);//✅
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
+        void AsociarReservaHabitacion(Reserva r);//saque el parametro de habitacion era innecesario
 
         //Destructora
         ~Habitacion();

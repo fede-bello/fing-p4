@@ -13,7 +13,7 @@ class Hostal{
         string Nombre;
         string Direccion;
         int Telefono;
-        map<int, Habitacion> mapaHabitaciones; //mapaHabitaciones es un map (diccionario) de Habitacion
+        map<int, Habitacion*> mapaHabitaciones; //mapaHabitaciones es un map (diccionario) de Habitacion
     public:
         Hostal();
         Hostal(string Nombre,string Direccion,int Telefono);
