@@ -158,18 +158,21 @@ void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
 }
 
-/*
+
 vector<DTEstadia> Reserva::estadiasActivas(){
-    vector<DTEstadia> res;
-    map<int,Estadia*>::iterator it;
-    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
-        if(it->second.estadiaActiva()){
-            res.push_back(it->second.getDTEstadia());
+    map<int,Estadia*>::iterator it=mapaEstadias.begin();
+    vector<DTEstadia> estAc;
+    while (it!=mapaEstadias.end()){
+        Estadia *est=it->second;
+        if (est->estadiaActiva()){
+            DTEstadia dtest=est->getDTEstadia();
+            estAc.push_back(dtest);
         }
-    }
-    return res;
+        ++it; //Aumenta una posicion el iterador
+        }
+    return estAc;
 }
-*/
+
 
 /*
 DTEstadia Reserva::mismaEstadia(int codigo){
