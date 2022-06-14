@@ -125,19 +125,19 @@ float Reserva::calcularPromedioReserva(){
     }
 }
 
-/*no me funciona por el estadia*
-set<DTCalificacion> Reserva::darCalificacionesReserva(){
+
+vector<DTCalificacion> Reserva::darCalificacionesReserva(){
     map<int,Estadia*>::iterator it=mapaEstadias.begin();
-    set<DTCalificacion> calificaciones;
+    vector<DTCalificacion> calificaciones;
     while (it!=mapaEstadias.end()){
         Estadia *est=it->second;
         DTCalificacion calificacion=est->darCalificacionesEstadia();
-        calificaciones.insert(calificacion);
+        calificaciones.push_back(calificacion);
         ++it; //Aumenta una posicion el iterador
         }
     return calificaciones;    
 }
-*/
+
 bool Reserva::mismoHuesped(string email){
     return (this->hues->getMail() == email);
 

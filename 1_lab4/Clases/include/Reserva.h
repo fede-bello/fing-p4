@@ -43,7 +43,7 @@ class Reserva{
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);//✅
         float calcularPromedioReserva();//✅
-        set<DTCalificacion> darCalificacionesReserva(); //FALTA
+        vector<DTCalificacion> darCalificacionesReserva(); 
         bool mismoHuesped(string email);//✅
         DTReserva getDTReserva();//✅
         DTEstadia crearEstadiaNueva(DTFecha f); //FALTA
