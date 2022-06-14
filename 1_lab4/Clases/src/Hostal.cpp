@@ -37,8 +37,8 @@ void Hostal::setTelefono(int telefono){
 }
 
 void Hostal::agregarHabitacionAHostal(DTHabitacion dthab){
-    Habitacion hab=Habitacion(dthab.getNumero(),dthab.getCapacidad(),dthab.getPrecio());
-    this->mapaHabitaciones.insert(pair<int, Habitacion>(dthab.getNumero(), hab));
+    Habitacion *hab=new Habitacion(dthab.getNumero(),dthab.getCapacidad(),dthab.getPrecio());
+    this->mapaHabitaciones[dthab.getNumero()]=hab;
 
 }
 
@@ -50,9 +50,9 @@ DTHostal Hostal::getDTHostal(){
 
 vector<DTReserva> Hostal::darReservasHuespedHos(string email){
     vector<DTReserva> res;
-    map<int, Habitacion>::iterator it;
-    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        vector<DTReserva> a = it->second.darReservasHuespedHab(email);
+    map<int, Habitacion*>::iterator it;
+    for(it = this->mapaHabitaciones.begin(); it != this->mapaHabitaciones.end(); ++it){
+        vector<DTReserva> a = it->second->darReservasHuespedHab(email);
         vector<DTReserva>::iterator iter;
         for(iter = a.begin(); iter != a.end(); iter++){
             res.push_back(*iter);
@@ -76,19 +76,19 @@ vector<Reserva> Hostal::getReservasHostal(){
 
 vector<DTHabitacion> Hostal::darInfoHabs(){
     vector<DTHabitacion> res;
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        res.push_back(it->second.getDTHabitacion());
+        res.push_back(it->second->getDTHabitacion());
     }
     return res;
 }
 
 int Hostal::darNumHab(int nr){
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     int res;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        if(it->second.mismoNumero(nr)){
-            res = it->second.getNum();
+        if(it->second->mismoNumero(nr)){
+            res = it->second->getNum();
             break;
         }
     }
@@ -96,22 +96,22 @@ int Hostal::darNumHab(int nr){
 }
 
 vector<DTHuesped> Hostal::huespedes(int nr){
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     vector<DTHuesped> hues;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        if(it->second.buscarReserva(nr)){
-            hues = it->second.obtenerHuesprResHab(nr);
+        if(it->second->buscarReserva(nr)){
+            hues = it->second->obtenerHuesprResHab(nr);
         }
     }
     return hues;
 }
 
 DTHabitacion Hostal::infoHab(int cres){
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     DTHabitacion res = DTHabitacion();
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        if(it->second.buscarReserva(cres)){
-            res = it->second.getDTHabitacion();
+        if(it->second->buscarReserva(cres)){
+            res = it->second->getDTHabitacion();
             break;
         }
     }
@@ -119,17 +119,17 @@ DTHabitacion Hostal::infoHab(int cres){
 }
 
 void Hostal::eliminarLinkReserva(int cres){
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        if(it->second.buscarReserva(cres)){
-            it->second.eliminarLinkRes(cres);// operacion de habitaciones.h
+        if(it->second->buscarReserva(cres)){
+            it->second->eliminarLinkRes(cres);// operacion de habitaciones.h
             break;
         }
     }
 }
 /*
 void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
         if(it->second.getNum() == habitacion){
             map<int, Reserva*> res = it->second.getReservas();
@@ -142,8 +142,8 @@ void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
 
 //Destructora
 Hostal::~Hostal(){
-    for(auto &codigo:mapaHabitaciones){
-        Habitacion hab = codigo.second;
-        hab.~Habitacion();
+    map<int, Habitacion*>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
+        it->second->~Habitacion();
     }
 }
