@@ -42,6 +42,7 @@ class Estadia{
         DTCalificacion darCalificacionesEstadia();
         void calificarEst(Huesped* hues, int calif, string texto);
         ~Estadia();
+
 };
 
 

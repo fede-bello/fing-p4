@@ -33,7 +33,7 @@ DTFecha Reserva::getCheckOut(){
 }
 
 map<int,Estadia*> Reserva::getEstadias(){
-    return mapaEstadias; 
+    return this->mapaEstadias; 
 }
 
 Huesped* Reserva::getHuesped(){
@@ -190,20 +190,33 @@ void Reserva::actualizarCheckOut(DTFecha co){
     this->checkOut=co;
 }
 
-vector<DTEstadia> Reserva::getDTEstadias(){
+vector<DTEstadia> Reserva::getEstadias(string mail){
     vector<DTEstadia> estadias;
     map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
     while (it!=mapaEstadias.end()){
         Estadia *est=it->second;
-        DTEstadia dtest=est->getDTEstadia();
-        estadias.push_back(dtest);
+        Huesped *hues=est->getHuesped();
+        if ((est->estaFinalizadaEstadia()) && (hues->getMail()==mail)){ //la agrego si esta finalizada y asociada a mail
+            DTEstadia dtest=est->getDTEstadia();
+            estadias.push_back(dtest);
+        }
         ++it; //Aumenta una posicion el iterador
         }
     return estadias;
 
-}/*
+}
 
-vector<DTCalificacion> Reserva::getCalifSinResReserva(){
+/*vector<DTCalificacion> Reserva::getCalifSinResReserva(){
+    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
+    vector<DTCalificacion> calificaciones;
+    while (it!=mapaEstadias.end()){
+        Estadia *est=it->second;
+        DTCalificacion calificacion=est->getCalifSinResEstadia();
+        calificaciones.push_back(calificacion);
+        ++it; //Aumenta una posicion el iterador
+        
+    }
+    return calificaciones;
 
 }
 

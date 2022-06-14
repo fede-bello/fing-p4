@@ -1,6 +1,7 @@
 #ifndef RES
 #define RES
 
+
 #include "Estadia.h"
 #include "Huesped.h"
 #include "../../DataType/include/DTUsuario.h"
@@ -51,7 +52,7 @@ class Reserva{
         vector<DTEstadia> estadiasActivas(); 
         DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo
         void actualizarCheckOut(DTFecha co);//✅
-        vector<DTEstadia> getDTEstadias(); //FALTA
+        vector<DTEstadia> getEstadias(string mail); //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
         void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
         bool esGrupalReserva(); //FALTA

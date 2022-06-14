@@ -137,7 +137,7 @@ DTCalificacion Estadia::calificacionEstadia(){
 
     return DTa_devolver;
 }
-DTCalificacion Estadia::darCalificacionesEstadia(){
+DTCalificacion Estadia::darCalificacionesEstadia(){ //Devuelve las calificaciones con respusta
     Calificacion * calificacionEstadia = this->getCalificacion();
 
     DTCalificacion DTa_devolver = calificacionEstadia->getDTCalificacion();
