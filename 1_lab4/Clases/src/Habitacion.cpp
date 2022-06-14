@@ -117,13 +117,10 @@ void AsociarReservaHabitacion(Reserva r){
 }
 */
 
-//no funciona
-// void AsociarReservaHabitacion(Reserva r, Habitacion h){
-//     map<int, Reserva*> nuevo = h.getReservas();
-//     //nuevo.insert(pair<int, Reserva*>(r.getCodigo(), r*));
-//     nuevo[r.getCodigo()] = r*;
-//     h.setReserva(nuevo);
-// }
+
+void Habitacion::AsociarReservaHabitacion(Reserva *r){
+   this->mapaReservas[r->getCodigo()]=r;
+}
 
 Habitacion::~Habitacion(){
     for(auto &codigo:mapaReservas){

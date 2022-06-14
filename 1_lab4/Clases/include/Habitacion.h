@@ -32,7 +32,7 @@ class Habitacion{
         vector<DTHuesped> obtenerHuesprResHab(int nr);//✅
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
-        void AsociarReservaHabitacion(Reserva r);//saque el parametro de habitacion era innecesario
+        void AsociarReservaHabitacion(Reserva *r);//saque el parametro de habitacion era innecesario
 
         //Destructora
         ~Habitacion();
