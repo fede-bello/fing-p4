@@ -34,6 +34,8 @@ class controladorUsuario{
         void ActualizarCargo(string nombre,CargoEmp cargo);
         void AsignarEmpleado();
         //Realizar Reserva
+        vector<DTHuesped> obtenerHuespedes();
+        DTHuesped elegirHuesped(string Mail);
         //Consultar top 3 de hostales
         //Registrar Estadia
         //Finalizar Estadia
