@@ -45,7 +45,7 @@ int main()
                 case 1:{  
                     controladorUsuario *cUsuario=controladorUsuario::getInstance();
                     int esEmpleado;
-                    cout << "Alta de Usuario"  << endl;
+                    cout << "Alta de Usuario"  << endl;        
                     cout<< "Digite su nombre"<<endl;
                     string nombre;
                     cin>>nombre;
@@ -78,22 +78,27 @@ int main()
                                 break;
                             case 4:
                                 cargoEmpleado=Infrasetructura;
-                                break;
-                        DTEmpleado *dtusuario=cUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
+                                break;}
+                            try{
+                                DTEmpleado *dtusuario=cUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
+                            }catch(...){
+                                cout<< "Hay otro usuario con ese mail"<<endl;
+                            }
+
+                        } 
+                        else{
+                            int esFinger;
+                            bool finger;
+                            cout<< "Digite 1 si estudia en la FING, de lo contrario 0"<<endl;
+                            if(esFinger==1)
+                                finger=true;
+                            else   
+                                finger=false;
+                            DTHuesped *dtusuario=cUsuario->NuevoHuesped(mail,password,nombre,finger);
+                            
                         }
-                    } 
-                    else{
-                        int esFinger;
-                        bool finger;
-                        cout<< "Digite 1 si estudia en la FING, de lo contrario 0"<<endl;
-                        if(esFinger==1)
-                            finger=true;
-                        else   
-                            finger=false;
-                        DTHuesped *dtusuario=cUsuario->NuevoHuesped(mail,password,nombre,finger);
-                        
                     }
-                }
+                
                     break;//fin case 1
                 case 2:{
                     cout << "Alta de Hostal"  << endl;
@@ -119,7 +124,9 @@ int main()
                     
                 }
                     break;
-                default:{}
+                default:{
+
+                }
                     break;
                 
             }//end switch
