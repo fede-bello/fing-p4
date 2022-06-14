@@ -108,12 +108,11 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
 
 
 
-
-
 void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
     string nombre=this->HostalGuardado->getNombre();
-    Hostal *hostal=MapaHostal.at(nombre);
-    //hostal.agregarHabitacionAHostal();
+    Hostal *hostal=MapaHostal.find(nombre)->second;
+    hostal->agregarHabitacionAHostal(*habitacion);
+
 }
 
 void controladorHostal::cancelarAltaHabitacion(DTHabitacion *habitacion){
