@@ -7,15 +7,15 @@ class controladorUsuario{
     private:
         static controladorUsuario * instance;
         controladorUsuario();
-        //seria Mucho mas conveniente tener estos antes de un Empleado y un Huesped
         vector<string>ArregloEmail;
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
 
     public:
-        static controladorUsuario * getInstance();
-        //hechas por diego 
+        static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
+
+        //hechas por diego
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();
