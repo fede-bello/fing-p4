@@ -27,13 +27,23 @@ class controladorUsuario{
         void CancelarUsuario(DTUsuario *usuario);
         void ConfimarAltaEmpleado(DTEmpleado *empleado);
         void ConfimarAltaHuesped(DTHuesped *huesped);
-        //FIN Alta Usuario
-        //ASIGNAR EMPLEADO A HOSTAL
+        //Alta Hostal
+        //Alta de Habitacion
+        //Asignar Empleado a Hostal
         vector<DTEmpleado> obtenerEmpleadoHostal();
         void ActualizarCargo(string nombre,CargoEmp cargo);
         void AsignarEmpleado();
-        //FIN ASIGNAR EMPLEADO A HOSTAL
-        //fin hechos por diego
+        //Realizar Reserva
+        //Consultar top 3 de hostales
+        //Registrar Estadia
+        //Finalizar Estadia
+        //Calificar Estadia
+        //Comentar Calificacion
+        //Consulta de Usuario
+        //Consulta de Hostal
+        //Consulta de Reserva
+        //Consulta de Estadia
+        //Baja de Reserva
 
 };
 

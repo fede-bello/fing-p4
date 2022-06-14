@@ -29,3 +29,12 @@ controladorReserva::~controladorReserva(){
     }
     MapaReserva.clear();
 }
+
+
+float controladorReserva::darPromedio(vector<Reserva> reservas){
+    for (int i=0; i=reservas.size(); i++){
+        reservas[i].calcularPromedioReserva();
+    }
+}
+
+  

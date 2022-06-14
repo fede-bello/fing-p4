@@ -77,7 +77,7 @@ vector<DTReserva> Habitacion::darReservasHuespedHab(string email){
 }
 
 bool Habitacion::mismoNumero(int nr){
-    return mapaReservas.find(nr) != mapaReservas.end();
+    return (mapaReservas.find(nr) != mapaReservas.end());
 }
 
 

@@ -30,11 +30,14 @@ class Hostal{
         vector<Reserva> getReservasHostal();//✅
         vector<DTHabitacion> darInfoHabs();//✅
         DTReserva darReservasHostal();
+        vector<Reserva> reservasAsociadas(); //FALTA
         int darNumHab(int nr);//✅
         vector<DTHuesped> huespedes(int nr);//✅
         DTHabitacion infoHab(int cres);//✅
         void eliminarLinkReserva(int cres);//✅agregue a que reserva hace referencia
         void AsociarReservaHostal(Reserva r,int habitacion);//✅
+        vector<DTHabitacion> habitacionesDisponibles(DTFecha in, DTFecha out); //FALTA
+     
         //Destructoras
         ~Hostal();
 };

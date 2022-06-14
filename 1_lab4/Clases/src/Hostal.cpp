@@ -48,6 +48,16 @@ DTHostal Hostal::getDTHostal(){
     return res;
 }
 
+
+vector<Reserva> Hostal::reservasAsociadas(){
+    
+}
+
+
+vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
+
+}
+
 vector<DTReserva> Hostal::darReservasHuespedHos(string email){
     vector<DTReserva> res;
     map<int, Habitacion*>::iterator it;
@@ -144,6 +154,6 @@ void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
 Hostal::~Hostal(){
     map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        it->second->~Habitacion();
+        it->second->~Habitacion();  //llamo al destructor de habitacion
     }
 }

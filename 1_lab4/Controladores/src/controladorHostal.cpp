@@ -17,6 +17,10 @@ void controladorHostal::liberar(){
     if(HostalGuardado!=NULL) delete HostalGuardado;
 }
 
+string controladorHostal::getNombre(){
+    return this->nombreGuardado;
+}
+
 controladorHostal::~controladorHostal(){  
     if(HostalGuardado==NULL) delete HostalGuardado;
     for (auto &it:MapaHostal){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Hostal
@@ -121,3 +125,21 @@ void controladorHostal::cancelarAltaHabitacion(DTHabitacion *habitacion){
 }
 //Fin Alta Habitacion 
 
+//Realizar Reserva
+
+float controladorHostal::obtenerPromedioCalificaciones(){
+    string nombre=this->nombreGuardado;
+    Hostal *hos=this->MapaHostal.find(nombre)->second;
+    vector<Reserva> reservas=hos->reservasAsociadas();
+    controladorReserva* cr= controladorReserva::getInstance();
+    return cr->darPromedio(reservas);
+}
+
+
+  vector<DTHabitacion> controladorHostal::obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut){
+        string nombre=this->nombreGuardado;
+        Hostal *hos=this->MapaHostal.find(nombre)->second;
+        this->inGuardado=checkIn;
+        this->outGuardado=checkOut;
+        return hos->habitacionesDisponibles(checkIn, checkOut);
+    }

@@ -33,7 +33,6 @@ class Habitacion{
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
         void AsociarReservaHabitacion(Reserva *r);//saque el parametro de habitacion era innecesario
-
         //Destructora
         ~Habitacion();
 };
