@@ -27,6 +27,7 @@ class controladorUsuario{
         void CancelarUsuario(DTUsuario *usuario);
         void ConfimarAltaEmpleado(DTEmpleado *empleado);
         void ConfimarAltaHuesped(DTHuesped *huesped);
+        //FIN Alta Usuario
         //Alta Hostal
         //Alta de Habitacion
         //Asignar Empleado a Hostal
