@@ -146,3 +146,11 @@ vector<DTHuesped> controladorUsuario::obtenerHuespedes(){
     return huespedes;
 
 }
+
+DTHuesped controladorUsuario::elegirHuesped(string Mail){
+    DTHuesped hues=MapaHuesped.find(Mail)->second->getDTHuesped();
+   
+    ArregloEmail.push_back(Mail);
+    return hues;
+}
+
