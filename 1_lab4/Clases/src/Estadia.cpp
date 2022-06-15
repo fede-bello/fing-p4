@@ -83,15 +83,7 @@ bool Estadia::estadiaActiva(){
 }
 
 bool Estadia::mismoCodigo(int codigo){
-    bool res = false;
-    
-    if(this->getIdentificador() == codigo){
-        res = true;
-    }else{
-        res = false;
-    }
-
-    return res;
+    return (this->getIdentificador() == codigo);
 }
 
 
@@ -116,29 +108,15 @@ void Estadia::registrarRespuesta(string respuesta, int codigoCalif){
 }
 
 bool Estadia::mismaEstadia(int identificador){
-    bool res = false;
-
-    if(this->getIdentificador() == identificador){
-        res = false;
-    }
-
-    return res;
+    return (this->getIdentificador() == identificador);
 }
 
 DTHuesped Estadia::huesEs(){
-    Huesped * huespedEstadia = this->getHuesped();
-
-    DTHuesped DTa_devolver = huespedEstadia->getDTHuesped();
-
-    return DTa_devolver;
+    return this->hues->getDTHuesped();
 }
 
 DTCalificacion Estadia::calificacionEstadia(){
-    Calificacion * calificacionEstadia = this->getCalificacion();
-
-    DTCalificacion DTa_devolver = calificacionEstadia->getDTCalificacion();
-
-    return DTa_devolver;
+    return this->calif->getDTCalificacion();
 }
 
 

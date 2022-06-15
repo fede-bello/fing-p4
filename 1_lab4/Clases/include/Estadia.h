@@ -31,17 +31,19 @@ class Estadia{
         void setCheckOut(DTFecha checkOut);//hecha
         void setCalificacion(Calificacion *calif);//hecha
         void setHuesped(Huesped *huesped);//hecha
-        float calcularPuntajeEstadia();
-        bool estadiaActiva();//hecha, revisar
-        bool mismoCodigo(int codigo);//hecha
+        //Operaciones 
+        float calcularPuntajeEstadia();//✅
+        DTCalificacion darCalificacionesEstadia();//✅
+        bool estadiaActiva();
+        bool mismoCodigo(int codigo);//✅
         bool estaFinalizadaEstadia();//hecha, revisar
-        void registrarRespuesta(string respuesta, int codigoCalif); //hecha, revisar
-        bool mismaEstadia(int identificador);//hecha
-        DTHuesped huesEs();//hecha - Devuelve el DTHuesped del Huesped asociado a la estadia
-        DTCalificacion calificacionEstadia(); //hecho
-        DTCalificacion darCalificacionesEstadia();
+        void registrarRespuesta(string respuesta, int codigoCalif);//✅
+        bool mismaEstadia(int identificador);//✅
+        DTHuesped huesEs();//✅
+        DTCalificacion calificacionEstadia();//✅
         void calificarEst(Huesped* hues, int calif, string texto);
-        ~Estadia();
+        //DEstructora
+        ~Estadia();//revisar
 
 };
 
