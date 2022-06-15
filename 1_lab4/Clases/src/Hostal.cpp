@@ -49,17 +49,6 @@ DTHostal Hostal::getDTHostal(){
     return res;
 }
 
-
-vector<Reserva> Hostal::reservasAsociadas(){
-
-
-}
-
-
-vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
-
-}
-
 vector<DTReserva> Hostal::darReservasHuespedHos(string email){
     vector<DTReserva> res;
     map<int, Habitacion*>::iterator it;
@@ -72,19 +61,19 @@ vector<DTReserva> Hostal::darReservasHuespedHos(string email){
     }
     return res;
 }
-/*
+
 vector<Reserva> Hostal::getReservasHostal(){
     vector<Reserva> res;
-    map<int, Habitacion>::iterator it;
+    map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        map<int, Reserva*> nuevo = it->second.getReservas(); 
+        map<int, Reserva*> nuevo = it->second->getReservas(); 
         map<int, Reserva*>::iterator iter;
         for(iter = nuevo.begin(); iter != nuevo.end(); iter++){
-            res.push_back(iter->second);
+            res.push_back(*iter->second);
         }
     }
     return res;
-}*/
+}
 
 vector<DTHabitacion> Hostal::darInfoHabs(){
     vector<DTHabitacion> res;
@@ -94,6 +83,33 @@ vector<DTHabitacion> Hostal::darInfoHabs(){
     }
     return res;
 }
+
+vector<DTReserva> Hostal::darReservasHostal(){
+    vector<DTReserva> res;
+    map<int, Habitacion*>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
+        vector<DTReserva> a = it->second->darReservasHabitacion();
+        vector<DTReserva>::iterator iter;
+        for(iter = a.begin(); iter != a.end(); iter++){
+             res.push_back(*iter);
+         }
+    }
+    return res;
+}
+
+vector<Reserva> Hostal::reservasAsociadas(){
+    vector<Reserva> res;
+    map<int, Habitacion*>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
+        map<int, Reserva*> nuevo = it->second->getReservas(); 
+        map<int, Reserva*>::iterator iter;
+        for(iter = nuevo.begin(); iter != nuevo.end(); iter++){
+            res.push_back(*iter->second);
+        }
+    }
+    return res;
+}
+
 
 int Hostal::darNumHab(int nr){
     map<int, Habitacion*>::iterator it;
@@ -139,18 +155,28 @@ void Hostal::eliminarLinkReserva(int cres){
         }
     }
 }
-/*
+
 void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
     map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
-        if(it->second.getNum() == habitacion){
-            map<int, Reserva*> res = it->second.getReservas();
-            res[r.getCodigo()] = r;
-            it->second.setReserva(res);//operacion de habitaicon.h
+        if(it->second->getNum() == habitacion){
+            Reserva* res = &r;
+            it->second->AsociarReservaHabitacion(res);//operacion de habitacion.h
             break;
         }
     }
-}*/
+}
+
+vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
+    vector<DTHabitacion> hab;
+    map<int, Habitacion*>::iterator it;
+    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
+        if(it->second->habitacionLibre(in,out)){
+            hab.push_back(it->second->getDTHabitacion());
+        }
+    }
+    return hab;
+}
 
 //Destructora
 Hostal::~Hostal(){
