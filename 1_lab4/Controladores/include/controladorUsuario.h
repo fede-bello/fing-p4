@@ -16,6 +16,10 @@ class controladorUsuario /* : IcontroladorUsuario*/{
     public:
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5a9182939241402a624c91029c28df4024edc8d2
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();
@@ -32,8 +36,8 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Alta de Habitacion
         //Asignar Empleado a Hostal
         vector<DTEmpleado> obtenerEmpleadoHostal();
-        void ActualizarCargo(string nombre,CargoEmp cargo);
-        void AsignarEmpleado();
+        void actualizarCargo(string nombre,CargoEmp cargo);
+        void asignarEmpleado();
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);
@@ -44,6 +48,7 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Registrar Estadia
         //Finalizar Estadia
         //Calificar Estadia
+        void calificarEstadia(int codigo, int calif, string texto);
         //Comentar Calificacion
         //Consulta de Usuario
         //Consulta de Hostal

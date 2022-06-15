@@ -22,6 +22,7 @@ class DTHabitacion{
         void Imprimir();
         bool operator==(const DTHabitacion &otro) const;
         ~DTHabitacion();
+        void imprimir();
 };
 
 #endif

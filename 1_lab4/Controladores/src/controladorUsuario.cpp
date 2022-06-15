@@ -64,6 +64,7 @@ DTHuesped* controladorUsuario::NuevoHuesped(string email,string password,string 
 
 void controladorUsuario::ActualizarMail(DTUsuario *usuario,string mail){
     usuario->setMail(mail);
+    //ACA CAPAZ EN VEZ DE HACER EL SET ES MEJOR CREAR UN NUEVO DT Y MATAR EL VIEJO
 }
 
 void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
@@ -100,7 +101,7 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){
     return res;
 }
 
-void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
+void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
     bool pedirMail=false;//antes de llamar a esta funcion se debe hacer un cin>>mail;
     do{
         try {
@@ -123,7 +124,7 @@ void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
     }while(true);
 }
 
-void controladorUsuario::AsignarEmpleado(){
+void controladorUsuario::asignarEmpleado(){
     string mail=ArregloEmail.front();
     Empleado *empleado=MapaEmpleado[mail];
     controladorHostal *controlHostal=controladorHostal::getInstance();
@@ -179,3 +180,9 @@ void controladorUsuario::cancelarReserva(){
     cu->liberarHos();
 }
 
+void controladorUsuario::calificarEstadia(int codigo, int calif, string texto){
+    string email=this->ArregloEmail[0]; //Hay un mail recordado??? Chequear
+    Huesped *hues=MapaHuesped.find(email)->second;
+    controladorHostal *ch=controladorHostal::getInstance();
+    ch->estadiaHostalCalificada(codigo,calif,texto,hues);
+}
