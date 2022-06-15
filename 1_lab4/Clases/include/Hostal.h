@@ -29,14 +29,14 @@ class Hostal{
         vector<DTReserva> darReservasHuespedHos(string email);//✅ agregue el mail del huesped como parametro
         vector<Reserva> getReservasHostal();//✅
         vector<DTHabitacion> darInfoHabs();//✅
-        DTReserva darReservasHostal();
-        vector<Reserva> reservasAsociadas(); //FALTA
+        vector<DTReserva> darReservasHostal();//✅
+        vector<Reserva> reservasAsociadas(); //✅
         int darNumHab(int nr);//✅
         vector<DTHuesped> huespedes(int nr);//✅
         DTHabitacion infoHab(int cres);//✅
         void eliminarLinkReserva(int cres);//✅agregue a que reserva hace referencia
         void AsociarReservaHostal(Reserva r,int habitacion);//✅
-        vector<DTHabitacion> habitacionesDisponibles(DTFecha in, DTFecha out); //FALTA
+        vector<DTHabitacion> habitacionesDisponibles(DTFecha in, DTFecha out);//✅
      
         //Destructoras
         ~Hostal();
