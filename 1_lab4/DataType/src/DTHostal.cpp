@@ -25,6 +25,10 @@ string DTHostal::getDireccion(){
 string DTHostal::getTelefono(){
     return this->Telefono;
 }
+void DTHostal::imprimir(){
+    cout<<"Nombre: "<<this->getNombre()<<endl<<"Dirección: "<<this->getDireccion()<<endl<<"Tel: "<<this->getTelefono()<<endl;
+}
+
 
 DTHostal::~DTHostal(){
 

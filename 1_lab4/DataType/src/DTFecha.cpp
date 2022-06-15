@@ -119,6 +119,14 @@ bool DTFecha:: operator>(const DTFecha &f) const{
     return res;
 }
 
+void DTFecha::imprimir(){
+    if (this->getHora()>=12)
+    {int hora=this->getHora()-12;
+    cout<< this->getDia()<<"/"<<this->getMes()<<"/"<<this->getAnio()<<" - "<< hora<<"pm"<<endl;}
+    else 
+    cout<< this->getDia()<<"/"<<this->getMes()<<"/"<<this->getAnio()<<" - "<<getHora()<< "am"<<endl;
+}
+
 //Destructora
 
 DTFecha::~DTFecha(){

@@ -32,6 +32,7 @@ class DTReserva{
         float getCosto();
         bool operator==(const DTReserva &otro) const;
         void aumentarCantidad();
+        void imprimir();
         virtual ~DTReserva();
 };
 

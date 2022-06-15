@@ -39,6 +39,7 @@ int DTCalificacion::getIdentificador(){
     return this->Identificador;
 }
 
+
 DTCalificacion::~DTCalificacion(){
 
 }

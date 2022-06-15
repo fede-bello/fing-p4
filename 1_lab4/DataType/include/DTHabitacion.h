@@ -23,10 +23,6 @@ class DTHabitacion{
         ~DTHabitacion();
 };
 
-inline ostream &operator<< (ostream& o, DTHabitacion * hab){
-	return o<<"Número habitación: "<< hab->getNumero()<<endl<< "Capacidad habitación: " << hab->getCapacidad() <<endl<< "Costo: $"<<hab->getPrecio()<<endl;
-}
-
 #endif
 
 

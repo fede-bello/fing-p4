@@ -20,6 +20,7 @@ class DTHostal{
         string getNombre();
         string getDireccion();
         string getTelefono();
+        void imprimir();
         ~DTHostal();
   };
 
