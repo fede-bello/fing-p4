@@ -51,7 +51,7 @@ class Reserva{
         void cerrarEstadoReserva();//✅
         vector<DTEstadia> estadiasActivas(); 
         DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo
-        void actualizarCheckOut(DTFecha co);//✅
+        void actualizarCheckOut(DTFecha co,int codigo);//✅
         vector<DTEstadia> getEstadias(string mail); //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
         void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
@@ -64,7 +64,7 @@ class Reserva{
         DTCalificacion calificacionBuscada(int codigo); //FALTA, agregue el codigo como parametro si no imposible encontrar la calificacion (hecha por danilo, funciona si se saca el puntero a estadia)
         DTReserva reservaBuscada(int codigo); //FALTA, agregue el codigo como parametro si no imposible encontrar la calificacion
         void eliminarLinksHuesEst(); //FALTA
-        void calificarEstadiaReserva(Huesped hues); //FALTA
+        void calificarEstadiaReserva(int codigo, int calif, string texto,Huesped *hues); //FALTA
 
 };
 

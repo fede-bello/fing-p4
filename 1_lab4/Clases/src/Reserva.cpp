@@ -147,12 +147,13 @@ DTReserva Reserva::getDTReserva(){
     return DTReserva(this->codigo, this->checkIn, this->checkOut, this->estado,this->costo);
 }
 
-/*DTEstadia Reserva::crearEstadiaNueva(DTFecha f){
+DTEstadia Reserva::crearEstadiaNueva(DTFecha f){
     //ACA HABRIA QUE CREAR UNA NUEVA ESTADIA PERO NO SE MUY BIEN COMO HACER 
     //CON EL TEMA DEL IDENTIFICADO, NO PUEDE SER IGUAL AL CODIGO PORQUE UNA 
     //RESERVA PUEDE TENER MAS DE UNA ESTADIA ASOCIADA)
+    return DTEstadia();
 
-}*/
+}
 
 void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
@@ -186,8 +187,14 @@ DTEstadia Reserva::mismaEstadia(int codigo){//aca no se si habra que usar algun 
 
 
 
-void Reserva::actualizarCheckOut(DTFecha co){
-    this->checkOut=co;
+void Reserva::actualizarCheckOut(DTFecha co,int codigo){
+    map<int,Estadia*>::iterator it;
+    for (it=mapaEstadias.begin(); it!=mapaEstadias.end(); ++it){
+        Estadia *e=it->second;
+        if (e->mismoCodigo(codigo)){
+            e->setCheckOut(co);
+        }
+    }
 }
 
 vector<DTEstadia> Reserva::getEstadias(string mail){
@@ -271,6 +278,8 @@ DTReserva Reserva::reservaBuscada(int codigo){
 }
 
 void Reserva::eliminarLinksHuesEst(){}
-
-void Reserva::calificarEstadiaReserva(Huesped hues){}
 */
+
+void Reserva::calificarEstadiaReserva(int codigo, int calif, string texto, Huesped *hues){
+
+}

@@ -71,6 +71,8 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
     return res;//Luego de esta Funcion habria que res.clear();
 }
 
+//Version Diego
+//Fede: me parece que esta mal eso de comunicarse con el usuario adentro del controlador
 DTHostal *controladorHostal::elegirHostal(string nombre){
     bool pedirNombre=false;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
     do{
@@ -238,4 +240,39 @@ vector<DTCalificacion> controladorHostal::detallesHostal(string hostal){
     controladorReserva* cr= controladorReserva::getInstance();
     return cr->darCalificaciones(res);
 
+}
+
+vector<DTReserva> controladorHostal::obtenerReservasHuesped(string email, string hostal){
+    Hostal *hos=MapaHostal.find(hostal)->second;
+    return hos->darReservasHuespedHos(email);
+    }
+
+vector<DTEstadia> controladorHostal::estadiasHuespedActivas(string email){
+    string hostal=this->nombreGuardado;
+    Hostal *h=MapaHostal.find(hostal)->second;
+    vector<Reserva> resA=h->reservasAsociadas();
+    controladorReserva *cr=controladorReserva::getInstance();
+    return cr->obtenerEstadias(resA);
+}
+
+void controladorHostal::finalizarEstadia(){
+    controladorReserva *cr=controladorReserva::getInstance();
+    cr->liberar();
+}
+
+//Fin Finalizar Estadia
+
+//Calificar Estadia
+
+vector<DTEstadia> controladorHostal::estadiasHuespedFinalizadas(string email, string hos){
+    Hostal *h= MapaHostal.find(hos)->second;
+    vector<Reserva> res=h->getReservasHostal(); 
+    controladorReserva *cr=controladorReserva::getInstance();
+    return cr->darEstadiaFinHuespedRes(email,res);
+
+}
+
+void controladorHostal::estadiaHostalCalificada (int codigo, int calif, string texto, Huesped *hues){
+    controladorReserva *cr=controladorReserva::getInstance();
+    cr->estadiaReservaCalificada(codigo, calif, texto, hues);
 }
