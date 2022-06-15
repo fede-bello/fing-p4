@@ -1,8 +1,9 @@
 #ifndef CONTF
 #define CONTF
 #include "../../DataType/include/DTFecha.h"
+#include "../../Interfaces/IcontroladorFecha.h"
 
-class controladorFecha {
+class controladorFecha /*:public IcontroladorFecha*/ {
 private:
     static controladorFecha * instancia;
     controladorFecha();

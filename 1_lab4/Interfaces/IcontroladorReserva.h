@@ -2,10 +2,10 @@
 
 class IcontroladorReserva{
     public:
-        virtual static controladorReserva * getInstance();
+        //virtual static controladorReserva * getInstance();
         virtual void ModificarReservaActual(DTReserva nueva);
-        virtual ~controladorReserva();
-        virtualvoid liberar();
+        virtual ~IcontroladorReserva();
+        virtual void liberar();
         // Alta de Usuario 
         // Alta de Hostal
         // Alta de Habitacion
@@ -27,4 +27,4 @@ class IcontroladorReserva{
         // Consulta de Reserva
         // Consulta de Estadia
         // Baja de Reserva
-}
+};

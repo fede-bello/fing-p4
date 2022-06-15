@@ -1,9 +1,9 @@
 #include "../Controladores/include/controladorHostal.h"
 class IcontroladorHostal{
     public:
-        virtual static controladorHostal * getInstance();
+        //virtual static controladorHostal * getInstance();
         virtual void liberar();
-        virtual ~controladorHostal();
+        virtual ~IcontroladorHostal();
         virtual DTHostal *getHostal();
         virtual string getNombre();
         virtual map<string,Hostal*> getMapaHostal();

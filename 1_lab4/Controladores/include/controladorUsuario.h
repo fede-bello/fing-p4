@@ -3,7 +3,9 @@
 
 #include "../../Clases/include/Empleado.h"
 #include "controladorHostal.h"
-class controladorUsuario{
+#include "../../Interfaces/IcontroladorUsuario.h"
+
+class controladorUsuario /* : IcontroladorUsuario*/{
     private:
         static controladorUsuario * instance;
         controladorUsuario();

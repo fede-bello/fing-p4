@@ -2,14 +2,14 @@
 
 class IcontroladorUsuario{
     public:
-        virtual static controladorUsuario * getInstance(); 
+        //virtual static controladorUsuario * getInstance(); 
         virtual Hostal find(string nombre);
 
         //hechas por diego
         virtual vector<string> getEmail();
         virtual void setEmail(string EmailGuardado);
         virtual void liberar();
-        virtual ~controladorUsuario();
+        virtual ~IcontroladorUsuario();
         //Alta Usuario
         virtual DTEmpleado* NuevoEmpleado(string email,string password,string nombre,CargoEmp cargo);
         virtual DTHuesped* NuevoHuesped(string email,string password,string nombre, bool esFinger);
