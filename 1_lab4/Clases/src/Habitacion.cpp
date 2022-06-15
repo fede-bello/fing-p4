@@ -76,6 +76,17 @@ vector<DTReserva> Habitacion::darReservasHuespedHab(string email){
     return res;
 }
 
+vector<DTReserva> Habitacion::darReservasHabitacion(){
+    vector<DTReserva> res;
+    map<int, Reserva*>::iterator it;
+    for(it = mapaReservas.begin(); it != mapaReservas.end(); it++){
+        Reserva *r = it->second;
+        DTReserva nuevo = r->getDTReserva();
+        res.push_back(nuevo);
+    }
+    return res;
+}
+
 bool Habitacion::mismoNumero(int nr){
     return (mapaReservas.find(nr) != mapaReservas.end());
 }
@@ -110,13 +121,6 @@ bool Habitacion::buscarReserva(int cres){
 void Habitacion::eliminarLinkRes(int cres){
     mapaReservas.erase(cres);
 }
-
-/*
-void AsociarReservaHabitacion(Reserva r){
-    mapaReservas.insert(pair<int, Reserva*>(r.getCodigo(), r*));
-}
-*/
-
 
 void Habitacion::AsociarReservaHabitacion(Reserva *r){
    this->mapaReservas[r->getCodigo()]=r;
