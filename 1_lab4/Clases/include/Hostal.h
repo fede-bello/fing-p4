@@ -12,17 +12,17 @@ class Hostal{
     private:
         string Nombre;
         string Direccion;
-        int Telefono;
+        string Telefono;
         map<int, Habitacion*> mapaHabitaciones; //mapaHabitaciones es un map (diccionario) de Habitacion
     public:
         Hostal();
-        Hostal(string Nombre,string Direccion,int Telefono);
+        Hostal(string Nombre,string Direccion,string Telefono);
         string getNombre();
         string getDireccion();
-        int getTelefono();
+        string getTelefono();
         void setNombre(string nombre);
         void setDireccion(string direccion);
-        void setTelefono(int telefono);
+        void setTelefono(string telefono);
         void agregarHabitacionAHostal(DTHabitacion hab);
         //Operaciones
         DTHostal getDTHostal();//✅

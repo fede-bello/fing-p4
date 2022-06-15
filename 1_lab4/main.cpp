@@ -112,7 +112,7 @@ int main()
                     string direccion;
                     cin>>direccion;
                     cout<< "Digite el Telefono del Hostal"<<endl;
-                    int Telefono;
+                    string Telefono;
                     cin>>Telefono;
                     controladorHostal *cHostal=controladorHostal::getInstance();
                     try {

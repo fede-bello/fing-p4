@@ -5,10 +5,10 @@
 DTHostal::DTHostal(){
     this->Nombre='.';
     this->Direccion='.';
-    this->Telefono=0;
+    this->Telefono="0";
 }
 
-DTHostal::DTHostal(string Nombre,string Direccion,int Telefono){
+DTHostal::DTHostal(string Nombre,string Direccion,string Telefono){
     this->Nombre=Nombre;
     this->Direccion=Direccion;
     this->Telefono=Telefono;
@@ -22,7 +22,7 @@ string DTHostal::getDireccion(){
     return this->Direccion;
 }
 
-int DTHostal::getTelefono(){
+string DTHostal::getTelefono(){
     return this->Telefono;
 }
 

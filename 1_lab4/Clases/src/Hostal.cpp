@@ -1,12 +1,13 @@
 #include "../include/Hostal.h"
+#include <stdio.h>
 
 Hostal::Hostal(){
     this->Nombre='.';
     this->Direccion='.';
-    this->Telefono=0;
+    this->Telefono="0";
 }
 
-Hostal::Hostal(string Nombre,string Direccion,int Telefono){
+Hostal::Hostal(string Nombre,string Direccion,string Telefono){
     this->Direccion=Direccion;
     this->Nombre=Nombre;
     this->Telefono=Telefono;
@@ -20,7 +21,7 @@ string Hostal::getDireccion(){
     return this->Direccion;
 }
 
-int Hostal::getTelefono(){
+string Hostal::getTelefono(){
     return this->Telefono;
 }
 
@@ -32,7 +33,7 @@ void Hostal::setDireccion(string direccion){
     this->Direccion = direccion;
 }
 
-void Hostal::setTelefono(int telefono){
+void Hostal::setTelefono(string telefono){
     this->Telefono = telefono;
 }
 
@@ -50,7 +51,8 @@ DTHostal Hostal::getDTHostal(){
 
 
 vector<Reserva> Hostal::reservasAsociadas(){
-    
+
+
 }
 
 
