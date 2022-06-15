@@ -44,7 +44,7 @@ map<string,Hostal*> controladorHostal::getMapaHostal(){
     return this->MapaHostal;
 }
 //ALTA HOSTAL
-DTHostal* controladorHostal:: nuevoHostal(string nombre,string direccion,int telefono){
+DTHostal* controladorHostal:: nuevoHostal(string nombre,string direccion,string telefono){
     DTHostal *res=new DTHostal(nombre,direccion,telefono);
     return res;
 }

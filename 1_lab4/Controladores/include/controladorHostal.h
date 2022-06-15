@@ -22,7 +22,7 @@ public:
     //Alta de Usuario
     //Fin alta Usuario
     //Alta Hostal
-    DTHostal* nuevoHostal(string nombre,string direccion,int telefono);
+    DTHostal* nuevoHostal(string nombre,string direccion,string telefono);
     void confirmarAltaHostal(DTHostal *dthostal);
     void cancelarAltaHostal(DTHostal *dthostal);
     //Fin Alta Hostal

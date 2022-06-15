@@ -35,6 +35,8 @@ float controladorReserva::darPromedio(vector<Reserva> reservas){
     for (int i=0; i=reservas.size(); i++){
         reservas[i].calcularPromedioReserva();
     }
+
+    return 0; //FALTABA RETURN
 }
 
   
