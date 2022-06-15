@@ -57,8 +57,11 @@ void Estadia::setHuesped(Huesped *huesped){
 }
 
 float Estadia::calcularPuntajeEstadia(){
-    Calificacion *c=this->calif;
-    return c->getNumero();
+    return this->calif->getNumero();
+}
+
+DTCalificacion Estadia::darCalificacionesEstadia(){ //Devuelve las calificaciones con respusta
+    return this->calif->getDTCalificacion();
 }
 
 bool Estadia::estadiaActiva(){
@@ -137,14 +140,7 @@ DTCalificacion Estadia::calificacionEstadia(){
 
     return DTa_devolver;
 }
-DTCalificacion Estadia::darCalificacionesEstadia(){ //Devuelve las calificaciones con respusta
-    Calificacion * calificacionEstadia = this->getCalificacion();
 
-    DTCalificacion DTa_devolver = calificacionEstadia->getDTCalificacion();
-
-    return DTa_devolver;
-
-}
 
 void Estadia::calificarEst(Huesped* hues, int calif, string texto){
     Calificacion *a_calificar = new Calificacion();
