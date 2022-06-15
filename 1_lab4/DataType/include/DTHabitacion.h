@@ -19,6 +19,7 @@ class DTHabitacion{
         int getNumero();
         int getCapacidad();
         float getPrecio();
+        void Imprimir();
         bool operator==(const DTHabitacion &otro) const;
         ~DTHabitacion();
 };

@@ -35,7 +35,7 @@ int DTHabitacion::getCapacidad(){
 bool DTHabitacion:: operator== (const DTHabitacion &h2) const{
     return this->Numero==h2.Numero;
 }
-void DTHabitacion::imprimir(){
+void DTHabitacion::Imprimir(){
     cout<<"Número: "<<this->getNumero()<<endl<<"Precio: $"<<this->getPrecio()<<endl<<"Capacidad: "<<this->getCapacidad()<<endl;
 }
 
@@ -43,4 +43,5 @@ void DTHabitacion::imprimir(){
 DTHabitacion::~DTHabitacion(){
 
 }
+
 

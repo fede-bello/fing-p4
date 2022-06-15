@@ -1,11 +1,12 @@
-#include "../Controladores/include/controladorUsuario.h"
+#ifndef IUSUARIO
+#define IUSUARIO
+
+#include "../../Controladores/include/controladorUsuario.h"
 
 class IcontroladorUsuario{
     public:
         //virtual static controladorUsuario * getInstance(); 
         virtual Hostal find(string nombre);
-
-        //hechas por diego
         virtual vector<string> getEmail();
         virtual void setEmail(string EmailGuardado);
         virtual void liberar();
@@ -41,3 +42,5 @@ class IcontroladorUsuario{
         //Consulta de Estadia
         //Baja de Reserva
 };
+
+#endif

@@ -3,7 +3,7 @@
 
 #include "../../Clases/include/Empleado.h"
 #include "controladorHostal.h"
-#include "../../Interfaces/IcontroladorUsuario.h"
+#include "../../Interfaces/include/IcontroladorUsuario.h"
 
 class controladorUsuario /* : IcontroladorUsuario*/{
     private:
@@ -16,8 +16,6 @@ class controladorUsuario /* : IcontroladorUsuario*/{
     public:
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
-
-        //hechas por diego
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();

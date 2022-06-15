@@ -152,6 +152,8 @@ DTHabitacion controladorHostal::elegirHabitacion(int numero){
         Hostal *hos=it->second;
         ha=hos->buscarHabitacion(numero);
     }
+    DTHabitacion res;
+    return res;
 }
 
 void controladorHostal::reservaAHostalInd(Huesped *u){

@@ -8,8 +8,17 @@ R=Reserva
 C=controlador
 CONTI= Controladores/include
 CONTS= Controladores/src
+INTI= Interfaces/include
+INTS= Interfaces/src
 
-EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DTHuesped.o $(COS)/Huesped.o $(DTS)/DTEmpleado.o $(COS)/Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o $(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o $(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o $(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o  $(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o  main.o   
+EJECUTABLES= $(DTS)/DTFecha.o $(DTS)/DT$(U).o $(COS)/$(U).o $(DTS)/DTHuesped.o \
+$(COS)/Huesped.o $(DTS)/DTEmpleado.o $(COS)/Empleado.o $(DTS)/DTHostal.o $(COS)/Hostal.o \
+$(DTS)/DTHabitacion.o $(COS)/Habitacion.o $(DTS)/DT$(R).o $(COS)/$(R).o \
+$(DTS)/DT$(R)Individual.o $(COS)/$(R)Individual.o $(DTS)/DT$(R)Grupal.o $(COS)/$(R)Grupal.o \
+$(DTS)/DTEstadia.o $(COS)/Estadia.o $(DTS)/DTCalificacion.o $(COS)/Calificacion.o  \
+$(CONTS)/$(C)Fecha.o $(CONTS)/$(C)Hostal.o $(CONTS)/$(C)$(U).o $(CONTS)/$(C)$(R).o \
+$(INTS)/I$(C)Fecha.o $(INTS)/I$(C)Hostal.o $(INTS)/I$(C)$(R).o $(INTS)/I$(C)$(U).o \
+$(INTS)/Factory.o main.o   
 
 #si cambia cualquier .o corre el codigo de abajo
 
@@ -94,10 +103,25 @@ $(C)Hostal.o:$(CONTS)/$(C)Hostal.cpp $(CONTI)/$(C)Hostal.h
 $(C)$(R).o:$(CONTS)/$(C)$(R).cpp $(CONTI)/$(C)$(R).h
 	g++ -c $(C)$(R).cpp
 
+I$(C)Fecha.o:$(INTS)/I$(C)Fecha.cpp $(INTI)/I$(C)Fecha.h
+	g++ -c I$(C)Fecha.cpp
+
+I$(C)Hostal.o:$(INTS)/I$(C)Hostal.cpp $(INTI)/I$(C)Hostal.h
+	g++ -c I$(C)Hostal.cpp
+
+I$(C)Usuario.o:$(INTS)/I$(C)Usuario.cpp $(INTI)/I$(C)Usuario.h
+	g++ -c I$(C)Usuario.cpp
+
+I$(C)Reserva.o:$(INTS)/I$(C)Reserva.cpp $(INTI)/I$(C)Reserva.h
+	g++ -c I$(C)Reserva.cpp
+
+Factory.o:$(INTS)/Factory.cpp $(INTS)/Factory.h
+	g++ -c Factory.cpp
+
 main.o: main.cpp
 	g++ -c main.cpp
 
 clean: 
-	@rm -f main.o $(COS)/*.o $(DTS)/*.o $(CONTS)/*.o  testing
+	@rm -f main.o $(COS)/*.o $(DTS)/*.o $(CONTS)/*.o $(INTS)/*.o testing
 	
 

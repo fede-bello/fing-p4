@@ -5,7 +5,7 @@
 #include "../../Clases/include/ReservaIndividual.h"
 #include "../../Clases/include/ReservaGrupal.h"
 #include "controladorFecha.h"
-#include "../../Interfaces/IcontroladorReserva.h"
+#include "../../Interfaces/include/IcontroladorReserva.h"
 
 class controladorReserva /*: public IcontroladorReserva*/ {
 private:

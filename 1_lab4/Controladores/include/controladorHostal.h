@@ -3,7 +3,7 @@
 
 #include"../../Clases/include/Hostal.h"
 #include"controladorReserva.h"
-#include "../../Interfaces/IcontroladorHostal.h"
+#include "../../Interfaces/include/IcontroladorHostal.h"
 
 class controladorHostal/*:public IcontroladorHostal*/ {
 private:
