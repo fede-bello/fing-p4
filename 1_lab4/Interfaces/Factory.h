@@ -9,7 +9,11 @@
 #include "../Controladores/include/controladorUsuario.h"
 
 class Factory{
+    private:
+        static Factory * instancia;
+        Factory();
     public:
+        static Factory * getInstancia();
         IcontroladorUsuario getIcontroladorUsuario();
         IcontroladorReserva getIcontroladorReserva();
         IcontroladorHostal getIcontroladorHostal();

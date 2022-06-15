@@ -12,7 +12,8 @@
 //Baja de Reserva
 
 void ImprimirOpciones()
-{
+{   
+    Factory fabrica = new Factory;
     cout << endl;
     cout << "Ingresa la opción deseada" << endl;
     cout << "0 -> Salir" << endl;
@@ -125,7 +126,19 @@ int main()
                 }//FIN ALTA HOSTAL
                     break;
                 case 3:{//ALTA DE HABITACION
-                    controladorHostal *cHostal=controladorHostal::getInstance();
+                    Factory fabricaHostal;
+                    
+                     *cHostal = cHostal->();
+
+                    cout << "Alta de Habitacion"  << endl;
+                    cout << "Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"  << endl;
+
+                    vector<DTHostal> listaHostales = cHostal->obtenerHostales();
+
+                    
+
+
+
 
                 }//FIN ALTA HABITACION
                     break;
