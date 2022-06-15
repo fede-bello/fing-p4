@@ -74,17 +74,14 @@ void Reserva::setHuesped(Huesped *huesped){
     this->hues = huesped;    
 }
 
-//Destructora DTReserva
+//Destructora
 
 Reserva::~Reserva(){
-/*no me funciona con el puntero a estadia
-    for(auto &codigo:mapaEstadias){
-        Estadia est = codigo.second;
-        est.~Estadia();
+    map<int, Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
+        it->second->~Estadia();  //llamo al destructor de habitacion
     }
-    */
 }
-
 
 //Calcular Costo
 // float Reserva::calcularCosto(){
@@ -106,7 +103,6 @@ bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
     return true;
 }
 
-
 float Reserva::calcularPromedioReserva(){
     float suma = 0;
     int i = 0; //cuenta la cantidad de calificaciones que tiene la reserva
@@ -124,7 +120,6 @@ float Reserva::calcularPromedioReserva(){
         return 0; //Devuelvo 0 si no tiene calificaciones asociadas
     }
 }
-
 
 vector<DTCalificacion> Reserva::darCalificacionesReserva(){
     map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
@@ -147,50 +142,61 @@ DTReserva Reserva::getDTReserva(){
     return DTReserva(this->codigo, this->checkIn, this->checkOut, this->estado,this->costo);
 }
 
-/*DTEstadia Reserva::crearEstadiaNueva(DTFecha f){
+DTEstadia Reserva::crearEstadiaNueva(DTFecha f){
+    Estadia nueva = Estadia(0, f, DTFecha());// ver tema de que identificador poner
+    Estadia* res = &nueva;
+    this->mapaEstadias[res->getIdentificador()]= res;
+    return res->getDTEstadia();
+}
     //ACA HABRIA QUE CREAR UNA NUEVA ESTADIA PERO NO SE MUY BIEN COMO HACER 
     //CON EL TEMA DEL IDENTIFICADO, NO PUEDE SER IGUAL AL CODIGO PORQUE UNA 
     //RESERVA PUEDE TENER MAS DE UNA ESTADIA ASOCIADA)
-
-}*/
 
 void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
 }
 
-
 vector<DTEstadia> Reserva::estadiasActivas(){
-    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
+    map<int,Estadia*>::iterator it;
     vector<DTEstadia> estAc;
-    while (it!=mapaEstadias.end()){
-        Estadia *est=it->second;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        Estadia *est = it->second;
         if (est->estadiaActiva()){
-            DTEstadia dtest=est->getDTEstadia();
+            DTEstadia dtest = est->getDTEstadia();
             estAc.push_back(dtest);
         }
-        ++it; //Aumenta una posicion el iterador
-        }
+    }
     return estAc;
 }
 
-
-DTEstadia Reserva::mismaEstadia(int codigo){//aca no se si habra que usar algun iterator
-    DTEstadia est=DTEstadia();
-    if (this->mapaEstadias.find(codigo)!=this->mapaEstadias.end()){
-        Estadia *esta=this->mapaEstadias.find(codigo)->second;
-        est=esta->getDTEstadia();
+DTEstadia Reserva::mismaEstadia(int codigo){
+    map<int,Estadia*>::iterator it;
+    DTEstadia est = DTEstadia();
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        if (it->second->getIdentificador() ==codigo){
+            est = it->second->getDTEstadia();
+        }
     }
     return est;
-    
 }
-
-
 
 void Reserva::actualizarCheckOut(DTFecha co){
     this->checkOut=co;
 }
 
+/*
 vector<DTEstadia> Reserva::getEstadias(string mail){
+    vector<DTEstadia> est;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        Estadia *est=it->second;
+        if(estaFinalizadaEstadia()){
+            // crear una nueva operacion en estadia con otro nombre que no sea getDTEstadia, mirar diagrama de getEstadias para entender a que me refiero 
+        }
+    }
+
+
+
     vector<DTEstadia> estadias;
     map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
     while (it!=mapaEstadias.end()){
@@ -204,9 +210,13 @@ vector<DTEstadia> Reserva::getEstadias(string mail){
         }
     return estadias;
 
-}
+}*/
 
-/*vector<DTCalificacion> Reserva::getCalifSinResReserva(){
+/*
+vector<DTCalificacion> Reserva::getCalifSinResReserva(){
+// crear una nueva operacion en estadia con otro nombre que no sea getDTEstadia, mirar diagrama de getEstadias para entender a que me refiero 
+
+
     map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
     vector<DTCalificacion> calificaciones;
     while (it!=mapaEstadias.end()){
@@ -217,9 +227,10 @@ vector<DTEstadia> Reserva::getEstadias(string mail){
         
     }
     return calificaciones;
-
 }
+*/
 
+/*
 void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
 
 }
