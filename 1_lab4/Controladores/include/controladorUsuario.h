@@ -16,10 +16,6 @@ class controladorUsuario /* : IcontroladorUsuario*/{
     public:
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
-<<<<<<< HEAD
-=======
-
->>>>>>> 5a9182939241402a624c91029c28df4024edc8d2
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();
