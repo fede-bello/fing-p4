@@ -156,12 +156,11 @@ void Hostal::eliminarLinkReserva(int cres){
     }
 }
 
-void Hostal::AsociarReservaHostal(Reserva r,int habitacion){
+void Hostal::AsociarReservaHostal(Reserva *r,int habitacion){
     map<int, Habitacion*>::iterator it;
     for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
         if(it->second->getNum() == habitacion){
-            Reserva* res = &r;
-            it->second->AsociarReservaHabitacion(res);//operacion de habitacion.h
+            it->second->AsociarReservaHabitacion(r);//operacion de habitacion.h
             break;
         }
     }
@@ -178,6 +177,10 @@ vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
     return hab;
 }
 
+
+DTHabitacion Hostal::buscarHabitacion(int numero){ //FALTA
+    return DTHabitacion();
+}
 //Destructora
 Hostal::~Hostal(){
     map<int, Habitacion*>::iterator it;

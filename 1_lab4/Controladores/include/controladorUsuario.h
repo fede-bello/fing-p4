@@ -7,7 +7,7 @@ class controladorUsuario{
     private:
         static controladorUsuario * instance;
         controladorUsuario();
-        vector<string>ArregloEmail;
+        vector<string> ArregloEmail;
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
 
@@ -37,6 +37,9 @@ class controladorUsuario{
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);
+        void confirmarAltaReservaIndividual();
+        void confirmarAltaReservaGrupal();
+        void cancelarReserva();
         //Consultar top 3 de hostales
         //Registrar Estadia
         //Finalizar Estadia

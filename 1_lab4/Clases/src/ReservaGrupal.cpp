@@ -3,13 +3,7 @@
 
 
 ReservaGrupal::ReservaGrupal():Reserva(){
-    this->huespedes = new Huesped*[MAX_HUESPEDES];
-    int i = 0;
-
-    while(i < MAX_HUESPEDES){
-        this->huespedes[i] = NULL;
-        i++;
-    }
+    map<string,Huesped*> huespedes;
 
 }
 
@@ -30,12 +24,12 @@ void ReservaGrupal::setCantidad(int cantidad){
 ReservaGrupal::~ReservaGrupal(){
 }
 
-Huesped** ReservaGrupal::getHuespedes(){
+map<string,Huesped*> ReservaGrupal::getHuespedes(){
     return this->huespedes;
 }
 
-void ReservaGrupal::setHuespedes(Huesped** arreglo_huespedes){
-    this->huespedes = arreglo_huespedes;
+void ReservaGrupal::setHuespedes(map<string,Huesped*> huespedes){
+    this->huespedes = huespedes;
 }
 
 /*float ReservaGrupal::calcularCosto(){

@@ -11,6 +11,7 @@ private:
     map<string,Hostal*> MapaHostal;
     DTHostal *HostalGuardado;
     string nombreGuardado;
+    int numHabGuardado;
     DTFecha inGuardado, outGuardado;
 public:
     static controladorHostal * getInstance();
@@ -36,7 +37,13 @@ public:
     //Realizar Reserva
     float obtenerPromedioCalificaciones();
     vector<DTHabitacion> obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut);
+    DTHabitacion elegirHabitacion(int numero);
+    void reservaAHostalInd(Huesped *u);
+    void reservaAHostalGrup(map<string, Huesped*> huespedes);
+    void liberarHos();
     //Consultar top 3 de hostales
+    vector<string> mejoresTresHostales();
+    vector<DTCalificacion> detallesHostal(string hostal);
     //Registrar Estadia
     //Finalizar Estadia
     //Calificar Estadia

@@ -154,3 +154,28 @@ DTHuesped controladorUsuario::elegirHuesped(string Mail){
     return hues;
 }
 
+void controladorUsuario::confirmarAltaReservaIndividual(){
+    string email=this->ArregloEmail[0];//Si hay solo un mail esta guardado en la posicion 0
+    Huesped *u=MapaHuesped.find(email)->second;
+    controladorHostal *cu=controladorHostal::getInstance();
+    cu->reservaAHostalInd(u);
+}
+
+void controladorUsuario::confirmarAltaReservaGrupal(){
+    vector<string> cemail=this->ArregloEmail;
+    map<string,Huesped*> huespedes;
+    for(int i=0; i < cemail.size(); i++){
+        Huesped *u=MapaHuesped.find(cemail[i])->second;
+        huespedes[u->getMail()]=u;
+    }
+    controladorHostal *cu=controladorHostal::getInstance();
+    cu->reservaAHostalGrup(huespedes);
+}
+
+
+void controladorUsuario::cancelarReserva(){
+    ArregloEmail.clear(); //Libera la memoria del vector
+    controladorHostal *cu=controladorHostal::getInstance();
+    cu->liberarHos();
+}
+

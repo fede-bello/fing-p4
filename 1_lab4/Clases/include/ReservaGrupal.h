@@ -9,7 +9,7 @@
 class ReservaGrupal: public Reserva{ 
     private:
         int Cantidad;
-        Huesped** huespedes; //esto creo que hay que modelarlo como un map
+        map<string,Huesped*> huespedes; //esto creo que hay que modelarlo como un map
     public:
         //constructor
         ReservaGrupal();
@@ -20,8 +20,8 @@ class ReservaGrupal: public Reserva{
         //destructor
         ~ReservaGrupal();
         //operaciones
-        Huesped** getHuespedes();
-        void setHuespedes(Huesped** arreglo_huespedes);       
+        map<string,Huesped*> getHuespedes();
+        void setHuespedes(map<string,Huesped*> huespedes);       
         //virtual float calcularCosto();
 };
 

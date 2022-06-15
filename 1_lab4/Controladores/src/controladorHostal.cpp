@@ -136,10 +136,106 @@ float controladorHostal::obtenerPromedioCalificaciones(){
 }
 
 
-  vector<DTHabitacion> controladorHostal::obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut){
-        string nombre=this->nombreGuardado;
-        Hostal *hos=this->MapaHostal.find(nombre)->second;
-        this->inGuardado=checkIn;
-        this->outGuardado=checkOut;
-        return hos->habitacionesDisponibles(checkIn, checkOut);
+vector<DTHabitacion> controladorHostal::obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut){
+    string nombre=this->nombreGuardado;
+    Hostal *hos=this->MapaHostal.find(nombre)->second;
+    this->inGuardado=checkIn;
+    this->outGuardado=checkOut;
+    return hos->habitacionesDisponibles(checkIn, checkOut);
+}
+
+DTHabitacion controladorHostal::elegirHabitacion(int numero){
+    map<string,Hostal*>::iterator it;
+    DTHabitacion ha;
+    this->numHabGuardado=numero;
+    for(it=MapaHostal.begin(); it!=MapaHostal.end(); ++it){
+        Hostal *hos=it->second;
+        ha=hos->buscarHabitacion(numero);
     }
+}
+
+void controladorHostal::reservaAHostalInd(Huesped *u){
+    DTFecha In=this->inGuardado;
+    DTFecha Out=this->outGuardado;
+    int habitacion=this->numHabGuardado;
+    string hostal=this->nombreGuardado;
+    controladorReserva *cr=controladorReserva::getInstance();
+    Reserva *r= cr->getReservaInd(u);
+    Hostal *h=this->MapaHostal.find(hostal)->second;
+    h->AsociarReservaHostal(r,habitacion);
+}
+
+
+void controladorHostal::reservaAHostalGrup(map<string,Huesped*> huespedes){
+    DTFecha In=this->inGuardado;
+    DTFecha Out=this->outGuardado;
+    int habitacion=this->numHabGuardado;
+    string hostal=this->nombreGuardado;
+    controladorReserva *cr=controladorReserva::getInstance();
+    Reserva *r= cr->getReservaGrup(huespedes);
+    Hostal *h=this->MapaHostal.find(hostal)->second;
+    h->AsociarReservaHostal(r,habitacion);
+}
+
+void controladorHostal::liberarHos(){
+    this->HostalGuardado->~DTHostal();
+    this->HostalGuardado=NULL;
+    controladorReserva *cr=controladorReserva::getInstance();
+    cr->liberarRes();
+
+}
+
+
+
+
+//funcion auxiliar para mejoresTresHostales
+
+string menorPromedio(map<string,int> Mapa){
+    map<string,int>::iterator it;
+    string res=Mapa.begin()->first;
+    int min=Mapa.begin()->second;
+    for(it=Mapa.begin(); it!=Mapa.end(); ++it){
+        if (it->second<min){//Si el promedo del actual es menor que el guardado, guardo el nombre en res
+            res=it->first;
+        }
+    }
+    return res;
+}
+
+vector<string> controladorHostal::mejoresTresHostales(){
+    controladorReserva* cr= controladorReserva::getInstance();
+    map<string,int> mejores3;//En este map voy a ir guardando los hostales, es para no tener que calcular el promedio cada vez
+    map<string,Hostal*>::iterator it;
+    map<string,int>::iterator it2;
+    for (it=MapaHostal.begin(); it!=MapaHostal.end(); ++it){
+        Hostal *hos=it->second;
+        vector<Reserva> reservas=hos->reservasAsociadas();
+        controladorReserva* cr= controladorReserva::getInstance();
+        int PromedioHostal=cr->darPromedio(reservas);
+        if (mejores3.size()<3){ //Si hay menos de 3 guardados lo agrego
+            mejores3[hos->getNombre()]=PromedioHostal;
+        }
+        else { //Si hay 3 o mas guardados lo comparo al de menor promedio, si es mayor los intercambio
+            string menor=menorPromedio(mejores3);
+            if (it2->second>mejores3[menor]){//Si el actual es mayor que el menor de los mejores 3
+                mejores3.erase(menor); //elimino el peor de los 3
+                mejores3[it2->first]=it2->second;//agrego el actual
+            }
+        }
+    }
+    //Agrego los nombres al vector y retorno
+    vector<string> res;
+    for (it2=mejores3.begin(); it2!=mejores3.end(); ++it2){
+        res.push_back(it->first);
+     }
+     return res;
+
+}
+
+vector<DTCalificacion> controladorHostal::detallesHostal(string hostal){
+    Hostal *hos=MapaHostal.find(hostal)->second;
+    vector<Reserva> res=hos->reservasAsociadas();
+    controladorReserva* cr= controladorReserva::getInstance();
+    return cr->darCalificaciones(res);
+
+}

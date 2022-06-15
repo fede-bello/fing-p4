@@ -35,9 +35,9 @@ class Hostal{
         vector<DTHuesped> huespedes(int nr);//✅
         DTHabitacion infoHab(int cres);//✅
         void eliminarLinkReserva(int cres);//✅agregue a que reserva hace referencia
-        void AsociarReservaHostal(Reserva r,int habitacion);//✅
+        void AsociarReservaHostal(Reserva *r,int habitacion);//✅
         vector<DTHabitacion> habitacionesDisponibles(DTFecha in, DTFecha out);//✅
-     
+        DTHabitacion buscarHabitacion(int numero); //FALTA
         //Destructoras
         ~Hostal();
 };
