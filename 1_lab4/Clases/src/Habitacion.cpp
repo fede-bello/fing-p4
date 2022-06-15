@@ -127,8 +127,8 @@ void Habitacion::AsociarReservaHabitacion(Reserva *r){
 }
 
 Habitacion::~Habitacion(){
-    for(auto &codigo:mapaReservas){
-        Reserva *res = codigo.second;
-        res->~Reserva();
+    map<int, Reserva*>::iterator it;
+    for(it = mapaReservas.begin(); it != mapaReservas.end(); it++){
+        it->second->~Reserva();  //llamo al destructor de habitacion
     }
 }

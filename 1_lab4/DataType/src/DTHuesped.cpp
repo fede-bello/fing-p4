@@ -17,7 +17,15 @@ bool DTHuesped::getEsFinger(){
     return this->esFinger;
 };
 
-
+//imprimir
+void DTHuesped::imprimir() {
+    bool test=this->esFinger;
+    if (test) {
+        cout << "Nombre: " << this->getNombre() <<endl << "Email: " << this->getMail()<< endl<< "Finger: Si"<<endl;
+    }
+    else 
+    cout << "Nombre: " << this->getNombre() <<endl << "Email: " << this->getMail()<< endl<< "Finger: No"<<endl;
+};
 
 //destructora 
 DTHuesped::~DTHuesped(){

@@ -68,17 +68,12 @@ bool Estadia::estadiaActiva(){
     DTFecha checkoutEstadia = this->getCheckOut();
     DTFecha checkinEstadia = this->getCheckIn();
     controladorFecha * controladorDeFecha = controladorDeFecha->getInstance();
-    
     DTFecha fechaActual = controladorDeFecha->getFechaActual();
-
     bool res = false;
-
     DTFecha a_comparar = DTFecha(); //Si la fecha de checkout es distinta a la fecha definida en la constructora DTFecha es porque le cargaron una fecha de checkout (que se hace al finalizar la estadia)
-
     if((checkinEstadia < fechaActual) && !(checkoutEstadia == a_comparar)){ //acá tengo que ver si la fecha de checkIn es menor a fechaActual y si todavía no tiene checkOut la estadía
         res = true;
     }
-
     return res;
 }
 
@@ -91,13 +86,10 @@ bool Estadia::estaFinalizadaEstadia(){
     bool res = false;
     controladorFecha * controladorDeFecha = controladorDeFecha->getInstance();
     DTFecha fechaActual = controladorDeFecha->getFechaActual();
-
     DTFecha checkinEstadia = this->getCheckIn();
-
     if((checkinEstadia < fechaActual) && !(this->estadiaActiva())){ //Si la fecha de checkin es anterior y la estadia no esta mas activa es porque está finalizada.
         res = true;
     }
-
     return res;
 }
 
@@ -122,13 +114,10 @@ DTCalificacion Estadia::calificacionEstadia(){
 
 void Estadia::calificarEst(Huesped* hues, int calif, string texto){
     Calificacion *a_calificar = new Calificacion();
-
-    a_calificar->setHuesped(hues);
+    a_calificar->asociarHuesped(hues);
     a_calificar->setNumero(calif);
     a_calificar->setComentario(texto);
-
     this->setCalificacion(a_calificar);
-
 }
 
 Estadia::~Estadia(){

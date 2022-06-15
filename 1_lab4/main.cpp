@@ -1,5 +1,6 @@
 
 #include "Controladores/include/controladorUsuario.h"
+#include "Interfaces/Factory.h"
 
 ////////////////////////////////
 ////////  CASOS DE USO /////////
@@ -12,7 +13,7 @@
 //Baja de Reserva
 
 void ImprimirOpciones()
-{
+{   
     cout << endl;
     cout << "Ingresa la opción deseada" << endl;
     cout << "0 -> Salir" << endl;
@@ -36,7 +37,9 @@ void ImprimirOpciones()
 
 
 int main()
-{   bool iterarWhile=true;
+{   
+    Factory* fabrica = fabrica->getInstancia();
+    bool iterarWhile=true;
     cout << "Bienvenido" << endl;
 	while(iterarWhile){
         ImprimirOpciones();
@@ -125,7 +128,20 @@ int main()
                 }//FIN ALTA HOSTAL
                     break;
                 case 3:{//ALTA DE HABITACION
-                    controladorHostal *cHostal=controladorHostal::getInstance();
+                    IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
+
+
+                    cout << "Alta de Habitacion"  << endl;
+                    cout << "Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"  << endl;
+
+                    vector<DTHostal> listaHostales = cHostal->obtenerHostales();
+                    listaHostales
+
+
+                    
+
+
+
 
                 }//FIN ALTA HABITACION
                     break;

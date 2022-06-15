@@ -32,6 +32,7 @@ class DTFecha{
         bool operator==(const DTFecha &otro) const;
         bool operator<(const DTFecha &otro) const;
         bool operator>(const DTFecha &otro) const;
+        void imprimir();
         //Destructora
         ~DTFecha();
 };

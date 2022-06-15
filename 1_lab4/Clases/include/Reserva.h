@@ -40,19 +40,19 @@ class Reserva{
         void setEstadia(map<int,Estadia*> mapaEstadias);
         void setHuesped(Huesped *huesped);        
          //destructor
-        ~Reserva();//no me funciona por el estadia*
+        ~Reserva();//✅
         //operaciones 
         bool reservaDisponibleEntre(DTFecha In, DTFecha Out);//✅
         float calcularPromedioReserva();//✅
-        vector<DTCalificacion> darCalificacionesReserva(); 
+        vector<DTCalificacion> darCalificacionesReserva();//✅ 
         bool mismoHuesped(string email);//✅
         DTReserva getDTReserva();//✅
-        DTEstadia crearEstadiaNueva(DTFecha f); //FALTA
+        DTEstadia crearEstadiaNueva(DTFecha f);//✅
         void cerrarEstadoReserva();//✅
-        vector<DTEstadia> estadiasActivas(); 
-        DTEstadia mismaEstadia(int codigo); //devuelve la estadia de reserva que tenga codigo
+        vector<DTEstadia> estadiasActivas();//✅ 
+        DTEstadia mismaEstadia(int codigo);//✅
         void actualizarCheckOut(DTFecha co,int codigo);//✅
-        vector<DTEstadia> getEstadias(string mail); //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
+        vector<DTEstadia> getEstadias(string mail);// FALTAAAAA //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
         void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
         bool esGrupalReserva(); //FALTA
