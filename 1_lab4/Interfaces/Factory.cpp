@@ -11,18 +11,18 @@ Factory * Factory::getInstancia(){
     
 }
 
-IcontroladorUsuario Factory::getIcontroladorUsuario(){
+IcontroladorUsuario* Factory::getIcontroladorUsuario(){
     return controladorUsuario.getInstance();
 }
 
-IcontroladorReserva getIcontroladorReserva(){
+IcontroladorReserva* getIcontroladorReserva(){
     return controladorReserva.getInstance();
 }
 
-IcontroladorHostal getIcontroladorHostal(){
+IcontroladorHostal* getIcontroladorHostal(){
     return controladorHostal.getInstance();
 
 }
-IcontroladorFecha getIcontroladorFecha(){
+IcontroladorFecha* getIcontroladorFecha(){
     return controladorFecha.getInstance();
 }

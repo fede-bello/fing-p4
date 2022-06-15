@@ -14,8 +14,8 @@ class Factory{
         Factory();
     public:
         static Factory * getInstancia();
-        IcontroladorUsuario getIcontroladorUsuario();
-        IcontroladorReserva getIcontroladorReserva();
-        IcontroladorHostal getIcontroladorHostal();
-        IcontroladorFecha getIcontroladorFecha();
+        IcontroladorUsuario* getIcontroladorUsuario();
+        IcontroladorReserva* getIcontroladorReserva();
+        IcontroladorHostal* getIcontroladorHostal();
+        IcontroladorFecha* getIcontroladorFecha();
 };
