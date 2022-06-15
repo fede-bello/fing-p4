@@ -34,16 +34,16 @@ class Estadia{
         //Operaciones 
         float calcularPuntajeEstadia();//✅
         DTCalificacion darCalificacionesEstadia();//✅
-        bool estadiaActiva();
+        bool estadiaActiva();//✅
         bool mismoCodigo(int codigo);//✅
-        bool estaFinalizadaEstadia();//hecha, revisar
+        bool estaFinalizadaEstadia();//✅
         void registrarRespuesta(string respuesta, int codigoCalif);//✅
         bool mismaEstadia(int identificador);//✅
         DTHuesped huesEs();//✅
         DTCalificacion calificacionEstadia();//✅
-        void calificarEst(Huesped* hues, int calif, string texto);
+        void calificarEst(Huesped* hues, int calif, string texto);//✅
         //DEstructora
-        ~Estadia();//revisar
+        ~Estadia();//No estoy seguro de si asi esta bien al final
 
 };
 

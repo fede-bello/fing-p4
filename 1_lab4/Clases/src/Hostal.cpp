@@ -177,10 +177,10 @@ vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
     return hab;
 }
 
-
-DTHabitacion Hostal::buscarHabitacion(int numero){ //FALTA
-    return DTHabitacion();
+DTHabitacion Hostal::buscarHabitacion(int numero){
+    return infoHab(numero);
 }
+
 //Destructora
 Hostal::~Hostal(){
     map<int, Habitacion*>::iterator it;
