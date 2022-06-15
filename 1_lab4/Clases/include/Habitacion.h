@@ -28,11 +28,12 @@ class Habitacion{
         bool habitacionLibre(DTFecha In,DTFecha Out);//✅
         DTHabitacion getDTHabitacion();//✅
         vector<DTReserva> darReservasHuespedHab(string email);//✅
+        vector<DTReserva> darReservasHabitacion();//✅
         bool mismoNumero(int nr); //✅
         vector<DTHuesped> obtenerHuesprResHab(int nr);//✅
         bool buscarReserva(int cres);//✅
         void eliminarLinkRes(int cres);//✅
-        void AsociarReservaHabitacion(Reserva *r);//saque el parametro de habitacion era innecesario
+        void AsociarReservaHabitacion(Reserva *r);//✅saque el parametro de habitacion era innecesario
         //Destructora
         ~Habitacion();
 };
