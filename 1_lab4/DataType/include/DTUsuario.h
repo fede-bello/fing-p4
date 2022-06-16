@@ -24,7 +24,7 @@ class DTUsuario{
         string getPassword();
         string getMail();
         //set
-        void setMail(string Mail);
+        void setMail(string Mail); //PUEDE QUE ESTE MAL
 
         //Destructora
         virtual ~DTUsuario();

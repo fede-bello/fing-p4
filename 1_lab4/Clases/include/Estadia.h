@@ -42,6 +42,8 @@ class Estadia{
         DTHuesped huesEs();//✅
         DTCalificacion calificacionEstadia();//✅
         void calificarEst(Huesped* hues, int calif, string texto);//✅
+        DTEstadia EstadiaResFin(string mail);//✅
+        DTCalificacion CalifSinRes();//✅
         //DEstructora
         ~Estadia();//No estoy seguro de si asi esta bien al final
 

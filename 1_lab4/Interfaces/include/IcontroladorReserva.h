@@ -1,4 +1,7 @@
-#include "../Controladores/include/controladorReserva.h"
+#ifndef IRESERVA
+#define IRESERVA
+
+#include "../../Controladores/include/controladorReserva.h"
 
 class IcontroladorReserva{
     public:
@@ -28,3 +31,5 @@ class IcontroladorReserva{
         // Consulta de Estadia
         // Baja de Reserva
 };
+
+#endif

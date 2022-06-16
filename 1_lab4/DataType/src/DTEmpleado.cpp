@@ -20,6 +20,18 @@ CargoEmp DTEmpleado::getCargo(){
     return this->hos;
 } */
 
+void DTEmpleado::imprimir(){
+    CargoEmp cargo=this->getCargo();
+    string cargost;
+    if (cargo==Limpieza) cargost="Limpieza";
+    else if (cargo==Recepcion) cargost= "Recepcion";
+    else if (cargo==Administracion) cargost="Administracion";
+    else cargost="Infrasetructura";
+
+    cout<<"Nombre: "<<this->getNombre()<<endl<<"Email: "<<this->getMail()<<endl<<cargost<<endl;
+}
+
+
 //Destructora
 DTEmpleado:: ~DTEmpleado(){
 

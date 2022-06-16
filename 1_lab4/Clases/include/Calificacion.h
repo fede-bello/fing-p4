@@ -36,6 +36,8 @@ class Calificacion{
         DTCalificacion getDTCalificacion();
         bool esCalificacion(int codigoCalif);
         void asociarHuesped(Huesped *hues);
+        bool estaSinResponderCal();
+
         //suscribir,desuscribir y notificar nos encargamos despues cuando encaremos el observer
         //destructora
         ~Calificacion();

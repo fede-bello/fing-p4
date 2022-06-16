@@ -28,3 +28,6 @@ int DTEstadia::getIdentificador(){
 DTEstadia::~DTEstadia(){
 
 }
+
+
+

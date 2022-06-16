@@ -1,4 +1,7 @@
-#include "../Controladores/include/controladorHostal.h"
+#ifndef IHOSTAL
+#define IHOSTAL
+
+#include "../../Controladores/include/controladorHostal.h"
 class IcontroladorHostal{
     public:
         //virtual static controladorHostal * getInstance();
@@ -41,3 +44,5 @@ class IcontroladorHostal{
         //Consulta de Estadia
         //Baja de Reserva
 };
+
+#endif

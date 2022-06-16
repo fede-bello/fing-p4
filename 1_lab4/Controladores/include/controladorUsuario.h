@@ -3,7 +3,7 @@
 
 #include "../../Clases/include/Empleado.h"
 #include "controladorHostal.h"
-#include "../../Interfaces/IcontroladorUsuario.h"
+#include "../../Interfaces/include/IcontroladorUsuario.h"
 
 class controladorUsuario /* : IcontroladorUsuario*/{
     private:
@@ -16,8 +16,6 @@ class controladorUsuario /* : IcontroladorUsuario*/{
     public:
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
-
-        //hechas por diego
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
         void liberar();
@@ -34,8 +32,8 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Alta de Habitacion
         //Asignar Empleado a Hostal
         vector<DTEmpleado> obtenerEmpleadoHostal();
-        void ActualizarCargo(string nombre,CargoEmp cargo);
-        void AsignarEmpleado();
+        void actualizarCargo(string nombre,CargoEmp cargo);
+        void asignarEmpleado();
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);
@@ -46,6 +44,7 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Registrar Estadia
         //Finalizar Estadia
         //Calificar Estadia
+        void calificarEstadia(int codigo, int calif, string texto);
         //Comentar Calificacion
         //Consulta de Usuario
         //Consulta de Hostal

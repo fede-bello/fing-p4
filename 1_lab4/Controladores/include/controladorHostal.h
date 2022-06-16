@@ -3,7 +3,7 @@
 
 #include"../../Clases/include/Hostal.h"
 #include"controladorReserva.h"
-#include "../../Interfaces/IcontroladorHostal.h"
+#include "../../Interfaces/include/IcontroladorHostal.h"
 
 class controladorHostal/*:public IcontroladorHostal*/ {
 private:
@@ -42,12 +42,20 @@ public:
     void reservaAHostalInd(Huesped *u);
     void reservaAHostalGrup(map<string, Huesped*> huespedes);
     void liberarHos();
+    //Fin Realizar Reserva
     //Consultar top 3 de hostales
     vector<string> mejoresTresHostales();
     vector<DTCalificacion> detallesHostal(string hostal);
+    //Fin consulta top 3 de hostales
     //Registrar Estadia
+    vector<DTReserva> obtenerReservasHuesped(string email, string hostal);
+    //Fin Registrar Estadia
     //Finalizar Estadia
+    vector<DTEstadia> estadiasHuespedActivas(string email);
+    void finalizarEstadia();
     //Calificar Estadia
+    vector<DTEstadia> estadiasHuespedFinalizadas(string email, string hos);
+    void estadiaHostalCalificada (int codigo, int calif, string texto, Huesped *hues);
     //Comentar Calificacion
     //Consulta de Usuario
     //Consulta de Hostal

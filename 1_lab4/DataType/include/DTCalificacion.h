@@ -24,6 +24,7 @@ class DTCalificacion{
         string getRespuesta();
         DTFecha getFecha();
         int getIdentificador();
+        void imprimir();
         ~DTCalificacion();
 };
 

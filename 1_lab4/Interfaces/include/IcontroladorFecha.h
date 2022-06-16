@@ -1,3 +1,7 @@
+#ifndef IFECHA
+#define IFECHA
+
+#include"../../DataType/include/DTFecha.h"
 
 class IcontroladorFecha{
     public:
@@ -9,3 +13,5 @@ class IcontroladorFecha{
         virtual ~IcontroladorFecha() {};
 
 };
+
+#endif

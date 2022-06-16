@@ -1,7 +1,7 @@
 #ifndef CONTF
 #define CONTF
 #include "../../DataType/include/DTFecha.h"
-#include "../../Interfaces/IcontroladorFecha.h"
+#include "../../Interfaces/include/IcontroladorFecha.h"
 
 class controladorFecha /*:public IcontroladorFecha*/ {
 private:

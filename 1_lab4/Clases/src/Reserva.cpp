@@ -146,11 +146,13 @@ DTEstadia Reserva::crearEstadiaNueva(DTFecha f){
     Estadia nueva = Estadia(0, f, DTFecha());// ver tema de que identificador poner
     Estadia* res = &nueva;
     this->mapaEstadias[res->getIdentificador()]= res;
-    return res->getDTEstadia();
-}
+    
+
     //ACA HABRIA QUE CREAR UNA NUEVA ESTADIA PERO NO SE MUY BIEN COMO HACER 
     //CON EL TEMA DEL IDENTIFICADO, NO PUEDE SER IGUAL AL CODIGO PORQUE UNA 
     //RESERVA PUEDE TENER MAS DE UNA ESTADIA ASOCIADA)
+    return DTEstadia();
+}
 
 void Reserva::cerrarEstadoReserva(){
     this->estado=Cerrada;
@@ -180,61 +182,47 @@ DTEstadia Reserva::mismaEstadia(int codigo){
     return est;
 }
 
-void Reserva::actualizarCheckOut(DTFecha co){
-    this->checkOut=co;
+
+
+void Reserva::actualizarCheckOut(DTFecha co,int codigo){
+    map<int,Estadia*>::iterator it;
+    for (it=mapaEstadias.begin(); it!=mapaEstadias.end(); ++it){
+        Estadia *e=it->second;
+        if (e->mismoCodigo(codigo)){
+            e->setCheckOut(co);
+        }
+    }
 }
 
-/*
-vector<DTEstadia> Reserva::getEstadias(string mail){
-    vector<DTEstadia> est;
+vector<DTEstadia> Reserva::EstadiasFin(string mail){
+    vector<DTEstadia> estadia;
     map<int,Estadia*>::iterator it;
     for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
         Estadia *est=it->second;
-        if(estaFinalizadaEstadia()){
-            // crear una nueva operacion en estadia con otro nombre que no sea getDTEstadia, mirar diagrama de getEstadias para entender a que me refiero 
+        if(est->estaFinalizadaEstadia()){
+            DTEstadia nueva = est->EstadiaResFin(mail);
+            estadia.push_back(nueva);
         }
     }
+    return estadia;
+}
 
-
-
-    vector<DTEstadia> estadias;
-    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
-    while (it!=mapaEstadias.end()){
-        Estadia *est=it->second;
-        Huesped *hues=est->getHuesped();
-        if ((est->estaFinalizadaEstadia()) && (hues->getMail()==mail)){ //la agrego si esta finalizada y asociada a mail
-            DTEstadia dtest=est->getDTEstadia();
-            estadias.push_back(dtest);
-        }
-        ++it; //Aumenta una posicion el iterador
-        }
-    return estadias;
-
-}*/
-
-/*
 vector<DTCalificacion> Reserva::getCalifSinResReserva(){
-// crear una nueva operacion en estadia con otro nombre que no sea getDTEstadia, mirar diagrama de getEstadias para entender a que me refiero 
-
-
-    map<int,Estadia*>::iterator it=this->mapaEstadias.begin();
-    vector<DTCalificacion> calificaciones;
-    while (it!=mapaEstadias.end()){
-        Estadia *est=it->second;
-        DTCalificacion calificacion=est->getCalifSinResEstadia();
-        calificaciones.push_back(calificacion);
-        ++it; //Aumenta una posicion el iterador
-        
+    vector<DTCalificacion> calif;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        DTCalificacion nueva = it->second->CalifSinRes();
+        calif.push_back(nueva);
     }
-    return calificaciones;
+    return calif;
 }
-*/
 
-/*
 void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
-
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        it->second->registrarRespuesta(respuesta, codigoCalif);
+    }
 }
-*/
 
 //NO IMPLENTADA, PUSE ESO PARA QUE COMPILE ALGO DE HOSTAL (DANILO)
 bool Reserva::esGrupalReserva(){
@@ -245,6 +233,7 @@ vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
     vector<DTHuesped> vec;
     return vec;
 }
+
 /*
 vector<DTEstadia> Reserva::estadiasReserva(){
 
@@ -282,6 +271,8 @@ DTReserva Reserva::reservaBuscada(int codigo){
 }
 
 void Reserva::eliminarLinksHuesEst(){}
-
-void Reserva::calificarEstadiaReserva(Huesped hues){}
 */
+
+void Reserva::calificarEstadiaReserva(int codigo, int calif, string texto, Huesped *hues){
+
+}
