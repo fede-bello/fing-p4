@@ -83,8 +83,8 @@ int main()
                             case 4:
                                 cargoEmpleado=Infrasetructura;
                                 break;}
-                                //EMPÏEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
-                                DTEmpleado *dtusuario=cUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
+                            //EMPÏEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
+                            DTEmpleado *dtusuario=cUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
                             try{
                                 
                             }catch(...){
@@ -101,13 +101,17 @@ int main()
                             else   
                                 finger=false;
                             DTHuesped *dtusuario=cUsuario->NuevoHuesped(mail,password,nombre,finger);
+                            try{
+                                
+                            }catch(...){
+                                cout<< "Hay otro usuario con ese mail"<<endl;
+                            }
                             
                         }
-                    }
-                    break;//FIN ALTA USUARIO 
+                }
+                break;//FIN ALTA USUARIO 
                 case 2:{ //ALTA DE HOSTAL
                     cout << "Alta de Hostal"  << endl;
-                    bool salir=true;
                     cout<< "Digite el nombre del Hostal"<<endl;
                     string nombre;
                     cin>>nombre;
@@ -118,15 +122,22 @@ int main()
                     string Telefono;
                     cin>>Telefono;
                     controladorHostal *cHostal=controladorHostal::getInstance();
+                    bool excepcion = false;
                     try {
-                        cHostal->nuevoHostal(nombre,direccion,Telefono);
-                        salir=false;
+                        DTHostal nuevo = cHostal->nuevoHostal(nombre,direccion,Telefono);
                     }
                     catch(...){
-                        cout<< "Ya hay un hostal con ese nombre"<<endl;
+                        excepcion = true;
+                    }
+                    if(excepcion){
+                        cout<< "Se encuentra registrado un hostal con ese nombre"<<endl;
+                        cHostal->confirmarAltaHostal(nuevo);
+                    }else{
+                        cout<< "Se registro el nuevo hostal"<<endl;
+                        cHostal->cancelarAltaHostal(nuevo);
                     }
                 }//FIN ALTA HOSTAL
-                    break;
+                break;
                 case 3:{//ALTA DE HABITACION
                     IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
 

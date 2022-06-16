@@ -45,6 +45,12 @@ map<string,Hostal*> controladorHostal::getMapaHostal(){
 }
 //ALTA HOSTAL
 DTHostal* controladorHostal:: nuevoHostal(string nombre,string direccion,string telefono){
+    map<string,Hostal*>::iterator it;
+    for(it = this->MapaHostal.begin(); it != this->MapaHostal.end(); it++){
+        if(it->first == nombre){
+            throw "Mismo Nombre";
+        }
+    }
     DTHostal *res=new DTHostal(nombre,direccion,telefono);
     return res;
 }

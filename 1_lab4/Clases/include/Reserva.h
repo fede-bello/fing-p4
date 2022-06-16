@@ -64,7 +64,7 @@ class Reserva{
         DTCalificacion calificacionBuscada(int codigo);//✅
         DTReserva reservaBuscada(int codigo);//✅
         void eliminarLinksHues(); //FALTA
-        void calificarEstadiaReserva(int codigo, int calif, string texto,Huesped *hues); //FALTA
+        void calificarEstadiaReserva(int codigo, int calif, string texto,Huesped *hues);//✅
         float calcularCosto(float costo);//✅costo representa el valor de la habitacion
 
 };
