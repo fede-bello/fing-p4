@@ -128,41 +128,41 @@ int main()
                 }//FIN ALTA HOSTAL
                     break;
                 case 3:{//ALTA DE HABITACION
-                    // IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
+                    IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
 
 
-                    // cout<<"Alta de Habitacion"<<endl;
-                    // cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
+                    cout<<"Alta de Habitacion"<<endl;
+                    cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
 
-                    // vector<DTHostal> listaHostales = cHostal->obtenerHostales();
-                    // int i = 0;
+                    vector<DTHostal> listaHostales = cHostal->obtenerHostales();
+                    int i = 0;
 
-                    // while(i <= listaHostales.size()){
-                    //     string direccionHos = listaHostales[i].getDireccion();
-                    //     string nombreHos = listaHostales[i].getNombre();
-                    //     string telefonoHos = listaHostales[i].getTelefono();
+                    while(i <= listaHostales.size()){
+                        string direccionHos = listaHostales[i].getDireccion();
+                        string nombreHos = listaHostales[i].getNombre();
+                        string telefonoHos = listaHostales[i].getTelefono();
 
-                    //     cout<<"Hostal "<<i<<": \n"<<endl;
-                    //     cout<<"Nombre: "<<nombreHos<<endl;
-                    //     cout<<"Direccion: "<<direccionHos<<endl;
-                    //     cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
+                        cout<<"Hostal "<<i<<": \n"<<endl;
+                        cout<<"Nombre: "<<nombreHos<<endl;
+                        cout<<"Direccion: "<<direccionHos<<endl;
+                        cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
 
-                    // }
+                    }
 
-                    // string nombreHos;
-                    // cout<<"Hostal elegido: "<<endl;
-                    // cin>>nombreHos;
+                    string nombreHos;
+                    cout<<"Hostal elegido: "<<endl;
+                    cin>>nombreHos;
                     
-                    // DTHostal* hostalElegido = cHostal->elegirHostal(nombreHos);
+                    DTHostal* hostalElegido = cHostal->elegirHostal(nombreHos);
 
-                    // string nombreElegido = hostalElegido->getNombre();
+                    string nombreElegido = hostalElegido->getNombre();
 
-                    // cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
-                    // int numero;
-
-                    //// while(cHostal.){
-                    ////     cin<<
-                    //// }
+                    cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
+                    int numero; 
+                    cin>>numero; //tengo que revisar que el numero de habitacion a agregar no esté registrado ya, por lo que reviso las habitaciones y me fijo
+                    // while(cHostal.){
+                    //     cin<<
+                    // }
 
 
 

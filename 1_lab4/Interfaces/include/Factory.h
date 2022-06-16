@@ -19,7 +19,7 @@ class Factory{
         static Factory * getInstancia();
         controladorUsuario* getIcontroladorUsuario();
         controladorReserva* getIcontroladorReserva();
-        controladorHostal* getIcontroladorHostal();
+        IcontroladorHostal* getIcontroladorHostal();
         controladorFecha* getIcontroladorFecha();
 };
 #endif

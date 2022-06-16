@@ -18,8 +18,9 @@ controladorReserva* Factory::getIcontroladorReserva(){
     return controladorReserva::getInstance();
 }
 
-controladorHostal* Factory::getIcontroladorHostal(){
-    return controladorHostal::getInstance();
+IcontroladorHostal* Factory::getIcontroladorHostal(){
+    IcontroladorHostal * res = res->getInstance();
+    return res;
 }
 
 controladorFecha* Factory::getIcontroladorFecha(){
