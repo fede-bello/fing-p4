@@ -128,7 +128,6 @@ int main()
                 }//FIN ALTA HOSTAL
                     break;
                 case 3:{//ALTA DE HABITACION
-<<<<<<< HEAD
                     IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
 
 
@@ -136,14 +135,14 @@ int main()
                     cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
 
                     vector<DTHostal> listaHostales = cHostal->obtenerHostales();
-                    int iter = 0;
+                    int i = 0;
 
-                    while(iter <= listaHostales.size()){
+                    while(i <= listaHostales.size()){
                         string direccionHos = listaHostales[i].getDireccion();
                         string nombreHos = listaHostales[i].getNombre();
                         string telefonoHos = listaHostales[i].getTelefono();
 
-                        cout<<"Hostal "<<iter<<": \n"<<endl;
+                        cout<<"Hostal "<<i<<": \n"<<endl;
                         cout<<"Nombre: "<<nombreHos<<endl;
                         cout<<"Direccion: "<<direccionHos<<endl;
                         cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
@@ -167,13 +166,6 @@ int main()
 
 
 
-=======
-                    controladorHostal *cHostal = fabrica->getIcontroladorHostal();
-                    cout << "Alta de Habitacion"  << endl;
-                    cout << "Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"  << endl;
-                    vector<DTHostal> listaHostales = cHostal->obtenerHostales();
-                    //listaHostales
->>>>>>> 6f41a42a1e70e79c9e70810d4313230dc8a89582
                 }//FIN ALTA HABITACION
                     break;
                 case 4:{//ASIGNAR EMPLEADO A HOSTAL
