@@ -282,15 +282,19 @@ DTReserva Reserva::reservaBuscada(int codigo){
     return res;
 }
 
-
 void Reserva::eliminarLinksHues(){
     //llamar a reserva grupal o individual
     //no se como hacerlo
 }
 
-
 void Reserva::calificarEstadiaReserva(int codigo, int calif, string texto, Huesped *hues){
-
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
+        if(it->second->mismoCodigo(codigo)){
+            it->second->calificarEst(hues, calif, texto);
+            break;
+        }
+    }
 }
 
 float Reserva::calcularCosto(float costo){

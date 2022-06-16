@@ -87,6 +87,18 @@ Estadia.o: $(COS)/Estadia.cpp $(COI)/Estadia.h
 DTCalificacion.o: $(DTS)/DTCalificacion.cpp $(DTI)/DTCalificacion.h
 	g++ -c DTCalificacion.cpp
 
+I$(C)Fecha.o:$(INTS)/I$(C)Fecha.cpp $(INTI)/I$(C)Fecha.h
+	g++ -c I$(C)Fecha.cpp
+
+I$(C)Hostal.o:$(INTS)/I$(C)Hostal.cpp $(INTI)/I$(C)Hostal.h
+	g++ -c I$(C)Hostal.cpp
+
+I$(C)Usuario.o:$(INTS)/I$(C)Usuario.cpp $(INTI)/I$(C)Usuario.h
+	g++ -c I$(C)Usuario.cpp
+
+I$(C)Reserva.o:$(INTS)/I$(C)Reserva.cpp $(INTI)/I$(C)Reserva.h
+	g++ -c I$(C)Reserva.cpp
+
 Calificacion.o: $(COS)/Calificacion.cpp $(COI)/Calificacion.h
 	g++ -c Calificacion.cpp
 
@@ -103,17 +115,6 @@ $(C)Hostal.o:$(CONTS)/$(C)Hostal.cpp $(CONTI)/$(C)Hostal.h
 $(C)$(R).o:$(CONTS)/$(C)$(R).cpp $(CONTI)/$(C)$(R).h
 	g++ -c $(C)$(R).cpp
 
-I$(C)Fecha.o:$(INTS)/I$(C)Fecha.cpp $(INTI)/I$(C)Fecha.h
-	g++ -c I$(C)Fecha.cpp
-
-I$(C)Hostal.o:$(INTS)/I$(C)Hostal.cpp $(INTI)/I$(C)Hostal.h
-	g++ -c I$(C)Hostal.cpp
-
-I$(C)Usuario.o:$(INTS)/I$(C)Usuario.cpp $(INTI)/I$(C)Usuario.h
-	g++ -c I$(C)Usuario.cpp
-
-I$(C)Reserva.o:$(INTS)/I$(C)Reserva.cpp $(INTI)/I$(C)Reserva.h
-	g++ -c I$(C)Reserva.cpp
 
 Factory.o:$(INTS)/Factory.cpp $(INTS)/Factory.h
 	g++ -c Factory.cpp

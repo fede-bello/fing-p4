@@ -6,6 +6,8 @@
 
 class IcontroladorHostal{
     public:
+        // IcontroladorHostal IcontroladorHostal();
+        // IcontroladorHostal getInstance();
         virtual void liberar();
         virtual DTHostal *getHostal();
         virtual string getNombre();
