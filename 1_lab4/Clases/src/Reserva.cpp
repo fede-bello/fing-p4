@@ -83,18 +83,6 @@ Reserva::~Reserva(){
     }
 }
 
-//Calcular Costo
-// float Reserva::calcularCosto(){
-//     float costo;
-//     Habitacion *habitacion = this->hab;
-//     int diasReserva = this->checkOut.diferenciasFechas(this->checkIn);
-
-//     costo = habitacion->getPrecio() * diasReserva;
-
-//     return costo;
-// }
-
-
 bool Reserva::reservaDisponibleEntre(DTFecha In, DTFecha Out){
     bool res = false;
     if ((this->checkIn > Out) || (this->checkOut < In)){
@@ -242,10 +230,16 @@ vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
     return vec;
 }
 
-/*
 vector<DTEstadia> Reserva::estadiasReserva(){
-
-}*/
+    vector<DTEstadia> estadia;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        Estadia *est=it->second;
+        DTEstadia nueva = est->getDTEstadia();
+        estadia.push_back(nueva);
+    }
+    return estadia;
+}
 
 DTHuesped Reserva::esHuesped(){
     return this->hues->getDTHuesped();
@@ -259,28 +253,49 @@ bool Reserva::mismaReserva(int cres){
     return (this->codigo == cres);
 }
 
-/*
+
 DTCalificacion Reserva::calificacionBuscada(int codigo){
     DTCalificacion res;
     map<int,Estadia*>::iterator it;
     for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
-        if(it->second.mismaEstadia(codigo)){
-            res = it->second.calificacionEstadia();
+        Estadia *est=it->second;
+        if(est->mismaEstadia(codigo)){
+            res = est->calificacionEstadia();
             break;
         }
     }
     return res;
 }
-*/
 
-/*
+
+
 DTReserva Reserva::reservaBuscada(int codigo){
-
+    DTReserva res;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.end(); it++){
+        Estadia *est=it->second;
+        if(est->mismaEstadia(codigo)){
+            res = this->getDTReserva();
+            break;
+        }
+    }
+    return res;
 }
 
-void Reserva::eliminarLinksHuesEst(){}
-*/
+
+void Reserva::eliminarLinksHues(){
+    //llamar a reserva grupal o individual
+    //no se como hacerlo
+}
+
 
 void Reserva::calificarEstadiaReserva(int codigo, int calif, string texto, Huesped *hues){
 
+}
+
+float Reserva::calcularCosto(float costo){
+    float res;
+    int diasReserva = this->checkOut.diferenciasFechas(this->checkIn);
+    res = costo * diasReserva;
+    return res;
 }
