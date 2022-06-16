@@ -131,54 +131,77 @@ int main()
                     IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
 
 
-                    cout << "Alta de Habitacion"  << endl;
-                    cout << "Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"  << endl;
+                    cout<<"Alta de Habitacion"<<endl;
+                    cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
 
                     vector<DTHostal> listaHostales = cHostal->obtenerHostales();
-                    listaHostales
+                    int iter = 0;
 
+                    while(iter <= listaHostales.size()){
+                        string direccionHos = listaHostales[i].getDireccion();
+                        string nombreHos = listaHostales[i].getNombre();
+                        string telefonoHos = listaHostales[i].getTelefono();
 
+                        cout<<"Hostal "<<iter<<": \n"<<endl;
+                        cout<<"Nombre: "<<nombreHos<<endl;
+                        cout<<"Direccion: "<<direccionHos<<endl;
+                        cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
+
+                    }
+
+                    string nombreHos;
+                    cout<<"Hostal elegido: "<<endl;
+                    cin>>nombreHos;
                     
+                    DTHostal* hostalElegido = cHostal->elegirHostal(nombreHos);
 
+                    string nombreElegido = hostalElegido->getNombre();
+
+                    cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
+                    int numero;
+
+                    // while(cHostal.){
+                    //     cin<<
+                    // }
 
 
 
                 }//FIN ALTA HABITACION
                     break;
-                    case 4:{//ASIGNAR EMPLEADO A HOSTAL
+                case 4:{//ASIGNAR EMPLEADO A HOSTAL
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
-                    case 5:{//REALIZAR RESERVA
+                case 5:{//REALIZAR RESERVA
                 }//FIN REALIZAR RESERVA
                     break;
-                    case 6:{//CONSULTA TOP 3 HOSTALES
+                case 6:{//CONSULTA TOP 3 HOSTALES
                 }//FIN CONSULTA TOP 3 HOSTALES
                     break;
-                    case 7:{// REGISTRAR ESTADIA
+                case 7:{// REGISTRAR ESTADIA
                 }//FIN REGISTRAR ESTADIA
                     break;
-                    case 8:{// FINALIZAR ESTADIA
+                case 8:{// FINALIZAR ESTADIA
                 }//FIN FINALIZAR ESTADIA
                     break;
-                    case 9:{// CALIFICAR ESTADIA
+                case 9:{// CALIFICAR ESTADIA
                 }//FIN CALIFICAR ESTADIA
                     break;
-                    case 10:{// COMENTAR CALIFICACION
+                case 10:{// COMENTAR CALIFICACION
                 }//FIN COMENTAR CALIFICACION
                     break;
-                    case 11:{// CONSULTA USUARIO
+                case 11:{// CONSULTA USUARIO
                 }//FIN CONSULTA USUARIO
                     break;
-                    case 12:{// CONSULTA DE HOSTAL
+                case 12:{// CONSULTA DE HOSTAL
                 }//FIN CONSULTA DE HOSTAL
                     break;
-                    case 13:{// CONSULTA DE RESERVA
+                case 13:{// CONSULTA DE RESERVA
                 }//FIN CONSULTA DE RESERVA
                     break;
-                    case 14:{// CONSULTA DE ESTADIA
+                case 14:{// CONSULTA DE ESTADIA
                 }//FIN CONSULTA DE ESTADIA
                     break;
-                    case 15:{// BAJA RESERVA
+                case 15:{// BAJA RESERVA
                 }// FIN BAJA RESERVA
                     break;
                 default:{
