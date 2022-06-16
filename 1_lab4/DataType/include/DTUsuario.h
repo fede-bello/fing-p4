@@ -25,6 +25,7 @@ class DTUsuario{
         string getMail();
         //set
         void setMail(string Mail); //PUEDE QUE ESTE MAL
+        virtual void imprimir();
 
         //Destructora
         virtual ~DTUsuario();

@@ -31,6 +31,10 @@ string DTUsuario::getMail(){
 void DTUsuario::setMail(string Mail){
     this->Mail=Mail;
 }
+void DTUsuario::imprimir(){
+    
+}
+
 //Destructora
 DTUsuario:: ~DTUsuario(){
 

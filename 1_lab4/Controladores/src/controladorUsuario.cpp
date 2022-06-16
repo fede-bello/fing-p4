@@ -106,7 +106,7 @@ void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
     do{
         try {
             if(pedirMail){
-                cout<<"Digite el mail del hostal"<<endl;
+                cout<<"Digite el mail del usuario"<<endl;
                 cin>>mail;
             }
             if(MapaEmpleado.find(mail)==MapaEmpleado.end()){
@@ -173,7 +173,6 @@ void controladorUsuario::confirmarAltaReservaGrupal(){
     cu->reservaAHostalGrup(huespedes);
 }
 
-
 void controladorUsuario::cancelarReserva(){
     ArregloEmail.clear(); //Libera la memoria del vector
     controladorHostal *cu=controladorHostal::getInstance();
@@ -186,3 +185,40 @@ void controladorUsuario::calificarEstadia(int codigo, int calif, string texto){
     controladorHostal *ch=controladorHostal::getInstance();
     ch->estadiaHostalCalificada(codigo,calif,texto,hues);
 }
+
+//Consulta de Usuario
+
+vector<DTEmpleado> controladorUsuario::obtenerEmpleados(){
+    map<string,Empleado*>::iterator it;
+    vector<DTEmpleado> empleados;
+    for (it=MapaEmpleado.begin(); it!=MapaEmpleado.end(); ++it){
+        DTEmpleado empl=it->second->getDTEmpleado();
+        empleados.push_back(empl);
+    }
+    return empleados;
+}
+
+
+DTUsuario controladorUsuario::elegirUsuario(string email){
+    if(MapaHuesped.find(email)!=MapaHuesped.end()){
+        //Lo hallé y es Huesped
+        DTHuesped hues;
+        hues= MapaHuesped.find(email)->second->getDTHuesped();
+        return hues;
+    }
+    else { //es Empleado
+    DTEmpleado emp=MapaEmpleado.find(email)->second->getDTEmpleado();
+        return emp;
+    }
+
+   }
+
+
+void controladorUsuario::informacionUsuario(DTUsuario usuarioInfo){
+    DTUsuario * puntdt= &usuarioInfo;
+    puntdt->imprimir();
+    puntdt=NULL;
+}
+
+
+
