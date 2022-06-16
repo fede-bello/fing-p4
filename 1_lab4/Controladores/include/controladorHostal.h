@@ -5,7 +5,8 @@
 #include"controladorReserva.h"
 #include "../../Interfaces/include/IcontroladorHostal.h"
 
-class controladorHostal/*:public IcontroladorHostal*/ {
+
+class controladorHostal : public IcontroladorHostal{
 private:
     static controladorHostal * instancia;
     controladorHostal();

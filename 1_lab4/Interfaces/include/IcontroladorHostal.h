@@ -3,11 +3,7 @@
 
 #include "../../Controladores/include/controladorHostal.h"
 class IcontroladorHostal{
-    private:
-        static IcontroladorHostal * instancia; //es singleton
-        IcontroladorHostal();
     public:
-        static IcontroladorHostal * getInstance();
         virtual void liberar();
         virtual ~IcontroladorHostal();
         virtual DTHostal *getHostal();
