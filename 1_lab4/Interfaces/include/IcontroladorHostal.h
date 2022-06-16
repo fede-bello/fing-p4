@@ -6,36 +6,35 @@
 
 class IcontroladorHostal{
     public:
-        // IcontroladorHostal IcontroladorHostal();
-        // IcontroladorHostal getInstance();
-        virtual void liberar();
-        virtual DTHostal *getHostal();
-        virtual string getNombre();
-        virtual map<string,Hostal*> getMapaHostal();
+        virtual ~IcontroladorHostal(){};
+        virtual void liberar() = 0;
+        virtual DTHostal *getHostal() = 0;
+        virtual string getNombre() = 0;
+        virtual map<string,Hostal*> getMapaHostal() = 0;
         //Alta de Usuario
         //Fin alta Usuario
         //Alta Hostal
-        virtual DTHostal* nuevoHostal(string nombre,string direccion,string telefono);
-        virtual void confirmarAltaHostal(DTHostal *dthostal);
-        virtual void cancelarAltaHostal(DTHostal *dthostal);
+        virtual DTHostal* nuevoHostal(string nombre,string direccion,string telefono) = 0;
+        virtual void confirmarAltaHostal(DTHostal *dthostal) = 0;
+        virtual void cancelarAltaHostal(DTHostal *dthostal) = 0;
         //Fin Alta Hostal
         //Alta Habitacion
-        virtual vector<DTHostal> obtenerHostales();
-        virtual DTHostal *elegirHostal(string nombre);
-        virtual void confirmarAltaHabitacion(DTHabitacion *dthabitacion);
-        virtual void cancelarAltaHabitacion(DTHabitacion *dthabitacion);   
+        virtual vector<DTHostal> obtenerHostales() = 0;
+        virtual DTHostal *elegirHostal(string nombre) = 0;
+        virtual void confirmarAltaHabitacion(DTHabitacion *dthabitacion) = 0;
+        virtual void cancelarAltaHabitacion(DTHabitacion *dthabitacion) = 0;   
         //Fin Alta Habitacion
         //Asignar empleado a hostal
         //Realizar Reserva
-        virtual float obtenerPromedioCalificaciones();
-        virtual vector<DTHabitacion> obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut);
-        virtual DTHabitacion elegirHabitacion(int numero);
-        virtual void reservaAHostalInd(Huesped *u);
-        virtual void reservaAHostalGrup(map<string, Huesped*> huespedes);
-        virtual void liberarHos();
+        virtual float obtenerPromedioCalificaciones() = 0;
+        virtual vector<DTHabitacion> obtenerHabitaciones(DTFecha checkIn, DTFecha checkOut) = 0;
+        virtual DTHabitacion elegirHabitacion(int numero) = 0;
+        virtual void reservaAHostalInd(Huesped *u) = 0;
+        virtual void reservaAHostalGrup(map<string, Huesped*> huespedes) = 0;
+        virtual void liberarHos() = 0;
         //Consultar top 3 de hostales
-        virtual vector<string> mejoresTresHostales();
-        virtual vector<DTCalificacion> detallesHostal(string hostal);
+        virtual vector<string> mejoresTresHostales() = 0;
+        virtual vector<DTCalificacion> detallesHostal(string hostal) = 0;
         //Registrar Estadia
         //Finalizar Estadia
         //Calificar Estadia

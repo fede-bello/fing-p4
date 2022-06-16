@@ -111,31 +111,31 @@ int main()
                 }
                 break;//FIN ALTA USUARIO 
                 case 2:{ //ALTA DE HOSTAL
-                    cout << "Alta de Hostal"  << endl;
-                    cout<< "Digite el nombre del Hostal"<<endl;
-                    string nombre;
-                    cin>>nombre;
-                    cout<< "Digite la direccion del Hostal"<<endl;
-                    string direccion;
-                    cin>>direccion;
-                    cout<< "Digite el Telefono del Hostal"<<endl;
-                    string Telefono;
-                    cin>>Telefono;
-                    controladorHostal *cHostal=controladorHostal::getInstance();
-                    bool excepcion = false;
-                    try {
-                        DTHostal nuevo = cHostal->nuevoHostal(nombre,direccion,Telefono);
-                    }
-                    catch(...){
-                        excepcion = true;
-                    }
-                    if(excepcion){
-                        cout<< "Se encuentra registrado un hostal con ese nombre"<<endl;
-                        cHostal->confirmarAltaHostal(nuevo);
-                    }else{
-                        cout<< "Se registro el nuevo hostal"<<endl;
-                        cHostal->cancelarAltaHostal(nuevo);
-                    }
+                    // cout << "Alta de Hostal"  << endl;
+                    // cout<< "Digite el nombre del Hostal"<<endl;
+                    // string nombre;
+                    // cin>>nombre;
+                    // cout<< "Digite la direccion del Hostal"<<endl;
+                    // string direccion;
+                    // cin>>direccion;
+                    // cout<< "Digite el Telefono del Hostal"<<endl;
+                    // string Telefono;
+                    // cin>>Telefono;
+                    // controladorHostal *cHostal=controladorHostal::getInstance();
+                    // bool excepcion = false;
+                    // try {
+                    //     DTHostal nuevo = cHostal->nuevoHostal(nombre,direccion,Telefono);
+                    // }
+                    // catch(...){
+                    //     excepcion = true;
+                    // }
+                    // if(excepcion){
+                    //     cout<< "Se encuentra registrado un hostal con ese nombre"<<endl;
+                    //     cHostal->confirmarAltaHostal(nuevo);
+                    // }else{
+                    //     cout<< "Se registro el nuevo hostal"<<endl;
+                    //     cHostal->cancelarAltaHostal(nuevo);
+                    // }
                 }//FIN ALTA HOSTAL
                 break;
                 case 3:{//ALTA DE HABITACION
