@@ -193,8 +193,13 @@ void Reserva::actualizarCheckOut(DTFecha co,int codigo){
     }
 }
 
+vector<DTEstadia> Reserva::EstadiasFin(string mail){
+    vector<DTEstadia> res;
+    return res;
+}
+
 /*
-vector<DTEstadia> Reserva::getEstadias(string mail){
+vector<DTEstadia> Reserva::EstadiasFin(string mail){
     vector<DTEstadia> est;
     map<int,Estadia*>::iterator it;
     for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){

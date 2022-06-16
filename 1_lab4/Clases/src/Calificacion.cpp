@@ -80,6 +80,10 @@ void Calificacion::asociarHuesped(Huesped *hues){
     this->hues=hues;
 }
 
+bool Calificacion::estaSinResponderCal(){
+    return (this->Respuesta == "");
+}
+
 //destructora
 Calificacion::~Calificacion(){
 }

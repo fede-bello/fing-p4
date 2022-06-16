@@ -138,7 +138,7 @@ vector<DTEstadia> controladorReserva::darEstadiaFinHuespedRes(string email,vecto
     vector<DTEstadia> estadias;
     for (it=MapaReserva.begin(); it!=MapaReserva.end(); ++it){
         Reserva *re=it->second;
-        vector<DTEstadia> est=re->getEstadias(email);
+        vector<DTEstadia> est=re->EstadiasFin(email);
         for(int i=0; i<est.size();i++){
            estadias.push_back(est[i]);
         }

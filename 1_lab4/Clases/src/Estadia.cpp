@@ -119,7 +119,11 @@ void Estadia::calificarEst(Huesped* hues, int calif, string texto){
     a_calificar->setComentario(texto);
     this->setCalificacion(a_calificar);
 }
+/*
+DTEstadia Estadia::EstadiaResFin(mail){
 
+}
+*/
 Estadia::~Estadia(){
     
 }

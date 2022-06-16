@@ -52,7 +52,7 @@ class Reserva{
         vector<DTEstadia> estadiasActivas();//✅ 
         DTEstadia mismaEstadia(int codigo);//✅
         void actualizarCheckOut(DTFecha co,int codigo);//✅
-        vector<DTEstadia> getEstadias(string mail);// FALTAAAAA //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
+        vector<DTEstadia> EstadiasFin(string mail);// FALTAAAAA //Devuelve las DTEstadias que esten finalizadas y estan asociadas al mail
         vector<DTCalificacion> getCalifSinResReserva(); //FALTA
         void buscarCalificacion(string respuesta, int codigoCalif); //FALTA
         bool esGrupalReserva(); //FALTA
