@@ -153,13 +153,41 @@ int main()
                     cout<<"Hostal elegido: "<<endl;
                     cin>>nombreHos;
                     
-                    DTHostal* hostalElegido = cHostal->elegirHostal(nombreHos);
+                    DTHostal* DThostalElegido = cHostal->elegirHostal(nombreHos);
 
-                    string nombreElegido = hostalElegido->getNombre();
+                    string nombreElegido = DThostalElegido->getNombre();
+                    //necesito los objetos Hostal para recorrerlos y conseguir el hostal con el nombre nombreElegido
+                    map<string, Hostal *> mapaHostales = cHostal->getMapaHostal();
+                    
+                    //consigo el hostalElegido en el mapaHostales
+                    Hostal * hostalElegido = mapaHostales.find(nombreElegido)->second;
 
                     cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
-                    int numero; 
-                    cin>>numero; //tengo que revisar que el numero de habitacion a agregar no esté registrado ya, por lo que reviso las habitaciones y me fijo
+                    int numH; 
+                    cin>>numH; 
+                    //tengo que revisar que el numero de habitacion a agregar no esté registrado ya
+                    map<int, Habitacion*> mapaHabitacionesHostal = hostalElegido->getMapaHabitaciones();
+
+                    while(mapaHabitacionesHostal.find(numH) != mapaHabitacionesHostal.end()){
+                        cout<<"Ya hay una habitacion con ese numero registrada en el hostal, ingrese otro numero: "<<endl;
+                        cin>>numH; 
+                    }
+
+                    int precioH, capH;
+                    cout<<"Precio de la habitacion: "<<endl;
+                    cin>>precioH;
+                    cout<<"Capacidad de la habitacion: "<<endl;
+                    cin>>capH;
+
+                    DTHabitacion room = DTHabitacion(numH, precioH, capH); //no tendria que estar la operacion nuevaHabitacion en controladorHostal?
+
+                    
+
+
+
+                    
+
+                    
                     // while(cHostal.){
                     //     cin<<
                     // }

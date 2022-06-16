@@ -73,30 +73,30 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
 
 //Version Diego
 //Fede: me parece que esta mal eso de comunicarse con el usuario adentro del controlador
-DTHostal *controladorHostal::elegirHostal(string nombre){
-    bool pedirNombre=false;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
-    do{
-        try {
-            if(pedirNombre){
-                cout<<"Digite el nombre del hostal"<<endl;
-                cin>>nombre;
-            }
-            if(MapaHostal.find(nombre)==MapaHostal.end()){
-                throw "invalid_argument";
-            }
-            Hostal *hostal=MapaHostal[nombre];
-            DTHostal *res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
-            this->HostalGuardado=res;
-            return res;//solo salgo por esta condicion
-        }
-        catch(...){
-            cout<<"No existe un hostal con ese nombre";
-            pedirNombre=true;
-        }
-    }while(true);
-}   
-/*
-     VERSION FEDE ELEGIR HOSTAL
+// DTHostal *controladorHostal::elegirHostal(string nombre){
+//     bool pedirNombre=false;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
+//     do{
+//         try {
+//             if(pedirNombre){
+//                 cout<<"Digite el nombre del hostal"<<endl;
+//                 cin>>nombre;
+//             }
+//             if(MapaHostal.find(nombre)==MapaHostal.end()){
+//                 throw "invalid_argument";
+//             }
+//             Hostal *hostal=MapaHostal[nombre];
+//             DTHostal *res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
+//             this->HostalGuardado=res;
+//             return res;//solo salgo por esta condicion
+//         }
+//         catch(...){
+//             cout<<"No existe un hostal con ese nombre";
+//             pedirNombre=true;
+//         }
+//     }while(true);
+// }   
+
+    //  VERSION FEDE ELEGIR HOSTAL
 DTHostal *controladorHostal::elegirHostal(string nombre){
     
     DTHostal *res;
@@ -106,7 +106,7 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
     }
     return res;
 }
-*/
+
 
 
 

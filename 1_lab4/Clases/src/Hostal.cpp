@@ -25,6 +25,10 @@ string Hostal::getTelefono(){
     return this->Telefono;
 }
 
+map<int, Habitacion*> Hostal::getMapaHabitaciones(){
+    return this->mapaHabitaciones;
+}
+
 void Hostal::setNombre(string nombre){
     this->Nombre = nombre;
 }
@@ -169,7 +173,7 @@ void Hostal::AsociarReservaHostal(Reserva *r,int habitacion){
 vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
     vector<DTHabitacion> hab;
     map<int, Habitacion*>::iterator it;
-    for(it = mapaHabitaciones.begin(); it != mapaHabitaciones.end(); it++){
+    for(it = this->mapaHabitaciones.begin(); it != this->mapaHabitaciones.end(); it++){
         if(it->second->habitacionLibre(in,out)){
             hab.push_back(it->second->getDTHabitacion());
         }
@@ -178,7 +182,18 @@ vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
 }
 
 DTHabitacion Hostal::buscarHabitacion(int numero){
-    return infoHab(numero);
+    DTHabitacion res = DTHabitacion();
+
+    map<int, Habitacion*>::iterator it;
+    it = this->mapaHabitaciones.find(numero);
+
+    if(it != this->mapaHabitaciones.end()){
+        Habitacion* a_devolver = it->second;
+
+        DTHabitacion res = a_devolver->getDTHabitacion();
+    }
+
+    return res;
 }
 
 //Destructora

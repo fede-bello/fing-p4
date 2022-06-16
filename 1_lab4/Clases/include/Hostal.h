@@ -20,6 +20,7 @@ class Hostal{
         string getNombre();
         string getDireccion();
         string getTelefono();
+        map<int, Habitacion*> getMapaHabitaciones();
         void setNombre(string nombre);
         void setDireccion(string direccion);
         void setTelefono(string telefono);
