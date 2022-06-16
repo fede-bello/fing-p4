@@ -1,11 +1,12 @@
 #ifndef IHOSTAL
 #define IHOSTAL
 
-#include "../../Controladores/include/controladorHostal.h"
+#include"../../Clases/include/Hostal.h"
+#include"../../Controladores/include/controladorReserva.h"
+
 class IcontroladorHostal{
     public:
         virtual void liberar();
-        virtual ~IcontroladorHostal();
         virtual DTHostal *getHostal();
         virtual string getNombre();
         virtual map<string,Hostal*> getMapaHostal();

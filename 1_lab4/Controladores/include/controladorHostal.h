@@ -1,9 +1,9 @@
 #ifndef CONTH
 #define CONTH
 
-#include"../../Clases/include/Hostal.h"
-#include"controladorReserva.h"
+
 #include "../../Interfaces/include/IcontroladorHostal.h"
+
 
 
 class controladorHostal : public IcontroladorHostal{
