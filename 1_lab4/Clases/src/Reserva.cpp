@@ -224,9 +224,17 @@ void Reserva::buscarCalificacion(string respuesta, int codigoCalif){
     }
 }
 
-//NO IMPLENTADA, PUSE ESO PARA QUE COMPILE ALGO DE HOSTAL (DANILO)
+//IMPLEMENTADA POR JAVI, PARA QUE COMPILE FALTA QUE RESERVA.CPP LLEGUE DE ALGUNA FORMA A RESERVAGRUPAL.CPP
 bool Reserva::esGrupalReserva(){
-    return true;
+    // ReservaGrupal* resGrup = dynamic_cast<resGrup *>(this);
+
+    bool res = false;
+
+    // if(resGrup != NULL){
+    //     res = true;
+    // }
+
+    return res;
 }
 
 vector<DTHuesped> Reserva::obtenerHuespedesReserva(){
