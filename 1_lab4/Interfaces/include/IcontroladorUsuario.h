@@ -38,6 +38,7 @@ class IcontroladorUsuario{
         //Calificar Estadia
         virtual void calificarEstadia(int codigo, int calif, string texto) = 0;
         //Comentar Calificacion
+        virtual vector<DTCalificacion> calificacionesSinResponder(string mail)=0;
         //Consulta de Usuario
         virtual vector<DTEmpleado> obtenerEmpleados() = 0;
         virtual DTUsuario elegirUsuario(string email) = 0;

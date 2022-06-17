@@ -45,6 +45,7 @@ class controladorUsuario : public IcontroladorUsuario{
         //Calificar Estadia
         void calificarEstadia(int codigo, int calif, string texto);
         //Comentar Calificacion
+        vector<DTCalificacion> calificacionesSinResponder(string mail);
         //Consulta de Usuario
         vector<DTEmpleado> obtenerEmpleados();
         DTUsuario elegirUsuario(string email);

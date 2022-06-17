@@ -4,6 +4,7 @@
 #include "../../Clases/include/Reserva.h"
 #include "../../Clases/include/ReservaIndividual.h"
 #include "../../Clases/include/ReservaGrupal.h"
+#include "../../DataType/include/DTReserva.h"
 #include "controladorFecha.h"
 #include "../../Interfaces/include/IcontroladorReserva.h"
 
@@ -42,9 +43,12 @@ public:
     vector<DTEstadia> darEstadiaFinHuespedRes(string email,vector<Reserva> res);
     void estadiaReservaCalificada(int codigo, int calif, string texto, Huesped *hues);
     // Comentar Calificacion
+    vector<DTCalificacion> califSinResponderRes(vector<Reserva> res);
+    void registrarRespuestaComentario(string respuesta, int codigoCalif);
     // Consulta de Usuario
     // Consulta de Hostal
     // Consulta de Reserva
+    int getNumero(DTReserva res);
     // Consulta de Estadia
     // Baja de Reserva
 };

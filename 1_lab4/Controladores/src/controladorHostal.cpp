@@ -271,3 +271,27 @@ void controladorHostal::estadiaHostalCalificada (int codigo, int calif, string t
     controladorReserva *cr=controladorReserva::getInstance();
     cr->estadiaReservaCalificada(codigo, calif, texto, hues);
 }
+
+//Fin Calificar Estadia
+
+//Comentar Calificacion
+
+vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
+    vector<Reserva> res=hos->getReservasHostal();
+    controladorReserva* cr=controladorReserva::getInstance();
+    return cr->califSinResponderRes(res);
+    
+}
+
+//Fin Comentar Calificacion
+
+
+
+
+//Consulta de Reserva
+int controladorHostal::habitacionDeReserva(string hostal, DTReserva res){
+    controladorReserva *cr=controladorReserva::getInstance();
+    int nr=cr->getNumero(res);
+    Hostal *hos=MapaHostal.find(hostal)->second;
+    return hos->darNumHab(nr);
+}

@@ -211,6 +211,16 @@ void controladorUsuario::calificarEstadia(int codigo, int calif, string texto){
     ch->estadiaHostalCalificada(codigo,calif,texto,hues);
 }
 
+//Comentar Calificacion
+
+vector<DTCalificacion> controladorUsuario::calificacionesSinResponder(string mail){
+    Empleado* empl=this->MapaEmpleado.find(mail)->second;
+    Hostal *hos=empl->getHostal();
+    controladorHostal* ch=controladorHostal::getInstance();
+    return ch->califSinResponderHos(hos);
+}
+
+
 //Consulta de Usuario
 
 vector<DTEmpleado> controladorUsuario::obtenerEmpleados(){

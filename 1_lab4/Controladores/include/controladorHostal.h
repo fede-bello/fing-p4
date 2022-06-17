@@ -60,9 +60,11 @@ public:
     vector<DTEstadia> estadiasHuespedFinalizadas(string email, string hos);
     void estadiaHostalCalificada (int codigo, int calif, string texto, Huesped *hues);
     //Comentar Calificacion
+    vector<DTCalificacion> califSinResponderHos(Hostal *hos);
     //Consulta de Usuario
     //Consulta de Hostal
     //Consulta de Reserva
+    int habitacionDeReserva(string hostal, DTReserva res);
     //Consulta de Estadia
     //Baja de Reserva
 };
