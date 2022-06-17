@@ -44,7 +44,7 @@ class IcontroladorUsuario{
         virtual vector<DTCalificacion> calificacionesSinResponder(string mail)=0;
         //Consulta de Usuario
         virtual vector<DTEmpleado> obtenerEmpleados() = 0;
-        virtual DTUsuario elegirUsuario(string email) = 0;
+        virtual DTUsuario* elegirUsuario(string email) = 0;
         virtual void informacionUsuario(DTUsuario usuarioInfo) = 0;
         //Consulta de Hostal
         //Consulta de Reserva

@@ -29,7 +29,7 @@ class DTEmpleado: public DTUsuario{
         CargoEmp getCargo();
         /*Hostal* getHostal();   LO MISMO QUE ARRIBA, NO SE SI VA*/
         
-        void imprimir();
+        virtual void imprimir();
         //Destructora
         ~DTEmpleado();
     

@@ -32,8 +32,10 @@ void DTUsuario::setMail(string Mail){
     this->Mail=Mail;
 }
 void DTUsuario::imprimir(){
+    cout << "Nombre: " << this->getNombre() <<endl << "Email: " << this->getMail()<< endl;
+};
     
-}
+
 
 //Destructora
 DTUsuario:: ~DTUsuario(){
