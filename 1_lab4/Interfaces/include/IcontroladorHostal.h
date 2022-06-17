@@ -49,8 +49,13 @@ class IcontroladorHostal{
         virtual vector<DTCalificacion> califSinResponderHos(Hostal *hos) = 0;
         //Consulta de Usuario
         //Consulta de Hostal
-        virtual int habitacionDeReserva(string hostal, DTReserva res)=0;
+        virtual vector<DTCalificacion> obtenerCalificaciones() = 0;
+        virtual vector<DTHabitacion> obtenerInfoHabitaciones() = 0;
+        virtual vector<DTReserva> obtenerReservasHostal() = 0;
+        virtual void liberarMemoria() = 0;
         //Consulta de Reserva
+        virtual int habitacionDeReserva(string hostal, DTReserva res)=0;
+        virtual vector<DTHuesped> huespedesReserva(string hostal, DTReserva res) = 0;
         //Consulta de Estadia
         //Baja de Reserva
 };

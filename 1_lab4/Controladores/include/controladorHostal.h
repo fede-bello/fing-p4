@@ -63,8 +63,13 @@ public:
     vector<DTCalificacion> califSinResponderHos(Hostal *hos);
     //Consulta de Usuario
     //Consulta de Hostal
+    vector<DTCalificacion> obtenerCalificaciones();
+    vector<DTHabitacion> obtenerInfoHabitaciones();
+    vector<DTReserva> obtenerReservasHostal();
+    void liberarMemoria();
     //Consulta de Reserva
     int habitacionDeReserva(string hostal, DTReserva res);
+    vector<DTHuesped> huespedesReserva(string hostal, DTReserva res);
     //Consulta de Estadia
     //Baja de Reserva
 };

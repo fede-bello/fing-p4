@@ -274,6 +274,37 @@ void controladorHostal::estadiaHostalCalificada (int codigo, int calif, string t
 
 //Fin Calificar Estadia
 
+//Consulta de Hostal
+
+vector<DTCalificacion> controladorHostal::obtenerCalificaciones(){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;//No se si se hace con second o first
+    vector<Reserva> resA = h->reservasAsociadas();
+    controladorReserva *cr=controladorReserva::getInstance();
+    vector<DTCalificacion> darC = cr->darCalificaciones(resA);
+    return darC;
+}
+
+vector<DTHabitacion> controladorHostal::obtenerInfoHabitaciones(){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    vector<DTHabitacion> res = h->darInfoHabs();
+    return res;
+}
+
+vector<DTReserva> controladorHostal::obtenerReservasHostal(){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    vector<DTReserva> res = h->darReservasHostal();
+    return res;
+}
+
+void controladorHostal::liberarMemoria(){
+    this->nombreGuardado = ".";
+}
+
+//Fin Consulta de Hostal
+
 //Comentar Calificacion
 
 vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
@@ -294,4 +325,11 @@ int controladorHostal::habitacionDeReserva(string hostal, DTReserva res){
     int nr=cr->getNumero(res);
     Hostal *hos=MapaHostal.find(hostal)->second;
     return hos->darNumHab(nr);
+}
+
+vector<DTHuesped> controladorHostal::huespedesReserva(string hostal, DTReserva res){
+    controladorReserva *cr=controladorReserva::getInstance();
+    int nr=cr->getNumero(res);
+    Hostal *hos=MapaHostal.find(hostal)->second;
+    return hos->huespedes(nr);
 }
