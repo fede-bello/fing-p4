@@ -17,8 +17,8 @@ class IcontroladorUsuario{
         virtual DTHuesped* NuevoHuesped(string email,string password,string nombre, bool esFinger) = 0;
         virtual void ActualizarMail(DTUsuario *usuario,string mail) = 0;
         virtual void CancelarUsuario(DTUsuario *usuario) = 0;
-        virtual void ConfimarAltaEmpleado(DTEmpleado *empleado) = 0;
-        virtual void ConfimarAltaHuesped(DTHuesped *huesped) = 0;
+        virtual void ConfirmarAltaEmpleado(DTEmpleado *empleado) = 0;
+        virtual void ConfirmarAltaHuesped(DTHuesped *huesped) = 0;
         //FIN Alta Usuario
         //Alta Hostal
         //Alta de Habitacion

@@ -85,17 +85,61 @@ int main()
                                 break;}
                             //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
                             DTEmpleado *dtusuario=iUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
-                            bool salir=true,pedirDatos=false;
-                            while(salir){
-                               map<string,Empleado*>mEmpleado;
-                               map<string,Huesped*>mHuesped;
+                            // bool salir=true,pedirDatos=false;
+                            // while(salir){
+                            //    map<string,Empleado*>mEmpleado;
+                            //    map<string,Huesped*>mHuesped;
                                
-                            }
+                            // }
+
+                            bool excepcion = false;
                             
                             try{
-                                
+                                iUsuario->ConfirmarAltaEmpleado(dtusuario);                                
                             }catch(...){
-                                cout<< "Hay otro usuario con ese mail"<<endl;
+
+                                cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                int booleano;
+                                cin>>booleano;
+
+                                while((booleano != 1) && (booleano != 0)){
+                                    cout<< "Por favor digite 1 o 0:"<<endl;
+                                    cin>>booleano;
+                                }
+
+                                if(booleano == 1){
+
+                                    cout<<"Escriba el nuevo mail:"<<endl;
+                                    cin>>mail;
+                                    bool actualizacionExitosa = false; //flag para salir del while siguiente
+
+                                    while(!actualizacionExitosa){
+                                        try{
+                                            iUsuario->ActualizarMail(dtusuario, mail);
+                                            actualizacionExitosa = true; //salgo del while
+                                            iUsuario->ConfirmarAltaEmpleado(dtusuario);
+                                        }catch(...){
+                                            cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                            cin>>booleano;
+
+                                            while((booleano != 1) && (booleano != 0)){
+                                                cout<< "Por favor digite 1 o 0:"<<endl;
+                                                cin>>booleano;
+                                            }
+
+                                            if(booleano == 1){
+                                                actualizacionExitosa = false;//vuelvo a intentar actualizar el mail
+                                            }else{
+                                                actualizacionExitosa = true; //salgo del while
+                                                iUsuario->CancelarUsuario(dtusuario);
+                                            }
+                                        }
+                                    }
+                                }else{
+                                    iUsuario->CancelarUsuario(dtusuario);
+                                }
+
+                                
                             }
 
                         } 
