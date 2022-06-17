@@ -161,7 +161,7 @@ int main()
 
                         int i = 0;
 
-                        while(i <= listaHostales.size()){
+                        while(i < listaHostales.size()){
                             string direccionHos = listaHostales[i].getDireccion();
                             string nombreHos = listaHostales[i].getNombre();
                             string telefonoHos = listaHostales[i].getTelefono();
@@ -172,16 +172,20 @@ int main()
                             cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
 
                             i = i + 1;
-
+                            
                         }
+                        
 
                         string nombreHos;
                         cout<<"Hostal elegido: "<<endl;
                         cin>>nombreHos;
                         
                         DTHostal* DThostalElegido = cHostal->elegirHostal(nombreHos);
+                        
+                        
 
                         string nombreElegido = DThostalElegido->getNombre();
+
                         //necesito los objetos Hostal para recorrerlos y conseguir el hostal con el nombre nombreElegido
                         map<string, Hostal *> mapaHostales = cHostal->getMapaHostal();
                         
@@ -234,6 +238,7 @@ int main()
                 }//FIN ALTA HABITACION
                     break;
                 case 4:{//ASIGNAR EMPLEADO A HOSTAL
+                        cout<<"debug"<<endl;
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA

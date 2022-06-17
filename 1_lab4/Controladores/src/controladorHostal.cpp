@@ -98,10 +98,11 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
     //  VERSION FEDE ELEGIR HOSTAL
 DTHostal *controladorHostal::elegirHostal(string nombre){
     
-    DTHostal *res;
-    if(MapaHostal.find(nombre)==MapaHostal.end()){
+    DTHostal *res = NULL;
+    if(MapaHostal.find(nombre)!=MapaHostal.end()){
         Hostal *hostal=MapaHostal.find(nombre)->second;
         res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
+        this->HostalGuardado = res;
     }
     return res;
 }
