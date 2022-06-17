@@ -119,6 +119,7 @@ int main()
                 }
                 break;//FIN ALTA USUARIO 
                 case 2:{ //ALTA DE HOSTAL
+                    IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
                     cout << "Alta de Hostal"  << endl;
                     cout<< "Digite el nombre del Hostal"<<endl;
                     string nombre;
@@ -129,7 +130,6 @@ int main()
                     cout<< "Digite el Telefono del Hostal"<<endl;
                     string Telefono;
                     cin>>Telefono;
-                    controladorHostal *cHostal=controladorHostal::getInstance();
                     bool excepcion = false;
                     DTHostal *nuevo = cHostal->nuevoHostal(nombre,direccion,Telefono);
                     try {
@@ -140,10 +140,10 @@ int main()
                     }
                     if(excepcion){
                         cout<< "Se encuentra registrado un hostal con ese nombre"<<endl;
-                        cHostal->confirmarAltaHostal(nuevo);
+                        cHostal->cancelarAltaHostal(nuevo);
                     }else{
                         cout<< "Se registro el nuevo hostal"<<endl;
-                        cHostal->cancelarAltaHostal(nuevo);
+                        cHostal->confirmarAltaHostal(nuevo);
                     }
                 }//FIN ALTA HOSTAL
                 break;
@@ -152,75 +152,84 @@ int main()
 
 
                     cout<<"Alta de Habitacion"<<endl;
-                    cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
-
                     vector<DTHostal> listaHostales = cHostal->obtenerHostales();
-                    int i = 0;
 
-                    while(i <= listaHostales.size()){
-                        string direccionHos = listaHostales[i].getDireccion();
-                        string nombreHos = listaHostales[i].getNombre();
-                        string telefonoHos = listaHostales[i].getTelefono();
+                    if(listaHostales.empty()){
+                        cout<<"No hay hostales registrados en el sistema para hacer el alta."<<endl;
+                    }else{
+                        cout<<"Digite el nombre del Hostal de la lista al que le registrará una nueva Habitacion:"<<endl;
 
-                        cout<<"Hostal "<<i<<": \n"<<endl;
-                        cout<<"Nombre: "<<nombreHos<<endl;
-                        cout<<"Direccion: "<<direccionHos<<endl;
-                        cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
+                        int i = 0;
 
-                    }
+                        while(i <= listaHostales.size()){
+                            string direccionHos = listaHostales[i].getDireccion();
+                            string nombreHos = listaHostales[i].getNombre();
+                            string telefonoHos = listaHostales[i].getTelefono();
 
-                    string nombreHos;
-                    cout<<"Hostal elegido: "<<endl;
-                    cin>>nombreHos;
-                    
-                    DTHostal* DThostalElegido = cHostal->elegirHostal(nombreHos);
+                            cout<<"Hostal "<<i<<": \n"<<endl;
+                            cout<<"Nombre: "<<nombreHos<<endl;
+                            cout<<"Direccion: "<<direccionHos<<endl;
+                            cout<<"Telefono: "<<telefonoHos<<"\n"<<endl;
 
-                    string nombreElegido = DThostalElegido->getNombre();
-                    //necesito los objetos Hostal para recorrerlos y conseguir el hostal con el nombre nombreElegido
-                    map<string, Hostal *> mapaHostales = cHostal->getMapaHostal();
-                    
-                    //consigo el hostalElegido en el mapaHostales
-                    Hostal * hostalElegido = mapaHostales.find(nombreElegido)->second;
+                            i = i + 1;
 
-                    cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
-                    int numH; 
-                    cin>>numH; 
-                    //tengo que revisar que el numero de habitacion a agregar no esté registrado ya
-                    map<int, Habitacion*> mapaHabitacionesHostal = hostalElegido->getMapaHabitaciones();
+                        }
 
-                    while(mapaHabitacionesHostal.find(numH) != mapaHabitacionesHostal.end()){
-                        cout<<"Ya hay una habitacion con ese numero registrada en el hostal, ingrese otro numero: "<<endl;
+                        string nombreHos;
+                        cout<<"Hostal elegido: "<<endl;
+                        cin>>nombreHos;
+                        
+                        DTHostal* DThostalElegido = cHostal->elegirHostal(nombreHos);
+
+                        string nombreElegido = DThostalElegido->getNombre();
+                        //necesito los objetos Hostal para recorrerlos y conseguir el hostal con el nombre nombreElegido
+                        map<string, Hostal *> mapaHostales = cHostal->getMapaHostal();
+                        
+                        //consigo el hostalElegido en el mapaHostales
+                        Hostal * hostalElegido = mapaHostales.find(nombreElegido)->second;
+
+                        cout<<"Ingrese el numero de habitacion a agregar: "<<endl;
+                        int numH; 
                         cin>>numH; 
-                    }
+                        //tengo que revisar que el numero de habitacion a agregar no esté registrado ya
+                        map<int, Habitacion*> mapaHabitacionesHostal = hostalElegido->getMapaHabitaciones();
 
-                    int precioH, capH;
-                    cout<<"Precio de la habitacion: "<<endl;
-                    cin>>precioH;
-                    cout<<"Capacidad de la habitacion: "<<endl;
-                    cin>>capH;
+                        while(mapaHabitacionesHostal.find(numH) != mapaHabitacionesHostal.end()){
+                            cout<<"Ya hay una habitacion con ese numero registrada en el hostal, ingrese otro numero: "<<endl;
+                            cin>>numH; 
+                        }
 
-                    DTHabitacion* room = cHostal->nuevaHabitacion(numH, precioH, capH); 
+                        int precioH, capH;
+                        cout<<"Precio de la habitacion: "<<endl;
+                        cin>>precioH;
+                        cout<<"Capacidad de la habitacion: "<<endl;
+                        cin>>capH;
 
-                    
-                    cout<<"¿Confirma el alta de la nueva habitacion? Digite 1 en caso de que si, 0 si no."<<endl;
-                    room->Imprimir();
+                        DTHabitacion* room = cHostal->nuevaHabitacion(numH, precioH, capH); 
 
-                    int booleano = 4;
+                        
+                        cout<<"¿Confirma el alta de la nueva habitacion? Digite 1 en caso de que si, 0 si no."<<endl;
+                        room->Imprimir();
 
-                    while((booleano != 1) && (booleano != 0)){
-                        cin>>booleano;
-                        if((booleano != 1) && (booleano != 0)){
-                            cout<<"Digite 1 en caso de que si, 0 si no. No se acepta otro numero."<<endl;
+                        int booleano = 4;
+
+                        while((booleano != 1) && (booleano != 0)){
+                            cin>>booleano;
+                            if((booleano != 1) && (booleano != 0)){
+                                cout<<"Digite 1 en caso de que si, 0 si no. No se acepta otro numero."<<endl;
+                            }
+                        }
+
+                        if(booleano == 1){
+                            cHostal->confirmarAltaHabitacion(room);
+                            cout<<"Alta de habitacion confirmada."<<endl;
+                        }else{
+                            cHostal->cancelarAltaHabitacion(room);
+                            cout<<"Alta de habitacion cancelada."<<endl;
                         }
                     }
 
-                    if(booleano == 1){
-                        cHostal->confirmarAltaHabitacion(room);
-                        cout<<"Alta de habitacion confirmada."<<endl;
-                    }else{
-                        cHostal->cancelarAltaHabitacion(room);
-                        cout<<"Alta de habitacion cancelada."<<endl;
-                    }
+                    
                     
                 }//FIN ALTA HABITACION
                     break;

@@ -77,11 +77,19 @@ void controladorHostal::cancelarAltaHostal(DTHostal *dthostal){
 //ALTA HABITACION
 vector<DTHostal>controladorHostal::obtenerHostales(){
     vector<DTHostal> res;
-    map<string,Hostal*>::iterator it;
-    for (it=this->MapaHostal.begin(); it!=this->MapaHostal.end();++it){//Asi itera en el teorico
-        Hostal *hostal=it->second;
-        res.push_back(DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono()));
+
+    //Reviso si hay Hostales registrados, si no hay devuelvo el vector Vacio
+    if(!this->MapaHostal.empty()){ 
+
+        map<string,Hostal*>::iterator it;
+
+        for (it = this->MapaHostal.begin(); it!=this->MapaHostal.end();++it){//Asi itera en el teorico
+                Hostal *hostal=it->second;
+            res.push_back(DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono()));
+        }
+
     }
+
     return res;//Luego de esta Funcion habria que res.clear();
 }
 
