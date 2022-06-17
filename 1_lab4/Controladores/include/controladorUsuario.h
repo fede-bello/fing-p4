@@ -24,8 +24,8 @@ class controladorUsuario : public IcontroladorUsuario{
         DTHuesped* NuevoHuesped(string email,string password,string nombre, bool esFinger);
         void ActualizarMail(DTUsuario *usuario,string mail);
         void CancelarUsuario(DTUsuario *usuario);
-        void ConfimarAltaEmpleado(DTEmpleado *empleado);
-        void ConfimarAltaHuesped(DTHuesped *huesped);
+        void ConfirmarAltaEmpleado(DTEmpleado *empleado);
+        void ConfirmarAltaHuesped(DTHuesped *huesped);
         //FIN Alta Usuario
         //Alta Hostal
         //Alta de Habitacion

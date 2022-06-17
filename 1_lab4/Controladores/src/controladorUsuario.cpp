@@ -88,13 +88,21 @@ void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
     delete usuario;
 }
 
-void controladorUsuario::ConfimarAltaEmpleado(DTEmpleado *empleado){
-    Empleado *nuevo=new Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
-    MapaEmpleado[nuevo->getMail()]=nuevo;
-    delete empleado;
+void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
+    
+    bool excepcion;
+    
+    map<string,Empleado*>::iterator it = this->MapaEmpleado.find(empleado->getMail());
+
+    if(it != this->MapaEmpleado.end()){
+        throw(excepcion);//acá tiene que haber un throw de la exception porque quiere decir que ya hay un empleado con ese mail
+    }else{
+        Empleado *nuevo=new Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
+        this->MapaEmpleado.insert({empleado->getMail(), nuevo});
+    }
 }
 
-void controladorUsuario::ConfimarAltaHuesped(DTHuesped *huesped){
+void controladorUsuario::ConfirmarAltaHuesped(DTHuesped *huesped){
     Huesped *nuevo=new Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
     MapaHuesped[nuevo->getMail()]=nuevo;
     delete huesped;
