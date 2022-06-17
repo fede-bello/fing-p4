@@ -51,7 +51,11 @@ public:
     int getNumero(DTReserva res);
     // Consulta de Estadia
     vector<DTEstadia> estadiasHostal(vector<Reserva> resA);
+    DTHuesped infoHuesped(vector<Reserva> res, int codigo);//falta
+    DTEstadia infoEstadia(vector<Reserva> res, int codigo);//falta
+    int codigoReserva(vector<Reserva> res, int codigo);//falta
     // Baja de Reserva
+    void eliminarLinksHuesEst(int codigo);
 };
 
 

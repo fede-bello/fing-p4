@@ -26,7 +26,11 @@ class IcontroladorUsuario{
         virtual vector<DTEmpleado> obtenerEmpleadoHostal() = 0;
         virtual void ActualizarCargo(string nombre,CargoEmp cargo) = 0;
         virtual void AsignarEmpleado() = 0;
+<<<<<<< HEAD
         virtual void cancelarAsignacionEmpleado()=0;
+=======
+        virtual void cancelarAsignacionEmpleado() = 0;
+>>>>>>> cafa87c48718ddf24291b76c8be85a78bd501e0f
         //Realizar Reserva
         virtual vector<DTHuesped> obtenerHuespedes() = 0;
         virtual DTHuesped elegirHuesped(string Mail) = 0;

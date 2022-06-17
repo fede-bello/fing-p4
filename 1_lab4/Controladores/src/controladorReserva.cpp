@@ -208,3 +208,49 @@ vector<DTEstadia> controladorReserva::estadiasHostal(vector<Reserva> resA){
     }
     return estadias;
 }
+
+/*
+DTHuesped controladorReserva::infoHuesped(vector<Reserva> res, int codigo){
+    DTHuesped ih;
+    for (int i = 0; i < res.size(); i++){
+        Reserva *r = res[i];
+        if(r->esHuespedEstadia(codigo) != ih){//encontro la estadia en esa reserva
+            ih = r->esHuespedEstadia(codigo);
+            break;
+        }
+    }
+    return ih;
+}
+
+DTEstadia controladorReserva::infoEstadia(vector<Reserva> res, int codigo){
+    DTEstadia ie;
+    for (int i = 0; i < res.size(); i++){
+        Estadia *r = res[i];
+        if(r->esHuespedInfoEstadia(codigo) != ie){//encontro la estadia en esa reserva
+            ie = r->esHuespedInfoEstadia(codigo);
+            break;
+        }
+    }
+    return ie;
+}
+
+int controladorReserva::codigoReserva(vector<Reserva> res, int codigo){
+    int a;
+    for (int i = 0; i < res.size(); i++){
+        Reserva *r = res[i];
+        if(r->esReserva() != -1){//encontro la estadia en esa reserva
+            a = r->esReserva();
+            break;
+        }
+    }
+    return a;
+}*/
+
+// Baja de Reserva
+
+void controladorReserva::eliminarLinksHuesEst(int codigo){
+    Reserva *r = MapaReserva.find(codigo)->second;
+    r->eliminarLinksHues();
+    MapaReserva.erase(codigo);
+    r->~Reserva();
+}

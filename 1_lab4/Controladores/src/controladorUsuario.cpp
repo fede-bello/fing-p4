@@ -163,11 +163,20 @@ void controladorUsuario::AsignarEmpleado(){
     //empleado.setHostal(hostal); esto tendria que ser un puntero
 }
 
+<<<<<<< HEAD
 void controladorUsuario::cancelarAsignacionEmpleado(){
     this->ArregloEmail.clear();
     controladorHostal*ch=controladorHostal::getInstance();
     ch->liberar();
 }
+=======
+
+void controladorUsuario::cancelarAsignacionEmpleado(){
+
+}
+
+
+>>>>>>> cafa87c48718ddf24291b76c8be85a78bd501e0f
 //FIN ASIGNAR EMPLEADO A HOSTAL
 
 

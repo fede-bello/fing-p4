@@ -297,7 +297,7 @@ vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
 
 vector<DTCalificacion> controladorHostal::obtenerCalificaciones(){
     string hostal = this->nombreGuardado;
-    Hostal *h = MapaHostal.find(hostal)->second;//No se si se hace con second o first
+    Hostal *h = MapaHostal.find(hostal)->second;
     vector<Reserva> resA = h->reservasAsociadas();
     controladorReserva *cr=controladorReserva::getInstance();
     vector<DTCalificacion> darC = cr->darCalificaciones(resA);
@@ -351,6 +351,55 @@ vector<DTEstadia> controladorHostal::obtenerEstadias(string hostal){
     this->nombreGuardado=hostal;
     controladorReserva* cr=controladorReserva::getInstance();
     return cr->estadiasHostal(resA);
-    
+}
 
+DTHostal controladorHostal::hostalEstadia(){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    DTHostal res = h->getDTHostal();
+    return res;
+}
+
+DTHuesped controladorHostal::huespedEstadia(){
+    DTHuesped res;
+    return res;
+}
+
+DTHabitacion controladorHostal::habitacionEstadia(){
+    DTHabitacion res;
+    return res;
+}
+
+DTEstadia controladorHostal::informacionEstadia(){
+    DTEstadia res;
+    return res;
+}
+
+DTCalificacion controladorHostal::calificacionEstadia(){
+    DTCalificacion res;
+    return res;
+}
+
+DTReserva controladorHostal::reservaAsociadaAEstadia(){
+    DTReserva res;
+    return res;
+}
+
+void controladorHostal::finalizarConsultaEstadia(){
+
+}
+
+//Baja de Reserva
+
+void controladorHostal::bajaReserva(int codigo){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    h->eliminarLinkReserva(codigo);
+    controladorReserva *cr=controladorReserva::getInstance();
+    cr->eliminarLinksHuesEst(codigo);
+    this->nombreGuardado = ".";
+}
+
+void controladorHostal::cancelarBajaReserva(int codigo){
+    this->nombreGuardado = ".";
 }

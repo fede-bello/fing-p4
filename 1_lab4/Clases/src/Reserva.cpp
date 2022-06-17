@@ -241,12 +241,37 @@ vector<DTEstadia> Reserva::estadiasReserva(){
     return estadia;
 }
 
-DTHuesped Reserva::esHuesped(){
-    return this->hues->getDTHuesped();
+DTEstadia Reserva::esHuespedInfoEstadia(int codigo){
+    DTEstadia res;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        if(it->second->mismaEstadia(codigo)){
+            res = it->second->getDTEstadia();
+        }
+    }
+    return res;
 }
 
-int Reserva::esReserva(){
-    return this->codigo;
+DTHuesped Reserva::esHuespedEstadia(int codigo){
+    DTHuesped res;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        if(it->second->mismaEstadia(codigo)){
+            res = it->second->huesEs();
+        }
+    }
+    return res;
+}
+
+int Reserva::esReserva(int codigo){
+    int a = -1;
+    map<int,Estadia*>::iterator it;
+    for(it = mapaEstadias.begin(); it != mapaEstadias.begin(); it++){
+        if(it->second->mismaEstadia(codigo)){
+            a = getCodigo();
+        }
+    }
+    return a;
 }
 
 bool Reserva::mismaReserva(int cres){
