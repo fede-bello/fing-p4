@@ -170,7 +170,6 @@ void controladorUsuario::cancelarAsignacionEmpleado(){
 }
 //FIN ASIGNAR EMPLEADO A HOSTAL
 
-
 //Realizar Reserva
 
 vector<DTHuesped> controladorUsuario::obtenerHuespedes(){
