@@ -436,7 +436,7 @@ int main()
                     cin>>mail;
                     elegirUsuarioRR1://
                     try{
-                        map<string,Huesped*> mHuesped=IUsuario->getHuespedes();
+                        map<string,DTHuesped> mHuesped=IUsuario->getHuespedes();
                         if(mHuesped.find(mail)==mHuesped.end())
                             throw "No hay huesped con ese mail";
                         IUsuario->setEmail(mail);

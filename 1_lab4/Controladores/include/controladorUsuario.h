@@ -12,8 +12,8 @@ class controladorUsuario : public IcontroladorUsuario{
         map<string,Huesped*> MapaHuesped;
     public:
         static controladorUsuario * getInstance();
-        map<string,Empleado*> getEmpleados();
-        map<string,Huesped*> getHuespedes(); 
+        map<string,DTEmpleado> getEmpleados();
+        map<string,DTHuesped> getHuespedes(); 
         Hostal find(string nombre); //FALTA
         vector<string> getEmail();
         ~controladorUsuario();

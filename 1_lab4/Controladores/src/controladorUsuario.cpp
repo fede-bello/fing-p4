@@ -61,11 +61,23 @@ void controladorUsuario::setEmail(string EmailGuardado){
     //ArregloEmail.emplace_back(EmailGuardado);
 }
 
-map<string,Empleado*> controladorUsuario::getEmpleados(){
-    return this->MapaEmpleado;
+map<string,DTEmpleado> controladorUsuario::getEmpleados(){
+    map<string,DTEmpleado> res;
+    for(auto &it:MapaEmpleado){
+        string mail=it.first;
+        DTEmpleado dt=DTEmpleado(it.second->getNombre(),it.second->getPassword(),it.second->getMail(),it.second->getCargo());
+        res.insert({mail,dt});
+    }
+    return res;
 }
-map<string,Huesped*> controladorUsuario::getHuespedes(){
-    return this->MapaHuesped;
+map<string,DTHuesped> controladorUsuario::getHuespedes(){
+    map<string,DTHuesped> res;
+    for(auto &it:MapaHuesped){
+        string mail=it.first;
+        DTHuesped dt=DTHuesped(it.second->getNombre(),it.second->getPassword(),it.second->getMail(),it.second->getEsFinger());
+        res.insert({mail,dt});
+    }
+    return res;
 }
 //FIN USO GENERAL
 //ALTA USUARIO
