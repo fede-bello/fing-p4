@@ -45,6 +45,13 @@ void controladorUsuario::liberar(){
     ArregloEmail.clear();
 }
 
+
+Hostal controladorUsuario::find(string nombre){
+    Hostal hos;
+
+    return hos;
+}
+
 vector<string> controladorUsuario::getEmail(){
     return ArregloEmail;
 }
@@ -207,6 +214,8 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleados(){
     }
     return empleados;
 }
+
+
 
 
 DTUsuario controladorUsuario::elegirUsuario(string email){

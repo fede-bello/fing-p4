@@ -14,11 +14,11 @@ class controladorUsuario : public IcontroladorUsuario{
         static controladorUsuario * getInstance();
         map<string,Empleado*> getEmpleados();
         map<string,Huesped*> getHuespedes(); 
-        Hostal find(string nombre);
+        Hostal find(string nombre); //FALTA
         vector<string> getEmail();
+        ~controladorUsuario();
         void setEmail(string EmailGuardado);
         void liberar();
-        ~controladorUsuario();
         //Alta Usuario
         DTEmpleado* NuevoEmpleado(string email,string password,string nombre,CargoEmp cargo);
         DTHuesped* NuevoHuesped(string email,string password,string nombre, bool esFinger);
