@@ -100,8 +100,7 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
  
 
     //  VERSION FEDE ELEGIR HOSTAL
-DTHostal *controladorHostal::elegirHostal(string nombre){
-    
+DTHostal *controladorHostal::elegirHostal(string nombre){  
     DTHostal *res;
     if(MapaHostal.find(nombre)!=MapaHostal.end()){
         Hostal *hostal=MapaHostal.find(nombre)->second;
