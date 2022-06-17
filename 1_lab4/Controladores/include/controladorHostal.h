@@ -65,6 +65,7 @@ public:
     //Consulta de Hostal
     //Consulta de Reserva
     int habitacionDeReserva(string hostal, DTReserva res);
+    vector<DTHuesped> huespedesReserva(string hostal, DTReserva res);
     //Consulta de Estadia
     //Baja de Reserva
 };

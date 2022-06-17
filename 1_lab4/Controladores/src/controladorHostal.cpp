@@ -295,3 +295,10 @@ int controladorHostal::habitacionDeReserva(string hostal, DTReserva res){
     Hostal *hos=MapaHostal.find(hostal)->second;
     return hos->darNumHab(nr);
 }
+
+vector<DTHuesped> controladorHostal::huespedesReserva(string hostal, DTReserva res){
+    controladorReserva *cr=controladorReserva::getInstance();
+    int nr=cr->getNumero(res);
+    Hostal *hos=MapaHostal.find(hostal)->second;
+    return hos->huespedes(nr);
+}
