@@ -21,12 +21,14 @@ string controladorHostal::getNombre(){
     return this->nombreGuardado;
 }
 
-void controladorHostal::agregarConsumo(int codigo){
-    
-}
 
-DTHabitacion controladorHostal::nuevaHabitacion(int numH, int precioH, int capH){
-    DTHabitacion res = DTHabitacion(numH, capH, precioH);
+//Dijeron que consumos no van
+// void controladorHostal::agregarConsumo(int codigo){
+    
+// }
+
+DTHabitacion* controladorHostal::nuevaHabitacion(int numH, int precioH, int capH){
+    DTHabitacion* res = new DTHabitacion(numH, capH, precioH);
 
     return res;
 }

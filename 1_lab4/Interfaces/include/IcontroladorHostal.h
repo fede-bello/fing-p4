@@ -21,8 +21,8 @@ class IcontroladorHostal{
         //Alta Habitacion
         virtual vector<DTHostal> obtenerHostales() = 0;
         virtual DTHostal *elegirHostal(string nombre) = 0;
-        virtual void agregarConsumo(int codigo) = 0;
-        virtual DTHabitacion nuevaHabitacion(int numH, int precioH, int capH) = 0;
+        // virtual void agregarConsumo(int codigo) = 0; --------- Dijeron que consumos no van
+        virtual DTHabitacion* nuevaHabitacion(int numH, int precioH, int capH) = 0;
         virtual void confirmarAltaHabitacion(DTHabitacion *dthabitacion) = 0;
         virtual void cancelarAltaHabitacion(DTHabitacion *dthabitacion) = 0;   
         //Fin Alta Habitacion

@@ -199,21 +199,29 @@ int main()
                     cout<<"Capacidad de la habitacion: "<<endl;
                     cin>>capH;
 
-                    DTHabitacion room = DTHabitacion(numH, precioH, capH); //no tendria que estar la operacion nuevaHabitacion en controladorHostal?
+                    DTHabitacion* room = cHostal->nuevaHabitacion(numH, precioH, capH); 
 
                     
+                    cout<<"¿Confirma el alta de la nueva habitacion? Digite 1 en caso de que si, 0 si no."<<endl;
+                    room->Imprimir();
 
+                    int booleano = 4;
 
+                    while((booleano != 1) && (booleano != 0)){
+                        cin>>booleano;
+                        if((booleano != 1) && (booleano != 0)){
+                            cout<<"Digite 1 en caso de que si, 0 si no. No se acepta otro numero."<<endl;
+                        }
+                    }
 
+                    if(booleano == 1){
+                        cHostal->confirmarAltaHabitacion(room);
+                        cout<<"Alta de habitacion confirmada."<<endl;
+                    }else{
+                        cHostal->cancelarAltaHabitacion(room);
+                        cout<<"Alta de habitacion cancelada."<<endl;
+                    }
                     
-
-                    
-                    // while(cHostal.){
-                    //     cin<<
-                    // }
-
-
-
                 }//FIN ALTA HABITACION
                     break;
                 case 4:{//ASIGNAR EMPLEADO A HOSTAL
