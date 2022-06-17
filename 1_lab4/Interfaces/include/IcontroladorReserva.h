@@ -22,8 +22,15 @@ class IcontroladorReserva{
         // Consultar top 3 de hostales
         virtual vector<DTCalificacion> darCalificaciones(vector<Reserva> reservas)=0;
         // Registrar Estadia
+        virtual DTEstadia registrarEstadia(int res) = 0;
+        virtual void actualizarEstadoReservaCerrada(int res) = 0;
         // Finalizar Estadia
+        virtual vector<DTEstadia> obtenerEstadias(vector<Reserva> resA) = 0;
+        virtual DTEstadia elegirEstadia(int codigo) = 0;  
+        virtual void actualizarCheckOutEstadia() = 0;
         // Calificar Estadia
+        virtual vector<DTEstadia> darEstadiaFinHuespedRes(string email,vector<Reserva> res) = 0;
+        virtual void estadiaReservaCalificada(int codigo, int calif, string texto, Huesped *hues) = 0;
         // Comentar Calificacion
         // Consulta de Usuario
         // Consulta de Hostal

@@ -21,6 +21,16 @@ string controladorHostal::getNombre(){
     return this->nombreGuardado;
 }
 
+void controladorHostal::agregarConsumo(int codigo){
+    
+}
+
+DTHabitacion controladorHostal::nuevaHabitacion(int numH, int precioH, int capH){
+    DTHabitacion res = DTHabitacion(numH, capH, precioH);
+
+    return res;
+}
+
 controladorHostal::~controladorHostal(){  
     if(HostalGuardado==NULL) delete HostalGuardado;
     for (auto &it:MapaHostal){

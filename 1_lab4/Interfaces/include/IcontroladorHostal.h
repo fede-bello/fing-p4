@@ -21,6 +21,8 @@ class IcontroladorHostal{
         //Alta Habitacion
         virtual vector<DTHostal> obtenerHostales() = 0;
         virtual DTHostal *elegirHostal(string nombre) = 0;
+        virtual void agregarConsumo(int codigo) = 0;
+        virtual DTHabitacion nuevaHabitacion(int numH, int precioH, int capH) = 0;
         virtual void confirmarAltaHabitacion(DTHabitacion *dthabitacion) = 0;
         virtual void cancelarAltaHabitacion(DTHabitacion *dthabitacion) = 0;   
         //Fin Alta Habitacion
@@ -36,8 +38,13 @@ class IcontroladorHostal{
         virtual vector<string> mejoresTresHostales() = 0;
         virtual vector<DTCalificacion> detallesHostal(string hostal) = 0;
         //Registrar Estadia
+        virtual vector<DTReserva> obtenerReservasHuesped(string email, string hostal) = 0;
         //Finalizar Estadia
+        virtual vector<DTEstadia> estadiasHuespedActivas(string email) = 0;
+        virtual void finalizarEstadia() = 0;
         //Calificar Estadia
+        virtual vector<DTEstadia> estadiasHuespedFinalizadas(string email, string hos) = 0;
+        virtual void estadiaHostalCalificada (int codigo, int calif, string texto, Huesped *hues) = 0;
         //Comentar Calificacion
         //Consulta de Usuario
         //Consulta de Hostal
