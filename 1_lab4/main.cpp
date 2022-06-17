@@ -63,7 +63,7 @@ int main()
                     cin>>esEmpleado;
                     if(esEmpleado){
                         int TrabajoSeleccionado;
-                        cout<< "Digite la FuncionSelecionada correcta"<<endl;
+                        cout<< "Digite la Funcion a realizar por el empleado:"<<endl;
                         cout<< "1 Limpieza"<<endl;
                         cout<< "2 Administracion"<<endl;
                         cout<< "3 Recepcion"<<endl;
@@ -95,7 +95,9 @@ int main()
                             bool excepcion = false;
                             
                             try{
-                                iUsuario->ConfirmarAltaEmpleado(dtusuario);                                
+                                iUsuario->ConfirmarAltaEmpleado(dtusuario); 
+                                cout<<"Se dio de alta el empleado:"<<endl;
+                                dtusuario->imprimir();                               
                             }catch(...){
 
                                 cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
@@ -109,15 +111,17 @@ int main()
 
                                 if(booleano == 1){
 
-                                    cout<<"Escriba el nuevo mail:"<<endl;
-                                    cin>>mail;
                                     bool actualizacionExitosa = false; //flag para salir del while siguiente
 
                                     while(!actualizacionExitosa){
+                                        cout<<"Escriba el nuevo mail:"<<endl;
+                                        cin>>mail;
                                         try{
                                             iUsuario->ActualizarMail(dtusuario, mail);
                                             actualizacionExitosa = true; //salgo del while
                                             iUsuario->ConfirmarAltaEmpleado(dtusuario);
+                                            cout<<"Se dio de alta el empleado:"<<endl;
+                                            dtusuario->imprimir();
                                         }catch(...){
                                             cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
                                             cin>>booleano;
