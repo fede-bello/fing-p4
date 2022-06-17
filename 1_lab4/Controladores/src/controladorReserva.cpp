@@ -137,6 +137,10 @@ void controladorReserva::actualizarCheckOutEstadia(){
 
 }
 
+//Fin Finalizar Estadia
+
+//Calificar Estadia
+
 vector<DTEstadia> controladorReserva::darEstadiaFinHuespedRes(string email,vector<Reserva> res){
     map<int,Reserva*>::iterator it;
     vector<DTEstadia> estadias;
@@ -156,4 +160,36 @@ void controladorReserva::estadiaReservaCalificada(int codigo, int calif, string 
         Reserva *r=it->second;
         r->calificarEstadiaReserva( codigo, calif, texto, hues);
     }
+}
+
+//Fin Calificar Estadia
+
+//Comentar Calificacion
+
+vector<DTCalificacion> controladorReserva::califSinResponderRes(vector<Reserva> res){
+    vector<DTCalificacion> califs; //Conjunto a retornar
+    for (int i=0; i<res.size(); i++){
+        Reserva r=res[i];
+        vector<DTCalificacion> calres =r.getCalifSinResReserva();
+        for(int j=0; j<calres.size(); j++){
+            califs.push_back(calres[j]); //Agrego las calificaciones de cada reserva al conjunto a retornar
+        }
+    }
+    return califs;
+}
+
+void controladorReserva::registrarRespuestaComentario(string respuesta, int codigoCalif){
+    map<int,Reserva*>::iterator it;
+    for(it=MapaReserva.begin(); it!=MapaReserva.end(); ++it){
+        Reserva *r =it->second;
+        r->buscarCalificacion(respuesta,codigoCalif);
+    }
+}
+
+//Fin Comentar Calificacion
+
+//Consulta de Reserva
+
+int controladorReserva::getNumero(DTReserva res){
+    return res.getCodigo();
 }

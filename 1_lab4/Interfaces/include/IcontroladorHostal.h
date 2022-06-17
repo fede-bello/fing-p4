@@ -46,8 +46,10 @@ class IcontroladorHostal{
         virtual vector<DTEstadia> estadiasHuespedFinalizadas(string email, string hos) = 0;
         virtual void estadiaHostalCalificada (int codigo, int calif, string texto, Huesped *hues) = 0;
         //Comentar Calificacion
+        virtual vector<DTCalificacion> califSinResponderHos(Hostal *hos) = 0;
         //Consulta de Usuario
         //Consulta de Hostal
+        virtual int habitacionDeReserva(string hostal, DTReserva res)=0;
         //Consulta de Reserva
         //Consulta de Estadia
         //Baja de Reserva

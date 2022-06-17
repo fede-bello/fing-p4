@@ -32,9 +32,12 @@ class IcontroladorReserva{
         virtual vector<DTEstadia> darEstadiaFinHuespedRes(string email,vector<Reserva> res) = 0;
         virtual void estadiaReservaCalificada(int codigo, int calif, string texto, Huesped *hues) = 0;
         // Comentar Calificacion
+        virtual vector<DTCalificacion> califSinResponderRes(vector<Reserva> res) = 0;
+        virtual void registrarRespuestaComentario(string respuesta, int codigoCalif) = 0;
         // Consulta de Usuario
         // Consulta de Hostal
         // Consulta de Reserva
+        virtual int getNumero(DTReserva res)=0;
         // Consulta de Estadia
         // Baja de Reserva
 };
