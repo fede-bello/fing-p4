@@ -54,11 +54,13 @@ class IcontroladorHostal{
         virtual vector<DTReserva> obtenerReservasHostal() = 0;
         virtual void liberarMemoria() = 0;
         //Consulta de Reserva
-        virtual int habitacionDeReserva(string hostal, DTReserva res)=0;
+        virtual int habitacionDeReserva(string hostal, DTReserva res) = 0;
         virtual vector<DTHuesped> huespedesReserva(string hostal, DTReserva res) = 0;
         //Consulta de Estadia
-        virtual vector<DTEstadia> obtenerEstadias(string hostal)=0;
+        virtual vector<DTEstadia> obtenerEstadias(string hostal) = 0;
         //Baja de Reserva
+        virtual void bajaReserva(int codigo) = 0;
+        virtual void cancelarBajaReserva(int codigo) = 0;
 };
 
 #endif

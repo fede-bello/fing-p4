@@ -52,6 +52,7 @@ public:
     // Consulta de Estadia
     vector<DTEstadia> estadiasHostal(vector<Reserva> resA);
     // Baja de Reserva
+    void eliminarLinksHuesEst(int codigo);
 };
 
 

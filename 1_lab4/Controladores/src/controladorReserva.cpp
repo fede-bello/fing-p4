@@ -208,3 +208,12 @@ vector<DTEstadia> controladorReserva::estadiasHostal(vector<Reserva> resA){
     }
     return estadias;
 }
+
+// Baja de Reserva
+
+void controladorReserva::eliminarLinksHuesEst(int codigo){
+    Reserva *r = MapaReserva.find(codigo)->second;
+    r->eliminarLinksHues();
+    MapaReserva.erase(codigo);
+    r->~Reserva();
+}

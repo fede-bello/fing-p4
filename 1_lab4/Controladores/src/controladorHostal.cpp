@@ -344,6 +344,19 @@ vector<DTEstadia> controladorHostal::obtenerEstadias(string hostal){
     this->nombreGuardado=hostal;
     controladorReserva* cr=controladorReserva::getInstance();
     return cr->estadiasHostal(resA);
-    
+}
 
+//Baja de Reserva
+
+void controladorHostal::bajaReserva(int codigo){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    h->eliminarLinkReserva(codigo);
+    controladorReserva *cr=controladorReserva::getInstance();
+    cr->eliminarLinksHuesEst(codigo);
+    this->nombreGuardado = ".";
+}
+
+void controladorHostal::cancelarBajaReserva(int codigo){
+    this->nombreGuardado = ".";
 }

@@ -73,6 +73,8 @@ public:
     //Consulta de Estadia
     vector<DTEstadia> obtenerEstadias(string hostal);
     //Baja de Reserva
+    void bajaReserva(int codigo);
+    void cancelarBajaReserva(int codigo);
 };
 
 

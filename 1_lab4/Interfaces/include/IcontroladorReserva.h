@@ -37,10 +37,11 @@ class IcontroladorReserva{
         // Consulta de Usuario
         // Consulta de Hostal
         // Consulta de Reserva
-        virtual int getNumero(DTReserva res)=0;
+        virtual int getNumero(DTReserva res) = 0;
         // Consulta de Estadia
-        virtual vector<DTEstadia> estadiasHostal(vector<Reserva> resA)=0;
+        virtual vector<DTEstadia> estadiasHostal(vector<Reserva> resA) = 0;
         // Baja de Reserva
+        virtual void eliminarLinksHuesEst(int codigo) = 0;
 };
 
 #endif
