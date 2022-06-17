@@ -74,12 +74,12 @@ public:
     //Consulta de Estadia
     vector<DTEstadia> obtenerEstadias(string hostal);
     DTHostal hostalEstadia();
-    DTHuesped huespedEstadia();
-    DTHabitacion habitacionEstadia();
-    DTEstadia informacionEstadia();
-    DTCalificacion calificacionEstadia();
-    DTReserva reservaAsociadaAEstadia();
-    void finalizarConsultaEstadia();
+    DTHuesped huespedEstadia();//FALTA
+    DTHabitacion habitacionEstadia();//FALTA
+    DTEstadia informacionEstadia();//FALTA
+    DTCalificacion calificacionEstadia();//FALTA
+    DTReserva reservaAsociadaAEstadia();//FALTA
+    void finalizarConsultaEstadia();//FALTA
     //Baja de Reserva
     void bajaReserva(int codigo);
     void cancelarBajaReserva(int codigo);
