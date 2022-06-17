@@ -57,6 +57,7 @@ class IcontroladorHostal{
         virtual int habitacionDeReserva(string hostal, DTReserva res)=0;
         virtual vector<DTHuesped> huespedesReserva(string hostal, DTReserva res) = 0;
         //Consulta de Estadia
+        virtual vector<DTEstadia> obtenerEstadias(string hostal)=0;
         //Baja de Reserva
 };
 

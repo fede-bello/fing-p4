@@ -274,6 +274,18 @@ void controladorHostal::estadiaHostalCalificada (int codigo, int calif, string t
 
 //Fin Calificar Estadia
 
+//Comentar Calificacion
+
+vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
+    vector<Reserva> res=hos->getReservasHostal();
+    controladorReserva* cr=controladorReserva::getInstance();
+    return cr->califSinResponderRes(res);
+    
+}
+
+//Fin Comentar Calificacion
+
+
 //Consulta de Hostal
 
 vector<DTCalificacion> controladorHostal::obtenerCalificaciones(){
@@ -305,31 +317,33 @@ void controladorHostal::liberarMemoria(){
 
 //Fin Consulta de Hostal
 
-//Comentar Calificacion
-
-vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
-    vector<Reserva> res=hos->getReservasHostal();
-    controladorReserva* cr=controladorReserva::getInstance();
-    return cr->califSinResponderRes(res);
-    
-}
-
-//Fin Comentar Calificacion
-
-
 
 
 //Consulta de Reserva
 int controladorHostal::habitacionDeReserva(string hostal, DTReserva res){
     controladorReserva *cr=controladorReserva::getInstance();
     int nr=cr->getNumero(res);
-    Hostal *hos=MapaHostal.find(hostal)->second;
+    Hostal *hos=this->MapaHostal.find(hostal)->second;
     return hos->darNumHab(nr);
 }
 
 vector<DTHuesped> controladorHostal::huespedesReserva(string hostal, DTReserva res){
     controladorReserva *cr=controladorReserva::getInstance();
     int nr=cr->getNumero(res);
-    Hostal *hos=MapaHostal.find(hostal)->second;
+    Hostal *hos=this->MapaHostal.find(hostal)->second;
     return hos->huespedes(nr);
+}
+
+//Fin Consulta de reserva
+
+//Consulta de Estadia
+
+vector<DTEstadia> controladorHostal::obtenerEstadias(string hostal){
+    Hostal *h=this->MapaHostal.find(hostal)->second;
+    vector<Reserva> resA=h->reservasAsociadas();
+    this->nombreGuardado=hostal;
+    controladorReserva* cr=controladorReserva::getInstance();
+    return cr->estadiasHostal(resA);
+    
+
 }

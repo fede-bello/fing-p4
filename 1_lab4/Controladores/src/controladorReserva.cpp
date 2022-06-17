@@ -193,3 +193,18 @@ void controladorReserva::registrarRespuestaComentario(string respuesta, int codi
 int controladorReserva::getNumero(DTReserva res){
     return res.getCodigo();
 }
+
+//Fin Consulta de Reserva
+
+//Consulta de Estadia
+
+vector<DTEstadia> controladorReserva::estadiasHostal(vector<Reserva> resA){
+    vector<DTEstadia> estadias; //coleccion a retornar
+    for (int i=0; i<resA.size(); i++){
+        vector<DTEstadia> esta=resA[i].estadiasReserva();//esta son las estadias de una reserva
+        for (int j=0; j<esta.size(); j++){
+            estadias.push_back(esta[j]); //Unifico las estadias de todas las reservas
+        }
+    }
+    return estadias;
+}

@@ -50,6 +50,7 @@ public:
     // Consulta de Reserva
     int getNumero(DTReserva res);
     // Consulta de Estadia
+    vector<DTEstadia> estadiasHostal(vector<Reserva> resA);
     // Baja de Reserva
 };
 

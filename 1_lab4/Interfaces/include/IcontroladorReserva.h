@@ -39,6 +39,7 @@ class IcontroladorReserva{
         // Consulta de Reserva
         virtual int getNumero(DTReserva res)=0;
         // Consulta de Estadia
+        virtual vector<DTEstadia> estadiasHostal(vector<Reserva> resA)=0;
         // Baja de Reserva
 };
 
