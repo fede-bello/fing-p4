@@ -54,6 +54,7 @@ int main()
                     cout << "Alta Usuario"  << endl;        
                     cout<< "Digite su nombre"<<endl;
                     string nombre;
+                    cin.ignore();
                     cin>>nombre;
                     cout<< "Digite su contraseña"<<endl;
                     string password;
@@ -408,14 +409,10 @@ int main()
                             } 
 
                         }catch(const char* msj){
-                            cout<<msj<<endl;
-
+                            cout<<msj<<endl;                        
+                            }                                              
                         
-                            }  
-                                                
-                        
-
-                        
+                       
                     
                     cout<<"debug"<<endl;
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
@@ -424,6 +421,43 @@ int main()
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
+                    vector<string> mejores3;
+                    try{
+                        mejores3=IHostal->mejoresTresHostales();
+                        for (int i=0; i<mejores3.size(); i++){
+                            cout<<(i+1);
+                            cout<< ". "; 
+                            cout<< mejores3[i] <<endl;
+                        }
+                        cout<<endl;
+                        cout<<"Presione 1 si desea ver los detalles de algun hostal"<<endl;
+                        int i;
+                        cin>>i;
+                        if (i==1){
+                            cout<<"Digite su nombre: "<<endl;
+                            nombre_existente:
+                            string hostal;
+                            cin>>hostal;
+                            try{
+                                vector<DTCalificacion> califs=IHostal->detallesHostal(hostal);
+                                for (int j=0; j<califs.size(); j++){
+                                    califs[j].imprimir();
+                                }
+                            }catch (const char* msj){
+                                cout<< msj <<endl;
+                                cout<< "Si desea volver a ingresar el nombre presione 1"<<endl;
+                                int repetir;
+                                cin>>repetir;
+                                if (repetir==1){
+                                    cout<< "Ingrese el nombre nuevamente"<<endl;
+                                    goto nombre_existente;
+                                }
+                            }
+                        }
+
+                    }catch(const char* msj){
+                        cout<< msj <<endl;
+                    }
                 }//FIN CONSULTA TOP 3 HOSTALES
                     break;
                 case 7:{// REGISTRAR ESTADIA

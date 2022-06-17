@@ -39,6 +39,17 @@ int DTCalificacion::getIdentificador(){
     return this->Identificador;
 }
 
+void DTCalificacion::imprimir(){
+    cout<< "Numero: ";
+    cout<< this->Numero<<endl;
+    cout<< "Comentario: ";
+    cout<< this->Comentario <<endl;
+    cout<< "Respuesta: ";
+    cout<< this->Respuesta<<endl;
+    cout<<"Fecha: ";
+    this->Fecha.imprimir();
+
+}
 
 DTCalificacion::~DTCalificacion(){
 
