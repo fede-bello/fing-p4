@@ -7,7 +7,7 @@
 #include "controladorFecha.h"
 #include "../../Interfaces/include/IcontroladorReserva.h"
 
-class controladorReserva /*: public IcontroladorReserva*/ {
+class controladorReserva : public IcontroladorReserva {
 private:
     static controladorReserva * instancia;
     controladorReserva();

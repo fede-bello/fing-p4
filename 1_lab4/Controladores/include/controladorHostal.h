@@ -32,7 +32,7 @@ public:
     //Alta Habitacion
     vector<DTHostal> obtenerHostales();
     DTHostal *elegirHostal(string nombre);
-    void agregarConsumo(int codigo);
+    void agregarConsumo(int codigo); //FALTA
     DTHabitacion nuevaHabitacion(int numH, int precioH, int capH);
     void confirmarAltaHabitacion(DTHabitacion *dthabitacion);
     void cancelarAltaHabitacion(DTHabitacion *dthabitacion);   

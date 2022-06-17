@@ -8,6 +8,10 @@ controladorReserva * controladorReserva::getInstance() {
     return instancia;
 }
 
+void controladorReserva::ModificarReservaActual(DTReserva nueva){
+    
+}
+
 controladorReserva::controladorReserva(){
     this->ReservaGuardada=NULL;
 } 

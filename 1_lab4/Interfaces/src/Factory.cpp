@@ -14,8 +14,10 @@ controladorUsuario* Factory::getIcontroladorUsuario(){
     return controladorUsuario::getInstance();
 }
 
-controladorReserva* Factory::getIcontroladorReserva(){
-    return controladorReserva::getInstance();
+IcontroladorReserva* Factory::getIcontroladorReserva(){
+    controladorReserva* a_devolver = a_devolver->getInstance();
+    IcontroladorReserva * res = a_devolver;
+    return res;
 }
 
 IcontroladorHostal* Factory::getIcontroladorHostal(){
