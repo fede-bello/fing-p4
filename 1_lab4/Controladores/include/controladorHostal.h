@@ -13,6 +13,7 @@ private:
     map<string,Hostal*> MapaHostal;
     DTHostal *HostalGuardado;
     string nombreGuardado;
+    int codigoEstadiaGuardado;
     int numHabGuardado;
     DTFecha inGuardado, outGuardado;
 public:
@@ -72,6 +73,13 @@ public:
     vector<DTHuesped> huespedesReserva(string hostal, DTReserva res);
     //Consulta de Estadia
     vector<DTEstadia> obtenerEstadias(string hostal);
+    DTHostal hostalEstadia();
+    DTHuesped huespedEstadia();
+    DTHabitacion habitacionEstadia();
+    DTEstadia informacionEstadia();
+    DTCalificacion calificacionEstadia();
+    DTReserva reservaAsociadaAEstadia();
+    void finalizarConsultaEstadia();
     //Baja de Reserva
     void bajaReserva(int codigo);
     void cancelarBajaReserva(int codigo);

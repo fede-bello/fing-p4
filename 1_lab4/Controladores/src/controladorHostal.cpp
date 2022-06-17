@@ -290,7 +290,7 @@ vector<DTCalificacion> controladorHostal::califSinResponderHos(Hostal *hos){
 
 vector<DTCalificacion> controladorHostal::obtenerCalificaciones(){
     string hostal = this->nombreGuardado;
-    Hostal *h = MapaHostal.find(hostal)->second;//No se si se hace con second o first
+    Hostal *h = MapaHostal.find(hostal)->second;
     vector<Reserva> resA = h->reservasAsociadas();
     controladorReserva *cr=controladorReserva::getInstance();
     vector<DTCalificacion> darC = cr->darCalificaciones(resA);
@@ -345,6 +345,14 @@ vector<DTEstadia> controladorHostal::obtenerEstadias(string hostal){
     controladorReserva* cr=controladorReserva::getInstance();
     return cr->estadiasHostal(resA);
 }
+
+DTHostal controladorHostal::hostalEstadia(){
+    string hostal = this->nombreGuardado;
+    Hostal *h = MapaHostal.find(hostal)->second;
+    DTHostal res = h->getDTHostal();
+    return res;
+}
+
 
 //Baja de Reserva
 
