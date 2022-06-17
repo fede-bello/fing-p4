@@ -430,8 +430,29 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
-                    cout<<"Ha digitado realizar Reserva"<<endl; //obtenerHostales
-                    vector<DTHostal>vHostales=IHostal->obtenerHostales();
+                    cout<<"Ha digitado realizar Reserva"<<endl<<endl; 
+                    string mail;    //elegirUsuario
+                    cout<<"Digite su mail"<<endl;
+                    cin>>mail;
+                    elegirUsuarioRR1://
+                    try{
+                        map<string,Huesped*> mHuesped=IUsuario->getHuespedes();
+                        if(mHuesped.find(mail)==mHuesped.end())
+                            throw "No hay huesped con ese mail";
+                        IUsuario->setEmail(mail);
+                    }
+                    catch(...){
+                        cout<<"No hay ningun huesped con ese nombre"<<endl;
+                        goto elegirUsuarioRR1;
+                    }//obtenerCalificaciones
+                    vector<DTCalificacion>vCalificacion=IHostal->obtenerCalificaciones();
+                    for(size_t it=0;it<vCalificacion.size();it++){
+                        DTCalificacion cal=vCalificacion.at(it);
+                        cal.imprimir();
+                        cal.~DTCalificacion();
+                    }
+                    vCalificacion.clear();
+                    vector<DTHostal>vHostales=IHostal->obtenerHostales();//obtenerHostales
                     for(size_t it=0;it<vHostales.size();it++){
                         DTHostal ItHostal=vHostales.at(it);
                         ItHostal.imprimir();
