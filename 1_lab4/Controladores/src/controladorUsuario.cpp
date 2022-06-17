@@ -3,14 +3,18 @@
 controladorUsuario * controladorUsuario::instance=NULL;
 
 //USO GENERAL, CREADORAS DESTRUCTORAS GETEMAIL etc
-controladorUsuario::controladorUsuario (){
-}; 
-
 controladorUsuario * controladorUsuario::getInstance(){
     if (instance==NULL)
         instance= new controladorUsuario();
     return instance;
 }
+
+controladorUsuario::controladorUsuario(){
+        vector<string> ArregloEmail;
+        map<string,Empleado*> MapaEmpleado;
+        map<string,Huesped*> MapaHuesped;
+}
+
 
 controladorUsuario::~controladorUsuario(){
     for (auto &it:MapaEmpleado){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Empleado
@@ -41,11 +45,11 @@ void controladorUsuario::liberar(){
     ArregloEmail.clear();
 }
 
-vector<string> controladorUsuario ::getEmail(){
+vector<string> controladorUsuario::getEmail(){
     return ArregloEmail;
 }
 
-void controladorUsuario:: setEmail(string EmailGuardado){
+void controladorUsuario::setEmail(string EmailGuardado){
     ArregloEmail.push_back(EmailGuardado);
     //ArregloEmail.emplace_back(EmailGuardado);
 }
@@ -101,7 +105,7 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){
     return res;
 }
 
-void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
+void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
     bool pedirMail=false;//antes de llamar a esta funcion se debe hacer un cin>>mail;
     do{
         try {
@@ -124,7 +128,7 @@ void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
     }while(true);
 }
 
-void controladorUsuario::asignarEmpleado(){
+void controladorUsuario::AsignarEmpleado(){
     string mail=ArregloEmail.front();
     Empleado *empleado=MapaEmpleado[mail];
     controladorHostal *controlHostal=controladorHostal::getInstance();

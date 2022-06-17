@@ -1,18 +1,15 @@
 #ifndef CONTU
 #define CONTU
 
-#include "../../Clases/include/Empleado.h"
-#include "controladorHostal.h"
 #include "../../Interfaces/include/IcontroladorUsuario.h"
 
-class controladorUsuario /* : IcontroladorUsuario*/{
+class controladorUsuario : public IcontroladorUsuario{
     private:
         static controladorUsuario * instance;
         controladorUsuario();
         vector<string> ArregloEmail;
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
-
     public:
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
@@ -32,8 +29,8 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Alta de Habitacion
         //Asignar Empleado a Hostal
         vector<DTEmpleado> obtenerEmpleadoHostal();
-        void actualizarCargo(string nombre,CargoEmp cargo);
-        void asignarEmpleado();
+        void ActualizarCargo(string nombre,CargoEmp cargo);
+        void AsignarEmpleado();
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);
