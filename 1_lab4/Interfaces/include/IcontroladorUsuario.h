@@ -9,6 +9,8 @@ class IcontroladorUsuario{
         //virtual static controladorUsuario * getInstance(); 
         virtual Hostal find(string nombre) = 0;
         virtual vector<string> getEmail()  = 0;
+        virtual map<string,Empleado*> getEmpleados()  = 0;
+        virtual map<string,Huesped*> getHuespedes()  = 0;
         virtual void setEmail(string EmailGuardado)  = 0;
         virtual void liberar()  = 0;
         virtual ~IcontroladorUsuario(){};

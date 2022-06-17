@@ -1,16 +1,4 @@
-
-#include "Controladores/include/controladorUsuario.h"
 #include "Interfaces/include/Factory.h"
-
-////////////////////////////////
-////////  CASOS DE USO /////////
-///////////////////////////////
-//Comentar Calificacion
-//Consulta de Usuario
-//Consulta de Hostal
-//Consulta de Reserva
-//Consulta de Estadia
-//Baja de Reserva
 
 void ImprimirOpciones()
 {   
@@ -34,6 +22,32 @@ void ImprimirOpciones()
     cout << "15 -> Baja de Reserva" << endl<<endl;
 }
 
+DTFecha digiteFecha(){
+        int dia;
+        cout<<"Digite el numero del dia en el que vendra"<<endl;
+        cin >>dia;
+        if(dia>31 && dia<1)
+            throw "El dia digitado es erroneo";
+        int mes;
+        cout<<"Digite el numero del mes en el que vendra"<<endl;
+        cin >>mes;
+        if(mes>12 && mes<1)
+            throw "El mes digitado es erroneo";
+        int anio;
+        cout<<"Digite el numero del año en el que vendra"<<endl;
+        cin >>anio;
+        if( anio<1900)
+            throw "El anio digitado es erroneo";
+        int hora;
+        cout<<"Digite la hora en la que vendra"<<endl;
+        cout<<"Formato militar, sin coma ni puntos"<<endl;
+        cin >>hora;
+        if( hora<0 && hora>2400)
+            throw "La Hora digitada es erronea";
+        DTFecha res=DTFecha(dia,mes,anio,hora);
+        return res;  
+}
+
 
 
 int main()
@@ -41,11 +55,12 @@ int main()
     Factory* fabrica = fabrica->getInstancia();
     IcontroladorFecha * IFecha=fabrica->getIcontroladorFecha();
     IcontroladorHostal *IHostal=fabrica->getIcontroladorHostal();
-    IcontroladorReserva *cr=fabrica->getIcontroladorReserva();
+    IcontroladorReserva *IReserva=fabrica->getIcontroladorReserva();
     IcontroladorUsuario *IUsuario=fabrica->getIcontroladorUsuario();
     bool iterarWhile=true;
     cout << "Bienvenido" << endl;
 	while(iterarWhile){
+        principiowhile:
         ImprimirOpciones();
 		int FuncionSelecionada = 0; 
 		cin >> FuncionSelecionada;
@@ -88,13 +103,14 @@ int main()
                                 cargoEmpleado=Infraestructura;
                                 break;}
                             //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
-                            DTEmpleado *dtusuario=IUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
+                             DTEmpleado *dtusuario=IUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
                             // bool salir=true,pedirDatos=false;
                             // while(salir){
-                            //    map<string,Empleado*>mEmpleado;
-                            //    map<string,Huesped*>mHuesped;
+                            //     map<string,Empleado*>mEmpleado=IUsuario->getEmpleados();
+                            //     map<string,Huesped*>mHuesped=IUsuario->getHuespedes();
+                            //     if(mEmpleado.find(mail)==mEmpleado.end() && mHuesped.find(mail)==mHuesped.end())
                                
-                            // }
+                            //  }
 
                             bool excepcion = false;
                             
@@ -146,10 +162,7 @@ int main()
                                 }else{
                                     IUsuario->CancelarUsuario(dtusuario);
                                 }
-
-                                
                             }
-
                         } 
                         else{
                             int esFinger;
@@ -210,8 +223,7 @@ int main()
                                 }else{
                                     IUsuario->CancelarUsuario(dtusuario);
                                 }
-                            
-                        }
+                            }
                         }
                 }
                 break;//FIN ALTA USUARIO 
@@ -418,6 +430,68 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
+                    cout<<"Ha digitado realizar Reserva"<<endl<<endl; 
+                    string mail;    //elegirUsuario
+                    cout<<"Digite su mail"<<endl;
+                    cin>>mail;
+                    elegirUsuarioRR1://
+                    try{
+                        map<string,Huesped*> mHuesped=IUsuario->getHuespedes();
+                        if(mHuesped.find(mail)==mHuesped.end())
+                            throw "No hay huesped con ese mail";
+                        IUsuario->setEmail(mail);
+                    }
+                    catch(...){
+                        cout<<"No hay ningun huesped con ese nombre"<<endl;
+                        goto elegirUsuarioRR1;
+                    }//obtenerCalificaciones
+                    vector<DTCalificacion>vCalificacion=IHostal->obtenerCalificaciones();
+                    for(size_t it=0;it<vCalificacion.size();it++){
+                        DTCalificacion cal=vCalificacion.at(it);
+                        cal.imprimir();
+                        cal.~DTCalificacion();
+                    }
+                    vCalificacion.clear();
+                    vector<DTHostal>vHostales=IHostal->obtenerHostales();//obtenerHostales
+                    for(size_t it=0;it<vHostales.size();it++){
+                        DTHostal ItHostal=vHostales.at(it);
+                        ItHostal.imprimir();
+                        ItHostal.~DTHostal();
+                    }
+                    vHostales.clear();
+                    string nHostal;
+                    cout<<"Digite el nombre del hostal"<<endl;//elegirHostal
+                    cin>>nHostal;
+                    bool pedirFecha=true;//obtenerHabitaciones
+                    DTFecha in;
+                    DTFecha out;
+                    while(pedirFecha){
+                        try{
+                            DTFecha in=digiteFecha();
+                            DTFecha out=digiteFecha();
+                            pedirFecha=false;
+                        }
+                        catch(...){
+                            cout<<"La fecha digitada es erronea"<<endl;
+                        }
+                    }
+                    vector<DTHabitacion>vHabitacion=IHostal->obtenerHabitaciones(in,out);
+                    int nHabitacion;//elegirHabitacion
+                    cout<<"Digite la habitacion deseada"<<endl;
+                    cin>>nHabitacion;
+                    DTHabitacion room=IHostal->elegirHabitacion(nHabitacion);
+                    int esGrupal;
+                    cout<<"Digite 1 si desea realizar una reserva grupal, 0 en otro caso"<<endl;
+                    cin>>esGrupal;
+                    if(esGrupal==1){//CASO RESERVA GRUPAL
+                        
+                    }
+
+
+
+
+
+
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
