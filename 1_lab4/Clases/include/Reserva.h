@@ -58,8 +58,9 @@ class Reserva{
         bool esGrupalReserva(); //FALTA
         vector<DTHuesped> obtenerHuespedesReserva(); //FALTA
         vector<DTEstadia> estadiasReserva();//✅
-        DTHuesped esHuesped();//✅
-        int esReserva();//✅
+        DTEstadia esHuespedInfoEstadia(int codigo);//✅
+        DTHuesped esHuespedEstadia(int codigo);//✅
+        int esReserva(int codigo);//✅
         bool mismaReserva(int cres);//✅
         DTCalificacion calificacionBuscada(int codigo);//✅
         DTReserva reservaBuscada(int codigo);//✅
