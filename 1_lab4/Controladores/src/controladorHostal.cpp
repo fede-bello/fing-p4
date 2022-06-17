@@ -210,6 +210,9 @@ vector<string> controladorHostal::mejoresTresHostales(){
     map<string,int> mejores3;//En este map voy a ir guardando los hostales, es para no tener que calcular el promedio cada vez
     map<string,Hostal*>::iterator it;
     map<string,int>::iterator it2;
+    if (MapaHostal.empty()){
+        throw "No hay hostales en el sistema";
+    }
     for (it=MapaHostal.begin(); it!=MapaHostal.end(); ++it){
         Hostal *hos=it->second;
         vector<Reserva> reservas=hos->reservasAsociadas();
@@ -229,14 +232,17 @@ vector<string> controladorHostal::mejoresTresHostales(){
     //Agrego los nombres al vector y retorno
     vector<string> res;
     for (it2=mejores3.begin(); it2!=mejores3.end(); ++it2){
-        res.push_back(it->first);
+        res.push_back(it2->first);
      }
      return res;
 
 }
 
 vector<DTCalificacion> controladorHostal::detallesHostal(string hostal){
-    Hostal *hos=MapaHostal.find(hostal)->second;
+    Hostal *hos=MapaHostal.find(hostal)->second;    
+    if (MapaHostal.find(hostal)==MapaHostal.end()){
+        throw "No existe ese hostal en el sistema";
+    }
     vector<Reserva> res=hos->reservasAsociadas();
     controladorReserva* cr= controladorReserva::getInstance();
     return cr->darCalificaciones(res);
