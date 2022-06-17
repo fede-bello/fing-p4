@@ -101,9 +101,6 @@ void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
 }
 
 void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
-    
-    
-    
     map<string,Empleado*>::iterator it = this->MapaEmpleado.find(empleado->getMail());
 
     if(it != this->MapaEmpleado.end()){

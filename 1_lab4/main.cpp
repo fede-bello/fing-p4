@@ -483,15 +483,35 @@ int main()
                     int esGrupal;
                     cout<<"Digite 1 si desea realizar una reserva grupal, 0 en otro caso"<<endl;
                     cin>>esGrupal;
-                    if(esGrupal==1){//CASO RESERVA GRUPAL
-                        
+                    if(esGrupal==1)//CASO RESERVA GRUPAL
+                        goto grupalRR;
+                    int confirmar;
+                    cout<<"Digite uno si quiere confirmar la reserva"<<endl;
+                    cin>>confirmar;
+                    if(confirmar==1)
+                        IUsuario->confirmarAltaReservaIndividual();
+                    else
+                        IUsuario->cancelarReserva();
+                    grupalRR:
+                    int cantidad;
+                    cout<<"Digite la cantidad de huespedes que desea ingresar"<<endl;
+                    cin>>cantidad;
+                    for(int i=0;i<cantidad;i++){
+                        elegirUsuarioRR2:
+                        try{
+                            cout<<"Digite el mail de otro huesped"<<endl;
+                            cin>>mail;
+                            IUsuario->elegirHuesped(mail);
+                        }catch(...){
+                            cout<<"No hay un huesped con ese mail"<<endl;
+                        }
                     }
-
-
-
-
-
-
+                    cout<<"Digite uno si quiere confirmar la reserva"<<endl;
+                    cin>>confirmar;
+                    if(confirmar==1)
+                        IUsuario->confirmarAltaReservaIndividual();
+                    else
+                        IUsuario->cancelarReserva();
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
