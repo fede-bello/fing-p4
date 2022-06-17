@@ -54,6 +54,12 @@ void controladorUsuario::setEmail(string EmailGuardado){
     //ArregloEmail.emplace_back(EmailGuardado);
 }
 
+map<string,Empleado*> controladorUsuario::getEmpleados(){
+    return this->MapaEmpleado;
+}
+map<string,Huesped*> controladorUsuario::getHuespedes(){
+    return this->MapaHuesped;
+}
 //FIN USO GENERAL
 //ALTA USUARIO
 DTEmpleado* controladorUsuario::NuevoEmpleado(string email,string password,string nombre,CargoEmp cargo){
