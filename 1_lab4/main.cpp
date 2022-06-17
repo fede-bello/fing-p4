@@ -151,6 +151,7 @@ int main()
                             int esFinger;
                             bool finger;
                             cout<< "Digite 1 si estudia en la FING, de lo contrario 0"<<endl;
+                            cin>>esFinger;
                             if(esFinger==1)
                                 finger=true;
                             else   
