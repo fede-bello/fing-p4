@@ -353,6 +353,34 @@ DTHostal controladorHostal::hostalEstadia(){
     return res;
 }
 
+DTHuesped controladorHostal::huespedEstadia(){
+    DTHuesped res;
+    return res;
+}
+
+DTHabitacion controladorHostal::habitacionEstadia(){
+    DTHabitacion res;
+    return res;
+}
+
+DTEstadia controladorHostal::informacionEstadia(){
+    DTEstadia res;
+    return res;
+}
+
+DTCalificacion controladorHostal::calificacionEstadia(){
+    DTCalificacion res;
+    return res;
+}
+
+DTReserva controladorHostal::reservaAsociadaAEstadia(){
+    DTReserva res;
+    return res;
+}
+
+void controladorHostal::finalizarConsultaEstadia(){
+
+}
 
 //Baja de Reserva
 

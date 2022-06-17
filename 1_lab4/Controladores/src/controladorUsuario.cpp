@@ -164,6 +164,13 @@ void controladorUsuario::AsignarEmpleado(){
     Hostal *hostal=controlHostal->getMapaHostal()[nombreHostal];
     //empleado.setHostal(hostal); esto tendria que ser un puntero
 }
+
+
+void controladorUsuario::cancelarAsignacionEmpleado(){
+
+}
+
+
 //FIN ASIGNAR EMPLEADO A HOSTAL
 
 

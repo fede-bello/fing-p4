@@ -33,6 +33,7 @@ class controladorUsuario : public IcontroladorUsuario{
         vector<DTEmpleado> obtenerEmpleadoHostal();
         void ActualizarCargo(string nombre,CargoEmp cargo);
         void AsignarEmpleado();
+        void cancelarAsignacionEmpleado();//FALTA
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);
