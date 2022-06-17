@@ -49,7 +49,7 @@ class controladorUsuario : public IcontroladorUsuario{
         vector<DTCalificacion> calificacionesSinResponder(string mail);
         //Consulta de Usuario
         vector<DTEmpleado> obtenerEmpleados();
-        DTUsuario elegirUsuario(string email);
+        DTUsuario* elegirUsuario(string email);
         void informacionUsuario(DTUsuario usuarioInfo);
         //Consulta de Hostal
         //Consulta de Reserva

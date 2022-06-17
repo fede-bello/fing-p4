@@ -246,16 +246,21 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleados(){
 
 
 
-DTUsuario controladorUsuario::elegirUsuario(string email){
+DTUsuario* controladorUsuario::elegirUsuario(string email){
     if(MapaHuesped.find(email)!=MapaHuesped.end()){
         //Lo hallé y es Huesped
         DTHuesped hues;
         hues= MapaHuesped.find(email)->second->getDTHuesped();
-        return hues;
+        DTHuesped *h=new DTHuesped(hues.getNombre(), hues.getPassword(), hues.getMail(), hues.getEsFinger());
+        return h;
     }
-    else { //es Empleado
-    DTEmpleado emp=MapaEmpleado.find(email)->second->getDTEmpleado();
-        return emp;
+    else if (MapaEmpleado.find(email)!=MapaEmpleado.end()){//es Empleado
+        DTEmpleado emp=MapaEmpleado.find(email)->second->getDTEmpleado();
+        DTEmpleado *e=new DTEmpleado(emp.getNombre(), emp.getPassword(), emp.getPassword(), emp.getCargo());
+        return e;
+    }
+    else {//no lo encontre
+        throw "El email no corresponde a ningun usuario";
     }
 
    }

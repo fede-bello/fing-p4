@@ -473,6 +473,35 @@ int main()
                 }//FIN COMENTAR CALIFICACION
                     break;
                 case 11:{// CONSULTA USUARIO
+                    vector<DTEmpleado> empleados;
+                    vector<DTHuesped> huespedes;
+                    try{
+                        empleados=IUsuario->obtenerEmpleados();
+                        huespedes=IUsuario->obtenerHuespedes();
+                        for(int i=0; i<empleados.size(); i++){
+                            cout<< empleados[i].getMail() <<endl;
+                        }
+                        for (int i=0; i<huespedes.size(); i++){
+                            cout<< huespedes[i].getMail() <<endl;
+                        }
+                        cout<<endl;
+                        cout<<"Digite el mail del usuario del que quiera ver los detalles"<<endl;
+                        string mail;
+                        cin>>mail;
+                        DTUsuario *u=IUsuario->elegirUsuario(mail);
+                        DTEmpleado *empl=dynamic_cast<DTEmpleado* >(u);                        
+                        if (empl!=NULL){
+                            empl->imprimir();
+                        }
+                        DTHuesped *hues=dynamic_cast<DTHuesped* >(u);
+                        if (hues!=NULL){
+                            hues->imprimir();
+                        }
+                        
+
+                    }catch(const char* c){
+
+                    }
                 }//FIN CONSULTA USUARIO
                     break;
                 case 12:{// CONSULTA DE HOSTAL

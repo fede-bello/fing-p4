@@ -11,7 +11,7 @@ class DTHuesped: public DTUsuario{
         DTHuesped();
         DTHuesped(string Nombre,string Password, string Mail, bool esFinger);
         bool getEsFinger();
-        void imprimir();
+        virtual void imprimir();
         ~DTHuesped();
 };
 
