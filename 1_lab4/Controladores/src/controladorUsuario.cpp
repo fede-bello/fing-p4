@@ -62,6 +62,14 @@ DTHuesped* controladorUsuario::NuevoHuesped(string email,string password,string 
     return res;
 }
 
+map<string, Empleado*> controladorUsuario:: getEmpleados(){
+    return this->MapaEmpleado;
+}
+map<string, Huesped*> controladorUsuario:: getHuespedes(){
+    return this->MapaHuesped;
+}
+
+
 void controladorUsuario::ActualizarMail(DTUsuario *usuario,string mail){
     usuario->setMail(mail);
     //ACA CAPAZ EN VEZ DE HACER EL SET ES MEJOR CREAR UN NUEVO DT Y MATAR EL VIEJO
@@ -101,7 +109,7 @@ vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){
     return res;
 }
 
-void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
+void controladorUsuario::ActualizarCargo(string mail,CargoEmp cargo){
     bool pedirMail=false;//antes de llamar a esta funcion se debe hacer un cin>>mail;
     do{
         try {
@@ -124,7 +132,7 @@ void controladorUsuario::actualizarCargo(string mail,CargoEmp cargo){
     }while(true);
 }
 
-void controladorUsuario::asignarEmpleado(){
+void controladorUsuario::AsignarEmpleado(){
     string mail=ArregloEmail.front();
     Empleado *empleado=MapaEmpleado[mail];
     controladorHostal *controlHostal=controladorHostal::getInstance();

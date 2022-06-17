@@ -3,7 +3,7 @@
 #include "../../DataType/include/DTFecha.h"
 #include "../../Interfaces/include/IcontroladorFecha.h"
 
-class controladorFecha /*:public IcontroladorFecha*/ {
+class controladorFecha :public IcontroladorFecha {
 private:
     static controladorFecha * instancia;
     controladorFecha();

@@ -5,15 +5,16 @@
 #include "controladorHostal.h"
 #include "../../Interfaces/include/IcontroladorUsuario.h"
 
-class controladorUsuario /* : IcontroladorUsuario*/{
+class controladorUsuario : public IcontroladorUsuario{
     private:
         static controladorUsuario * instance;
         controladorUsuario();
         vector<string> ArregloEmail;
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
-
     public:
+        map<string,Empleado*> getEmpleados();
+        map<string,Huesped*> getHuespedes();
         static controladorUsuario * getInstance(); 
         Hostal find(string nombre);
         vector<string> getEmail();
@@ -32,8 +33,8 @@ class controladorUsuario /* : IcontroladorUsuario*/{
         //Alta de Habitacion
         //Asignar Empleado a Hostal
         vector<DTEmpleado> obtenerEmpleadoHostal();
-        void actualizarCargo(string nombre,CargoEmp cargo);
-        void asignarEmpleado();
+        void ActualizarCargo(string mail,CargoEmp cargo);
+        void AsignarEmpleado();
         //Realizar Reserva
         vector<DTHuesped> obtenerHuespedes();
         DTHuesped elegirHuesped(string Mail);

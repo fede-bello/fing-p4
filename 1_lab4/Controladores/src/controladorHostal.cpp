@@ -23,11 +23,7 @@ string controladorHostal::getNombre(){
 
 controladorHostal::~controladorHostal(){  
     if(HostalGuardado==NULL) delete HostalGuardado;
-    for (auto &it:MapaHostal){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Hostal
-        //it.first es la clave de MapaHostal
-        //it.second es el objeto asociado a it.first
-        //todo esto sale de la creacion del Mapa, map<string,Hostal> MapaHostal
-        //const es para no repetir el valor
+    for (auto &it:MapaHostal){
         string nombreHostal=it.first;//
         Hostal *hostal=it.second;
         hostal->~Hostal();
@@ -77,30 +73,7 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
     return res;//Luego de esta Funcion habria que res.clear();
 }
 
-//Version Diego
-//Fede: me parece que esta mal eso de comunicarse con el usuario adentro del controlador
-// DTHostal *controladorHostal::elegirHostal(string nombre){
-//     bool pedirNombre=false;//antes de llamar a esta funcion se debe hacer un cin>>nombre;
-//     do{
-//         try {
-//             if(pedirNombre){
-//                 cout<<"Digite el nombre del hostal"<<endl;
-//                 cin>>nombre;
-//             }
-//             if(MapaHostal.find(nombre)==MapaHostal.end()){
-//                 throw "invalid_argument";
-//             }
-//             Hostal *hostal=MapaHostal[nombre];
-//             DTHostal *res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
-//             this->HostalGuardado=res;
-//             return res;//solo salgo por esta condicion
-//         }
-//         catch(...){
-//             cout<<"No existe un hostal con ese nombre";
-//             pedirNombre=true;
-//         }
-//     }while(true);
-// }   
+ 
 
     //  VERSION FEDE ELEGIR HOSTAL
 DTHostal *controladorHostal::elegirHostal(string nombre){
@@ -114,17 +87,10 @@ DTHostal *controladorHostal::elegirHostal(string nombre){
 }
 
 
-
-
-
-
-
-
 void controladorHostal::confirmarAltaHabitacion(DTHabitacion *habitacion){
     string nombre=this->HostalGuardado->getNombre();
     Hostal *hostal=MapaHostal.find(nombre)->second;
     hostal->agregarHabitacionAHostal(*habitacion);
-
 }
 
 void controladorHostal::cancelarAltaHabitacion(DTHabitacion *habitacion){
