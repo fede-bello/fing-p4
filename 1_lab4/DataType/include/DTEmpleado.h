@@ -8,7 +8,7 @@
 
 
 enum CargoEmp{
-    Limpieza, Administracion, Infrasetructura, Recepcion 
+    Limpieza, Administracion, Infraestructura, Recepcion 
 };
 
 

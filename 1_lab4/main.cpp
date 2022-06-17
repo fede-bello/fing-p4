@@ -81,7 +81,7 @@ int main()
                                 cargoEmpleado=Recepcion;
                                 break;
                             case 4:
-                                cargoEmpleado=Infrasetructura;
+                                cargoEmpleado=Infraestructura;
                                 break;}
                             //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
                             DTEmpleado *dtusuario=iUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
