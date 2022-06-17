@@ -39,6 +39,10 @@ void ImprimirOpciones()
 int main()
 {   
     Factory* fabrica = fabrica->getInstancia();
+    IcontroladorFecha * IFecha=fabrica->getIcontroladorFecha();
+    IcontroladorHostal *IHostal=fabrica->getIcontroladorHostal();
+    IcontroladorReserva *cr=fabrica->getIcontroladorReserva();
+    IcontroladorUsuario *IUsuario=fabrica->getIcontroladorUsuario();
     bool iterarWhile=true;
     cout << "Bienvenido" << endl;
 	while(iterarWhile){
@@ -47,7 +51,6 @@ int main()
 		cin >> FuncionSelecionada;
 		switch (FuncionSelecionada) {
                 case 1:{  //ALTA USUARIO
-                    IcontroladorUsuario *iUsuario=fabrica->getIcontroladorUsuario();
                     cout << "Alta Usuario"  << endl;        
                     cout<< "Digite su nombre"<<endl;
                     string nombre;
@@ -84,7 +87,7 @@ int main()
                                 cargoEmpleado=Infraestructura;
                                 break;}
                             //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
-                            DTEmpleado *dtusuario=iUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
+                            DTEmpleado *dtusuario=IUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
                             // bool salir=true,pedirDatos=false;
                             // while(salir){
                             //    map<string,Empleado*>mEmpleado;
@@ -95,7 +98,7 @@ int main()
                             bool excepcion = false;
                             
                             try{
-                                iUsuario->ConfirmarAltaEmpleado(dtusuario); 
+                                IUsuario->ConfirmarAltaEmpleado(dtusuario); 
                                 cout<<"Se dio de alta el empleado:"<<endl;
                                 dtusuario->imprimir();                               
                             }catch(...){
@@ -117,9 +120,9 @@ int main()
                                         cout<<"Escriba el nuevo mail:"<<endl;
                                         cin>>mail;
                                         try{
-                                            iUsuario->ActualizarMail(dtusuario, mail);
+                                            IUsuario->ActualizarMail(dtusuario, mail);
                                             actualizacionExitosa = true; //salgo del while
-                                            iUsuario->ConfirmarAltaEmpleado(dtusuario);
+                                            IUsuario->ConfirmarAltaEmpleado(dtusuario);
                                             cout<<"Se dio de alta el empleado:"<<endl;
                                             dtusuario->imprimir();
                                         }catch(...){
@@ -135,12 +138,12 @@ int main()
                                                 actualizacionExitosa = false;//vuelvo a intentar actualizar el mail
                                             }else{
                                                 actualizacionExitosa = true; //salgo del while
-                                                iUsuario->CancelarUsuario(dtusuario);
+                                                IUsuario->CancelarUsuario(dtusuario);
                                             }
                                         }
                                     }
                                 }else{
-                                    iUsuario->CancelarUsuario(dtusuario);
+                                    IUsuario->CancelarUsuario(dtusuario);
                                 }
 
                                 
@@ -156,10 +159,10 @@ int main()
                                 finger=true;
                             else   
                                 finger=false;
-                            DTHuesped *dtusuario=iUsuario->NuevoHuesped(mail,password,nombre,finger);
+                            DTHuesped *dtusuario=IUsuario->NuevoHuesped(mail,password,nombre,finger);
 
                             try{
-                                iUsuario->ConfirmarAltaHuesped(dtusuario); 
+                                IUsuario->ConfirmarAltaHuesped(dtusuario); 
                                 cout<<"Se dio de alta el huesped:"<<endl;
                                 dtusuario->imprimir();                               
                             }catch(...){
@@ -181,9 +184,9 @@ int main()
                                         cout<<"Escriba el nuevo mail:"<<endl;
                                         cin>>mail;
                                         try{
-                                            iUsuario->ActualizarMail(dtusuario, mail);
+                                            IUsuario->ActualizarMail(dtusuario, mail);
                                             actualizacionExitosa = true; //salgo del while
-                                            iUsuario->ConfirmarAltaHuesped(dtusuario);
+                                            IUsuario->ConfirmarAltaHuesped(dtusuario);
                                             cout<<"Se dio de alta el huesped:"<<endl;
                                             dtusuario->imprimir();
                                         }catch(...){
@@ -199,12 +202,12 @@ int main()
                                                 actualizacionExitosa = false;//vuelvo a intentar actualizar el mail
                                             }else{
                                                 actualizacionExitosa = true; //salgo del while
-                                                iUsuario->CancelarUsuario(dtusuario);
+                                                IUsuario->CancelarUsuario(dtusuario);
                                             }
                                         }
                                     }
                                 }else{
-                                    iUsuario->CancelarUsuario(dtusuario);
+                                    IUsuario->CancelarUsuario(dtusuario);
                                 }
                             
                         }
@@ -212,7 +215,6 @@ int main()
                 }
                 break;//FIN ALTA USUARIO 
                 case 2:{ //ALTA DE HOSTAL
-                    IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
                     cout << "Alta de Hostal"  << endl;
                     cout<< "Digite el nombre del Hostal"<<endl;
                     string nombre;
@@ -224,28 +226,25 @@ int main()
                     string Telefono;
                     cin>>Telefono;
                     bool excepcion = false;
-                    DTHostal *nuevo = cHostal->nuevoHostal(nombre,direccion,Telefono);
+                    
+                    DTHostal *nuevo = IHostal->nuevoHostal(nombre,direccion,Telefono);
+                    
                     try {
-                        cHostal->nuevoHostal(nombre,direccion,Telefono);
-                    }
-                    catch(...){
-                        excepcion = true;
-                    }
-                    if(excepcion){
-                        cout<< "Se encuentra registrado un hostal con ese nombre"<<endl;
-                        cHostal->cancelarAltaHostal(nuevo);
-                    }else{
+                        
+                        IHostal->confirmarAltaHostal(nuevo);
                         cout<< "Se registro el nuevo hostal"<<endl;
-                        cHostal->confirmarAltaHostal(nuevo);
+                    } catch(const char* msj){
+                        cout<< msj <<endl;
+                        IHostal->cancelarAltaHostal(nuevo);
                     }
+                    
+                        
+                    
                 }//FIN ALTA HOSTAL
                 break;
                 case 3:{//ALTA DE HABITACION
-                    IcontroladorHostal *cHostal = fabrica->getIcontroladorHostal();
-
-
                     cout<<"Alta de Habitacion"<<endl;
-                    vector<DTHostal> listaHostales = cHostal->obtenerHostales();
+                    vector<DTHostal> listaHostales = IHostal->obtenerHostales();
 
                     if(listaHostales.empty()){
                         cout<<"No hay hostales registrados en el sistema para hacer el alta."<<endl;
@@ -273,14 +272,14 @@ int main()
                         cout<<"Hostal elegido: "<<endl;
                         cin>>nombreHos;
                         
-                        DTHostal* DThostalElegido = cHostal->elegirHostal(nombreHos);
+                        DTHostal* DThostalElegido = IHostal->elegirHostal(nombreHos);
                         
                         
 
                         string nombreElegido = DThostalElegido->getNombre();
 
                         //necesito los objetos Hostal para recorrerlos y conseguir el hostal con el nombre nombreElegido
-                        map<string, Hostal *> mapaHostales = cHostal->getMapaHostal();
+                        map<string, Hostal *> mapaHostales = IHostal->getMapaHostal();
                         
                         //consigo el hostalElegido en el mapaHostales
                         Hostal * hostalElegido = mapaHostales.find(nombreElegido)->second;
@@ -302,7 +301,7 @@ int main()
                         cout<<"Capacidad de la habitacion: "<<endl;
                         cin>>capH;
 
-                        DTHabitacion* room = cHostal->nuevaHabitacion(numH, precioH, capH); 
+                        DTHabitacion* room = IHostal->nuevaHabitacion(numH, precioH, capH); 
 
                         
                         cout<<"¿Confirma el alta de la nueva habitacion? Digite 1 en caso de que si, 0 si no."<<endl;
@@ -318,10 +317,10 @@ int main()
                         }
 
                         if(booleano == 1){
-                            cHostal->confirmarAltaHabitacion(room);
+                            IHostal->confirmarAltaHabitacion(room);
                             cout<<"Alta de habitacion confirmada."<<endl;
                         }else{
-                            cHostal->cancelarAltaHabitacion(room);
+                            IHostal->cancelarAltaHabitacion(room);
                             cout<<"Alta de habitacion cancelada."<<endl;
                         }
                     }
@@ -331,7 +330,94 @@ int main()
                 }//FIN ALTA HABITACION
                     break;
                 case 4:{//ASIGNAR EMPLEADO A HOSTAL
-                        cout<<"debug"<<endl;
+                        bool excepcion=false;
+                        vector<DTHostal> impHos;
+                        try{
+                            impHos=IHostal->obtenerHostales();
+                            for (int i=0; i<impHos.size(); i++){
+                                impHos[i].imprimir();
+                                cout<<endl; 
+                            }
+                            cout<<"Ingrese el nombre del hostal al que quiere asignar el empleado" <<endl;
+                            string hostal;
+                        elegirHostal:  //label   
+                            cin>>hostal; //Nombre del hostal
+                            try{                            
+                                IHostal->elegirHostal(hostal); //esto lo unico que hace es que el sistema se acuerda del nombre del hostal
+                                try{
+                                    vector<DTEmpleado> impEmpl=IUsuario->obtenerEmpleadoHostal(); //Devuelve los empleados que no esten asignados a un hostal
+                                    for (int i=0; i<impEmpl.size(); i++){
+                                        impEmpl[i].imprimir();
+                                        cout<<endl; 
+                                    }
+                                    int repetir=1;
+                                    while (repetir==1){
+                                        cout<<"Ingrese el mail del empleado que desea asignar al hostal"<<endl;
+                                        string mail;
+                                        cin>>mail;
+
+                                        int TrabajoSeleccionado;
+                                        cout<< "Digite la Funcion a realizar por el empleado:"<<endl;
+                                        cout<< "1 Limpieza"<<endl;
+                                        cout<< "2 Administracion"<<endl;
+                                        cout<< "3 Recepcion"<<endl;
+                                        cout<< "4 Infraestructura"<<endl;
+                                        cin>> TrabajoSeleccionado;
+                                        CargoEmp cargoEmpleado;
+                                        switch(TrabajoSeleccionado){
+                                            case 1:
+                                                cargoEmpleado=Limpieza;
+                                                break;
+                                            case 2:
+                                                cargoEmpleado=Administracion;
+                                                break;
+                                            case 3:
+                                                cargoEmpleado=Recepcion;
+                                                break;
+                                            case 4:
+                                                cargoEmpleado=Infraestructura;
+                                                break;}
+                                        IUsuario->ActualizarCargo(mail,cargoEmpleado);
+                                        cout<<"Presione 1 si quiere confirmar la asignacion o 0 en caso de querer cancelarla"<<endl;
+                                        int conf;
+                                        cin>>conf;
+                                        if (conf==1){
+                                            IUsuario->AsignarEmpleado();
+                                        }
+                                        else {
+                                            IUsuario->cancelarAsignacionEmpleado();
+                                        }
+
+                                        cout<<"Ingrese 1 si quiere seguir asignando empleados al hostal o 0 en caso contrario"<<endl;
+                                        
+                                        cin>>repetir;
+                                    }
+                                }catch(const char* msj){
+                                    cout<<msj<<endl; //Si estoy en esta opcion salgo si o si                                    
+                                }
+                            }catch (const char* msj){
+                                cout<<msj<<endl;
+                                cout <<"Presione 1 si desea volver a ingresar el nombre o 0 si desea salir:" <<endl;
+                                int seguir;
+                                cin>>seguir;
+                                if(seguir==1){ //Doy la opcion de reingresar el mail del hostal
+                                    cout<<"Ingrese nuevamente el nombre del hostal"<<endl;
+                                    goto elegirHostal;                                    
+                                }
+                                
+                            } 
+
+                        }catch(const char* msj){
+                            cout<<msj<<endl;
+
+                        
+                            }  
+                                                
+                        
+
+                        
+                    
+                    cout<<"debug"<<endl;
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA

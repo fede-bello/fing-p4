@@ -90,15 +90,15 @@ void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
 
 void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
     
-    bool excepcion;
+    
     
     map<string,Empleado*>::iterator it = this->MapaEmpleado.find(empleado->getMail());
 
     if(it != this->MapaEmpleado.end()){
-        throw(excepcion);//acá tiene que haber un throw de la exception porque quiere decir que ya hay un empleado con ese mail
+        throw "No existe ningun empleado en el sistema";//acá tiene que haber un throw de la exception porque quiere decir que ya hay un empleado con ese mail
     }else{
         Empleado *nuevo=new Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
-        this->MapaEmpleado.insert({empleado->getMail(), nuevo});
+        this->MapaEmpleado[empleado->getNombre()]=nuevo;
     }
 }
 
@@ -117,18 +117,16 @@ void controladorUsuario::ConfirmarAltaHuesped(DTHuesped *huesped){
 //FIN ALTA USUARIO
 
 //ASiGNAR EMPLEADO A HOSTAL
-vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){
+vector<DTEmpleado> controladorUsuario::obtenerEmpleadoHostal(){//Devuelve los empleados no asignados a ningun hostal
     vector<DTEmpleado> res;
-    for (auto &it:MapaEmpleado){//Como Iterar En un Mapa, se Asocia it a cada elemento del Mapa Empleado
-        //it.first es la clave de MapaEmpleado
-        //it.second es el objeto asociado a it.first
-        //todo esto sale de la creacion del Mapa, map<string,Empleado> MapaEmpleado
-        //const es para no repetir el valor
-        Empleado *empleado=it.second;
-        if(empleado->getHostal()==NULL){
-            DTEmpleado dtempleado=DTEmpleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
-            res.push_back(dtempleado);
-        }
+    map<string,Empleado*>::iterator it;
+    for (it=this->MapaEmpleado.begin(); it!=this->MapaEmpleado.end(); ++it){
+        Empleado *empl=it->second;
+        if (!empl->empleadoAsignadoAHostal()){
+            DTEmpleado agregar=empl->getDTEmpleado();
+            res.push_back(agregar);
+        } 
+        
     }
     return res;
 }
@@ -163,6 +161,12 @@ void controladorUsuario::AsignarEmpleado(){
     string nombreHostal=controlHostal->getHostal()->getNombre();
     Hostal *hostal=controlHostal->getMapaHostal()[nombreHostal];
     //empleado.setHostal(hostal); esto tendria que ser un puntero
+}
+
+void controladorUsuario::cancelarAsignacionEmpleado(){
+    this->ArregloEmail.clear();
+    controladorHostal*ch=controladorHostal::getInstance();
+    ch->liberar();
 }
 //FIN ASIGNAR EMPLEADO A HOSTAL
 

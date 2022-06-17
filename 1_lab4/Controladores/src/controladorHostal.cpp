@@ -53,21 +53,23 @@ map<string,Hostal*> controladorHostal::getMapaHostal(){
 }
 //ALTA HOSTAL
 DTHostal* controladorHostal:: nuevoHostal(string nombre,string direccion,string telefono){
-    map<string,Hostal*>::iterator it;
-    for(it = this->MapaHostal.begin(); it != this->MapaHostal.end(); it++){
-        if(it->first == nombre){
-            throw "Mismo Nombre";
-        }
-    }
     DTHostal *res=new DTHostal(nombre,direccion,telefono);
     return res;
 }
 
 void controladorHostal::confirmarAltaHostal(DTHostal *dthostal){
-    Hostal *res=new Hostal(dthostal->getNombre(),dthostal->getDireccion(),dthostal->getTelefono());
-    MapaHostal[res->getNombre()]=res;
-    delete dthostal;
+    bool excepcion;
+    
+    map<string,Hostal*>::iterator it = this->MapaHostal.find(dthostal->getNombre());
+
+    if(it != this->MapaHostal.end()){
+        throw "Ya existe otro Hostal con el mismo nombre";//acá tiene que haber un throw de la exception porque quiere decir que ya hay un empleado con ese mail
+    }else{
+        Hostal *nuevo=new Hostal(dthostal->getNombre(),dthostal->getDireccion(),dthostal->getTelefono());
+        this->MapaHostal[dthostal->getNombre()]=nuevo;
+    }
 }
+
 
 void controladorHostal::cancelarAltaHostal(DTHostal *dthostal){
     delete dthostal;
@@ -76,21 +78,23 @@ void controladorHostal::cancelarAltaHostal(DTHostal *dthostal){
 
 //ALTA HABITACION
 vector<DTHostal>controladorHostal::obtenerHostales(){
+    bool excepcion;
     vector<DTHostal> res;
 
-    //Reviso si hay Hostales registrados, si no hay devuelvo el vector Vacio
+    //Reviso si hay Hostales registrados, si no hay lanzo excepcion
     if(!this->MapaHostal.empty()){ 
-
         map<string,Hostal*>::iterator it;
-
         for (it = this->MapaHostal.begin(); it!=this->MapaHostal.end();++it){//Asi itera en el teorico
                 Hostal *hostal=it->second;
             res.push_back(DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono()));
         }
 
     }
+    else {
+        throw "No hay hostales en el sistema";
+    }
 
-    return res;//Luego de esta Funcion habria que res.clear();
+    return res;
 }
 
  
@@ -98,11 +102,14 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
     //  VERSION FEDE ELEGIR HOSTAL
 DTHostal *controladorHostal::elegirHostal(string nombre){
     
-    DTHostal *res = NULL;
+    DTHostal *res;
     if(MapaHostal.find(nombre)!=MapaHostal.end()){
         Hostal *hostal=MapaHostal.find(nombre)->second;
         res=new DTHostal(hostal->getNombre(),hostal->getDireccion(),hostal->getTelefono());
         this->HostalGuardado = res;
+    }
+    else{
+        throw "No existe ningun hostal con ese nombre";
     }
     return res;
 }

@@ -14,6 +14,8 @@ Empleado::Empleado(string Nombre, string Password, string Mail, CargoEmp Cargo){
     this->Password = Password;
     this->Mail = Mail;
     this->Cargo = Cargo;
+    this->hos=NULL;
+    this->calif=NULL;
 }
 
 //Setters y getters
@@ -46,10 +48,7 @@ void Empleado::setCalificacion(Calificacion *calif){
 //Operaciones 
 
 bool Empleado::empleadoAsignadoAHostal(){
-    bool res = true;
-    if (this->hos == NULL)
-        res = false;
-    return res;
+    return (this->hos!=NULL);
 }
 
 DTEmpleado Empleado::getDTEmpleado(){
