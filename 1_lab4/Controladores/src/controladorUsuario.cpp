@@ -103,9 +103,16 @@ void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
 }
 
 void controladorUsuario::ConfirmarAltaHuesped(DTHuesped *huesped){
-    Huesped *nuevo=new Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
-    MapaHuesped[nuevo->getMail()]=nuevo;
-    delete huesped;
+    bool excepcion;
+    
+    map<string,Huesped*>::iterator it = this->MapaHuesped.find(huesped->getMail());
+
+    if(it != this->MapaHuesped.end()){
+        throw(excepcion);//acá tiene que haber un throw de la exception porque quiere decir que ya hay un huesped con ese mail
+    }else{
+        Huesped *nuevo= new Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
+        this->MapaHuesped.insert({huesped->getMail(), nuevo});
+    }
 }
 //FIN ALTA USUARIO
 

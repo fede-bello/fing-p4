@@ -151,18 +151,63 @@ int main()
                             int esFinger;
                             bool finger;
                             cout<< "Digite 1 si estudia en la FING, de lo contrario 0"<<endl;
+                            cin>>esFinger;
                             if(esFinger==1)
                                 finger=true;
                             else   
                                 finger=false;
                             DTHuesped *dtusuario=iUsuario->NuevoHuesped(mail,password,nombre,finger);
+
                             try{
-                                
-                                
+                                iUsuario->ConfirmarAltaHuesped(dtusuario); 
+                                cout<<"Se dio de alta el huesped:"<<endl;
+                                dtusuario->imprimir();                               
                             }catch(...){
-                                cout<< "Hay otro usuario con ese mail"<<endl;
-                            }
+
+                                cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                int booleano;
+                                cin>>booleano;
+
+                                while((booleano != 1) && (booleano != 0)){
+                                    cout<< "Por favor digite 1 o 0:"<<endl;
+                                    cin>>booleano;
+                                }
+
+                                if(booleano == 1){
+
+                                    bool actualizacionExitosa = false; //flag para salir del while siguiente
+
+                                    while(!actualizacionExitosa){
+                                        cout<<"Escriba el nuevo mail:"<<endl;
+                                        cin>>mail;
+                                        try{
+                                            iUsuario->ActualizarMail(dtusuario, mail);
+                                            actualizacionExitosa = true; //salgo del while
+                                            iUsuario->ConfirmarAltaHuesped(dtusuario);
+                                            cout<<"Se dio de alta el huesped:"<<endl;
+                                            dtusuario->imprimir();
+                                        }catch(...){
+                                            cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                            cin>>booleano;
+
+                                            while((booleano != 1) && (booleano != 0)){
+                                                cout<< "Por favor digite 1 o 0:"<<endl;
+                                                cin>>booleano;
+                                            }
+
+                                            if(booleano == 1){
+                                                actualizacionExitosa = false;//vuelvo a intentar actualizar el mail
+                                            }else{
+                                                actualizacionExitosa = true; //salgo del while
+                                                iUsuario->CancelarUsuario(dtusuario);
+                                            }
+                                        }
+                                    }
+                                }else{
+                                    iUsuario->CancelarUsuario(dtusuario);
+                                }
                             
+                        }
                         }
                 }
                 break;//FIN ALTA USUARIO 
