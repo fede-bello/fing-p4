@@ -3,13 +3,16 @@
 controladorUsuario * controladorUsuario::instance=NULL;
 
 //USO GENERAL, CREADORAS DESTRUCTORAS GETEMAIL etc
-controladorUsuario::controladorUsuario (){
-}; 
-
 controladorUsuario * controladorUsuario::getInstance(){
     if (instance==NULL)
         instance= new controladorUsuario();
     return instance;
+}
+
+controladorUsuario::controladorUsuario(){
+    vector<string> ArregloEmail;
+    map<string,Empleado*> MapaEmpleado;
+    map<string,Huesped*> MapaHuesped;
 }
 
 controladorUsuario::~controladorUsuario(){
@@ -41,15 +44,21 @@ void controladorUsuario::liberar(){
     ArregloEmail.clear();
 }
 
-vector<string> controladorUsuario ::getEmail(){
+vector<string> controladorUsuario::getEmail(){
     return ArregloEmail;
 }
 
-void controladorUsuario:: setEmail(string EmailGuardado){
+void controladorUsuario::setEmail(string EmailGuardado){
     ArregloEmail.push_back(EmailGuardado);
     //ArregloEmail.emplace_back(EmailGuardado);
 }
 
+map<string,Empleado*> controladorUsuario::getEmpleados(){
+    return this->MapaEmpleado;
+}
+map<string,Huesped*> controladorUsuario::getHuespedes(){
+    return this->MapaHuesped;
+}
 //FIN USO GENERAL
 //ALTA USUARIO
 DTEmpleado* controladorUsuario::NuevoEmpleado(string email,string password,string nombre,CargoEmp cargo){
@@ -61,14 +70,6 @@ DTHuesped* controladorUsuario::NuevoHuesped(string email,string password,string 
     DTHuesped *res=new DTHuesped(nombre,password,email,esFinger);
     return res;
 }
-
-map<string, Empleado*> controladorUsuario:: getEmpleados(){
-    return this->MapaEmpleado;
-}
-map<string, Huesped*> controladorUsuario:: getHuespedes(){
-    return this->MapaHuesped;
-}
-
 
 void controladorUsuario::ActualizarMail(DTUsuario *usuario,string mail){
     usuario->setMail(mail);

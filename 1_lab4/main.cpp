@@ -47,7 +47,7 @@ int main()
 		cin >> FuncionSelecionada;
 		switch (FuncionSelecionada) {
                 case 1:{  //ALTA USUARIO
-                    IcontroladorUsuario iUsuario=Factory::getIcontroladorUsuario();
+                    IcontroladorUsuario *iUsuario=fabrica->getIcontroladorUsuario();
                     cout << "Alta Usuario"  << endl;        
                     cout<< "Digite su nombre"<<endl;
                     string nombre;
@@ -83,7 +83,7 @@ int main()
                             case 4:
                                 cargoEmpleado=Infrasetructura;
                                 break;}
-                            //EMPÏEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
+                            //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
                             DTEmpleado *dtusuario=iUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
                             bool salir=true,pedirDatos=false;
                             while(salir){
@@ -107,7 +107,7 @@ int main()
                                 finger=true;
                             else   
                                 finger=false;
-                            DTHuesped *dtusuario=cUsuario->NuevoHuesped(mail,password,nombre,finger);
+                            DTHuesped *dtusuario=iUsuario->NuevoHuesped(mail,password,nombre,finger);
                             try{
                                 
                                 

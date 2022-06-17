@@ -13,9 +13,9 @@ class controladorUsuario : public IcontroladorUsuario{
         map<string,Empleado*> MapaEmpleado;
         map<string,Huesped*> MapaHuesped;
     public:
+        static controladorUsuario * getInstance();
         map<string,Empleado*> getEmpleados();
-        map<string,Huesped*> getHuespedes();
-        static controladorUsuario * getInstance(); 
+        map<string,Huesped*> getHuespedes(); 
         Hostal find(string nombre);
         vector<string> getEmail();
         void setEmail(string EmailGuardado);
