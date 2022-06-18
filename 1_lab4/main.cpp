@@ -254,8 +254,8 @@ int main()
                     
                         
                     
-                }//FIN ALTA HOSTAL
-                break;
+                }
+                break; //FIN ALTA HOSTAL
                 case 3:{//ALTA DE HABITACION
                     cout<<"Alta de Habitacion"<<endl;
                     vector<DTHostal> listaHostales = IHostal->obtenerHostales();
@@ -347,8 +347,8 @@ int main()
 
                     
                     
-                }//FIN ALTA HABITACION
-                    break;
+                }
+                    break;//FIN ALTA HABITACION
                 case 4:{//ASIGNAR EMPLEADO A HOSTAL
                         bool excepcion=false;
                         vector<DTHostal> impHos;
@@ -363,7 +363,7 @@ int main()
                         elegirHostal:  //label   
                             cin.ignore();
                             getline(cin,hostal); //Nombre del hostal
-                            try{                            
+                            try{//ELEGIR HOSTAL                            
                                 IHostal->elegirHostal(hostal); //esto lo unico que hace es que el sistema se acuerda del nombre del hostal
                                 try{
                                     vector<DTEmpleado> impEmpl=IUsuario->obtenerEmpleadoHostal(); //Devuelve los empleados que no esten asignados a un hostal
@@ -385,7 +385,7 @@ int main()
                                         cout<< "4 Infraestructura"<<endl;
                                         cin>> TrabajoSeleccionado;
                                         CargoEmp cargoEmpleado;
-                                        switch(TrabajoSeleccionado){
+                                        switch(TrabajoSeleccionado){//SWITCH
                                             case 1:
                                                 cargoEmpleado=Limpieza;
                                                 break;
@@ -397,7 +397,7 @@ int main()
                                                 break;
                                             case 4:
                                                 cargoEmpleado=Infraestructura;
-                                                break;}
+                                                break;}//SWITCH
                                         IUsuario->ActualizarCargo(mail,cargoEmpleado);
                                         cout<<"Presione 1 si quiere confirmar la asignacion o 0 en caso de querer cancelarla"<<endl;
                                         int conf;
@@ -412,7 +412,7 @@ int main()
                                         cout<<"Ingrese 1 si quiere seguir asignando empleados al hostal o 0 en caso contrario"<<endl;
                                         
                                         cin>>repetir;
-                                    }
+                                    }//WHILE REPETIR
                                 }catch(const char* msj){
                                     cout<<msj<<endl; //Si estoy en esta opcion salgo si o si                                    
                                 }
@@ -430,14 +430,119 @@ int main()
 
                         }catch(const char* msj){
                             cout<<msj<<endl;                        
-                            }                                              
+                        }                                              
                         
                        
                     
                     cout<<"debug"<<endl;
-                }//FIN ASIGNAR EMPLEADO A HOSTAL
-                    break;
-                case 5:{//REALIZAR RESERVA
+                }
+                    break;// FIN ASIGNAR EMPLEADO A HOSTAL
+                case 5:{//REALIZAR RESERVA                
+                    vector<DTHostal> impHos;
+                    try{
+                        impHos=IHostal->obtenerHostales();
+                        int prom;
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl;
+                            IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
+                            try{
+                                prom=IHostal->obtenerPromedioCalificaciones();
+                                cout<<"El promedio de calificaciones es: " ;
+                                cout<< prom<<endl;
+                            }catch(const char* msj){
+                                cout<<msj<<endl;
+                            }
+                        };
+                        cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
+                        string hostal;
+                        cin>>hostal; //Nombre del hostal
+                        IHostal->elegirHostal(hostal);
+                        cout<<"Indique la fecha de Check In" <<endl;
+                        DTFecha In=digiteFecha();
+                        cout<<"Indique la fecha de Check Out" <<endl;
+                        DTFecha Out=digiteFecha();
+                        try{
+                            vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
+                            for(int i=0; i<impHab.size(); i++){
+                               impHab[i].imprimir();
+                            }
+                            cout<< "Ingrese el numero de habitacion que quiera seleccionar: "<<endl;
+                            int hab;
+                            
+                            bool repetirHab=true;                            
+                            while (repetirHab){ //Pongo numero habitacion hasta que exista en el sistema
+                                cin>>hab;
+                                try{
+                                    IHostal->elegirHabitacion(hab);
+                                    repetirHab=false;
+                                }catch(const char* msj){
+                                    cout<<msj<<endl;
+                                    cout<< "Por favor ingrese nuevamente el numero de la habitacion"<<endl;
+                                }
+                            }                                
+
+                            try {
+                                vector<DTHuesped> impHues=IUsuario->obtenerHuespedes();
+                                for(int i=0; i<impHues.size(); i++){
+                                    impHues[i].imprimir();
+                                }
+                                cout<<"Ingrese el mail del huesped que realizar la reserva"<<endl;
+                                string mail;
+                                bool repetirHues=true;
+                                while (repetirHues){ //Pongo mail Huesped hasta que exista en el sistema
+                                    try{
+                                        cin>>mail;
+                                        IUsuario->elegirHuesped(mail);
+                                        repetirHues=false;
+                                    }catch(const char *msj){
+                                        cout<< msj<< endl;
+                                        cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
+                                    }
+                                }
+                                int cant;
+                                cout<< "Ingrese cuantos huespedes mas desea agregar a la reserva" <<endl;
+                                cin>>cant;
+                                if (cant>0){
+                                    for (int j=1; j<=cant; j++){                
+                                        try{
+                                            cout<<"Ingrese el mail de uno de sus acompañantes"<<endl;
+                                            cin>>mail;
+                                            IUsuario->elegirHuesped(mail);
+                                            repetirHues=false;
+                                        }catch(const char *msj){
+                                            cout<< msj<< endl;
+                                            cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
+                                        }
+
+                                    }
+                                }
+                                int confirmar;
+                                cout<< "Presione 1 si desea confirmar su Reserva o 0 en caso de querer cancelarla"<<endl;
+                                cin>>confirmar;
+                                if (confirmar==1){
+                                    if (cant>0){
+                                        IUsuario->confirmarAltaReservaIndividual();
+                                    }
+                                    else{
+                                        IUsuario->confirmarAltaReservaGrupal();
+                                    }
+                                }
+                                else{
+                                    IUsuario->cancelarReserva();
+                                }                               
+
+                            }catch(const char* msj){
+                                cout<< msj<<endl;
+                            }
+                        }catch(const char* msj){
+                            cout<< msj<< endl;
+                        }
+                        
+
+                    }catch(const char *msj){
+                        cout<< msj<<endl;
+                    }
                     // //NO LO BORREN 
                     //     string mail;
                     //     RRelegirHuesped1:
@@ -977,12 +1082,12 @@ int main()
 
      cout<<"Reservas cargadas"<<endl;
      */
-                 }
-     break;                //FIN CARGA DE DATOS
-                     default:{
+                 }//FIN CARGA DE DATOS
+     break;                
+                     default:{//DEFAULT
                     iterarWhile=false;
-                }
+                }//DEFAULT
             }//end switch
 	    }//end while
 	return 0;
-}
+}//END MAIN
