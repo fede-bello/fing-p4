@@ -440,9 +440,7 @@ int main()
                     cout<<"debug"<<endl;
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
-                case 5:{//REALIZAR RESERVA
-<<<<<<< HEAD
-                
+                case 5:{//REALIZAR RESERVA                
                     vector<DTHostal> impHos;
                     try{
                         impHos=IHostal->obtenerHostales();
@@ -548,7 +546,6 @@ int main()
                     }catch(const char *msj){
                         cout<< msj<<endl;
                     }
-=======
                     // //NO LO BORREN 
                     //     string mail;
                     //     RRelegirHuesped1:
@@ -621,7 +618,6 @@ int main()
 
                         
                     
->>>>>>> 59f1884e6c73c2761b505503933f2811d8742b92
                   
                 }//FIN REALIZAR RESERVA
                     break;
