@@ -26,22 +26,22 @@ void ImprimirOpciones()
 
 DTFecha digiteFecha(){
         int dia;
-        cout<<"Digite el numero del dia en el que vendra"<<endl;
+        cout<<"Digite el numero del dia "<<endl;
         cin >>dia;
         if(dia>31 && dia<1)
             throw "El dia digitado es erroneo";
         int mes;
-        cout<<"Digite el numero del mes en el que vendra"<<endl;
+        cout<<"Digite el numero del mes "<<endl;
         cin >>mes;
         if(mes>12 && mes<1)
             throw "El mes digitado es erroneo";
         int anio;
-        cout<<"Digite el numero del año en el que vendra"<<endl;
+        cout<<"Digite el numero del año"<<endl;
         cin >>anio;
         if( anio<1900)
             throw "El anio digitado es erroneo";
         int hora;
-        cout<<"Digite la hora en la que vendra"<<endl;
+        cout<<"Digite la hora "<<endl;
         cout<<"Formato militar, sin coma ni puntos"<<endl;
         cin >>hora;
         if( hora<0 && hora>2400)
@@ -444,14 +444,15 @@ int main()
                         int prom;
                         for (int i=0; i<impHos.size(); i++){
                             impHos[i].imprimir();
-                            cout<<endl;
                             IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
                             try{
                                 prom=IHostal->obtenerPromedioCalificaciones();
                                 cout<<"El promedio de calificaciones es: " ;
                                 cout<< prom<<endl;
+                                cout<<endl;
                             }catch(const char* msj){
                                 cout<<msj<<endl;
+                                cout<<endl;
                             }
                         };
                         cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
@@ -501,7 +502,7 @@ int main()
                                     }
                                 }
                                 int cant;
-                                cout<< "Ingrese cuantos huespedes mas desea agregar a la reserva" <<endl;
+                                cout<< "Ingrese cuantos huespedes mas desea agregar a la reserva (0 en caso de ser reserva individual)" <<endl;
                                 cin>>cant;
                                 if (cant>0){
                                     for (int j=1; j<=cant; j++){                
@@ -675,6 +676,66 @@ int main()
                 }//FIN REGISTRAR ESTADIA
                     break;
                 case 8:{// FINALIZAR ESTADIA
+                    vector<DTHostal> impHos;
+                    try{
+                        impHos=IHostal->obtenerHostales();
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl; 
+                        };
+                        bool repetirIngreso=true;
+                        while (repetirIngreso){
+                            try{
+                                cout <<"Ingrese el nombre del hostal"<<endl;
+                                string hostal;
+                                getline(cin,hostal);
+                                getline(cin,hostal);
+                                IHostal->elegirHostal(hostal); //Esto es solo para chequear que el hostal exista en el sistema y sino ya largar la excepcion
+                                repetirIngreso=false;bool repetirHuesped=true;
+                                while (repetirHuesped){
+                                    try{
+                                        cout<<"Ingrese el mail del huesped"<<endl;
+                                        string email;
+                                        getline(cin,email);
+                                        IUsuario->elegirHuesped(email); //Chequeo que el mail exista en el sistema
+                                        repetirHuesped=false;
+                                        //Si existe el mail y el hostal sigo
+                                        try{
+                                            vector<DTEstadia> impEst=IHostal->estadiasHuespedActivas(email);
+                                            for (int i=0; i<impEst.size(); i++){
+                                                impEst[i].imprimir();
+                                                cout<<endl; 
+                                            };
+                                            bool repetirEstadia=true;
+                                            while (repetirEstadia){ //repito hasta que exista el codigo de la estadia
+                                                try{
+                                                    cout<< "Ingrse el codigo de la estadia que quiera finalizar"<<endl;
+                                                    int codigoEst;
+                                                    cin>>codigoEst;
+                                                    IReserva->elegirEstadia(codigoEst);
+                                                    repetirEstadia=false;
+                                                    IReserva->actualizarCheckOutEstadia();
+                                                    IHostal->finalizarEstadia();
+                                                                                                            
+                                                }catch(const char* msj){
+                                                    cout<< msj<<endl;
+                                                }                                                   
+                                            }
+                                        }catch(const char* msj){
+                                            cout<< msj<<endl;
+                                        }
+                                    }catch(const char* msj){
+                                        cout<<msj<<endl;
+                                    }
+                                }                              
+                            }catch(const char* msj){
+                                cout<<msj<<endl;
+                            }
+                        }
+                    }catch(const char* msj){
+                        cout<<msj<<endl;
+                    }
+                                
 
                 }//FIN FINALIZAR ESTADIA
                     break;
