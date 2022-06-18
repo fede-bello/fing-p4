@@ -872,8 +872,8 @@ int main()
                     }catch(const char* c){
 
                     }
-                }//FIN CONSULTA USUARIO
-                    break;
+                }
+                    break;//FIN CONSULTA USUARIO
                 case 12:{// CONSULTA DE HOSTAL
                     vector<DTHostal> impHos;
                     vector<DTCalificacion> impCalif;
@@ -931,8 +931,8 @@ int main()
                     IHostal->liberarMemoria();                   
                                                
                     
-                }//FIN CONSULTA DE HOSTAL
-                    break;
+                }
+                    break;//FIN CONSULTA DE HOSTAL
                 case 13:{// CONSULTA DE RESERVA
                     vector<DTHostal> impHos;
                     vector<DTReserva> impRes;
@@ -988,8 +988,8 @@ int main()
                     } 
 
 
-                }//FIN CONSULTA DE RESERVA
-                    break;
+                }
+                    break;//FIN CONSULTA DE RESERVA
                 case 14:{// CONSULTA DE ESTADIA
                     vector<DTHostal> impHos;
                     vector<DTEstadia> impEst;
@@ -1060,11 +1060,41 @@ int main()
                     }catch(const char* msj){
                         cout<< msj<< endl;
                     } 
-                }//FIN CONSULTA DE ESTADIA
-                    break;
+                }
+                    break;//FIN CONSULTA DE ESTADIA
                 case 15:{// BAJA RESERVA
-                }// FIN BAJA RESERVA
-                    break;
+                    cout<<"Ha digitado Baja de Reserva"<<endl<<endl;
+                    vector<DTHostal> vHostal=IHostal->obtenerHostales();
+                    for(size_t it=0;it<vHostal.size();it++)
+                        vHostal.at(it).imprimir();
+                    
+                    vHostal.clear();
+                    string nombre;
+                    cout<<"Digite el nombre del Hostal"<<endl;
+                    cin.ignore();
+                    getline(cin,nombre);
+                    DTHostal *eHostal=IHostal->elegirHostal(nombre);
+                    vector<DTReserva> vReserva=IHostal->obtenerReservasHostal();
+                    for(size_t it=0;it<vReserva.size();it++)
+                        vReserva.at(it).imprimir();
+                    
+                    vReserva.clear();
+                    int codigoReserva;
+                    cout<<"Digite el numero de la reserva"<<endl;
+                    cin>>codigoReserva;
+                    int verificar;
+                    cout<<"Digite 1 si quiere verificar la baja de la reserva"<<endl;
+                    cin>>verificar;
+                    if(verificar==0) goto cancelarBR;
+                        IHostal->bajaReserva(codigoReserva);
+                    cancelarBR:
+                        
+                        IReserva->eliminarLinksHuesEst(codigoReserva);
+
+
+
+                }
+                    break;// FIN BAJA RESERVA
                  case 16: {
      //CARGA DE DATOS 
 
