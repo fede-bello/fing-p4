@@ -323,7 +323,7 @@ int main()
 
                         
                         cout<<"¿Confirma el alta de la nueva habitacion? Digite 1 en caso de que si, 0 si no."<<endl;
-                        room->Imprimir();
+                        room->imprimir();
 
                         int booleano = 4;
 
@@ -689,6 +689,62 @@ int main()
                 }//FIN CONSULTA USUARIO
                     break;
                 case 12:{// CONSULTA DE HOSTAL
+                    vector<DTHostal> impHos;
+                    vector<DTCalificacion> impCalif;
+                    vector<DTHabitacion> impHab;
+                    vector<DTReserva> impRes;
+                    try{
+                        impHos=IHostal->obtenerHostales();
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl; 
+                        };
+                        cout<<"Ingrese el nombre del hostal del que quiere ver la informacion" <<endl;
+                        string hostal;
+                        cin>>hostal; //Nombre del hostal
+                        try{                            
+                            IHostal->elegirHostal(hostal); //esto lo unico que hace es que el sistema se acuerda del nombre del hostal
+                        }catch(const char* msj){
+                            cout<< msj <<endl;
+                        }
+                        int prom;
+                        try{
+                            impCalif=IHostal->obtenerCalificaciones();
+                            for (int i=0; i<impCalif.size(); i++){
+                                impCalif[i].imprimir();
+                                cout<<endl; 
+                            };
+                            prom=IHostal->obtenerPromedioCalificaciones();
+                            cout<<"El promedio de calificaciones es: " ;
+                            cout<< prom <<endl;
+                            
+                        }catch(const char* msj){
+                            cout<< msj <<endl;
+                        }
+                        try{
+                            impHab=IHostal->obtenerInfoHabitaciones();
+                            for (int i=0; i<impHab.size(); i++){
+                                impHab[i].imprimir();
+                                cout<<endl; 
+                            };
+                        }catch(const char* msj){
+                            cout<< msj <<endl;
+                        }
+                        try{
+                            impRes=IHostal->obtenerReservasHostal();
+                            for (int i=0; i<impRes.size(); i++){
+                                impRes[i].imprimir();
+                                cout<<endl; 
+                            };
+                        }catch(const char* msj){
+                            cout<< msj <<endl;
+                        }
+                    }catch(const char* msj){
+                        cout<< msj<< endl;
+                    }
+                    IHostal->liberarMemoria();                   
+                                               
+                    
                 }//FIN CONSULTA DE HOSTAL
                     break;
                 case 13:{// CONSULTA DE RESERVA

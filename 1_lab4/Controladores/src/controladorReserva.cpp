@@ -81,7 +81,12 @@ vector<DTCalificacion> controladorReserva::darCalificaciones(vector<Reserva> res
             res.push_back(cres[j]);
         }
     }
-    return res;
+    if (res.size()!=0){
+        return res;
+    }
+    else{
+        throw "El hostal no tiene calificaciones asociadas";
+    }
 }
 
 

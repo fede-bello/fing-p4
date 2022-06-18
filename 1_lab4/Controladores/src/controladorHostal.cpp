@@ -80,7 +80,6 @@ void controladorHostal::cancelarAltaHostal(DTHostal *dthostal){
 vector<DTHostal>controladorHostal::obtenerHostales(){
     bool excepcion;
     vector<DTHostal> res;
-
     //Reviso si hay Hostales registrados, si no hay lanzo excepcion
     if(!this->MapaHostal.empty()){ 
         map<string,Hostal*>::iterator it;
@@ -103,7 +102,8 @@ int controladorHostal::getCantidadEstadias(){
 } 
 
     //  VERSION FEDE ELEGIR HOSTAL
-DTHostal *controladorHostal::elegirHostal(string nombre){  
+DTHostal *controladorHostal::elegirHostal(string nombre){
+    this->nombreGuardado=nombre;  
     DTHostal *res;
     if(MapaHostal.find(nombre)!=MapaHostal.end()){
         Hostal *hostal=MapaHostal.find(nombre)->second;
@@ -316,14 +316,24 @@ vector<DTHabitacion> controladorHostal::obtenerInfoHabitaciones(){
     string hostal = this->nombreGuardado;
     Hostal *h = MapaHostal.find(hostal)->second;
     vector<DTHabitacion> res = h->darInfoHabs();
-    return res;
+    if (res.size()!=0){
+        return res;
+    }
+    else{
+        throw "El hostal no contiene habitaciones";
+    }
 }
 
 vector<DTReserva> controladorHostal::obtenerReservasHostal(){
     string hostal = this->nombreGuardado;
     Hostal *h = MapaHostal.find(hostal)->second;
     vector<DTReserva> res = h->darReservasHostal();
-    return res;
+    if (res.size()){
+        return res;
+    }
+    else {
+        throw "El hostal no tiene reservas";
+    }
 }
 
 void controladorHostal::liberarMemoria(){
