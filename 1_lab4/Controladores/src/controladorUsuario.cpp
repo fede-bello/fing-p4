@@ -70,6 +70,7 @@ map<string,DTEmpleado> controladorUsuario::getEmpleados(){
     }
     return res;
 }
+
 map<string,DTHuesped> controladorUsuario::getHuespedes(){
     map<string,DTHuesped> res;
     for(auto &it:MapaHuesped){
@@ -238,6 +239,8 @@ void controladorUsuario::calificarEstadia(int codigo, int calif, string texto){
 //Comentar Calificacion
 
 vector<DTCalificacion> controladorUsuario::calificacionesSinResponder(string mail){
+    if(MapaEmpleado.find(mail)==MapaEmpleado.end())
+        throw "No hay empleado con ese mail";
     Empleado* empl=this->MapaEmpleado.find(mail)->second;
     Hostal *hos=empl->getHostal();
     controladorHostal* ch=controladorHostal::getInstance();

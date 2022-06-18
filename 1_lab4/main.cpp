@@ -69,15 +69,16 @@ int main()
 		switch (FuncionSelecionada) {
                 case 1:{  //ALTA USUARIO
                     cout << "Alta Usuario"  << endl;        
-                    cout<< "Digite su nombre"<<endl;
                     string nombre;
-                    getline(cin,nombre);
-                    getline(cin, nombre);
-                    cout<< "Digite su contraseña"<<endl;
+                    cout<< "Digite su nombre"<<endl;
+                    cin.ignore();
+					getline(cin, nombre);
                     string password;
-                    getline(cin, password);
-                    cout<< "Digite su mail"<<endl;
+                    cout<< "Digite su contraseña"<<endl;
+                    cin.ignore();
+					getline(cin, password);
                     string mail;
+                    cout<< "Digite su mail"<<endl;
                     getline(cin, mail);
                     cout<< "Digite 1 si es un Empleado, de lo contrario 0"<<endl;
                     int esEmpleado;
@@ -104,15 +105,8 @@ int main()
                             case 4:
                                 cargoEmpleado=Infraestructura;
                                 break;}
-                            //EMPIEZO A LLAMAR A LAS FUNCIONES DEL CONTROLADOR
+
                              DTEmpleado *dtusuario=IUsuario->NuevoEmpleado(mail,password,nombre,cargoEmpleado);
-                            // bool salir=true,pedirDatos=false;
-                            // while(salir){
-                            //     map<string,Empleado*>mEmpleado=IUsuario->getEmpleados();
-                            //     map<string,Huesped*>mHuesped=IUsuario->getHuespedes();
-                            //     if(mEmpleado.find(mail)==mEmpleado.end() && mHuesped.find(mail)==mHuesped.end())
-                               
-                            //  }
 
                             bool excepcion = false;
                             
@@ -233,15 +227,17 @@ int main()
                 break;//FIN ALTA USUARIO 
                 case 2:{ //ALTA DE HOSTAL
                     cout << "Alta de Hostal"  << endl;
-                    cout<< "Digite el nombre del Hostal"<<endl;
                     string nombre;
-                    getline(cin,nombre);//Esta hecho asi a proposito, creo que sino toma un espacio en blanco
-                    getline(cin,nombre);
-                    cout<< "Digite la direccion del Hostal"<<endl;
+                    cout<< "Digite el nombre del Hostal"<<endl;
+                    cin.ignore();
+					getline(cin, nombre);
                     string direccion;
+                    cout<< "Digite la direccion del Hostal"<<endl;
+                    cin.ignore();
                     getline(cin,direccion);
-                    cout<< "Digite el Telefono del Hostal"<<endl;
                     string Telefono;
+                    cout<< "Digite el Telefono del Hostal"<<endl;
+                    cin.ignore();
                     getline(cin,Telefono); 
                     bool excepcion = false;
                     
@@ -293,6 +289,7 @@ int main()
 
                         string nombreHos;
                         cout<<"Hostal elegido: "<<endl;
+                        cin.ignore();
                         getline(cin,nombreHos);
                         
                         DTHostal* DThostalElegido = IHostal->elegirHostal(nombreHos);
@@ -364,7 +361,7 @@ int main()
                             cout<<"Ingrese el nombre del hostal al que quiere asignar el empleado" <<endl;
                             string hostal;
                         elegirHostal:  //label   
-                            getline(cin,hostal);
+                            cin.ignore();
                             getline(cin,hostal); //Nombre del hostal
                             try{                            
                                 IHostal->elegirHostal(hostal); //esto lo unico que hace es que el sistema se acuerda del nombre del hostal
@@ -441,114 +438,6 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
-<<<<<<< HEAD
-                
-                    vector<DTHostal> impHos;
-                    try{
-                        impHos=IHostal->obtenerHostales();
-                        int prom;
-                        for (int i=0; i<impHos.size(); i++){
-                            impHos[i].imprimir();
-                            cout<<endl;
-                            IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
-                            try{
-                                prom=IHostal->obtenerPromedioCalificaciones();
-                                cout<<"El promedio de calificaciones es: " ;
-                                cout<< prom<<endl;
-                            }catch(const char* msj){
-                                cout<<msj<<endl;
-                            }
-                        };
-                        cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
-                        string hostal;
-                        cin>>hostal; //Nombre del hostal
-                        IHostal->elegirHostal(hostal);
-                        cout<<"Indique la fecha de Check In" <<endl;
-                        DTFecha In=digiteFecha();
-                        cout<<"Indique la fecha de Check Out" <<endl;
-                        DTFecha Out=digiteFecha();
-                        try{
-                            vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
-                            for(int i=0; i<impHab.size(); i++){
-                               impHab[i].imprimir();
-                            }
-                            cout<< "Ingrese el numero de habitacion que quiera seleccionar: "<<endl;
-                            int hab;
-                            
-                            bool repetirHab=true;                            
-                            while (repetirHab){ //Pongo numero habitacion hasta que exista en el sistema
-                                cin>>hab;
-                                try{
-                                    IHostal->elegirHabitacion(hab);
-                                    repetirHab=false;
-                                }catch(const char* msj){
-                                    cout<<msj<<endl;
-                                    cout<< "Por favor ingrese nuevamente el numero de la habitacion"<<endl;
-                                }
-                            }                                
-
-                            try {
-                                vector<DTHuesped> impHues=IUsuario->obtenerHuespedes();
-                                for(int i=0; i<impHues.size(); i++){
-                                    impHues[i].imprimir();
-                                }
-                                cout<<"Ingrese el mail del huesped que realizar la reserva"<<endl;
-                                string mail;
-                                bool repetirHues=true;
-                                while (repetirHues){ //Pongo mail Huesped hasta que exista en el sistema
-                                    try{
-                                        cin>>mail;
-                                        IUsuario->elegirHuesped(mail);
-                                        repetirHues=false;
-                                    }catch(const char *msj){
-                                        cout<< msj<< endl;
-                                        cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
-                                    }
-                                }
-                                int cant;
-                                cout<< "Ingrese cuantos huespedes mas desea agregar a la reserva" <<endl;
-                                cin>>cant;
-                                if (cant>0){
-                                    for (int j=1; j<=cant; j++){                
-                                        try{
-                                            cout<<"Ingrese el mail de uno de sus acompañantes"<<endl;
-                                            cin>>mail;
-                                            IUsuario->elegirHuesped(mail);
-                                            repetirHues=false;
-                                        }catch(const char *msj){
-                                            cout<< msj<< endl;
-                                            cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
-                                        }
-
-                                    }
-                                }
-                                int confirmar;
-                                cout<< "Presione 1 si desea confirmar su Reserva o 0 en caso de querer cancelarla"<<endl;
-                                cin>>confirmar;
-                                if (confirmar==1){
-                                    if (cant>0){
-                                        IUsuario->confirmarAltaReservaIndividual();
-                                    }
-                                    else{
-                                        IUsuario->confirmarAltaReservaGrupal();
-                                    }
-                                }
-                                else{
-                                    IUsuario->cancelarReserva();
-                                }                               
-
-                            }catch(const char* msj){
-                                cout<< msj<<endl;
-                            }
-                        }catch(const char* msj){
-                            cout<< msj<< endl;
-                        }
-                        
-
-                    }catch(const char *msj){
-                        cout<< msj<<endl;
-                    }
-=======
                     // //NO LO BORREN 
                     //     string mail;
                     //     RRelegirHuesped1:
@@ -621,7 +510,6 @@ int main()
 
                         
                     
->>>>>>> 59f1884e6c73c2761b505503933f2811d8742b92
                   
                 }//FIN REALIZAR RESERVA
                     break;
@@ -761,7 +649,28 @@ int main()
                 }//FIN CALIFICAR ESTADIA
                     break;
                 case 10:{// COMENTAR CALIFICACION
-                    vector<DTCalificacion> vCalificacion=IUsuario->calificacionesSinResponder();
+                    string mail;
+                    cout<<"Digite su mail"<<endl;
+                    cin>>mail;
+                    ComentarCalificacion:
+                    vector<DTCalificacion> vCalificacion;
+                    try{
+                        vector<DTCalificacion> vCalificacion=IUsuario->calificacionesSinResponder(mail);
+                    }catch(...){
+                        cout<<"No existe un empleado con ese mail"<<endl;
+                        goto ComentarCalificacion;
+                    }
+                    for(size_t i=0;i<vCalificacion.size();i++){
+                        vCalificacion.at(i).imprimir();
+                    }
+                    vCalificacion.clear();
+                    int identificadorCal;
+                    cout<<"Digite el identificador de la calificacion"<<endl;
+                    cin>> identificadorCal;
+                    string respuesta;
+
+
+                    
                 }//FIN COMENTAR CALIFICACION
                     break;
                 case 11:{// CONSULTA USUARIO

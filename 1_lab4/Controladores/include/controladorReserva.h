@@ -14,8 +14,9 @@ private:
     controladorReserva();
     map<int,Reserva*> MapaReserva;
     DTReserva *ReservaGuardada;
-    int codigoRes, codigoEst;
+    
 public:
+    int codigoRes=1000, codigoEst=1000,codigoCalificacion=1000;
     static controladorReserva * getInstance();
     void ModificarReservaActual(DTReserva nueva);
     ~controladorReserva();
@@ -56,6 +57,7 @@ public:
     int codigoReserva(vector<Reserva> res, int codigo);//falta
     // Baja de Reserva
     void eliminarLinksHuesEst(int codigo);
+
 };
 
 

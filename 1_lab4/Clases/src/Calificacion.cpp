@@ -18,6 +18,7 @@ Calificacion::Calificacion(int Numero,string Comentario,string Respuesta, DTFech
     this->Identificador=Identificador;
     
 }
+
 int Calificacion::getNumero(){
     return this->Numero;
 }
