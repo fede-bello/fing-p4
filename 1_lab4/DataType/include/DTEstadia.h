@@ -16,7 +16,7 @@ class DTEstadia{
         //promo y costo ya no son necesarios
     public:
         DTEstadia();
-        DTEstadia(int identidicador,DTFecha CheckIn,DTFecha CheckOut);
+        DTEstadia(int identificador,DTFecha CheckIn,DTFecha CheckOut);
         //no se si se precisa esto
         int getIdentificador();
         DTFecha getCheckIn();

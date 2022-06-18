@@ -96,7 +96,10 @@ vector<DTHostal>controladorHostal::obtenerHostales(){
     return res;
 }
 
- 
+
+int controladorHostal::getCantidadEstadias(){
+    return this->cantidadEstadias;
+} 
 
     //  VERSION FEDE ELEGIR HOSTAL
 DTHostal *controladorHostal::elegirHostal(string nombre){

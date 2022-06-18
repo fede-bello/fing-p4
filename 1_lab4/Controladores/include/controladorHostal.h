@@ -15,12 +15,14 @@ private:
     string nombreGuardado;
     int codigoEstadiaGuardado;
     int numHabGuardado;
+    int cantidadEstadias = 0;
     DTFecha inGuardado, outGuardado;
 public:
     static controladorHostal * getInstance();
     void liberar();
     ~controladorHostal();
     DTHostal *getHostal();
+    int getCantidadEstadias();
     string getNombre();
     map<string,Hostal*> getMapaHostal();
     //Alta de Usuario
