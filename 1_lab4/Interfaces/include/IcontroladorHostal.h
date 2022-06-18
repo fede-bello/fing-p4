@@ -9,6 +9,7 @@ class IcontroladorHostal{
         virtual ~IcontroladorHostal(){};
         virtual void liberar() = 0;
         virtual DTHostal *getHostal() = 0;
+        virtual int getCantidadEstadias() = 0;
         virtual string getNombre() = 0;
         virtual map<string,Hostal*> getMapaHostal() = 0;
         //Alta de Usuario

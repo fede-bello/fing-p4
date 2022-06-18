@@ -259,6 +259,11 @@ int main()
                     cout<<"Alta de Habitacion"<<endl;
                     vector<DTHostal> listaHostales = IHostal->obtenerHostales();
 
+                    for (int i=0; i<listaHostales.size(); i++){
+                        listaHostales[i].imprimir();
+                        cout<<endl; 
+                    }
+
                     if(listaHostales.empty()){
                         cout<<"No hay hostales registrados en el sistema para hacer el alta."<<endl;
                     }else{
@@ -555,6 +560,91 @@ int main()
                 }//FIN CONSULTA TOP 3 HOSTALES
                     break;
                 case 7:{// REGISTRAR ESTADIA
+                    cout<<"Registrar Estadia"<<endl;
+
+                    vector<DTHostal> hostales = IHostal->obtenerHostales();
+
+                    for (int i=0; i<hostales.size(); i++){
+                        hostales[i].imprimir();
+                        cout<<endl; 
+                    }
+
+                    cout<<"Elija el hostal donde se realizará la estadía:"<<endl;
+                    string nombreHosElegido;
+                    cin>>nombreHosElegido;
+                    
+                    bool estaHostalElegido = false; //Flag para que si no está pueda volver
+
+                    DTHostal * DTHostalElegido;
+
+                    while(!estaHostalElegido){
+                        try{
+                            DTHostalElegido = IHostal->elegirHostal(nombreHosElegido);
+                            estaHostalElegido = true; //si no fue al catch pongo la flag en true para que no vuelva a entrar al while
+                        }catch(const char* msj){
+                            cout<<msj<<endl;
+                            cout<<"Elija un hostal de la lista:"<<endl;
+
+                            for (int i=0; i<hostales.size(); i++){
+                                hostales[i].imprimir();
+                                cout<<endl; 
+                            }
+
+                            cin>>nombreHosElegido;
+                        }
+                    }   
+
+                    Hostal * hostalElegido = new Hostal(DTHostalElegido->getNombre(), DTHostalElegido->getDireccion(), DTHostalElegido->getTelefono());
+
+                    cout<<"Ingrese el mail del huesped a registrar:"<<endl;
+                    string email;
+                    cin>>email;
+
+                    vector<DTReserva> vectRes = IHostal->obtenerReservasHuesped(email, nombreHosElegido);
+                    
+                    for (int i=0; i<vectRes.size(); i++){
+                        vectRes[i].imprimir();
+                        cout<<endl; 
+                    }
+                    
+                    cout<<"Ingrese el codigo de reserva a registrar:"<<endl;
+                    int codigoResElegido;
+                    cin>>codigoResElegido;
+
+                    bool estaReservaElegida = false; 
+                    bool flagSeleccionadaOk = false; //Flag para que si no está pueda volver
+                    int iter = 0;
+
+                    while(!flagSeleccionadaOk){
+                        while((iter < vectRes.size()) && (!estaReservaElegida)){
+                            estaReservaElegida = (vectRes[iter].getCodigo() == codigoResElegido);
+                            iter++;
+                        }
+
+                        if(!estaReservaElegida){
+                            cout<<"Ingrese un codigo de reserva de los de la lista de reservas:"<<endl;
+
+                            for (int i=0; i<vectRes.size(); i++){
+                                vectRes[i].imprimir();
+                                cout<<endl; 
+                            }
+                            
+                            cin>>codigoResElegido;
+
+                        }else{
+                            flagSeleccionadaOk = true; //salgo del while porque está ok el codigo de reserva elegido
+                        }
+                    }
+                    
+                    //tengo que crear la estadia
+                    DTEstadia a_registrar = DTEstadia(IHostal->getCantidadEstadias(), IFecha->getFechaActual(), DTFecha());
+
+                    IReserva->registrarEstadia(codigoResElegido);
+                    
+                    IReserva->actualizarEstadoReservaCerrada(codigoResElegido);
+
+                    // DTHostal DTHosElegido = 
+
                 }//FIN REGISTRAR ESTADIA
                     break;
                 case 8:{// FINALIZAR ESTADIA
