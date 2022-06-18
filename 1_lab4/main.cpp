@@ -1,4 +1,5 @@
 #include "Interfaces/include/Factory.h"
+using namespace std;
 
 void ImprimirOpciones()
 {   
@@ -70,14 +71,14 @@ int main()
                     cout << "Alta Usuario"  << endl;        
                     cout<< "Digite su nombre"<<endl;
                     string nombre;
-                    cin.ignore();
-                    cin>>nombre;
+                    getline(cin,nombre);
+                    getline(cin, nombre);
                     cout<< "Digite su contraseña"<<endl;
                     string password;
-                    cin>>password;
+                    getline(cin, password);
                     cout<< "Digite su mail"<<endl;
                     string mail;
-                    cin>>mail;
+                    getline(cin, mail);
                     cout<< "Digite 1 si es un Empleado, de lo contrario 0"<<endl;
                     int esEmpleado;
                     cin>>esEmpleado;
@@ -136,7 +137,7 @@ int main()
 
                                     while(!actualizacionExitosa){
                                         cout<<"Escriba el nuevo mail:"<<endl;
-                                        cin>>mail;
+                                        getline(cin,mail);
                                         try{
                                             IUsuario->ActualizarMail(dtusuario, mail);
                                             actualizacionExitosa = true; //salgo del while
@@ -198,7 +199,7 @@ int main()
 
                                     while(!actualizacionExitosa){
                                         cout<<"Escriba el nuevo mail:"<<endl;
-                                        cin>>mail;
+                                        getline(cin,mail);
                                         try{
                                             IUsuario->ActualizarMail(dtusuario, mail);
                                             actualizacionExitosa = true; //salgo del while
@@ -234,13 +235,14 @@ int main()
                     cout << "Alta de Hostal"  << endl;
                     cout<< "Digite el nombre del Hostal"<<endl;
                     string nombre;
-                    cin>>nombre;
+                    getline(cin,nombre);//Esta hecho asi a proposito, creo que sino toma un espacio en blanco
+                    getline(cin,nombre);
                     cout<< "Digite la direccion del Hostal"<<endl;
                     string direccion;
-                    cin>>direccion;
+                    getline(cin,direccion);
                     cout<< "Digite el Telefono del Hostal"<<endl;
                     string Telefono;
-                    cin>>Telefono;
+                    getline(cin,Telefono); 
                     bool excepcion = false;
                     
                     DTHostal *nuevo = IHostal->nuevoHostal(nombre,direccion,Telefono);
@@ -291,7 +293,7 @@ int main()
 
                         string nombreHos;
                         cout<<"Hostal elegido: "<<endl;
-                        cin>>nombreHos;
+                        getline(cin,nombreHos);
                         
                         DTHostal* DThostalElegido = IHostal->elegirHostal(nombreHos);
                         
@@ -362,7 +364,8 @@ int main()
                             cout<<"Ingrese el nombre del hostal al que quiere asignar el empleado" <<endl;
                             string hostal;
                         elegirHostal:  //label   
-                            cin>>hostal; //Nombre del hostal
+                            getline(cin,hostal);
+                            getline(cin,hostal); //Nombre del hostal
                             try{                            
                                 IHostal->elegirHostal(hostal); //esto lo unico que hace es que el sistema se acuerda del nombre del hostal
                                 try{
@@ -438,7 +441,7 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
-                /*
+                
                     vector<DTHostal> impHos;
                     try{
                         impHos=IHostal->obtenerHostales();
@@ -451,7 +454,7 @@ int main()
                                 prom=IHostal->obtenerPromedioCalificaciones();
                                 cout<<"El promedio de calificaciones es: " ;
                                 cout<< prom<<endl;
-                            }catch(const char* endl){
+                            }catch(const char* msj){
                                 cout<<msj<<endl;
                             }
                         };
@@ -466,12 +469,85 @@ int main()
                         try{
                             vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
                             for(int i=0; i<impHab.size(); i++){
-                                //IMPRIMIR LAS HABITACIONES QUE RECIBI, SI NO HAY HABITACIONES DEVOLVER EXCEPCION Y SEGUIR A PARTIR DE ELEGIR HABITACION
+                               impHab[i].imprimir();
                             }
-                        }
+                            cout<< "Ingrese el numero de habitacion que quiera seleccionar: "<<endl;
+                            int hab;
+                            
+                            bool repetirHab=true;                            
+                            while (repetirHab){ //Pongo numero habitacion hasta que exista en el sistema
+                                cin>>hab;
+                                try{
+                                    IHostal->elegirHabitacion(hab);
+                                    repetirHab=false;
+                                }catch(const char* msj){
+                                    cout<<msj<<endl;
+                                    cout<< "Por favor ingrese nuevamente el numero de la habitacion"<<endl;
+                                }
+                            }                                
 
+                            try {
+                                vector<DTHuesped> impHues=IUsuario->obtenerHuespedes();
+                                for(int i=0; i<impHues.size(); i++){
+                                    impHues[i].imprimir();
+                                }
+                                cout<<"Ingrese el mail del huesped que realizar la reserva"<<endl;
+                                string mail;
+                                bool repetirHues=true;
+                                while (repetirHues){ //Pongo mail Huesped hasta que exista en el sistema
+                                    try{
+                                        cin>>mail;
+                                        IUsuario->elegirHuesped(mail);
+                                        repetirHues=false;
+                                    }catch(const char *msj){
+                                        cout<< msj<< endl;
+                                        cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
+                                    }
+                                }
+                                int cant;
+                                cout<< "Ingrese cuantos huespedes mas desea agregar a la reserva" <<endl;
+                                cin>>cant;
+                                if (cant>0){
+                                    for (int j=1; j<=cant; j++){                
+                                        try{
+                                            cout<<"Ingrese el mail de uno de sus acompañantes"<<endl;
+                                            cin>>mail;
+                                            IUsuario->elegirHuesped(mail);
+                                            repetirHues=false;
+                                        }catch(const char *msj){
+                                            cout<< msj<< endl;
+                                            cout<<"Por favor ingrese nuevamente el mail del Huesped"<<endl;
+                                        }
+
+                                    }
+                                }
+                                int confirmar;
+                                cout<< "Presione 1 si desea confirmar su Reserva o 0 en caso de querer cancelarla"<<endl;
+                                cin>>confirmar;
+                                if (confirmar==1){
+                                    if (cant>0){
+                                        IUsuario->confirmarAltaReservaIndividual();
+                                    }
+                                    else{
+                                        IUsuario->confirmarAltaReservaGrupal();
+                                    }
+                                }
+                                else{
+                                    IUsuario->cancelarReserva();
+                                }                               
+
+                            }catch(const char* msj){
+                                cout<< msj<<endl;
+                            }
+                        }catch(const char* msj){
+                            cout<< msj<< endl;
+                        }
+                        
+
+                    }catch(const char *msj){
+                        cout<< msj<<endl;
                     }
-                */  
+                  
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
