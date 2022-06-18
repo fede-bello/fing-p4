@@ -834,9 +834,6 @@ int main()
                 case 15:{// BAJA RESERVA
                 }// FIN BAJA RESERVA
                     break;
-                default:{
-                    iterarWhile=false;
-                }
                  case 16: {
      //CARGA DE DATOS 
 
@@ -918,9 +915,11 @@ int main()
 
      cout<<"Reservas cargadas"<<endl;
      */
-
-
-     break;                }//FIN CARGA DE DATOS
+                 }
+     break;                //FIN CARGA DE DATOS
+                     default:{
+                    iterarWhile=false;
+                }
             }//end switch
 	    }//end while
 	return 0;
