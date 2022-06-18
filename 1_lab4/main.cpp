@@ -438,40 +438,79 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
-                /*
-                    vector<DTHostal> impHos;
-                    try{
-                        impHos=IHostal->obtenerHostales();
-                        int prom;
-                        for (int i=0; i<impHos.size(); i++){
-                            impHos[i].imprimir();
-                            cout<<endl;
-                            IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
-                            try{
-                                prom=IHostal->obtenerPromedioCalificaciones();
-                                cout<<"El promedio de calificaciones es: " ;
-                                cout<< prom<<endl;
-                            }catch(const char* endl){
-                                cout<<msj<<endl;
-                            }
-                        };
-                        cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
-                        string hostal;
-                        cin>>hostal; //Nombre del hostal
-                        IHostal->elegirHostal(hostal);
-                        cout<<"Indique la fecha de Check In" <<endl;
-                        DTFecha In=digiteFecha();
-                        cout<<"Indique la fecha de Check Out" <<endl;
-                        DTFecha Out=digiteFecha();
-                        try{
-                            vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
-                            for(int i=0; i<impHab.size(); i++){
-                                //IMPRIMIR LAS HABITACIONES QUE RECIBI, SI NO HAY HABITACIONES DEVOLVER EXCEPCION Y SEGUIR A PARTIR DE ELEGIR HABITACION
-                            }
-                        }
+                    // //NO LO BORREN 
+                    //     string mail;
+                    //     RRelegirHuesped1:
+                    //     cout<<"Digite su mail"<<endl;
+                    //     cin>>mail; //ELEGIR USUARIO
+                    //     try{
+                    //         DTHuesped *usuarioReservando=IUsuario->elegirHuesped();
+                    //     }catch(...){
+                    //         cout<<"Ningun huesped esta registrado con ese mail"<<endl;
+                    //         goto RRelegirHuesped1;
+                    //     }
+                        
 
-                    }
-                */  
+                    //     vector<DTHostal> impHos;
+                    //     impHos=IHostal->obtenerHostales();
+                    //     float prom;
+                    //     for (int i=0; i<impHos.size(); i++){
+                    //         impHos[i].imprimir();
+                    //         cout<<endl;
+                    //         IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
+                    //         string msj;
+                    //         try{
+                    //             prom=IHostal->obtenerPromedioCalificaciones();
+                    //             cout<<"El promedio de calificaciones es: " ;
+                    //             cout<< prom<<endl;
+                                
+                    //         }catch(const char* endl){
+                    //              cout<<msj<<endl;
+                    //         }
+                    //     };
+                    //     cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
+                    //     string hostal;
+                    //     cin>>hostal; //Nombre del hostal
+                    //     IHostal->elegirHostal(hostal);
+                    //     DTFecha In,Out;
+                    //     fechas:
+                    //     try{
+                    //         cout<<"Indique la fecha de Check In" <<endl;
+                    //         DTFecha In=digiteFecha();
+                    //         cout<<"Indique la fecha de Check Out" <<endl;
+                    //         DTFecha Out=digiteFecha();
+                    //     }catch(...){
+                    //         cout<<"La fecha no fue digitada correctamente"<<endl;
+                    //         goto fechas;
+                    //     }
+                    //     elegirHabitacion:
+                    //     vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
+                    //      try{
+                    //         for(int i=0; i<impHab.size(); i++){
+                    //             impHab.at(i).imprimir();
+                    //         }
+                    //         int numero;
+                    //         cout<<"Digite el numero de la habitacion"<<endl;
+                    //         cin>>numero;
+                    //     }catch(...){
+                    //         cout<<"Ninguna habitacion se llama de ese nombre"<<endl;
+                    //         goto elegirHabitacion;
+                    //     }
+                    //     int esGrupal;
+                    //     cout<<"Digite 1 si es una reserva Grupal"<<endl;
+                    //     cin>>grupal;
+                    //     if(esGrupal==1) goto RRgrupal:
+                    //     //CASO EN EL QUE ES RESERVA INDIVIDUAL
+
+
+
+                    //     //CASO EN EL QUE ES RESERVA GRUPAL
+                    //     RRgrupal;
+
+
+                        
+                    
+                  
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
