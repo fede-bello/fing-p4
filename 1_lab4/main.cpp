@@ -19,7 +19,8 @@ void ImprimirOpciones()
     cout << "12 -> Consulta de Hostal" << endl;
     cout << "13 -> Consulta de Reserva" << endl;
     cout << "14-> Consulta de Estadia" << endl;
-    cout << "15 -> Baja de Reserva" << endl<<endl;
+    cout << "15 -> Baja de Reserva" << endl;
+    cout << "16 -> Carga de datos" <<endl<<endl;
 }
 
 DTFecha digiteFecha(){
@@ -835,7 +836,91 @@ int main()
                     break;
                 default:{
                     iterarWhile=false;
-                }  
+                }
+                 case 16: {
+     //CARGA DE DATOS 
+
+//Datos de prueba Húespedes
+     cout << "Cargando Húespedes" << endl;
+     IUsuario->ConfirmarAltaHuesped(IUsuario->NuevoHuesped("sofia@mail.com", "123", "Sofía", true));
+     IUsuario->ConfirmarAltaHuesped(IUsuario->NuevoHuesped("frodo@mail.com", "123", "Frodo", true));
+     IUsuario->ConfirmarAltaHuesped(IUsuario->NuevoHuesped("sam@mail.com", "123", "Sam", false));
+     IUsuario->ConfirmarAltaHuesped(IUsuario->NuevoHuesped("merry@mail.com", "123", "Merry", false));
+     IUsuario->ConfirmarAltaHuesped(IUsuario->NuevoHuesped("seba@mail.com", "123", "Seba", true));
+     //Datos de prueba Empleados
+     cout << "Cargando Empleados" << endl;
+     IUsuario->ConfirmarAltaEmpleado(IUsuario->NuevoEmpleado("emilia@mail.com", "123", "Emilia", Recepcion));
+
+     IUsuario->ConfirmarAltaEmpleado(IUsuario->NuevoEmpleado("leo@mail.com", "123", "Leonardo", Recepcion));
+
+     IUsuario->ConfirmarAltaEmpleado(IUsuario->NuevoEmpleado("alina@mail.com", "123", "Alina", Administracion));
+
+     IUsuario->ConfirmarAltaEmpleado(IUsuario->NuevoEmpleado("barli@mail.com", "123", "Barliman", Recepcion));
+
+     //Hostels
+     cout << "Cargando Hostales" << endl;
+     IHostal->confirmarAltaHostal(IHostal->nuevoHostal("La posada del finger", "Av de la playa 123, Maldonado", "099111111"));
+     IHostal->confirmarAltaHostal(IHostal->nuevoHostal("Mochileros", "Rambla Costanera 333, Rocha", "42579512"));
+     IHostal->confirmarAltaHostal(IHostal->nuevoHostal("El Pony Pisador", "Bree (Preguntar por Gandalf)", "000"));
+     IHostal->confirmarAltaHostal(IHostal->nuevoHostal("Altos de Fing", "Av. del toro 1424", "099892992"));
+     IHostal->confirmarAltaHostal(IHostal->nuevoHostal("Caverna Lujosa", "Amaya 2515", "233233235"));
+
+     //Habitaciones
+     cout << "Cargando Habitaciones y asignación a Hostales" << endl;
+     DTHostal* DThostalElegido = IHostal->elegirHostal("La posada del finger");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(1, 2, 40.0));//Asocia la habitación a   Hostal  HO1
+
+     DThostalElegido = IHostal->elegirHostal("La posada del finger");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(2, 7, 10.0));//Asociar  Hostal  H01
+
+     DThostalElegido = IHostal->elegirHostal("La posada del finger");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(3, 3, 30.0));//Asociar  Hostal  H01
+
+     DThostalElegido = IHostal->elegirHostal("La posada del finger");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(4, 12, 5.0));//Asociar  Hostal  H01
+
+     DThostalElegido = IHostal->elegirHostal("Caverna Lujosa");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(1, 2, 3.0));//Asociar  Hostal   H05
+
+     DThostalElegido = IHostal->elegirHostal("El Pony Pisador");
+     IHostal->confirmarAltaHabitacion(IHostal->nuevaHabitacion(1, 5, 9.0));//Asociar  Hostal   H03
+
+     //Empleados a Hostal 
+     /*
+     cout<<"Asignando empleados a Hostal"<<endl;
+     IHostal->elegirHostal("La posada del finger");//Asigno a Emilia H01
+     IUsuario->ActualizarCargo("emilia@mail.com",Recepcion);
+     IUsuario->AsignarEmpleado();
+
+     IHostal->elegirHostal("Mochileros");//Asigno a Leonardo H02
+     IUsuario->ActualizarCargo("leo@mail.com",Recepcion);
+     IUsuario->AsignarEmpleado();
+
+     IHostal->elegirHostal("Mochileros");//Asigno a Alina H02
+     IUsuario->ActualizarCargo("alina@mail.com",Administracion);
+     IUsuario->AsignarEmpleado();
+
+     IHostal->elegirHostal("sador");//Asigno a Barliman H03
+     IUsuario->ActualizarCargo("barli@mail.com",Recepcion);
+     IUsuario->AsignarEmpleado();*/
+     //RESERVAS
+     /*
+     //Reserva en H01 hab HA1 individual huesped H1
+
+     IUsuario->setEmail("sofia@mail.com");
+     DTFecha in=DTFecha(1,5,22,2);
+     DTFecha out=DTFecha(10,5,22,10);
+     IHostal->elegirHostal("La posada del finger");
+     DTHabitacion room=IHostal->elegirHabitacion(1);
+     IUsuario->confirmarAltaReservaIndividual();
+
+
+
+     cout<<"Reservas cargadas"<<endl;
+     */
+
+
+     break;                }//FIN CARGA DE DATOS
             }//end switch
 	    }//end while
 	return 0;
