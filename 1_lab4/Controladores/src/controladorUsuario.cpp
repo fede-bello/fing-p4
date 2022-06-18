@@ -199,11 +199,22 @@ vector<DTHuesped> controladorUsuario::obtenerHuespedes(){
 }
 
 DTHuesped controladorUsuario::elegirHuesped(string Mail){
-    DTHuesped hues=MapaHuesped.find(Mail)->second->getDTHuesped();
-   
-    ArregloEmail.push_back(Mail);
-    return hues;
+     if(MapaHuesped.find(Mail)!=MapaHuesped.end()){
+        //Lo hallé y es Huesped
+        DTHuesped hues;
+        hues= MapaHuesped.find(Mail)->second->getDTHuesped();
+        DTHuesped h=DTHuesped(hues.getNombre(), hues.getPassword(), hues.getMail(), hues.getEsFinger());
+        return h;
+    }
+    else if (MapaEmpleado.find(Mail)!=MapaEmpleado.end()){//es Empleado
+        throw "El email no corresponde a ningun Huesped";
+    }
+    else {//no lo encontre
+        throw "El email no corresponde a ningun Huesped";
+    }
+
 }
+
 
 void controladorUsuario::confirmarAltaReservaIndividual(){
     string email=this->ArregloEmail[0];//Si hay solo un mail esta guardado en la posicion 0
@@ -280,7 +291,7 @@ DTUsuario* controladorUsuario::elegirUsuario(string email){
         throw "El email no corresponde a ningun usuario";
     }
 
-   }
+}
 
 
 void controladorUsuario::informacionUsuario(DTUsuario usuarioInfo){
