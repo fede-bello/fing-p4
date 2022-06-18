@@ -178,7 +178,13 @@ vector<DTHabitacion> Hostal::habitacionesDisponibles(DTFecha in, DTFecha out){
             hab.push_back(it->second->getDTHabitacion());
         }
     }
-    return hab;
+    if (hab.empty()){
+        throw "El hostal no tiene habitaciones disponibles en esas fechas";
+    }
+    else{
+        return hab;
+    }
+    
 }
 
 DTHabitacion Hostal::buscarHabitacion(int numero){
