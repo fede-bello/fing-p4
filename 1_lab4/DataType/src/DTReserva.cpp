@@ -49,7 +49,24 @@ bool DTReserva:: operator== (const DTReserva &r1) const{
     return (this->Codigo==r1.Codigo);
 }
 
-
+void DTReserva::imprimir(){
+    cout<< "el codigo de la reserva es: ";
+    cout<< this->Codigo<<endl;
+    cout<< "La fecha de checkIn es: ";
+    this->CheckIn.imprimir();
+    cout<<endl;
+    if (this->Estado==Cerrada){
+        cout<< "La fecha de checkout es: ";
+        this->CheckOut.imprimir(); 
+        cout <<endl;
+        cout<< "El estado de la reserva es: Abierta";
+    }
+    else {    
+        cout<< "El estado de la reserva es: Cerrada";
+    }    
+    cout<< "El costo de la reserva es: ";
+    cout<< this->Costo <<endl;
+}
 
 //Destructoras
 

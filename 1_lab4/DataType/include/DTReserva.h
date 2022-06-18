@@ -7,7 +7,7 @@
 #include "DTFecha.h"
 
 enum EstadoReserva {
-    Abierta, Cerrada, cancelada  
+    Abierta, Cerrada, cancelada
 };
 
 
