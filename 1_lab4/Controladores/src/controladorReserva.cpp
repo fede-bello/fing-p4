@@ -36,12 +36,25 @@ controladorReserva::~controladorReserva(){
 
 
 float controladorReserva::darPromedio(vector<Reserva> reservas){
+    int suma;
+    int parcial;
+    bool existe=false;
     for (int i=0; i=reservas.size(); i++){
-        reservas[i].calcularPromedioReserva();
+        parcial=reservas[i].calcularPromedioReserva();
+        if (parcial!= -1){
+            suma=suma+parcial;
+            existe=true;
+        }
     }
-
-    return 0; 
+    if (existe){
+        return suma/parcial; 
+    }
+    else{
+        throw "El hostal no tiene calificaciones asociadas";
+    }
+   
 }
+    
 
 //Aca capaz falta algun dynamic cast
 Reserva* controladorReserva::getReservaInd(Huesped *u){

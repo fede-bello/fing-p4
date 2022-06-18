@@ -105,7 +105,7 @@ float Reserva::calcularPromedioReserva(){
         return suma/i; //Devuelvo el promedio
     }
     else {
-        return 0; //Devuelvo 0 si no tiene calificaciones asociadas
+        return -1; //Devuelvo 0 si no tiene calificaciones asociadas
     }
 }
 

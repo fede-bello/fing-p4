@@ -437,88 +437,40 @@ int main()
                 }//FIN ASIGNAR EMPLEADO A HOSTAL
                     break;
                 case 5:{//REALIZAR RESERVA
-                    cout<<"Ha digitado realizar Reserva"<<endl<<endl; 
-                    string mail;    //elegirUsuario
-                    cout<<"Digite su mail"<<endl;
-                    cin>>mail;
-                    elegirUsuarioRR1://
+                /*
+                    vector<DTHostal> impHos;
                     try{
-                        map<string,DTHuesped> mHuesped=IUsuario->getHuespedes();
-                        if(mHuesped.find(mail)==mHuesped.end())
-                            throw "No hay huesped con ese mail";
-                        IUsuario->setEmail(mail);
-                    }
-                    catch(...){
-                        cout<<"No hay ningun huesped con ese nombre"<<endl;
-                        goto elegirUsuarioRR1;
-                    }//obtenerCalificaciones
-                    vector<DTCalificacion>vCalificacion=IHostal->obtenerCalificaciones();
-                    for(size_t it=0;it<vCalificacion.size();it++){
-                        DTCalificacion cal=vCalificacion.at(it);
-                        cal.imprimir();
-                        cal.~DTCalificacion();
-                    }
-                    vCalificacion.clear();
-                    vector<DTHostal>vHostales=IHostal->obtenerHostales();//obtenerHostales
-                    for(size_t it=0;it<vHostales.size();it++){
-                        DTHostal ItHostal=vHostales.at(it);
-                        ItHostal.imprimir();
-                        ItHostal.~DTHostal();
-                    }
-                    vHostales.clear();
-                    string nHostal;
-                    cout<<"Digite el nombre del hostal"<<endl;//elegirHostal
-                    cin>>nHostal;
-                    bool pedirFecha=true;//obtenerHabitaciones
-                    DTFecha in;
-                    DTFecha out;
-                    while(pedirFecha){
+                        impHos=IHostal->obtenerHostales();
+                        int prom;
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl;
+                            IHostal->elegirHostal(impHos[i].getNombre()); //Esto es para recordar el nombre del hostal, ya que obtenerPromedioCalificaciones solo funciona si hay un hostal recordado
+                            try{
+                                prom=IHostal->obtenerPromedioCalificaciones();
+                                cout<<"El promedio de calificaciones es: " ;
+                                cout<< prom<<endl;
+                            }catch(const char* endl){
+                                cout<<msj<<endl;
+                            }
+                        };
+                        cout<<"Ingrese el nombre del hostal en el que quiera realizar la reserva" <<endl;
+                        string hostal;
+                        cin>>hostal; //Nombre del hostal
+                        IHostal->elegirHostal(hostal);
+                        cout<<"Indique la fecha de Check In" <<endl;
+                        DTFecha In=digiteFecha();
+                        cout<<"Indique la fecha de Check Out" <<endl;
+                        DTFecha Out=digiteFecha();
                         try{
-                            DTFecha in=digiteFecha();
-                            DTFecha out=digiteFecha();
-                            pedirFecha=false;
+                            vector<DTHabitacion> impHab=IHostal->obtenerHabitaciones(In,Out);
+                            for(int i=0; i<impHab.size(); i++){
+                                //IMPRIMIR LAS HABITACIONES QUE RECIBI, SI NO HAY HABITACIONES DEVOLVER EXCEPCION Y SEGUIR A PARTIR DE ELEGIR HABITACION
+                            }
                         }
-                        catch(...){
-                            cout<<"La fecha digitada es erronea"<<endl;
-                        }
+
                     }
-                    vector<DTHabitacion>vHabitacion=IHostal->obtenerHabitaciones(in,out);
-                    int nHabitacion;//elegirHabitacion
-                    cout<<"Digite la habitacion deseada"<<endl;
-                    cin>>nHabitacion;
-                    DTHabitacion room=IHostal->elegirHabitacion(nHabitacion);
-                    int esGrupal;
-                    cout<<"Digite 1 si desea realizar una reserva grupal, 0 en otro caso"<<endl;
-                    cin>>esGrupal;
-                    if(esGrupal==1)//CASO RESERVA GRUPAL
-                        goto grupalRR;
-                    int confirmar;
-                    cout<<"Digite uno si quiere confirmar la reserva"<<endl;
-                    cin>>confirmar;
-                    if(confirmar==1)
-                        IUsuario->confirmarAltaReservaIndividual();
-                    else
-                        IUsuario->cancelarReserva();
-                    grupalRR:
-                    int cantidad;
-                    cout<<"Digite la cantidad de huespedes que desea ingresar"<<endl;
-                    cin>>cantidad;
-                    for(int i=0;i<cantidad;i++){
-                        elegirUsuarioRR2:
-                        try{
-                            cout<<"Digite el mail de otro huesped"<<endl;
-                            cin>>mail;
-                            IUsuario->elegirHuesped(mail);
-                        }catch(...){
-                            cout<<"No hay un huesped con ese mail"<<endl;
-                        }
-                    }
-                    cout<<"Digite uno si quiere confirmar la reserva"<<endl;
-                    cin>>confirmar;
-                    if(confirmar==1)
-                        IUsuario->confirmarAltaReservaIndividual();
-                    else
-                        IUsuario->cancelarReserva();
+                */  
                 }//FIN REALIZAR RESERVA
                     break;
                 case 6:{//CONSULTA TOP 3 HOSTALES
