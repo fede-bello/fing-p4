@@ -118,9 +118,9 @@ int main()
                                 IUsuario->ConfirmarAltaEmpleado(dtusuario); 
                                 cout<<"Se dio de alta el empleado:"<<endl;
                                 dtusuario->imprimir();                               
-                            }catch(...){
-
-                                cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                            }catch(const char* msj){
+                                cout<< msj<<endl;
+                                cout<< "Digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
                                 int booleano;
                                 cin>>booleano;
 
@@ -142,8 +142,9 @@ int main()
                                             IUsuario->ConfirmarAltaEmpleado(dtusuario);
                                             cout<<"Se dio de alta el empleado:"<<endl;
                                             dtusuario->imprimir();
-                                        }catch(...){
-                                            cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                        }catch(const char* msj){
+                                            cout<< msj<<endl;
+                                            cout<< "Digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
                                             cin>>booleano;
 
                                             while((booleano != 1) && (booleano != 0)){
@@ -179,9 +180,9 @@ int main()
                                 IUsuario->ConfirmarAltaHuesped(dtusuario); 
                                 cout<<"Se dio de alta el huesped:"<<endl;
                                 dtusuario->imprimir();                               
-                            }catch(...){
-
-                                cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                            }catch(const char* msj){
+                                cout<< msj<< endl;
+                                cout<< "Digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
                                 int booleano;
                                 cin>>booleano;
 
@@ -203,8 +204,9 @@ int main()
                                             IUsuario->ConfirmarAltaHuesped(dtusuario);
                                             cout<<"Se dio de alta el huesped:"<<endl;
                                             dtusuario->imprimir();
-                                        }catch(...){
-                                            cout<< "Hay otro usuario con ese mail, digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
+                                        }catch(const char* msj){
+                                            cout<< msj <<endl;
+                                            cout<< "Digite 1 para cambiar el mail, 0 para cancelar el alta:"<<endl;
                                             cin>>booleano;
 
                                             while((booleano != 1) && (booleano != 0)){

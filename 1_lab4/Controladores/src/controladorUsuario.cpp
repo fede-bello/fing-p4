@@ -101,10 +101,14 @@ void controladorUsuario::CancelarUsuario(DTUsuario *usuario){
 }
 
 void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
-    map<string,Empleado*>::iterator it = this->MapaEmpleado.find(empleado->getMail());
+    map<string,Huesped*>::iterator it = this->MapaHuesped.find(empleado->getMail());   
 
-    if(it != this->MapaEmpleado.end()){
-        throw "No existe ningun empleado en el sistema";//acá tiene que haber un throw de la exception porque quiere decir que ya hay un empleado con ese mail
+    if(it != this->MapaHuesped.end()){
+        throw "Ya existe un usuario con ese mail";
+    }
+    map<string,Empleado*>::iterator it2 = this->MapaEmpleado.find(empleado->getMail());   
+    if(it2 != this->MapaEmpleado.end()){
+        throw "Ya existe un usuario con ese mail";
     }else{
         Empleado *nuevo=new Empleado(empleado->getNombre(),empleado->getPassword(),empleado->getMail(),empleado->getCargo());
         this->MapaEmpleado[empleado->getNombre()]=nuevo;
@@ -112,12 +116,13 @@ void controladorUsuario::ConfirmarAltaEmpleado(DTEmpleado *empleado){
 }
 
 void controladorUsuario::ConfirmarAltaHuesped(DTHuesped *huesped){
-    bool excepcion;
-    
-    map<string,Huesped*>::iterator it = this->MapaHuesped.find(huesped->getMail());
-
-    if(it != this->MapaHuesped.end()){
-        throw(excepcion);//acá tiene que haber un throw de la exception porque quiere decir que ya hay un huesped con ese mail
+    map<string,Empleado*>::iterator it = this->MapaEmpleado.find(huesped->getMail());   
+    if(it != this->MapaEmpleado.end()){
+        throw "Ya existe un usuario con ese mail";
+    }    
+    map<string,Huesped*>::iterator it2 = this->MapaHuesped.find(huesped->getMail());
+    if(it2 != this->MapaHuesped.end()){
+        throw "Ya existe un usuario con ese mail";//acá tiene que haber un throw de la exception porque quiere decir que ya hay un huesped con ese mail
     }else{
         Huesped *nuevo= new Huesped(huesped->getNombre(),huesped->getPassword(),huesped->getMail(),huesped->getEsFinger());
         this->MapaHuesped.insert({huesped->getMail(), nuevo});
