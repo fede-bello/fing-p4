@@ -658,6 +658,60 @@ int main()
                 }//FIN CONSULTA DE HOSTAL
                     break;
                 case 13:{// CONSULTA DE RESERVA
+                    vector<DTHostal> impHos;
+                    vector<DTReserva> impRes;
+                    vector<DTHuesped> impHues;
+                    bool noHostal=false;
+                    try{
+                        impHos=IHostal->obtenerHostales();
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl; 
+                        };
+                        cout<<"Ingrese el nombre del hostal del que quiere consultar la reserva" <<endl;
+                        while (!noHostal){
+                            string hostal;
+                            cin>>hostal; //Nombre del hostal
+                            try{
+                                IHostal->elegirHostal(hostal);
+                                noHostal=false;
+                                try{
+                                    impRes=IHostal->obtenerReservasHostal();
+                                    int hab;
+                                    for (int i=0; i<impRes.size(); i++){
+                                        impRes[i].imprimir();
+                                        cout<<endl; 
+                                        hab=IHostal->habitacionDeReserva(hostal,impRes[i]);
+                                        cout << "Habitacion: ";
+                                        cout<<hab<<endl;
+                                        impHues=IHostal->huespedesReserva(hostal,impRes[i]);
+                                        cout<<"Huespedes: ";
+                                        for(int j=0; j<impHues.size(); j++){
+                                            impHues[j].imprimir(); 
+                                        }
+
+                                    };
+                                    
+                                    
+                                    
+                                }catch(const char* msj){
+                                    cout<< msj<<endl;
+                                }
+
+
+
+                            }catch(const char* msj){
+                                cout<< msj<< endl;
+                                cout<< "Vuelva a ingresar el nombre del hostal" <<endl;
+                            }                           
+                            
+                        }               
+                        
+                    }catch(const char* msj){
+                        cout<< msj<< endl;
+                    } 
+
+
                 }//FIN CONSULTA DE RESERVA
                     break;
                 case 14:{// CONSULTA DE ESTADIA
