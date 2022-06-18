@@ -805,6 +805,75 @@ int main()
                 }//FIN CONSULTA DE RESERVA
                     break;
                 case 14:{// CONSULTA DE ESTADIA
+                    vector<DTHostal> impHos;
+                    vector<DTEstadia> impEst;
+                    vector<DTReserva> impRes;
+                    cout<<"Consulta de estadia:" <<endl;
+
+                    bool noHostal = false;
+                    try{
+                        impHos=IHostal->obtenerHostales();
+                        for (int i=0; i<impHos.size(); i++){
+                            impHos[i].imprimir();
+                            cout<<endl; 
+                        };
+                        cout<<"Ingrese el nombre del hostal del que quiere consultar la estadia" <<endl;
+                        while (!noHostal){
+                            string hostal;
+                            cin>>hostal; //Nombre del hostal
+                            try{
+                                IHostal->elegirHostal(hostal);
+                                noHostal=false;
+                                try{
+                                    impEst=IHostal->obtenerEstadias(hostal);
+
+                                    int est;
+                                    for (int i=0; i<impEst.size(); i++){
+                                        //imprimo los datos de la estadia
+                                        cout<<impEst[i].getIdentificador()<<endl;
+                                        cout<<"CheckIn: ";
+                                        impEst[i].getCheckIn().imprimir();
+                                        DTFecha a_comparar = DTFecha();
+                                        //Me fijo si tiene fecha de checkOut cargada
+                                        if(!(a_comparar == impEst[i].getCheckOut())){
+                                            cout<<"CheckOut: ";
+                                            impEst[i].getCheckOut().imprimir();
+                                        }else{
+                                            cout<<"La estadia no tiene fecha de checkOut cargada"<<endl;
+                                        }
+                                        
+                                        cout<<"Ingrese el identificador de la estadia por la que quiere consultar:" <<endl;
+                                        int codigoEst;
+                                        cin>>codigoEst;
+
+                                        try{
+                                            IReserva->elegirEstadia(codigoEst);
+                                            bool noReserva=false;
+                                        }catch(const char* msj){ /////////////FALTA PONER EL THROW EN CONTROLADORRESERVA.CPP EN ELEGIRESTADIA/////////////////////
+                                            cout<< msj<< endl;
+                                            cout<< "Vuelva a ingresar el codigo de estadia" <<endl;
+                                        }
+
+                                    }
+                                    
+                                    
+                                    
+                                }catch(const char* msj){
+                                    cout<< msj<<endl;
+                                }
+
+
+
+                            }catch(const char* msj){
+                                cout<< msj<< endl;
+                                cout<< "Vuelva a ingresar el nombre del hostal" <<endl;
+                            }                           
+                            
+                        }               
+                        
+                    }catch(const char* msj){
+                        cout<< msj<< endl;
+                    } 
                 }//FIN CONSULTA DE ESTADIA
                     break;
                 case 15:{// BAJA RESERVA

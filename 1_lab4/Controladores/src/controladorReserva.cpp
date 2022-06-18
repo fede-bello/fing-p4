@@ -127,6 +127,8 @@ DTEstadia controladorReserva::elegirEstadia(int codigo){
             res=est; //si la estadia que devuelve mismaEstadia es distinta a la constructora por defecto entonces encontra la estadia que busco
         }
     }
+
+    
     return res;
 }
 
