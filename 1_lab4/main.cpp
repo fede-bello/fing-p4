@@ -642,12 +642,14 @@ int main()
                 }//FIN REGISTRAR ESTADIA
                     break;
                 case 8:{// FINALIZAR ESTADIA
+
                 }//FIN FINALIZAR ESTADIA
                     break;
                 case 9:{// CALIFICAR ESTADIA
                 }//FIN CALIFICAR ESTADIA
                     break;
                 case 10:{// COMENTAR CALIFICACION
+                    vector<DTCalificacion> vCalificacion=IUsuario->calificacionesSinResponder();
                 }//FIN COMENTAR CALIFICACION
                     break;
                 case 11:{// CONSULTA USUARIO
