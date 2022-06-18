@@ -29,5 +29,16 @@ DTEstadia::~DTEstadia(){
 
 }
 
+void DTEstadia::imprimir(){
+    cout<<"CheckIn: ";
+    this->CheckIn.imprimir();
+    cout<<endl;
+    cout<<"CheckOut: ";
+    this->CheckOut.imprimir();
+    cout<<endl;
+    cout<<"Identificador: ";
+    cout<< this->identificador<<endl;
+}
+
 
 

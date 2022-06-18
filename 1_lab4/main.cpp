@@ -229,15 +229,15 @@ int main()
                     cout << "Alta de Hostal"  << endl;
                     string nombre;
                     cout<< "Digite el nombre del Hostal"<<endl;
-                    cin.ignore();
+                    getline(cin, nombre);
 					getline(cin, nombre);
                     string direccion;
                     cout<< "Digite la direccion del Hostal"<<endl;
-                    cin.ignore();
+                    
                     getline(cin,direccion);
                     string Telefono;
                     cout<< "Digite el Telefono del Hostal"<<endl;
-                    cin.ignore();
+                    
                     getline(cin,Telefono); 
                     bool excepcion = false;
                     
@@ -679,6 +679,71 @@ int main()
                 }//FIN FINALIZAR ESTADIA
                     break;
                 case 9:{// CALIFICAR ESTADIA
+                    vector<DTHostal> impHos;
+                    try{
+                            impHos=IHostal->obtenerHostales();
+                            for (int i=0; i<impHos.size(); i++){
+                                impHos[i].imprimir();
+                                cout<<endl; 
+                            };
+                            bool repetirIngreso=true;
+                            while (repetirIngreso){
+                                try{
+                                    cout <<"Ingrese el nombre del hostal"<<endl;
+                                    string hostal;
+                                    getline(cin,hostal);
+                                    getline(cin,hostal);
+                                    IHostal->elegirHostal(hostal); //Esto es solo para chequear que el hostal exista en el sistema y sino ya largar la excepcion
+                                    repetirIngreso=false;
+                                    bool repetirHuesped=true;
+                                    while (repetirHuesped){
+                                        try{
+                                            cout<<"Ingrese el mail del huesped"<<endl;
+                                            string email;
+                                            getline(cin,email);
+                                            IUsuario->elegirHuesped(email); //Chequeo que el mail exista en el sistema
+                                            repetirHuesped=false;
+                                            //Si existe el mail y el hostal sigo
+                                            try{
+                                                vector<DTEstadia> impEst=IHostal->estadiasHuespedFinalizadas(email,hostal);
+                                                for (int i=0; i<impEst.size(); i++){
+                                                    impEst[i].imprimir();
+                                                    cout<<endl; 
+                                                };
+                                                bool repetirEstadia=true;
+                                                while (repetirEstadia){ //repito hasta que exista el codigo de la estadia
+                                                    try{
+                                                        cout<< "Ingrse el codigo de la estadia que quiera calificar"<<endl;
+                                                        int codigoEst;
+                                                        cin>>codigoEst;
+                                                        IReserva->elegirEstadia(codigoEst);
+                                                        repetirEstadia=false;
+                                                        cout<< "Ingrese el numero de calificacion que desea darle a la Estadia"<<endl;
+                                                        int calif;
+                                                        cin>>calif;
+                                                        cout<< "Ingrese la reseña que desea darle a la Estadia "<<endl;
+                                                        string texto;
+                                                        getline(cin,texto);
+                                                        IUsuario->calificarEstadia(codigoEst, calif, texto);                                                       
+                                                    }catch(const char* msj){
+                                                        cout<< msj<<endl;
+                                                    }                                                   
+                                                }
+                                            }catch(const char* msj){
+                                                cout<< msj<<endl;
+                                            }
+                                        }catch(const char *msj){
+                                            cout<< msj <<endl;
+                                        }
+                                        
+                                    }
+                                }catch(const char* msj){
+                                    cout<< msj<< endl;
+                                }
+                            }
+                    }catch(const char* msj){
+                        cout<< msj<< endl;
+                    }
                 }//FIN CALIFICAR ESTADIA
                     break;
                 case 10:{// COMENTAR CALIFICACION

@@ -22,6 +22,7 @@ class DTEstadia{
         DTFecha getCheckIn();
         DTFecha getCheckOut();
         DTEstadia getDTEstadia();
+        void imprimir();
         
         ~DTEstadia();
 };

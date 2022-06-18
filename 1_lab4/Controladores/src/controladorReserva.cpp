@@ -171,7 +171,12 @@ vector<DTEstadia> controladorReserva::darEstadiaFinHuespedRes(string email,vecto
            estadias.push_back(est[i]);
         }
     }
-    return estadias;
+    if (estadias.empty()){
+        throw "No hay estadias Finalizadas para ese huesped en ese hostal";
+    }
+    else{
+        return estadias;
+    }
 }
 
 void controladorReserva::estadiaReservaCalificada(int codigo, int calif, string texto,Huesped *hues){
